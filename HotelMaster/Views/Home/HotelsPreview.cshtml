@@ -1,0 +1,544 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="container-fluid p-0">
+        <img src="/img/header-add.jpg" class="img-fluid" />
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <div>
+                    <div class="breadcrumb">
+                        <span class="headerHome"><img src="/img/home.svg"> </span>
+                        <span class="headerChevron"><img src="/img/chevron-right.svg">  </span>
+                        Hotel Registration
+                        <span class="headerChevron"><img src="/img/chevron-right.svg">  </span>
+                        <span class="headerEditAdd">
+                            @* <img src="/img/edit_add.svg"> *@
+                            Hotel Information
+                        </span>
+                    </div>
+                    <h1>Review Hotel Details</h1>
+                    <p>Fill in the details below to register a new property.</p>
+                </div>
+                <div class="save-time">  <span class="headerTime"><img src="/img/time.svg"></span> Last saved 2 minutes ago</div>
+            </div>
+            <!-- PROGRESS -->
+           
+        </div>
+    </div>
+    <div class="hotel-contaier">
+        <div class="wrapper">
+            <div class="container">
+            <div class="hotel-dashboard">
+
+                <!-- LEFT SIDE -->
+                <aside class="hotel-sidebar">
+
+                    <!-- GENERAL DETAILS -->
+                        <section class="general-box">
+
+                            <!-- HEADER -->
+                            <div class="general-box__header">
+                                <div class="general-box__title">
+
+                                    <!-- ICON -->
+                                    
+                                    
+                                    <h3>
+                                        <span class="general-icon">
+                                            <img src="~/img/icon-gd.svg" />
+                                        </span>General Details
+                                    </h3>
+                                </div>
+
+                                <div class="general-box__edit">
+                                    @* <svg viewBox="0 0 24 24">
+                                        <path d="M4 20h4l10-10-4-4L4 16v4z" />
+                                    </svg> *@
+                                    <span class="icon-edit"><img src="~/img/icon-edit.svg" />Edit</span>
+                                </div>
+                            </div>
+                       
+                            <!-- GRID -->
+                            <div class="general-grid">
+
+                                <div class="field">
+                                    <span class="label">HOTEL NAME</span>
+                                    <p class="value">The Oberoi, New Delhi</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">PROPERTY TYPE</span>
+                                    <p class="value">Luxury Hotel</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">CHAIN</span>
+                                    <p class="value">Oberoi Group</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">STAR RATING</span>
+                                    <div class="stars">
+                                        ★★★★★
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">OWNER NAME</span>
+                                    <p class="value">EIH Limited</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">OWNER NUMBER</span>
+                                    <p class="value">+91 11 2389 0505</p>
+                                </div>
+
+                                <div class="field full">
+                                    <span class="label">LOCATION</span>
+                                    <div class="location-row">
+                                        <p class="value">Dr. Zakir Hussain Marg</p>
+                                        <span class="icon-edit">
+                                            <img src="~/img/icon-view.svg" />
+                                            View on Map
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">LANDMARK</span>
+                                    <p class="value">Near Delhi Golf Club</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">HOW TO REACH</span>
+                                    <p class="value">30–45 mins drive from IGI Airport via NH48.</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">YEAR BUILT</span>
+                                    <p class="value">1965</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">FLOORS</span>
+                                    <p class="value">8</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">TOTAL ROOMS</span>
+                                    <p class="value">220</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">GOOGLE HOTEL LINK</span>
+                                    <a href="#" class="link">The Oberoi, New Delhi</a>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">TRIP ADVISOR LINK</span>
+                                    <a href="#" class="link">The Oberoi, New Delhi</a>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">AIRPORT DISTANCE</span>
+                                    <p class="value">20.9 km</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">STATION DISTANCE</span>
+                                    <p class="value">7.6 km</p>
+                                </div>
+
+                                <div class="field">
+                                    <span class="label">BUS STOP DISTANCE</span>
+                                    <p class="value">13.6 km</p>
+                                </div>
+
+                            </div>
+
+                            <!-- FOOTER -->
+                            <div class="general-footer">
+                                <div>
+                                    <span class="label">CHECK-IN
+                                        <p class="value">02:00 PM</p>
+                                    </span>
+                                   
+                                </div>
+
+                                <div>
+                                    <span class="label">CHECK-OUT
+                                        <p class="value">12:00 PM</p>
+                                    </span>
+                                   
+                                </div>
+                            </div>
+
+                        </section>
+
+
+                    <!-- CONTACTS -->
+                        <section class="contacts-box">
+
+                            <!-- HEADER -->
+                            <div class="contacts-box__header">
+                                <div class="contacts-box__title">
+
+                                    <!-- ICON -->
+                                    
+
+                                    <h3><span class="general-icon"><img src="~/img/icon-contact.svg" /></span>Contacts</h3>
+                                </div>
+
+                                <div class="contacts-box__edit">
+                                    @* <svg viewBox="0 0 24 24">
+                                        <path d="M4 20h4l10-10-4-4L4 16v4z" />
+                                    </svg> *@
+                                    <span class="icon-edit"><img src="/img/icon-edit.svg">Edit</span>
+                                </div>
+                            </div>
+
+                            <!-- CONTACT LIST -->
+                            <div class="contacts-list">
+
+                                <!-- ITEM 1 -->
+                                <div class="contact-item">
+                                    <div class="avatar blue">AS</div>
+
+                                    <div class="contact-info">
+                                        <p class="contact-name">Amit Shankardass</p>
+                                        <span class="contact-role">General Manager</span>
+
+                                        <div class="contact-meta">
+                                            <span><img src="/img/icon-phone.svg"> +91 11 2389 0505</span>
+                                            <span><img src="/img/icon-email.svg"> gm.oberoi@example.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ITEM 2 -->
+                                <div class="contact-item">
+                                    <div class="avatar orange">PS</div>
+
+                                    <div class="contact-info">
+                                        <p class="contact-name">Priya Sharma</p>
+                                        <span class="contact-role">Reservations</span>
+
+                                        <div class="contact-meta">
+                                            <span><img src="/img/icon-phone.svg"> +91 98110 55556</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                    <!-- FACILITIES -->
+                        <section class="facilities-wrap">
+
+                            <!-- HEADER -->
+                            <div class="facilities-wrap__header">
+
+                                <div class="facilities-wrap__title">
+                                    <!-- LEFT ICON -->
+                                    @* <svg class="facilities-main-icon" viewBox="0 0 24 24">
+                                        <path d="M4 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
+                                        <path d="M4 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
+                                    </svg> *@
+                                    <h3><span class="general-icon"><img src="/img/Icon-facilities.svg"></span>Facilities</h3>
+                                </div>
+
+                                <div class="facilities-wrap__edit">
+                                    <!-- EDIT ICON -->
+                                    @* <svg viewBox="0 0 24 24">
+                                        <path d="M4 20h4l10-10-4-4L4 16v4z" />
+                                    </svg> *@
+                                    <span class="icon-edit"><img src="/img/icon-edit.svg">Edit</span>
+                                </div>
+
+                            </div>
+
+                            <!-- TAGS -->
+                            <div class="facilities-wrap__list">
+
+                                <div class="facility-pill">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M2 8a15 15 0 0120 0M5 11a10 10 0 0114 0M8.5 14.5a5 5 0 017 0M12 18h.01" />
+                                    </svg>
+                                    <span>Free WiFi</span>
+                                </div>
+
+                                <div class="facility-pill">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M2 20c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 16c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
+                                    </svg>
+                                    <span>Swimming Pool</span>
+                                </div>
+
+                                <div class="facility-pill">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M6 10v4M18 10v4M4 9v6M20 9v6M8 10h8v4H8z" />
+                                    </svg>
+                                    <span>24h Gym</span>
+                                </div>
+
+                                <div class="facility-pill">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M12 2s4 4 4 8-4 8-4 8-4-4-4-8 4-8 4-8z" />
+                                    </svg>
+                                    <span>Oberoi Spa</span>
+                                </div>
+
+                                <div class="facility-pill">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M6 3h8a4 4 0 010 8H6zM6 11v10" />
+                                    </svg>
+                                    <span>Valet Parking</span>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                </aside>
+
+                <!-- RIGHT SIDE -->
+                <main class="hotel-main">
+
+                        <!-- HOTEL GALLERY -->
+                        <div class="panel">
+                            <div class="panel__header">
+                                <h3><span class="icon-hotel"><img src="/img/icon-hotel.svg"></span>Hotel Gallery</h3>
+                                <a href="#">Edit</a>
+                            </div>
+
+                            <div class="gallery">
+                                <div class="gallery__item">
+                                    <img src="~/img/lobby-1.png">
+                                    <p>Lobby</p>
+                                </div>
+
+                                <div class="gallery__item">
+                                    <img src="~/img/lobby-2.png">
+                                    <p>Executive Room</p>
+                                </div>
+
+                                <div class="gallery__item">
+                                    <img src="~/img/lobby-3.png">
+                                    <p>Infinity Pool</p>
+                                </div>
+
+                                <div class="gallery__item">
+                                    <img src="~/img/lobby-4.png">
+                                    <p>The Bar</p>
+                                </div>
+
+                                <div class="gallery__item">
+                                    <img src="~/img/lobby-5.png">
+                                    <p>Exterior View</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- ROW -->
+                        <div class="customRow">
+
+                            <!-- RESTAURANTS -->
+                            <div class="panel">
+                                <div class="panel__header">
+                                    <h3><span class="icon-hotel"><img src="/img/icon-bar.svg"></span>Restaurants & Bars</h3>
+                                    <a href="#">Edit</a>
+                                </div>
+
+                                <div class="listItem">
+                                    <img src="/img/lobby-1.png">
+                                    <div>
+                                        <h4>360° – All-Day Dining</h4>
+                                        <p>Global Cuisine • 120 Covers • Veg/Non Veg</p>
+                                        <div class="feature-stack">
+                                            <div class="feature-stack__item"></div>
+                                            <div class="feature-stack__item"></div>
+                                            <div class="feature-stack__item feature-stack__item--more">+2</div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+
+                                <div class="listItem">
+                                    <img src="/img/lobby-2.png">
+                                    <div>
+                                        <h4>Dhilli (Indian Fine Dining)</h4>
+                                        <p>Modern Indian • 50 Covers • Veg</p>
+                                        <div class="feature-stack">
+                                            <div class="feature-stack__item"></div>
+                                            <div class="feature-stack__item"></div>
+                                            <div class="feature-stack__item feature-stack__item--more">+2</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="listItem">
+                                    <img src="/img/lobby-3.png">
+                                    <div>
+                                        <h4>Cirrus 9 (Rooftop Bar)</h4>
+                                        <p>Bar & Lounge • 60 Covers • Veg/Non Veg</p>
+                                         <div class="feature-stack">
+                                        <div class="feature-stack__item"></div>
+                                        <div class="feature-stack__item"></div>
+                                        <div class="feature-stack__item feature-stack__item--more">+2</div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- BANQUETS -->
+                            <div class="panel">
+                                <div class="panel__header">
+                                    <h3><span class="icon-hotel"><img src="/img/icon-meetings.svg"></span>Banquets & Meetings</h3>
+                                    <a href="#">Edit</a>
+                                </div>
+
+                                <div class="listItem">
+                                    <img src="/img/lobby-4.png">
+                                    <div>
+                                        <h4>The Grand Ballroom
+                                            <small>A spacious and elegant ballroom designed to host large events.</small>
+                                        </h4>
+                                      
+                                        <p>100 sq ft • 120 Covers</p>
+                                        <p>Veg – ₹3,500 • Non Veg – ₹4,000</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- ROOM DETAILS -->
+                        <div class="panel">
+                            <div class="panel__header">
+                                <h3><span class="icon-hotel"><img src="/img/Icon-details.svg"></span>Room Details</h3>
+                                <a href="#">Edit</a>
+                            </div>
+
+                            <!-- ROOM 1 -->
+                            <div class="roomItem">
+                                <img src="/img/lobby-3.png">
+
+                                <div class="roomItem__info">
+                                    <div class="roomItem__top">
+                                        <h4>Premier Room</h4>
+                                        <span class="status status--active">ACTIVE</span>
+                                    </div>
+
+                                    <p>Spacious room featuring modern interiors and views of the Delhi Golf Course.</p>
+                                    <div class="roomItem__meta__wrap">
+                                    <div class="roomItem__meta">
+                                        <strong> Rooms</strong>
+                                        <span>50</span>
+                                    </div>
+                                        
+                                        <div class="roomItem__meta">
+                                            <strong> Beds</strong>
+                                            <span>1 King/Twin</span>
+                                        </div>
+                                        <div class="roomItem__meta">
+                                            <strong>Amenities</strong>
+                                            
+                                           <span class="aminitiesIcons">
+                                                <span><img src="~/img/amenities-icon-1.svg" /></span>
+                                                <span><img src="~/img/amenities-icon-2.svg" /></span>
+                                                <span><img src="~/img/amenities-icon-3.svg" /></span>
+                                           </span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="tags">
+                                        <span>Minibar</span>
+                                        <span>Bathtub</span>
+                                        <span>Golf Course View</span>
+                                        <span>Work Desk</span>
+                                        <span>Safe</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ROOM 2 -->
+                            <div class="roomItem">
+                                <img src="/img/lobby-1.png">
+
+                                <div class="roomItem__info">
+                                    <div class="roomItem__top">
+                                        <h4>Premier Room</h4>
+                                        <span class="status status--active">ACTIVE</span>
+                                    </div>
+
+                                    <p>Spacious room featuring modern interiors and views of the Delhi Golf Course.</p>
+                                    <div class="roomItem__meta__wrap">
+                                        <div class="roomItem__meta">
+                                            <strong> Rooms</strong>
+                                            <span>50</span>
+                                        </div>
+
+                                        <div class="roomItem__meta">
+                                            <strong> Beds</strong>
+                                            <span>1 King/Twin</span>
+                                        </div>
+                                        <div class="roomItem__meta">
+                                            <strong>Amenities</strong>
+
+                                            <span class="aminitiesIcons">
+                                                <span><img src="~/img/amenities-icon-1.svg" /></span>
+                                                <span><img src="~/img/amenities-icon-2.svg" /></span>
+                                                <span><img src="~/img/amenities-icon-3.svg" /></span>
+                                            </span>
+
+                                        </div>
+                                    </div>
+                                    <div class="tags">
+                                        <span>Minibar</span>
+                                        <span>Bathtub</span>
+                                        <span>Golf Course View</span>
+                                        <span>Work Desk</span>
+                                        <span>Safe</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                </div>
+                <section class="action-footer-wrapper">
+                    <div class="action-button-stack">
+                        <button class="action-trigger-draft">Save as Draft</button>
+
+                        <button class="action-trigger-submit">
+                            <span><img src="~/img/confirm.svg"/></span>
+                            Confirm &amp; Submit
+                        </button>
+                    </div>
+                </section>
+                </main>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>

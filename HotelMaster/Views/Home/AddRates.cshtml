@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="container-fluid p-0">
+        <img src="/img/header-add.jpg" class="img-fluid" />
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <div>
+                    <div class="breadcrumb">
+                        <span class="headerHome"><img src="/img/home.svg"> </span>
+
+                        <span class="headerChevron"><img src="/img/chevron-right.svg">  </span>
+                        <span class="headerEditAdd">
+                            @* <img src="/img/edit_add.svg"> *@
+                            Bulk Update
+                        </span>
+                    </div>
+                    <h1>Add Rates</h1>
+                    <p>Hotel Green Valley, Karol Bagh, New Delhi</p>
+                </div>
+                <div class="save-time">  <span class="headerTime"><img src="/img/time.svg"></span> Last saved 2 minutes ago</div>
+            </div>
+            <!-- PROGRESS -->
+
+        </div>
+    </div>
+    <div class="manageRatesContaier">
+        <div class="wrapper">
+            <div class="container">
+                <div class="rates-main-container">
+
+                    <div class="rates-filters">
+                        <div class="rates-group">
+                            <label>Vendor</label>
+                            <div class="dropdown-trigger-box ratesGroupSelect">
+
+                                <select class="dropdown-trigger-box__native">
+                                    <option>Select Property Type</option>
+                                    <option>Select Property Type</option>
+
+                                </select>
+                                <div class="dropdown-trigger-box__chevron"></div>
+                            </div>
+                        </div>
+                        <div class="rates-group">
+                            <label>Season Name</label>
+                            <div class="dropdown-trigger-box ratesGroupSelect">
+
+                                <select class="dropdown-trigger-box__native">
+                                    <option>Select Property Type</option>
+                                    <option>Select Property Type</option>
+
+                                </select>
+                                <div class="dropdown-trigger-box__chevron"></div>
+                            </div>
+                        </div>
+                        <div class="rates-group">
+                            <label>Season Start Date</label>
+                            <div class="rates-date-wrapper">
+                                <input type="text" placeholder="Select Date">
+                                <span class="calendarIconInput"><img src="/img/calendar-icon.svg"></span>
+                            </div>
+                        </div>
+                        <div class="rates-group">
+                            <label>Season End Date</label>
+                            <div class="rates-date-wrapper">
+                                <input type="text" placeholder="Select Date">
+                                <span class="calendarIconInput"><img src="/img/calendar-icon.svg"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rates-inventory-box">
+                        <div class="rates-grid-row">
+
+                            <div class="rates-column">
+                                <div class="rates-header-label">Meal Plan</div>
+                                <div class="dropdown-trigger-box ratesGroupSelect">
+
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Select Property Type</option>
+                                        <option>Select Property Type</option>
+
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+                            </div>
+
+                            <div class="rates-column">
+                                <div class="rates-header-label"><i class="far fa-user"></i> Single</div>
+                                <div class="rates-input-group">
+                                    <input type="text" placeholder="Net">
+                                    <input type="text" placeholder="Margin">
+                                    <input type="text" placeholder="Selling">
+                                </div>
+                            </div>
+
+                            <div class="rates-column">
+                                <div class="rates-header-label"><i class="fas fa-user-friends"></i> Double</div>
+                                <div class="rates-input-group">
+                                    <input type="text" placeholder="Net">
+                                    <input type="text" placeholder="Margin">
+                                    <input type="text" placeholder="Selling">
+                                </div>
+                            </div>
+
+                            <div class="rates-column">
+                                <div class="rates-header-label"><i class="fas fa-bed"></i> Extra Bed</div>
+                                <div class="rates-input-group">
+                                    <input type="text" placeholder="Net">
+                                    <input type="text" placeholder="Margin">
+                                    <input type="text" placeholder="Selling">
+                                </div>
+                            </div>
+
+                            <div class="rates-column">
+                                <div class="rates-header-label"><i class="fas fa-child"></i> Child No Bed</div>
+                                <div class="rates-input-group">
+                                    <input type="text" placeholder="Net">
+                                    <input type="text" placeholder="Margin">
+                                    <input type="text" placeholder="Selling">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rates-accordion">
+                            <span class="rates-title">Additional Meals</span>
+                            <i class="fas fa-chevron-down rates-icon"></i>
+                        </div>
+
+                        <button class="rates-btn-add-new">Add New</button>
+                    </div>
+
+                    <div class="rates-footer">
+                        <button class="rates-btn-outline">Add New Inventory Set</button>
+                        <button class="rates-btn-primary">Send For Approval</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

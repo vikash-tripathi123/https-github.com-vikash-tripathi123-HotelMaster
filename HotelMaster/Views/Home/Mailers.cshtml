@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Voucher</title>
+  <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #333;
+            padding: 20px;
+        }
+
+        .voucher-wrapper {
+            background-color: #fff;
+            width: 175mm; /* A4 Width approx */
+            margin: 0 auto;
+            padding: 40px;
+            border: 1px solid #ccc;
+            min-height: 297mm;
+        }
+
+        /* Header */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 220px;
+        }
+
+        .tagline {
+            font-family: 'cursive', Arial;
+            font-size: 12px;
+            color: #e45b25;
+            margin-top: -5px;
+        }
+
+        .voucher-title {
+            text-align: center;
+            font-size: 18px;
+            text-decoration: underline;
+            margin-bottom: 20px;
+        }
+
+        /* Info Row */
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        /* Recipient Section */
+        .recipient-section {
+            margin-bottom: 15px;
+        }
+
+        .address-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 5px;
+        }
+
+        .address-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .receipt-no {
+            margin-left: 20px;
+            white-space: nowrap;
+        }
+
+        /* Table */
+        .voucher-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #333;
+        }
+
+            .voucher-table td {
+                border: 1px solid #333;
+                padding: 6px 10px;
+            }
+
+        .vertical-top {
+            vertical-align: top;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .note-row td {
+            border-bottom: none;
+            padding-top: 4px;
+            padding-bottom: 0;
+        }
+
+        .policies-row td {
+            border-top: none;
+            font-size: 10px;
+            padding-top: 0;
+        }
+
+        .policy-header {
+            text-decoration: underline;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .policies-row ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .policies-row li {
+            margin-bottom: 3px;
+        }
+
+        /* Footer */
+        .footer-sign {
+            margin-top: 20px;
+            border: 1px solid #333;
+            height: 100px;
+            position: relative;
+        }
+
+        .sign-box {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            text-align: right;
+        }
+
+        .counter-exec {
+            margin-top: 40px;
+        }
+
+        @@media print {
+            body
+
+        {
+            background: none;
+            padding: 0;
+        }
+
+        .voucher-wrapper {
+            border: none;
+        }
+
+        }
+  </style>
+</head>
+<body>
+
+    <div class="voucher-wrapper">
+        <div class="voucher-header">
+            <div class="header-top">
+                <span>3/13/26, 3:59 PM</span>
+                @* <span>about:blank</span> *@
+            </div>
+
+            <div class="logo-container">
+                <img src="https://www.southerntravelsindia.com/Assets//images/logo-st.png" alt="Southern Travels Logo" class="logo">
+                <p class="tagline">Safar happiness ka...</p>
+            </div>
+
+            <h1 class="voucher-title">ACCOMMODATION VOUCHER</h1>
+        </div>
+
+        <div class="info-row">
+            <div class="ref-no">No.GB-HR: <span class="underline">37872</span></div>
+            <div class="date-ref">Date: <span class="underline">13-Mar-2026</span></div>
+        </div>
+
+        <div class="recipient-section">
+            <p>To, The Manager</p>
+            <div class="address-box">
+                <div class="address-text">
+                    <span class="underline">Mastiff Select Medha Plaza Kunda Road | Deoghar | Jharkhand – 814143 (or Similar), Deoghar</span>, Ph.No: <span class="underline">922-9063001</span>
+                </div>
+                <div class="receipt-no">Ref./Receipt No: <span class="underline">CC802</span></div>
+            </div>
+        </div>
+
+        <table class="voucher-table">
+            <tr>
+                <td colspan="2">Name of the Guest: Mr. Venkat Ramana Jaina</td>
+                <td colspan="2">No of Persons: <strong>Adult(s) : 3 , Child(s) : 0</strong></td>
+            </tr>
+            <tr>
+                <td colspan="2">Type of Accommodation(Room/Package): Deluxe / CP</td>
+                <td colspan="2" rowspan="2" class="vertical-top">
+                    <span class="bold underline">No. of Rooms/Package:</span><br>
+                    Double:(no's) 1<br>
+                    Extra Bed:(No's) 1
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Type of Room(Ac/NonAc): AC</td>
+            </tr>
+            <tr>
+                <td>Check In date: 24-Mar-2026</td>
+                <td>Time: 2:00 PM</td>
+                <td colspan="2" class="vertical-top">
+                    <span class="bold underline">No. of Rooms/Package:</span><br>
+                    #RoomDescription
+                </td>
+            </tr>
+            <tr>
+                <td>Check Out date: 25-Mar-2026</td>
+                <td>Time: 10:00 AM</td>
+                <td colspan="2">Duration: 1 Day(s)</td>
+            </tr>
+            <tr>
+                <td colspan="4">Payment Mode: By Southern Travels Pvt. Ltd.</td>
+            </tr>
+            <tr>
+                <td colspan="4">Remarks: Confirmed By - Mr. Rajeev</td>
+            </tr>
+            <tr class="note-row">
+                <td colspan="4">
+                    <strong>Note:</strong>
+                </td>
+            </tr>
+            <tr class="policies-row">
+                <td colspan="4">
+                    <p class="policy-header">Hotel Policies:</p>
+                    <ul>
+                        <li>Early Check-in and Check-out is subject to availability and may be Chargeable by the hotel.</li>
+                        <li>The primary guest must be at least 18 years of age to check into this Hotel. Ages of accompanying children must be between 1-12 years.</li>
+                        <li>The room tariff includes all taxes. The amount shown does not Include charge for optional services and facilities (such as Room Service, mini bar, laundry, snacks or telephone calls). These will be charged upon check-out.</li>
+                        <li>Failure to check into the hotel, will attract the full cost of stay at the hotel and is not entitled for any refund.</li>
+                        <li>Some hotels may require guest(s) to furnish a valid photographic proof of identity in original at the time of check-in. kindly carry the same along with you to avoid any inconvenience. The following documents are recognized for this purpose Viz. PAN card, Driving License, Passport, Election Card.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <div class="footer-sign">
+            <div class="sign-box">
+                <p>For <strong>Southern Travels Pvt. Ltd.</strong></p>
+                <p class="counter-exec">Counter Executive</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

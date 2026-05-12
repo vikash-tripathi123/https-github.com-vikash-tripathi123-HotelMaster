@@ -1,0 +1,818 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    
+    <link href="/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="container-fluid p-0">
+        <img src="/img/header-add.jpg" class="img-fluid" />
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <div>
+                    <div class="breadcrumb">
+                        <span class="headerHome"><img src="/img/home.svg"> </span>
+                        <span class="headerChevron"><img src="/img/chevron-right.svg">  </span>
+                        Hotel Registration
+                        <span class="headerChevron"><img src="/img/chevron-right.svg">  </span>
+                        <span class="headerEditAdd">
+                            @* <img src="/img/edit_add.svg"> *@
+                            Hotel Information
+                        </span>
+                    </div>
+                    <h1>Hotel Registration</h1>
+                    <p>Fill in the details below to register a new property.</p>
+                </div>
+                <div class="save-time">  <span class="headerTime"><img src="/img/time.svg"></span> Last saved 2 minutes ago</div>
+            </div>
+            <!-- PROGRESS -->
+            <div class="progress-section">
+                <div class="progress-text">Progress - 20%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="steps">
+                    <div class="tabs-switch">
+                        <button class="tab-btn step active" data-tab="hotel"> <span>1</span> Hotel Information</button>
+                        <button class="tab-btn step" data-tab="room"> <span>2</span> Room Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fromContaier">
+        <div class="wrapper">
+            <div class="container">
+                <div class="tabsHotelInformation active" id="hotelTab">
+                    <!-- ACTION -->
+                    <div class="top-action">
+                        <a class="expand">Expand All</a>
+                        <button class="primary-btn commonCta">Search Hotel Details From Multiple Sources</button>
+                    </div>
+                    <!-- CARD -->
+                    <div class="card active">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="genearlDetailsIcon"><img src="/img/general-details.svg"></span> General Details
+                            </div>
+                            <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                        </div>
+                        <form method="post" id="hotelForm" action="/Home/Create">
+
+                            <div class="card-body">
+                                <div class="form-grid">
+
+                                    <!-- Hotel Name -->
+                                    <div class="form-group">
+                                        <label for="Name">Name of the Hotel</label>
+                                        <input type="text" id="Name" name="Name" placeholder="Enter hotel name">
+                                    </div>
+
+                                    <!-- Property Type -->
+                                    <div class="form-group">
+                                        <label for="PropertyType">Property Type</label>
+                                        <div class="dropdown-trigger-box generalDEtailsSelect">
+                                            <select id="PropertyType" name="PropertyType" class="dropdown-trigger-box__native">
+                                                <option value="">Select Property Type</option>
+                                                <option>Hotel</option>
+                                                <option>Resort</option>
+                                            </select>
+                                            <div class="dropdown-trigger-box__chevron"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Star Rating -->
+                                    <div class="form-group">
+                                        <label for="StarRating">Star Rating</label>
+                                        <div class="dropdown-trigger-box generalDEtailsSelect">
+                                            <select id="StarRating" name="StarRating" class="dropdown-trigger-box__native">
+                                                <option value="">Select Star Rating</option>
+                                                <option>3 Star</option>
+                                                <option>4 Star</option>
+                                                <option>5 Star</option>
+                                            </select>
+                                            <div class="dropdown-trigger-box__chevron"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Chain -->
+                                    <div class="form-group">
+                                        <label for="ChainType">Chain / Stand Alone</label>
+                                        <div class="dropdown-trigger-box generalDEtailsSelect">
+                                            <select id="ChainType" name="ChainType" class="dropdown-trigger-box__native">
+                                                <option value="">Select Type</option>
+                                                <option>Chain</option>
+                                                <option>Standalone</option>
+                                            </select>
+                                            <div class="dropdown-trigger-box__chevron"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Owner -->
+                                    <div class="form-group">
+                                        <label for="OwnerName">Name of Owner</label>
+                                        <input type="text" id="OwnerName" name="OwnerName" placeholder="Full Name">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="OwnerPhone">Phone No. of Owners</label>
+                                        <input type="text" id="OwnerPhone" name="OwnerPhone" placeholder="Enter Number">
+                                    </div>
+
+                                    <!-- Address -->
+                                    <div class="form-group">
+                                        <label for="Address1">Address Line 1</label>
+                                        <input type="text" id="Address1" name="Address1" placeholder="Address Line 1">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Address2">Address Line 2</label>
+                                        <input type="text" id="Address2" name="Address2" placeholder="Address Line 2">
+                                    </div>
+
+                                    <!-- Location -->
+                                    <div class="form-group">
+                                        <label for="City">City</label>
+                                        <input type="text" id="City" name="City" placeholder="City">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="State">State</label>
+                                        <div class="dropdown-trigger-box generalDEtailsSelect">
+                                            <select id="State" name="State" class="dropdown-trigger-box__native">
+                                                <option value="">Select State</option>
+                                                <option>Delhi</option>
+                                                <option>Mumbai</option>
+                                            </select>
+                                            <div class="dropdown-trigger-box__chevron"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="PinCode">Pin Code</label>
+                                        <input type="text" id="PinCode" name="PinCode" placeholder="Pin Code">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Country">Country</label>
+                                        <div class="dropdown-trigger-box generalDEtailsSelect">
+                                            <select id="Country" name="Country" class="dropdown-trigger-box__native">
+                                                <option value="">Select Country</option>
+                                                <option>India</option>
+                                            </select>
+                                            <div class="dropdown-trigger-box__chevron"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Extra -->
+                                    <div class="form-group">
+                                        <label for="Landmark">Landmark</label>
+                                        <input type="text" id="Landmark" name="Landmark" placeholder="Landmark">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="YearOfConstruction">Year of Construction</label>
+                                        <input type="text" id="YearOfConstruction" name="YearOfConstruction" placeholder="YYYY">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="NoOfFloors">No of Floors</label>
+                                        <input type="text" id="NoOfFloors" name="NoOfFloors" placeholder="E.g. 1">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="NoOfRooms">No of Rooms</label>
+                                        <input type="text" id="NoOfRooms" name="NoOfRooms" placeholder="E.g. 1">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="CheckInTime">Check In Time</label>
+                                        <input type="text" id="CheckInTime" name="CheckInTime" placeholder="Enter Time">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="CheckOutTime">Check Out Time</label>
+                                        <input type="text" id="CheckOutTime" name="CheckOutTime" placeholder="Enter Time">
+                                    </div>
+
+                                    <!-- Links -->
+                                    <div class="form-grid-inner">
+                                        <div class="form-group">
+                                            <label for="GoogleMapLink">Google Map Link</label>
+                                            <input type="text" id="GoogleMapLink" name="GoogleMapLink">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="GoogleHotelLink">Google Hotel Link</label>
+                                            <input type="text" id="GoogleHotelLink" name="GoogleHotelLink">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="TripAdvisorLink">Trip Advisor Link</label>
+                                            <input type="text" id="TripAdvisorLink" name="TripAdvisorLink">
+                                        </div>
+                                    </div>
+
+                                    <!-- Distance -->
+                                    <div class="form-grid-inner">
+                                        <div class="form-group">
+                                            <label for="DistanceAirport">Distance From Airport</label>
+                                            <input type="text" id="DistanceAirport" name="DistanceAirport">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="DistanceISBT">Distance From ISBT</label>
+                                            <input type="text" id="DistanceISBT" name="DistanceISBT">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="DistanceRailway">Distance From Railway Station</label>
+                                            <input type="text" id="DistanceRailway" name="DistanceRailway">
+                                        </div>
+                                    </div>
+
+                                    <!-- Description -->
+                                    <div class="form-grid-inner-dec">
+                                        <div class="form-group">
+                                            <label for="Description">Description (How to Reach)</label>
+                                            <input type="text" id="Description" name="Description">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <button type="submit" class="primary-btn commonCta ctaAlign">
+                                    Save and Next
+                                </button>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="genearlDetailsIcon"><img src="/img/restaurants-icons.svg"></span> Restaurants on Property
+                            </div>
+                            <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-grid restaurantsGrid">
+                                <div class="form-group">
+                                    <label>Restaurant Name</label>
+                                    <input type="text" placeholder="Enter hotel name">
+                                    <span class="additems">
+                                        <img src="/img/add_circle.png">
+                                        Add Another Restaurant
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Veg / Non Veg</label>
+                                    <div class="dropdown-trigger-box generalDEtailsSelect">
+
+                                        <select class="dropdown-trigger-box__native">
+                                            <option>Both</option>
+                                            <option>Both</option>
+
+                                        </select>
+                                        <div class="dropdown-trigger-box__chevron"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Cuisine</label>
+                                    
+                                    <div class="dropdown-trigger-box generalDEtailsSelect">
+
+                                        <select class="dropdown-trigger-box__native">
+                                            <option>Indian</option>
+                                            <option>Indian</option>
+
+                                        </select>
+                                        <div class="dropdown-trigger-box__chevron"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>No of Covers</label>
+                                    <input type="text" placeholder="Enter Input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Restaurant Image</label>
+                                    <div class="uploadDelte">
+                                        <label class="upload-btn commonCta">
+                                            Upload
+                                            <input type="file" multiple="" hidden="">
+                                        </label>
+                                        <span class="delte"><img src="/img/delete.svg"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="primary-btn commonCta ctaAlign">Save and Next</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="genearlDetailsIcon"><img src="/img/banquet.svg"></span> Banquet on Property
+                            </div>
+                            <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="banquetBG">
+                                <div class="form-grid banquetsGrid">
+                                    <div class="form-group">
+                                        <label>Banquet Name</label>
+                                        <input type="text" placeholder="Banquet Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>No of Covers</label>
+                                        <input type="text" placeholder="No of Covers">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Per Plate Cost (Veg)</label>
+                                        <input type="text" placeholder="Per Plate Cost (Veg)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Per Plate Cost (Non Veg)</label>
+                                        <input type="text" placeholder="Input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sq. Ft Area</label>
+                                        <input type="text" placeholder="Sq. Ft Area">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Restaurant Image</label>
+                                        <div class="uploadDelte">
+                                            <label class="upload-btn commonCta">
+                                                Upload
+                                                <input type="file" multiple="" hidden="">
+                                            </label>
+                                            <span class="delte"><img src="/img/delete.svg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-grid-inner-dec-banqet">
+                                        <div class="form-group">
+                                            <label>Description (How to Reach)</label>
+                                            <input type="text" placeholder="e.g. 10km from airport,...">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="additems">
+                                    <img src="/img/add_circle.png">
+                                    Add Another Restaurant
+                                </span>
+                            </div>
+                            <button class="primary-btn commonCta ctaAlign">Save and Next</button>
+                        </div>
+
+
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="genearlDetailsIcon"><img src="/img/contact-icon.svg"></span> Contact Details
+                            </div>
+                            <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="banquetBG">
+                                <div class="form-grid banquetsGrid">
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        
+                                        <div class="dropdown-trigger-box generalDEtailsSelect">
+
+                                            <select class="dropdown-trigger-box__native">
+                                                <option>Select Department</option>
+                                                <option>Select Department</option>
+
+                                            </select>
+                                            <div class="dropdown-trigger-box__chevron"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Designation</label>
+                                       
+                                        <div class="dropdown-trigger-box generalDEtailsSelect">
+
+                                            <select class="dropdown-trigger-box__native">
+                                                <option>Select Designation</option>
+                                                <option>Select Designation</option>
+
+                                            </select>
+                                            <div class="dropdown-trigger-box__chevron"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" placeholder="Enter hotel name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Primary Mobile Number</label>
+                                        <div class="phone-field">
+                                            <div class="country-code">
+                                                +91
+                                                <span class="arrow">▼</span>
+                                            </div>
+                                            <input type="text" placeholder="Enter Number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Primary WhatsApp Number</label>
+                                        <div class="phone-field">
+                                            <div class="country-code">
+                                                +91
+                                                <span class="arrow">▼</span>
+                                            </div>
+                                            <input type="text" placeholder="Enter Number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Primary Email</label>
+                                        <input type="text" placeholder="Enter hotel name">
+                                    </div>
+                                    <div class="form-grid-inner contactDetails">
+                                        <div class="form-group">
+                                            <label>Additional Phone Number</label>
+                                            <div class="phone-field">
+                                                <div class="country-code">
+                                                    +91
+                                                    <span class="arrow">▼</span>
+                                                </div>
+                                                <input type="text" placeholder="Enter Number">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Additional Phone Number</label>
+                                            <div class="phone-field">
+                                                <div class="country-code">
+                                                    +91
+                                                    <span class="arrow">▼</span>
+                                                </div>
+                                                <input type="text" placeholder="Enter Number">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Additional Email Ids</label>
+                                            <input type="text" placeholder="Enter hotel name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Additional Email Ids</label>
+                                            <input type="text" placeholder="Enter hotel name">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button class="primary-btn commonCta ctaAlign mr-10">Add Another Contact</button>
+                                <button class="primary-btn commonCta ctaAlign">Save and Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="genearlDetailsIcon"><img src="/img/hotel-icon.svg"></span> Hotel Facilities
+                            </div>
+                            <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="facilities-container">
+                                <!-- Search + Select -->
+                                <div class="facilities-top">
+                                    <input type="text" placeholder="Search Facilities" class="search-box">
+                                    <a class="select-all">Select All</a>
+                                </div>
+                                <!-- SECTION -->
+                                <div class="facility-section">
+                                    <h4>Guest Services</h4>
+                                    <div class="facility-list">
+                                        <label class="facility-item"><input type="checkbox"> 24-hour front desk</label>
+                                        <label class="facility-item"><input type="checkbox"> Concierge service</label>
+                                        <label class="facility-item"><input type="checkbox"> Express check-in / check-out</label>
+                                        <label class="facility-item"><input type="checkbox"> Luggage storage</label>
+                                        <label class="facility-item"><input type="checkbox"> Wake-up call service</label>
+                                        <label class="facility-item"><input type="checkbox"> Multilingual staff</label>
+                                        <label class="facility-item"><input type="checkbox"> Travel desk</label>
+                                    </div>
+                                </div>
+                                <div class="facility-section">
+                                    <h4>Dining & Food Services</h4>
+                                    <div class="facility-list">
+                                        <label class="facility-item"><input type="checkbox"> Multi-cuisine restaurant</label>
+                                        <label class="facility-item"><input type="checkbox"> Coffee shop / café</label>
+                                        <label class="facility-item"><input type="checkbox"> Bar / lounge</label>
+                                        <label class="facility-item"><input type="checkbox"> Buffet breakfast</label>
+                                        <label class="facility-item"><input type="checkbox"> Special diet menus (on request)</label>
+                                        <label class="facility-item"><input type="checkbox"> Banquet catering</label>
+                                    </div>
+                                </div>
+                                <div class="facility-section">
+                                    <h4>Connectivity & Business</h4>
+                                    <div class="facility-list">
+                                        <label class="facility-item"><input type="checkbox"> Free Wi-Fi (hotel-wide)</label>
+                                        <label class="facility-item"><input type="checkbox"> Business center</label>
+                                        <label class="facility-item"><input type="checkbox"> Meeting rooms</label>
+                                        <label class="facility-item"><input type="checkbox"> Conference halls</label>
+                                        <label class="facility-item"><input type="checkbox"> Printing / photocopy services</label>
+                                    </div>
+                                </div>
+                                <div class="facility-section">
+                                    <h4>Leisure & Recreation</h4>
+                                    <div class="facility-list">
+                                        <label class="facility-item"><input type="checkbox"> Swimming pool</label>
+                                        <label class="facility-item"><input type="checkbox"> Fitness centre / gym</label>
+                                        <label class="facility-item"><input type="checkbox"> Spa & wellness center</label>
+                                        <label class="facility-item"><input type="checkbox"> Sauna / steam room</label>
+                                        <label class="facility-item"><input type="checkbox"> Kids' play area</label>
+                                        <label class="facility-item"><input type="checkbox"> Indoor / outdoor games</label>
+                                        <label class="facility-item"><input type="checkbox"> Garden / lawn</label>
+                                    </div>
+                                </div>
+                                <div class="facility-section">
+                                    <h4>Accessibility</h4>
+                                    <div class="facility-list">
+                                        <label class="facility-item"><input type="checkbox"> Wheelchair access</label>
+                                        <label class="facility-item"><input type="checkbox"> Elevator / lift</label>
+                                        <label class="facility-item"><input type="checkbox"> Washrooms in common areas</label>
+                                    </div>
+                                </div>
+                                <div class="facility-section">
+                                    <h4>Additional / Premium Facilities</h4>
+                                    <div class="facility-list">
+                                        <label class="facility-item"><input type="checkbox"> Banquet / wedding venue</label>
+                                        <label class="facility-item"><input type="checkbox"> Rooftop lounge</label>
+                                        <label class="facility-item"><input type="checkbox"> Spa & salon</label>
+                                        <label class="facility-item"><input type="checkbox"> Yoga / Meditation area</label>
+                                        <label class="facility-item"><input type="checkbox"> Souvenir shop</label>
+                                        <label class="facility-item"><input type="checkbox"> Cultural Programs</label>
+                                    </div>
+                                </div>
+                                <button class="primary-btn commonCta ctaAlign">Save and Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span class="genearlDetailsIcon"><img src="/img/hotel-lobby-icon.svg"></span>Hotel Images <span class="subItems">(Facade, Lobby, Swimming Pools etc..)</span>
+                            </div>
+                            <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="upload-container">
+                                <!-- Upload Area -->
+                                <div class="upload-dropzone">
+                                    <div class="upload-dropzone__inner">
+                                        <div class="upload-dropzone__left">
+                                            <div class="upload-dropzone__icon">☁️</div>
+                                            <div>
+                                                <p class="upload-dropzone__title">
+                                                    Drag and drop images here
+                                                </p>
+                                                <p class="upload-dropzone__subtitle">
+                                                    Support for JPG, PNG, WEBP. Max 10MB per file.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- File Input -->
+                                        <div class="upload-dropzone__right">
+                                            <label class="upload-btn commonCta">
+                                                Browse Files
+                                                <input type="file" multiple hidden>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Header -->
+                                <div class="upload-header">
+                                    <h3>Image Details (4)</h3>
+                                    <a href="#">Clear all</a>
+                                </div>
+                                <!-- Cards -->
+                                <div class="image-grid">
+                                    <div class="image-card">
+                                        <div class="image-card__img-wrapper">
+                                            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+                                            <span class="image-card__close">✕</span>
+                                        </div>
+                                        <label>IMAGE NAME</label>
+                                        <input type="text">
+                                        <label>DESCRIPTION / ALT TEXT</label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="image-card">
+                                        <div class="image-card__img-wrapper">
+                                            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+                                            <span class="image-card__close">✕</span>
+                                        </div>
+                                        <label>IMAGE NAME</label>
+                                        <input type="text">
+                                        <label>DESCRIPTION / ALT TEXT</label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="image-card">
+                                        <div class="image-card__img-wrapper">
+                                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+                                            <span class="image-card__close">✕</span>
+                                        </div>
+                                        <label>IMAGE NAME</label>
+                                        <input type="text">
+                                        <label>DESCRIPTION / ALT TEXT</label>
+                                        <input type="text">
+                                    </div>
+                                    <div class="image-card">
+                                        <div class="image-card__img-wrapper">
+                                            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb">
+                                            <span class="image-card__close">✕</span>
+                                        </div>
+                                        <label>IMAGE NAME</label>
+                                        <input type="text">
+                                        <label>DESCRIPTION / ALT TEXT</label>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabsRoomDetails" id="roomTab">
+                    
+                    <!-- CARD -->
+                   
+                    <div class="card">
+                        <div class="room-wrapper">
+
+                            <!-- ROOM CARD -->
+                            <div class="room-box">
+
+                                <!-- HEADER -->
+                                <div class="room-box__header">
+                                    <h3 class="room-box__title">Room 1</h3>
+                                    <span class="room-box__delete"><img src="/img/delete.svg"></span>
+                                </div>
+
+                                <!-- TOP FIELDS -->
+                                <div class="room-box__top">
+
+                                    <div class="ui-field">
+                                        <label class="ui-label">Room Category Name</label>
+                                        <input class="ui-input" value="Deluxe King Room">
+                                    </div>
+
+                                    <div class="ui-field ui-field--wide">
+                                        <label class="ui-label">Room Description</label>
+                                        <input class="ui-input" placeholder="Input Description">
+                                    </div>
+
+                                    <div class="ui-field ui-field--xs">
+                                        <label class="ui-label">No of Beds</label>
+                                        <input class="ui-input ui-input--center" value="2">
+                                    </div>
+
+                                    <div class="ui-field ui-field--xs">
+                                        <label class="ui-label">No of Rooms</label>
+                                        <input class="ui-input ui-input--center" value="2">
+                                    </div>
+
+                                </div>
+
+                                <!-- MEDIA -->
+                                <div class="room-media">
+
+                                    <div class="room-media__title">Room Media</div>
+
+                                    <div class="room-media__row">
+
+                                        <div class="ui-field">
+                                            <label class="ui-label">Image Name</label>
+                                            <input class="ui-input" value="King Size Bed">
+                                        </div>
+
+                                        <div class="ui-field">
+                                            <label class="ui-label">Description</label>
+                                            <input class="ui-input" value="View Of King Bed">
+                                        </div>
+
+                                        <button class="ui-upload-btn">Upload</button>
+
+                                    </div>
+
+                                    <div class="add-image">
+                                        <span>＋</span> Add New Image
+                                    </div>
+
+                                </div>
+
+                                <!-- FACILITIES -->
+                                <div class="facilities-room-deatils">
+                                    <div class="facilities-top">
+                                        <input type="text" placeholder="Search Facilities" class="search-box">
+                                        <a class="select-all">Select All</a>
+                                    </div>
+                               
+                                <div class="facility-grid">
+
+                                    <!-- ROW ITEMS -->
+                                    <label class="facility-item"><input type="checkbox"> Room Heater</label>
+                                    <label class="facility-item"><input type="checkbox"> Blinds</label>
+                                    <label class="facility-item"><input type="checkbox"> Attached Bathroom</label>
+                                    <label class="facility-item"><input type="checkbox"> Hot & Cold Water</label>
+                                    <label class="facility-item"><input type="checkbox"> Towels</label>
+                                    <label class="facility-item"><input type="checkbox"> Toiletries</label>
+
+                                    <label class="facility-item"><input type="checkbox"> Power Sockets / Charging Points</label>
+                                    <label class="facility-item"><input type="checkbox"> Electric Kettle</label>
+                                    <label class="facility-item"><input type="checkbox"> Complimentary Drinking Water</label>
+                                    <label class="facility-item"><input type="checkbox"> Mini Refrigerator</label>
+                                    <label class="facility-item"><input type="checkbox"> Iron & Ironing Board</label>
+                                    <label class="facility-item"><input type="checkbox"> Television</label>
+
+                                    <label class="facility-item"><input type="checkbox"> Telephone</label>
+                                    <label class="facility-item"><input type="checkbox"> Attached Bathroom</label>
+                                    <label class="facility-item"><input type="checkbox"> Hot & Cold Water</label>
+                                    <label class="facility-item"><input type="checkbox"> Towels</label>
+                                    <label class="facility-item"><input type="checkbox"> Toiletries</label>
+                                    <label class="facility-item"><input type="checkbox"> Mirror</label>
+
+                                    <label class="facility-item"><input type="checkbox"> Hair Dryer</label>
+                                    <label class="facility-item"><input type="checkbox"> Wardrobe</label>
+                                    <label class="facility-item"><input type="checkbox"> Dressing Table</label>
+                                    <label class="facility-item"><input type="checkbox"> Writing Desk</label>
+                                    <label class="facility-item"><input type="checkbox"> Chair</label>
+                                    <label class="facility-item"><input type="checkbox"> Bedside Table</label>
+
+                                    <label class="facility-item"><input type="checkbox"> Door Lock / Latch</label>
+                                    <label class="facility-item"><input type="checkbox"> In-room Safe</label>
+
+                                </div>
+
+                            </div>
+                          
+                            <!-- ADD BUTTON -->
+                            <div class="add-room">
+                                    <span class="addRoomPlus">＋</span> Add New Room Category
+                            </div>
+                            </div>
+                            <button class="primary-btn commonCta ctaAlign">Save and Next</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/modules/hotel-form.js"></script>
+    <script>
+        document.querySelectorAll(".card-header").forEach(header => {
+        header.addEventListener("click", () => {
+
+          const card = header.parentElement;
+
+          document.querySelectorAll(".card").forEach(c => {
+              if (c !== card) c.classList.remove("active");
+          });
+
+          card.classList.toggle("active");
+        });
+        });
+    </script>
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const hotelTab = document.getElementById('hotelTab');
+        const roomTab = document.getElementById('roomTab');
+
+        tabButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+
+            // button active
+            tabButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // hide both
+            hotelTab.classList.remove('active');
+            roomTab.classList.remove('active');
+
+            // show selected
+            if (btn.dataset.tab === 'hotel') {
+              hotelTab.classList.add('active');
+            } else {
+              roomTab.classList.add('active');
+            }
+
+          });
+        });
+    </script>
+
+</body>
+</html>

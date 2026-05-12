@@ -1,0 +1,1398 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet" />
+ 
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="container-fluid p-0">
+        <img src="/img/header-add.jpg" class="img-fluid" />
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <div>
+                    <div class="breadcrumb">
+                        <span class="headerHome"><img src="/img/home.svg"> </span>
+                        
+                        <span class="headerChevron"><img src="/img/chevron-right.svg">  </span>
+                        <span class="headerEditAdd">
+                            @* <img src="/img/edit_add.svg"> *@
+                            Manage Rates
+                        </span>
+                    </div>
+                    <h1>Manage Rates And Inventory</h1>
+                    <p>Hotel Green Valley, Karol Bagh, New Delhi</p>
+                </div>
+                <div class="save-time">  <span class="headerTime"><img src="/img/time.svg"></span> Last saved 2 minutes ago</div>
+            </div>
+            <!-- PROGRESS -->
+
+        </div>
+    </div>
+    <div class="manageRatesContaier">
+        <div class="wrapper">
+            <div class="container">
+
+
+                <!-- Tabs -->
+                <div class="rate-tabs">
+                    <div class="rate-tab active" data-tab="ratesTab">
+                        <span><img src="~/img/rates.svg" /></span> Rates
+                    </div>
+                    <div class="rate-tab" data-tab="inventoryTab">
+                        <span><img src="~/img/Inventory.svg" /></span> Inventory
+                    </div>
+                </div>
+                <!-- RATES TAB CONTENT -->
+                <div id="ratesTab" class="mainTabContent active-main-tab">
+                <!-- View Switch -->
+                <div class="view-switch">
+                    <button class="view-btn active" data-tab="weekTab">Week View</button>
+                    <button class="view-btn" data-tab="monthTab">Month View</button>
+                    <button class="view-btn" data-tab="reportTab">Report View</button>
+                </div>
+                <!--first tab-->
+                <div class="manageTabs active-tab" id="weekTab">
+                <!-- Action Bar -->
+                <div class="action-bar">
+                    
+                    <button class="add-rate-btn">+ ADD RATES</button>
+                    <div class="actionBarRight">
+                    <button class="nav-btn"><span><img src="~/img/left-icon.svg" /></span></button>
+                    <button class="nav-btn"><span><img src="~/img/calender.svg" /></span></button>
+                    <button class="nav-btn"><span><img src="~/img/right-icon.svg" /></span></button>
+                </div>
+                </div>
+
+                <!-- Expand -->
+                    <div class="expand-link"><span>+</span> Expand All Rooms And Meal Plans</div>
+
+                <!-- Table -->
+                <div class="rate-table">
+
+                    <!-- Header -->
+                    <div class="rate-header">
+
+                        <div class="header-left"><span><img src="~/img/rooms.svg"/></span>Rooms &amp; Rates</div>
+
+                        <!-- Days -->
+                        <div class="header-day">
+                            <div class="season-label">WINTER SEASON</div>
+                            <div class="day-box active">
+                                <div class="day-name">SUN</div>
+                                <div class="day-number">21</div>
+                                <div class="day-date">DEC 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="header-day">
+                            <div class="season-label">WINTER SEASON</div>
+                            <div class="day-box">
+                                <div class="day-name">MON</div>
+                                <div class="day-number">22</div>
+                                <div class="day-date">DEC 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="header-day">
+                            <div class="season-label">WINTER SEASON</div>
+                            <div class="day-box">
+                                <div class="day-name">TUE</div>
+                                <div class="day-number">23</div>
+                                <div class="day-date">DEC 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="header-day">
+                            <div class="season-label">WINTER SEASON</div>
+                            <div class="day-box">
+                                <div class="day-name">WED</div>
+                                <div class="day-number">24</div>
+                                <div class="day-date">DEC 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="header-day">
+                            <div class="season-label">CHRISTMAS</div>
+                            <div class="day-box">
+                                <div class="day-name">THU</div>
+                                <div class="day-number">25</div>
+                                <div class="day-date">DEC 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="header-day">
+                            <div class="season-label">WINTER SEASON</div>
+                            <div class="day-box">
+                                <div class="day-name">FRI</div>
+                                <div class="day-number">26</div>
+                                <div class="day-date">DEC 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="header-day">
+                            <div class="season-label">WINTER SEASON</div>
+                            <div class="day-box">
+                                <div class="day-name">SAT</div>
+                                <div class="day-number">27</div>
+                                <div class="day-date">DEC 2025</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Rows -->
+                    <div class="rate-row">
+                        <div class="room-name">
+                            <div class="room-toggle">+</div>
+                            Royal Suit Room
+                        </div>
+                        <div class="row-right">
+                            <div class="arrow-btn"><img src="~/img/table-arrow.svg"/></div>
+                        </div>
+                    </div>
+
+                    <div class="rate-row">
+                        <div class="room-name">
+                            <div class="room-toggle">+</div>
+                            Deluxe Room
+                        </div>
+                        <div class="row-right">
+                            <div class="arrow-btn"><img src="~/img/table-arrow.svg" /></div>
+                        </div>
+                    </div>
+
+                    <div class="rate-row">
+                        <div class="room-name">
+                            <div class="room-toggle">+</div>
+                            Executive Room
+                        </div>
+                        <div class="row-right">
+                            <div class="arrow-btn"><img src="~/img/table-arrow.svg" /></div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+                <!--second tab-->
+                <div class="manageTabs" id="monthTab">
+
+                    <div class="filter-bar">
+                        <div class="filter-shell-wrap">
+                            <div class="filterShellTrigger">
+                                <div>
+                                    <label>Room Type</label>
+                                </div>
+                                <div class="dropdown-trigger-box">
+
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Royal Suit Room</option>
+                                        <option>Royal Suit Room</option>
+
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="filterShellTrigger">
+                                <div>
+                                    <label>Price Type</label>
+                                </div>
+                                <div class="dropdown-trigger-box">
+
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Double</option>
+                                        <option>Double</option>
+
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+                            </div><div class="filterShellTrigger">
+                                <div>
+                                    <label>Meal Plan</label>
+                                </div>
+                                <div class="dropdown-trigger-box">
+
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Meal Plan</option>
+                                        <option>Meal Plan</option>
+
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+                            </div>
+                            <div class="filterShellTrigger">
+                                <div>
+                                    <label>MONTH &amp; YEAR</label>
+                                </div>
+                                <div class="ratesFilterItem">
+
+
+                                    <div class="ratesMonthBox">
+                                        <button class="ratesNavBtn">‹</button>
+                                        <span>December 2025</span>
+                                        <button class="ratesNavBtn">›</button>
+                                    </div>
+                                </div>
+                            </div><div class="filterShellTrigger">
+                                <div>
+                                    <label></label>
+                                </div>
+                                <div class="ratesFilterItem">
+
+
+                                    <button class="ratesResetBtn">Reset Filters</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="filterShellTrigger filterShellAddRates">
+                            <div>
+                                <label></label>
+                            </div>
+                            <div class="ratesFilterItem">
+
+
+                                <button class="add-rate-btn">+ ADD RATES</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="calendar">
+
+                        <div class="calendar-header">
+                            <div class="day-head">MON</div>
+                            <div class="day-head">TUE</div>
+                            <div class="day-head">WED</div>
+                            <div class="day-head">THU</div>
+                            <div class="day-head">FRI</div>
+                            <div class="day-head">SAT</div>
+                            <div class="day-head">SUN</div>
+                        </div>
+
+
+                        <div class="calendar-grid">
+
+                            <!-- Day -->
+
+                            <div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><div class="day">
+                                <div class="day-top">
+                                    <div class="date">1</div>
+                                    <div class="season">WINTER</div>
+                                </div>
+
+                                <div class="labels">
+                                    <div class="label net">NET</div>
+                                    <div class="label marg">MARG</div>
+                                    <div class="label sell">SELLING</div>
+                                </div>
+
+                                <div class="values">
+                                    <div class="value">₹ 3,500</div>
+                                    <div class="value valueMarg">30%</div>
+                                    <div class="value valuesSelling">₹ 3,500</div>
+                                </div>
+                            </div><!-- Repeat same block for remaining days -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--third tab-->
+                <div class="manageTabs" id="reportTab">
+                    <div class="rateViewCta">
+                        <button class="btn-add-rates">
+                            <i class="fa-solid fa-plus"></i>
+                            ADD RATES
+                        </button>
+                    </div>
+                    <div class="filter-container">
+                        <div class="left-controls">
+                            <div class="filter-shell-wrap">
+                                <div class="dropdown-trigger-box">
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Season: All</option>
+                                        <option>Winter</option>
+                                        <option>Summer</option>
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+
+                                <div class="dropdown-trigger-box">
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Vendor: All</option>
+                                        <option>Direct</option>
+                                        <option>OTA</option>
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+
+                                <div class="dropdown-trigger-box">
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Room type: All</option>
+                                        <option>Single</option>
+                                        <option>Double</option>
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="date-range-picker">
+                             
+                                <span>Date Range</span>
+                                <i><img src="~/img/date_range.svg" /></i>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    <table class="main-table">
+                        <thead>
+                            <tr>
+                                <th>Season Name</th>
+                                <th>Season Dates</th>
+                                <th>Room Category</th>
+                                <th>Meal Plan</th>
+                                <th>Vendor</th>
+                                <th>Single Room</th>
+                                <th>Double Room</th>
+                                <th>Extra Bed Adult</th>
+                                <th>Extra Bed Child</th>
+                                <th>Child No Bed</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="cell-padding"><b>Summer</b></td>
+                                <td class="cell-padding">01-Jun-2026 To 30-Sep-2026</td>
+                                <td class="cell-padding">Deluxe</td>
+                                <td class="cell-padding">CPAI</td>
+                                <td class="cell-padding"><a href="#" class="vendor-blue">Hotel Blue Orchid</a></td>
+
+                                <td colspan="5">
+                                    <div class="room-grid">
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="meals-title-bar">ADDITIONAL MEALS</div>
+
+                                    <div class="meals-container">
+                                        <div class="meal-box gridRowItem">
+                                            <div class="meal-header">BREAKFAST</div>
+
+                                            <div class="meal-label-row">
+                                                <div class="age-label-empty"></div> <div class="label-text">NET</div>
+                                                <div class="label-text">MRG</div>
+                                                <div class="label-text">SELLING</div>
+                                            </div>
+
+                                            <div class="meal-sub-row gridRowItem">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹390</div>
+                                            </div>
+                                            <div class="meal-sub-row meal-sub-row--divider">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹286</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="meal-box gridRowItem">
+                                            <div class="meal-header">LUNCH</div>
+                                            <div class="meal-label-row">
+                                                <div class="age-label-empty"></div>
+                                                <div class="label-text">NET</div>
+                                                <div class="label-text">MRG</div>
+                                                <div class="label-text">SELLING</div>
+                                            </div>
+                                            <div class="meal-sub-row">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹390</div>
+                                            </div>
+                                            <div class="meal-sub-row meal-sub-row--divider">
+
+                                                <div class="grid-item NET"><div class="grid-item NET"><span class="age-label">A</span>₹300</div>₹220</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹286</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="meal-box gridRowItem">
+                                            <div class="meal-header">DINNER</div>
+                                            <div class="meal-label-row">
+                                                <div class="age-label-empty"></div>
+                                                <div class="label-text">NET</div>
+                                                <div class="label-text">MRG</div>
+                                                <div class="label-text">SELLING</div>
+                                            </div>
+                                            <div class="meal-sub-row">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹390</div>
+                                            </div>
+                                            <div class="meal-sub-row meal-sub-row--divider">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹286</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="cell-padding">
+                                    <div class="action-icons">
+                                        <span><img src="/img/editAction.svg"></span>
+                                        <span><img src="/img/delteAction.svg"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cell-padding"><b>Summer</b></td>
+                                <td class="cell-padding">01-Jun-2026 To 30-Sep-2026</td>
+                                <td class="cell-padding">Deluxe</td>
+                                <td class="cell-padding">CPAI</td>
+                                <td class="cell-padding"><a href="#" class="vendor-blue">Hotel Blue Orchid</a></td>
+
+                                <td colspan="5">
+                                    <div class="room-grid">
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                        <div class="category-column">
+                                            <div class="grid-item NET"><span class="label-text">NET</span><span class="value-text">₹2,800</span></div>
+                                            <div class="grid-item MRG"><span class="label-text">MRG</span><span class="value-text">30 %</span></div>
+                                            <div class="grid-item SELLING"><span class="label-text">SELLING</span><span class="value-text">₹3,640</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="meals-title-bar">ADDITIONAL MEALS</div>
+
+                                    <div class="meals-container">
+                                        <div class="meal-box gridRowItem">
+                                            <div class="meal-header">BREAKFAST</div>
+
+                                            <div class="meal-label-row">
+                                                <div class="age-label-empty"></div> <div class="label-text">NET</div>
+                                                <div class="label-text">MRG</div>
+                                                <div class="label-text">SELLING</div>
+                                            </div>
+
+                                            <div class="meal-sub-row gridRowItem">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹390</div>
+                                            </div>
+                                            <div class="meal-sub-row meal-sub-row--divider">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹286</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="meal-box gridRowItem">
+                                            <div class="meal-header">LUNCH</div>
+                                            <div class="meal-label-row">
+                                                <div class="age-label-empty"></div>
+                                                <div class="label-text">NET</div>
+                                                <div class="label-text">MRG</div>
+                                                <div class="label-text">SELLING</div>
+                                            </div>
+                                            <div class="meal-sub-row">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹390</div>
+                                            </div>
+                                            <div class="meal-sub-row meal-sub-row--divider">
+
+                                                <div class="grid-item NET"><div class="grid-item NET"><span class="age-label">A</span>₹300</div>₹220</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹286</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="meal-box gridRowItem">
+                                            <div class="meal-header">DINNER</div>
+                                            <div class="meal-label-row">
+                                                <div class="age-label-empty"></div>
+                                                <div class="label-text">NET</div>
+                                                <div class="label-text">MRG</div>
+                                                <div class="label-text">SELLING</div>
+                                            </div>
+                                            <div class="meal-sub-row">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹390</div>
+                                            </div>
+                                            <div class="meal-sub-row meal-sub-row--divider">
+
+                                                <div class="grid-item NET"><span class="age-label">A</span>₹300</div>
+                                                <div class="grid-item MRG">30 %</div>
+                                                <div class="grid-item SELLING">₹286</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="cell-padding">
+                                    <div class="action-icons">
+                                        <span><img src="/img/editAction.svg"></span>
+                                        <span><img src="/img/delteAction.svg"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+                </div>
+                <!-- INVENTORY TAB CONTENT -->
+                <div id="inventoryTab" class="mainTabContent">
+                    <div class="filter-container">
+                        <div class="left-controls">
+                            <div class="filter-shell-wrap">
+                                <div class="dropdown-trigger-box">
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Vendor: All</option>
+                                        <option>Direct</option>
+                                        <option>OTA</option>
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+
+                                <div class="dropdown-trigger-box">
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Room type: All</option>
+                                        <option>Single</option>
+                                        <option>Double</option>
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+                        </div>
+
+                        <div class="right-controls">
+                            <div class="date-range-picker">
+
+                                <span>Date Range</span>
+                                <i><img src="/img/date_range.svg"></i>
+                            </div>
+                            <a href="/Home/AddInventory"><button class="add-rate-btn">+ Add New Inventory</button></a>
+
+                        </div>
+                    </div>
+                    <div class="inventory-dashboard">
+                        <div class="inventory-card">
+                            <div class="inventory-card__header">
+                                <h3 class="inventory-card__title">Royal Suit Room</h3>
+                                <span class="inventory-card__status-badge">ACTIVE</span>
+                            </div>
+                            <div class="inventory-card__stats-grid">
+                                <div class="inventory-stat-box">
+                                    <span class="inventory-stat-box__label">Total Available</span>
+                                    <div class="inventory-stat-box__value">24 <small>Rooms</small></div>
+                                    <div class="inventory-stat-box__footer">
+                                        Pre Blocked: <b>16</b><br>Pre Purchased: <b>08</b>
+                                    </div>
+                                </div>
+                                <div class="inventory-stat-box">
+                                    <span class="inventory-stat-box__label">Total Sold</span>
+                                    <div class="inventory-stat-box__value inventory-stat-box__value--sold">18 <small>Rooms</small></div>
+                                    <div class="inventory-stat-box__footer">
+                                        Pre Blocked: <b>16</b><br>Pre Purchased: <b>08</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inventory-card">
+                            <div class="inventory-card__header">
+                                <h3 class="inventory-card__title">Deluxe Room</h3>
+                                <span class="inventory-card__status-badge">ACTIVE</span>
+                            </div>
+                            <div class="inventory-card__stats-grid">
+                                <div class="inventory-stat-box">
+                                    <span class="inventory-stat-box__label">Total Available</span>
+                                    <div class="inventory-stat-box__value">24 <small>Rooms</small></div>
+                                    <div class="inventory-stat-box__footer">
+                                        Pre Blocked: <b>16</b><br>Pre Purchased: <b>08</b>
+                                    </div>
+                                </div>
+                                <div class="inventory-stat-box">
+                                    <span class="inventory-stat-box__label">Total Sold</span>
+                                    <div class="inventory-stat-box__value inventory-stat-box__value--sold">18 <small>Rooms</small></div>
+                                    <div class="inventory-stat-box__footer">
+                                        Pre Blocked: <b>16</b><br>Pre Purchased: <b>08</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inventory-card">
+                            <div class="inventory-card__header">
+                                <h3 class="inventory-card__title">Executive Room</h3>
+                                <span class="inventory-card__status-badge">ACTIVE</span>
+                            </div>
+                            <div class="inventory-card__stats-grid">
+                                <div class="inventory-stat-box">
+                                    <span class="inventory-stat-box__label">Total Available</span>
+                                    <div class="inventory-stat-box__value">24 <small>Rooms</small></div>
+                                    <div class="inventory-stat-box__footer">
+                                        Pre Blocked: <b>16</b><br>Pre Purchased: <b>08</b>
+                                    </div>
+                                </div>
+                                <div class="inventory-stat-box">
+                                    <span class="inventory-stat-box__label">Total Sold</span>
+                                    <div class="inventory-stat-box__value inventory-stat-box__value--sold">18 <small>Rooms</small></div>
+                                    <div class="inventory-stat-box__footer">
+                                        Pre Blocked: <b>16</b><br>Pre Purchased: <b>08</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inventory-table-container">
+                        <div class="inventory-table__scroll-wrapper">
+                            <table class="inventory-table">
+                                <thead>
+                                    <tr>
+                                        <th class="inventory-table__th">DATES</th>
+                                        <th class="inventory-table__th">VENDOR</th>
+                                        <th class="inventory-table__th">ROOM CATEGORY</th>
+                                        <th class="inventory-table__th">CONTRACTED PRICE</th>
+                                        <th class="inventory-table__th">ADDED INVENTORY</th>
+                                        <th class="inventory-table__th">SPECIAL PRICE</th>
+                                        <th class="inventory-table__th">TOTAL (PB+PP)</th>
+                                        <th class="inventory-table__th">SOLD (PB/PP)</th>
+                                        <th class="inventory-table__th">AVAIL. (PB/PP)</th>
+                                        <th class="inventory-table__th">CONTRACTED</th>
+                                        <th class="inventory-table__th">APPROVED</th>
+                                        <th class="inventory-table__th" style="text-align:center">ACTIONS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="inventory-table__row--highlighted">
+                                        <td class="inventory-table__td">01-Jun-2026<br>To<br>01-Jun-2026</td>
+                                        <td class="inventory-table__td inventory-txt-bold">Vendor 1</td>
+                                        <td class="inventory-table__td">Deluxe</td>
+                                        <td class="inventory-table__td">₹4,200</td>
+                                        <td class="inventory-table__td">
+                                            <span class="inventory-txt-pb">PB: 10</span><br>
+                                            <span class="inventory-txt-pp">PP: 15</span>
+                                        </td>
+                                        <td class="inventory-table__td">
+                                            <span class="inventory-txt-pb">PB: ₹3,200</span><br>
+                                            <span class="inventory-txt-pp">PP: ₹3,200</span>
+                                        </td>
+                                        <td class="inventory-table__td inventory-table__td--total">15</td>
+                                        <td class="inventory-table__td">
+                                            <span class="inventory-txt-pb">PB: 6</span><br>
+                                            <span class="inventory-txt-pp">PP: 3</span>
+                                        </td>
+                                        <td class="inventory-table__td">
+                                            <span class="inventory-txt-pb">PB: 4</span><br>
+                                            <span class="inventory-txt-pp">PP: 3</span>
+                                        </td>
+                                        <td class="inventory-table__td inventory-table__user-info">
+                                            <span class="inventory-table__user-name">Gaurav Dubey</span><span class="inventoryDate">15-May-2026</span>
+                                        </td>
+                                        <td class="inventory-table__td inventory-table__user-info">
+                                            <span class="inventory-table__user-name">Harish S</span><span class="inventoryDate">15-May-2026</span>
+                                        </td>
+                                        <td class="inventory-table__td inventory-table__actions">
+                                            <div class="action-icons">
+                                                <span><img src="/img/actionCopy.svg"></span>
+                                                <span><img src="/img/editAction.svg"></span><span><img src="/img/delteAction.svg"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="inventory-table__td">01-Jun-2026<br>To<br>01-Jun-2026</td>
+                                        <td class="inventory-table__td inventory-txt-bold">Vendor 1</td>
+                                        <td class="inventory-table__td">Deluxe</td>
+                                        <td class="inventory-table__td">₹4,200</td>
+                                        <td class="inventory-table__td">
+                                            <span class="inventory-txt-pb">PB: 10</span><br>
+                                            <span class="inventory-txt-pp">PP: 15</span>
+                                        </td>
+                                        <td class="inventory-table__td">
+                                            <span class="inventory-txt-pb">PB: ₹3,200</span><br>
+                                            <span class="inventory-txt-pp">PP: ₹3,200</span>
+                                        </td>
+                                        <td class="inventory-table__td inventory-table__td--total">15</td>
+                                        <td class="inventory-table__td">
+                                            <span class="inventory-txt-pb">PB: 6</span><br>
+                                            <span class="inventory-txt-pp">PP: 3</span>
+                                        </td>
+                                        <td class="inventory-table__td">
+                                            <span class="inventory-txt-pb">PB: 4</span><br>
+                                            <span class="inventory-txt-pp">PP: 3</span>
+                                        </td>
+                                        <td class="inventory-table__td inventory-table__user-info">
+                                            <span class="inventory-table__user-name">Gaurav Dubey</span><span class="inventoryDate">15-May-2026</span>
+                                        </td>
+                                        <td class="inventory-table__td inventory-table__user-info">
+                                            <span class="inventory-table__user-name">Harish S</span><span class="inventoryDate">15-May-2026</span>
+                                        </td>
+                                        <td class="inventory-table__td inventory-table__actions">
+                                            <div class="action-icons">
+                                                <span><img src="/img/actionCopy.svg"></span>
+                                                <span><img src="/img/editAction.svg"></span><span><img src="/img/delteAction.svg"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="inventory-pagination">
+                            <div class="inventory-pagination__text">
+                                Showing <b>1-3</b> of <b>42</b> inventories
+                            </div>
+                            <div class="inventory-pagination__list">
+                                <button class="inventory-pagination__btn">&lt;</button>
+                                <button class="inventory-pagination__btn inventory-pagination__btn--active">1</button>
+                                <button class="inventory-pagination__btn">2</button>
+                                <button class="inventory-pagination__btn">3</button>
+                                <span style="padding: 5px; font-size: 12px; color: #94a3b8;">...</span>
+                                <button class="inventory-pagination__btn">5</button>
+                                <button class="inventory-pagination__btn">&gt;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const buttons = document.querySelectorAll('.view-btn');
+        const tabs = document.querySelectorAll('.manageTabs');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function () {
+
+                // remove active from all buttons
+                buttons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // hide all tabs
+                tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+                // show selected tab
+                const target = this.getAttribute('data-tab');
+                document.getElementById(target).classList.add('active-tab');
+            });
+        });
+    </script>
+
+    <script>
+        const mainTabs = document.querySelectorAll('.rate-tab');
+        const mainContents = document.querySelectorAll('.mainTabContent');
+
+        mainTabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+
+                // remove active from tabs
+                mainTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // hide all contents
+                mainContents.forEach(c => c.classList.remove('active-main-tab'));
+
+                // show selected
+                const target = this.getAttribute('data-tab');
+                document.getElementById(target).classList.add('active-main-tab');
+            });
+        });
+    </script>
+
+
+</body>
+</html>

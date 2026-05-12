@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="container-fluid p-0">
+        <img src="/img/header-add.jpg" class="img-fluid" />
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <div>
+                    <div class="breadcrumb">
+                        <span class="headerHome"><img src="/img/home.svg"> </span>
+
+                        <span class="headerChevron"><img src="/img/chevron-right.svg">  </span>
+                        <span class="headerEditAdd">
+                            @* <img src="/img/edit_add.svg"> *@
+                            Bulk Update
+                        </span>
+                    </div>
+                    <h1>Add Inventory</h1>
+                    <p>Hotel Green Valley, Karol Bagh, New Delhi</p>
+                </div>
+                <div class="save-time">  <span class="headerTime"><img src="/img/time.svg"></span> Last saved 2 minutes ago</div>
+            </div>
+            <!-- PROGRESS -->
+
+        </div>
+    </div>
+    <div class="manageRatesContaier">
+        <div class="wrapper">
+            <div class="container">
+                <div class="AddInventory-wrapper">
+
+                    <div class="AddInventory-grid AddInventory-header-group">
+                        <div class="AddInventory-cell AddInventory-header" style="grid-row: span 3;">Date</div>
+                        <div class="AddInventory-cell AddInventory-header" style="grid-row: span 3;">Room Category</div>
+                        <div class="AddInventory-cell AddInventory-header" style="grid-row: span 3;">Vendor</div>
+
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pb" style="grid-column: span 4;">Pre Blocked</div>
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pp" style="grid-column: span 4;">Pre Purchased</div>
+
+                        <div class="AddInventory-cell AddInventory-header" style="grid-row: span 3;">Doc Upload</div>
+                        <div class="AddInventory-cell AddInventory-header" style="grid-row: span 3;">Actions</div>
+
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pb" style="grid-row: span 2;">Qty</div>
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pb" style="grid-column: span 3;/* border-bottom: 1px solid #cbd5e1; */">Special Price</div>
+
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pp" style="grid-row: span 2;">Qty</div>
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pp" style="grid-column: span 3;/* border-bottom: 1px solid #cbd5e1; */">Special Price</div>
+
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pb">Net</div>
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pb">Mar</div>
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pb">Selling</div>
+
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pp">Net</div>
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pp">Mar</div>
+                        <div class="AddInventory-cell AddInventory-header AddInventory-section-pp">Selling</div>
+                    </div>
+                    <div class="AddInventory-grid AddInventory-row-item">
+                        <div class="AddInventory-cell addDate">
+                            <input type="text" class="AddInventory-input" placeholder="Add Date">
+                            <span class="calendarIconInput"><img src="/img/calendar-icon.svg"></span>
+                        </div>
+                        <div class="AddInventory-cell">
+                            <div class="dropdown-trigger-box">
+
+                                <select class="dropdown-trigger-box__native">
+                                    <option>Executive Room</option>
+                                    <option>Double</option>
+
+                                </select>
+                                <div class="dropdown-trigger-box__chevron"></div>
+                            </div>
+                        </div>
+                        <div class="AddInventory-cell">
+                            <div class="dropdown-trigger-box">
+
+                                <select class="dropdown-trigger-box__native">
+                                    <option>Select Vendor</option>
+                                    <option>Double</option>
+
+                                </select>
+                                <div class="dropdown-trigger-box__chevron"></div>
+                            </div>
+                        </div>
+
+                        <div class="AddInventory-cell AddInventory-section-pb"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pb"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pb"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pb"><input type="text" class="AddInventory-input"></div>
+
+                        <div class="AddInventory-cell AddInventory-section-pp"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pp"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pp"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pp"><input type="text" class="AddInventory-input"></div>
+
+                        <div class="AddInventory-cell"><span class="AddInventory-icon-upload"><img src="/img/actonUpload.svg"></span></div>
+                        <div class="AddInventory-cell"><span class="AddInventory-icon-delete"><img src="/img/actionDel.svg"></span></div>
+                    </div><div class="AddInventory-grid AddInventory-row-item">
+                        <div class="AddInventory-cell addDate">
+                            <input type="text" class="AddInventory-input" placeholder="Add Date">
+                            <span class="calendarIconInput"><img src="/img/calendar-icon.svg"></span>
+                        </div>
+                        <div class="AddInventory-cell">
+                            <div class="dropdown-trigger-box">
+
+                                <select class="dropdown-trigger-box__native">
+                                    <option>Executive Room</option>
+                                    <option>Double</option>
+
+                                </select>
+                                <div class="dropdown-trigger-box__chevron"></div>
+                            </div>
+                        </div>
+                        <div class="AddInventory-cell">
+                            <div class="dropdown-trigger-box">
+
+                                <select class="dropdown-trigger-box__native">
+                                    <option>Select Vendor</option>
+                                    <option>Double</option>
+
+                                </select>
+                                <div class="dropdown-trigger-box__chevron"></div>
+                            </div>
+                        </div>
+
+                        <div class="AddInventory-cell AddInventory-section-pb"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pb"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pb"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pb"><input type="text" class="AddInventory-input"></div>
+
+                        <div class="AddInventory-cell AddInventory-section-pp"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pp"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pp"><input type="text" class="AddInventory-input"></div>
+                        <div class="AddInventory-cell AddInventory-section-pp"><input type="text" class="AddInventory-input"></div>
+
+                        <div class="AddInventory-cell"><span class="AddInventory-icon-upload"><img src="/img/actonUpload.svg"></span></div>
+                        <div class="AddInventory-cell"><span class="AddInventory-icon-delete"><img src="/img/actionDel.svg"></span></div>
+                    </div><div class="AddInventory-footer">
+                        <button class="AddInventory-btn AddInventory-btn-outline">Add New Inventory Set</button>
+                        <button class="AddInventory-btn AddInventory-btn-filled">Send For Approval</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+
+</body>
+</html>

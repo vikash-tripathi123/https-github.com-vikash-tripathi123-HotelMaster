@@ -676,7 +676,13 @@
     </div>
 
     <script src="~/js/modules/hotel-form.js"></script>
+    <script src="~/js/jquery.min.js"></script>
     <script>
+
+        $(document).ready(function(){
+               alert("Hello") ;
+        })
+
         document.querySelectorAll(".card-header").forEach(header => {
         header.addEventListener("click", () => {
 

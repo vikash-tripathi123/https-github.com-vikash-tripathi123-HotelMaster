@@ -1,0 +1,310 @@
+﻿@{
+    ViewData["Title"] = "Vendor List";
+
+    ViewBag.PageTitle = "Vendor Management";
+
+    ViewBag.PageDescription =
+        "Manage vendors and services.";
+
+    Layout = "~/Views/Shared/Layouts/_MainLayout.cshtml";
+
+    string[] citiy =
+    {
+        "Bangalore",
+        "Delhi",
+        "Goa",
+        "Jaipur",
+        "Kochi",
+        "Mumbai"
+    };
+
+    string[] states =
+    {
+        "Andhra Pradesh",
+        "Delhi",
+        "Goa",
+        "Rajasthan",
+        "Kerela",
+        "Maharashtra"
+    };
+
+    int[] stars = { 3, 4, 5 };
+
+    string[] propertyTypes =
+    {
+        "Luxury Hotel",
+        "Heritage Hotel",
+        "Boutique Hotel",
+        "Hill Lodge"
+    };
+
+    string[] prices =
+    {
+        "₹0 - ₹2,000",
+        "₹2,000 - ₹5,000",
+        "₹5,000 - ₹10,000",
+        "₹10,000+"
+    };
+
+    string[] amenities =
+    {
+        "Swimming Pool",
+        "Wheel Chair Access",
+        "Pet Friendly"
+    };
+}
+
+<div class="wrapper"> 
+
+
+    <!-- MAIN -->
+    <div class="layout">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+
+            <b>Filters</b>
+
+
+
+            <!-- CITY -->
+            <div class="filter-group">
+                <small class="filter-title">City</small>
+                <div class="filter-content">
+                    @foreach (var item in citiy)
+                    {
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="city" value="@item" />
+                            <span class="checkmark"></span>
+                            @item
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <!-- STATE -->
+            <div class="filter-group">
+                <small class="filter-title">State</small>
+                <div class="filter-content">
+                    @foreach (var item in states)
+                    {
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="state" value="@item" />
+                            <span class="checkmark"></span>
+                            @item
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <!-- STAR -->
+            <div class="filter-group">
+                <small class="filter-title">Star Rating</small>
+                <div class="filter-content">
+                    @foreach (var star in stars)
+                    {
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="star" value="@star" />
+                            <span class="checkmark"></span>
+                            @star ★
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <!-- PROPERTY -->
+            <div class="filter-group">
+                <small class="filter-title">Property Type</small>
+                <div class="filter-content">
+                    @foreach (var item in propertyTypes)
+                    {
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="type" value="@item" />
+                            <span class="checkmark"></span>
+                            @item
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <!-- PRICE -->
+            <div class="filter-group">
+                <small class="filter-title">Price Range</small>
+                <div class="filter-content">
+                    @foreach (var item in prices)
+                    {
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="price" value="@item" />
+                            <span class="checkmark"></span>
+                            @item
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <!-- AMENITIES -->
+            <div class="filter-group">
+                <small class="filter-title">Amenities</small>
+                <div class="filter-content">
+                    @foreach (var item in amenities)
+                    {
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="amenity" value="@item" />
+                            <span class="checkmark"></span>
+                            @item
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <!-- CLEAR -->
+            <button class="clear-btn filterClearCta">Clear All Filters</button>
+
+        </div>
+        <!-- TABLE -->
+
+        <div class="vendorTable">
+            <div class="vendor-header-section">
+                <div class="stats-grid-row">
+                    <div class="stat-card-item border-l-blue">
+                        <div class="stat-content-wrapper">
+                            <span class="stat-label-text">HOTEL VENDORS</span>
+                            <span class="stat-main-number">482</span>
+                        </div>
+                        <div class="stat-icon-circle bg-soft-blue"><img src="~/img/kpi-1.svg" /></div>
+                    </div>
+
+                    <div class="stat-card-item border-l-green">
+                        <div class="stat-content-wrapper">
+                            <span class="stat-label-text">TRANSPORT VENDORS</span>
+                            <span class="stat-main-number">315</span>
+                        </div>
+                        <div class="stat-icon-circle bg-soft-green"><img src="~/img/kpi-2.svg" /></div>
+                    </div>
+
+                    <div class="stat-card-item border-l-orange">
+                        <div class="stat-content-wrapper">
+                            <span class="stat-label-text">SIGHTSEEING/GUIDES</span>
+                            <span class="stat-main-number">126</span>
+                        </div>
+                        <div class="stat-icon-circle bg-soft-orange"><img src="~/img/kpi-3.svg" /></div>
+                    </div>
+                </div>
+
+                <div class="search-actions-row">
+                    <div class="search-bar-container">
+                        <span class="vendorSearch"><img src="~/img/vendor-search.svg" /></span>
+                        <input type="text" class="header-search-input" placeholder="Search by Name, Ticket No, Date etc.....">
+                    </div>
+
+                    <div class="right-controls-group">
+                        <span class="sort-by-text">Sort by:</span>
+                        <div class="select-wrapper">
+                            <select class="header-sort-dropdown">
+                                <option>All</option>
+                            </select>
+                        </div>
+                        <a href="Home/VendorRegistrationForm"> <button class="addvendor">Add Vendor</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="vendorTableInner">
+                <table class="table-custom">
+                    <thead>
+                        <tr>
+                            <th>Vendor Name</th>
+                            <th>Service Type</th>
+                            <th>LOCATION</th>
+                            <th>Contact Info</th>
+                            <th>
+                                Payment <br />
+                                Type
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <tr>
+                                <td class="vendor cell-supplier-code">
+                                    <span class="vendor supplier-code-text">Royal Rajasthan Tours</span><br />
+                                    <small class="vendor hotel-name-sub">(Pvt Ltd)</small>
+                                </td>
+                                <td class="vendor cell-hotel-name">
+                                    <strong class="hotel-name-title">Transport & Sightseeing</strong><br>
+                                    @* <small class="hotel-name-sub">Luxury Hotel</small> *@
+                                </td>
+                                <td class="vendor cell-location">
+                                    <span class="vendor location-city">Rajasthan</span><br>
+                                    <small class="vendor location-country">Jaipur</small>
+                                </td>
+                                <td class="vendor cell-star">
+                                    <span class="vendor star-rating">+91 98765 43210</span><br>
+                                    <small class="vendor star-status">info@gmail.com</small>
+                                </td>
+                                <td class="vendor cell-data">
+                                    <span class="vendor data-percentage">Advance</span>
+                                </td>
+
+
+                                <td class="vendor cell-status">
+                                    <span class="vendor status @(i % 2 == 0 ? "status--active" : "status--pending")">
+                                        @(i % 2 == 0
+                                                                            ? "Approved"
+                                                                            : Html.Raw("Pending"))
+                                </span>
+                            </td>
+                            <td class="cell-action">
+                                <span class="vendor action-edit"> <img src="/img/vendor-edit.svg" class="img-fluid" /></span>
+                                <span class="vendor action-print"><img src="/img/vendor-view.svg" class="img-fluid" /></span>
+                            </td>
+                        </tr>
+                                                }
+                    </tbody>
+
+                </table>
+                <div class="table-footer">
+
+                    <!-- Left -->
+                    <div class="pagination-info">
+                        Showing 1–10 of 128 hotels
+                    </div>
+
+                    <!-- Right -->
+                    <div class="pagination-controls">
+
+                        <div class="rows-per-page">
+                            <label>Rows per page:</label>
+                            <div class="dropdown-trigger-box">
+
+                                <select class="dropdown-trigger-box__native">
+                                    <option>10</option>
+                                    <option>10</option>
+
+                                </select>
+                                <div class="dropdown-trigger-box__chevron"></div>
+                            </div>
+                        </div>
+
+                        <div class="inventory-pagination__list">
+                            <button class="inventory-pagination__btn"><img src="~/img/left-arrow.svg" /></button>
+                            <button class="inventory-pagination__btn inventory-pagination__btn--active">1</button>
+                            <button class="inventory-pagination__btn">2</button>
+                            <button class="inventory-pagination__btn">3</button>
+                            <span style="padding: 5px; font-size: 12px; color: #94a3b8;">...</span>
+                            <button class="inventory-pagination__btn">5</button>
+                            <button class="inventory-pagination__btn"><img src="~/img/right-arrow.svg" /></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div> 

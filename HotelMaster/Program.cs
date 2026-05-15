@@ -1,10 +1,16 @@
+using HotelMaster.BusinessServices;
+using HotelMaster.BusinessServices.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
+
 builder.Services
     .AddControllersWithViews()
     .AddRazorRuntimeCompilation();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<IVendorServices, VendorServices>();  
+builder.Services.AddScoped<IVendorServices, VendorServices>();
 
 var app = builder.Build();
 
@@ -23,8 +29,13 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=AddVendor}");
+////pattern: "{controller=Vendor}/{action=Index}");
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=HotelMaster}");
+    pattern: "{controller=Vendor}/{action=Index}/{id?}");
 
 app.Run();

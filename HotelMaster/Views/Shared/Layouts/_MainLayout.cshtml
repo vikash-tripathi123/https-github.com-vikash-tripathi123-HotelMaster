@@ -1,10 +1,23 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>@ViewData["Title"]</title>
+
+
+        <!-- ✅ Anti-Forgery Setup -->
+        @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery antiforgery
+        @{
+            var tokens = antiforgery.GetAndStoreTokens(Context);
+        }
+
+        <!-- ✅ Token in META -->
+        <meta name="csrf-token" content="@tokens.RequestToken" />
+
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -23,6 +36,22 @@
     @* @await Html.PartialAsync("~/Views/Shared/Partials/_Footer.cshtml") *@
 
     <script src="~/js/jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            var token = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajaxSetup({
+                headers: {
+                    'RequestVerificationToken': token
+                }
+            });
+
+        });
+    </script>
+
 
     @RenderSection("Scripts", required: false)
 

@@ -1,5 +1,6 @@
 using HotelMaster.BusinessServices;
 using HotelMaster.BusinessServices.Interfaces;
+using HotelMaster.DataAccess;
 using HotelMaster.Middlewares;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
@@ -34,9 +35,11 @@ builder.Services
     .AddRazorRuntimeCompilation();
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient<IVendorServices, VendorServices>();  
-builder.Services.AddScoped<IVendorServices, VendorServices>();
+builder.Services.AddControllersWithViews(); 
+    builder.Services.AddSingleton<IDataService, DataService>();
+    builder.Services.AddHttpClient<IDataService, DataService>();
+
+ builder.Services.AddScoped<IVendorServices, VendorServices>();
 
 // AntiForgeryToken for secure UI
 builder.Services.AddControllersWithViews(options =>
@@ -99,7 +102,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 
-app.UseSession();
+//app.UseSession();
 
 app.UseAuthorization();
 
@@ -107,7 +110,8 @@ app.UseAuthorization();
 //    name: "default",
 //    pattern: "{controller=Home}/{action=AddVendor}");
 ////pattern: "{controller=Vendor}/{action=Index}");
-app.UseSecurityMiddleware();
+
+//app.UseSecurityMiddleware();
 app.UseGlobalExceptionMiddleware();
 
 app.MapControllerRoute(

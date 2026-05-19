@@ -8,7 +8,7 @@ namespace HotelMaster.Common.CommonMethods
     {
 
         public static string BuildUrlQueryString(
-                            string basePath, Dictionary<string, string> queryParams,  Object obj)
+                            string basePath,  Object obj)
         {
 
             var json = JsonConvert.SerializeObject(obj);

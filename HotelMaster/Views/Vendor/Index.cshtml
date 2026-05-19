@@ -96,6 +96,16 @@
                 </div>
             </div>
 
+            <div class="scroll-filter">
+                <select class="form-control" id="citySelect">
+                    <option value="">-- Select City --</option>
+                    <option value="Addanki">Addanki</option>
+                    <option value="Adoni">Adoni</option>
+                    <option value="Akiveedu">Akiveedu</option>
+
+                </select>
+            </div>
+
             <!-- STAR -->
             <div class="filter-group">
                 <small class="filter-title">Star Rating</small>
@@ -226,78 +236,42 @@
                             <th>ACTION</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <tr>
-                                <td class="vendor cell-supplier-code">
-                                    <span class="vendor supplier-code-text">Royal Rajasthan Tours</span><br />
-                                    <small class="vendor hotel-name-sub">(Pvt Ltd)</small>
-                                </td>
-                                <td class="vendor cell-hotel-name">
-                                    <strong class="hotel-name-title">Transport & Sightseeing</strong><br>
-                                    @* <small class="hotel-name-sub">Luxury Hotel</small> *@
-                                </td>
-                                <td class="vendor cell-location">
-                                    <span class="vendor location-city">Rajasthan</span><br>
-                                    <small class="vendor location-country">Jaipur</small>
-                                </td>
-                                <td class="vendor cell-star">
-                                    <span class="vendor star-rating">+91 98765 43210</span><br>
-                                    <small class="vendor star-status">info@gmail.com</small>
-                                </td>
-                                <td class="vendor cell-data">
-                                    <span class="vendor data-percentage">Advance</span>
-                                </td>
 
-
-                                <td class="vendor cell-status">
-                                    <span class="vendor status @(i % 2 == 0 ? "status--active" : "status--pending")">
-                                        @(i % 2 == 0
-                                                                            ? "Approved"
-                                                                            : Html.Raw("Pending"))
-                                </span>
-                            </td>
-                            <td class="cell-action">
-                                <span class="vendor action-edit"> <img src="/img/vendor-edit.svg" class="img-fluid" /></span>
-                                <span class="vendor action-print"><img src="/img/vendor-view.svg" class="img-fluid" /></span>
-                            </td>
-                        </tr>
-                                                }
+                    <tbody id="data">
+                     
                     </tbody>
 
+          
+                
+                
+                
                 </table>
+
                 <div class="table-footer">
 
                     <!-- Left -->
                     <div class="pagination-info">
-                        Showing 1–10 of 128 hotels
+                        <!-- ✅ This will be filled dynamically -->
                     </div>
 
                     <!-- Right -->
                     <div class="pagination-controls">
 
+                        <!-- Rows per page -->
                         <div class="rows-per-page">
                             <label>Rows per page:</label>
                             <div class="dropdown-trigger-box">
-
                                 <select class="dropdown-trigger-box__native">
-                                    <option>10</option>
-                                    <option>10</option>
-
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
                                 </select>
                                 <div class="dropdown-trigger-box__chevron"></div>
                             </div>
                         </div>
 
+                        <!-- ✅ Pagination buttons (EMPTY — JS will fill) -->
                         <div class="inventory-pagination__list">
-                            <button class="inventory-pagination__btn"><img src="~/img/left-arrow.svg" /></button>
-                            <button class="inventory-pagination__btn inventory-pagination__btn--active">1</button>
-                            <button class="inventory-pagination__btn">2</button>
-                            <button class="inventory-pagination__btn">3</button>
-                            <span style="padding: 5px; font-size: 12px; color: #94a3b8;">...</span>
-                            <button class="inventory-pagination__btn">5</button>
-                            <button class="inventory-pagination__btn"><img src="~/img/right-arrow.svg" /></button>
                         </div>
 
                     </div>
@@ -307,4 +281,7 @@
     </div>
 
 
-</div> 
+</div>
+
+
+<script src="~/js/modules/vendor/vendor.js"></script>

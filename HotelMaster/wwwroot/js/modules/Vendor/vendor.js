@@ -1,128 +1,301 @@
-﻿$(document).ready(function () {
+﻿//$(function () {
+//    stateList();
+//    loadVendors();
+//});
 
-    vendorList();
+$(document).ready(function () {
+   stateList();
+    //cityList();
+    loadVendors();
 });
 
-let pageNumber = 1;
-let pageSize = 10;
 
-function vendorList(pageNumber = 1) {
-    debugger
-    console.log("start vendor list")
+let currentPage = 1;
+const pageSize = 10;
+
+/* =========================
+   LOAD VENDOR LIST
+========================= */
+function loadVendors() {
+
+    let filters = {
+        PageNumber: currentPage,
+        PageSize: pageSize
+    }
+
     $.ajax({
         url: '/Vendor/GetVendorList',
         type: 'GET',
-        data: {
-            PageNumber: pageNumber,
-            PageSize: pageSize
+        data: filters,
+
+        //beforeSend: function () {
+        //    console.log("Loading...");
+        //},
+
+        success: function (response) {
+
+            if (!response || !response.data || response.data.length === 0) {
+                $('#data').html(`
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            No Data Found
+                        </td>
+                    </tr>
+                `);
+
+                $('.inventory-pagination__list').html('');
+                $('.pagination-info').text('');
+                return;
+            }
+
+            renderTable(response.data);
+            renderPagination(response.data[0].totalRecords, currentPage);
         },
+
+        error: function (xhr) {
+
+            console.log(xhr.responseText);
+
+            $('#data').html(`
+                <tr>
+                    <td colspan="7" class="text-center text-danger">
+                        Failed to load vendors
+                    </td>
+                </tr>
+            `);
+        }
+    });
+}
+
+/* =========================
+   TABLE RENDER
+========================= */
+function renderTable(vendors) {
+
+    let html = vendors.map(vendor => `
+        <tr>
+
+            <td class="vendor cell-supplier-code">
+                <span class="vendor supplier-code-text">
+                    ${vendor.business_Name ?? ''}
+                </span>
+                <br />
+                <small class="vendor hotel-name-sub">(Pvt Ltd)</small>
+            </td>
+
+            <td class="vendor cell-hotel-name">
+                <strong class="hotel-name-title">
+                    ${vendor.services ?? ''}
+                </strong>
+            </td>
+
+            <td class="vendor cell-location">
+                <span class="vendor location-city">
+                    ${vendor.stateName ?? ''}
+                </span>
+                <br>
+                <small class="vendor location-country">
+                    ${vendor.cityName ?? ''}
+                </small>
+            </td>
+
+            <td class="vendor cell-star">
+                <span class="vendor star-rating">
+                    ${vendor.phone ?? ''}
+                </span>
+                <br>
+                <small class="vendor star-status">
+                    ${vendor.email ?? ''}
+                </small>
+            </td>
+
+            <td class="vendor cell-data">
+                <span class="vendor data-percentage">
+                    Advance
+                </span>
+            </td>
+
+            <td class="vendor cell-status">
+                <span class="vendor status status--active">
+                    Active
+                </span>
+            </td>
+
+            <td class="cell-action">
+                <span class="vendor action-edit">
+                    <img src="/img/vendor-edit.svg" class="img-fluid" />
+                </span>
+
+                <span class="vendor action-print">
+                    <img src="/img/vendor-view.svg" class="img-fluid" />
+                </span>
+            </td>
+
+        </tr>
+    `).join('');
+
+    $('#data').html(html);
+}
+
+/* =========================
+   PAGINATION
+========================= */
+function renderPagination(totalRecords, page) {
+
+    const totalPages = Math.ceil(totalRecords / pageSize);
+
+    const start = ((page - 1) * pageSize) + 1;
+    const end = Math.min(page * pageSize, totalRecords);
+
+    $('.pagination-info')
+        .text(`Showing ${start} - ${end} of ${totalRecords} vendors`);
+
+    let html = '';
+
+    // PREVIOUS
+    html += `
+        <button class="inventory-pagination__btn"
+            ${page === 1 ? 'disabled' : ''}
+            data-page="${page - 1}">
+            ◀
+        </button>
+    `;
+
+    // PAGE NUMBERS
+    for (let i = 1; i <= totalPages; i++) {
+
+        html += `
+            <button class="inventory-pagination__btn
+                ${page === i ? 'inventory-pagination__btn--active' : ''}"
+                data-page="${i}">
+                ${i}
+            </button>
+        `;
+    }
+
+    // NEXT
+    html += `
+        <button class="inventory-pagination__btn"
+            ${page === totalPages ? 'disabled' : ''}
+            data-page="${page + 1}">
+            ▶
+        </button>
+    `;
+
+    $('.inventory-pagination__list').html(html);
+}
+
+
+// State List API
+function stateList() {
+    $.ajax({
+        url: '/Vendor/StateList',
+        type: 'GET',
 
 
         success: function (response) {
-            debugger
+            console.log("State Response:", response);
 
-            console.log("Get vendor list")
-            console.log("vendor list", response)
-            let totalrecords = response.data[0].totalRecords
-            var totalPages = Math.ceil(totalrecords / pageSize);
+            // ✅ Clear dropdown
+            $("#stateSelect").empty();
 
-            let start = ((pageNumber - 1) * pageSize) + 1;
-            let end = Math.min(pageNumber * pageSize, totalrecords);
+            // ✅ Default option
+            $("#stateSelect").append('<option value="">-- Select State --</option>');
 
-            console.log(totalrecords, '--', totalPages);
-
-            var html = "";
-            response.data.forEach((data, index) => {
-
-                html += `   {<tr>
-                                <td class="vendor cell-supplier-code">
-                                    <span class="vendor supplier-code-text">${data?.business_Name}</span><br />
-                                    <small class="vendor hotel-name-sub">(Pvt Ltd)</small>
-                                </td>
-                                <td class="vendor cell-hotel-name">
-                                    <strong class="hotel-name-title">${data?.services}</strong><br>
-                                    @* <small class="hotel-name-sub">Luxury Hotel</small> *@
-                                </td>
-                                <td class="vendor cell-location">
-                                    <span class="vendor location-city">${data?.stateName}</span><br>
-                                    <small class="vendor location-country">${data?.cityName}</small>
-                                </td>
-                                <td class="vendor cell-star">
-                                    <span class="vendor star-rating">${data?.phone}</span><br>
-                                    <small class="vendor star-status">${data?.email}</small>
-                                </td>
-                                <td class="vendor cell-data">
-                                    <span class="vendor data-percentage">Advance</span>
-                                </td>
-                                 <td class="vendor cell-status">
-                                    <span class="vendor status status--active">Advance</span>
-                                </td>
-
-                            <td class="cell-action">
-                                <span class="vendor action-edit"> <img src="/img/vendor-edit.svg" class="img-fluid" /></span>
-                                <span class="vendor action-print"><img src="/img/vendor-view.svg" class="img-fluid" /></span>
-                            </td>
-                        </tr>
-                            }`
-            })
-
-            $('#data').html(html);
-
-            $('.pagination-info').text(`Showing ${start}–${end} of ${totalrecords} vendors`);
-
-
-            let paginationHtml = "";
-
-            // PREVIOUS BUTTON
-            paginationHtml += `
-                <button class="inventory-pagination__btn"
-                    onclick="loadData(${pageNumber - 1})"
-                    ${pageNumber === 1 ? 'disabled' : ''}>
-                    ◀
-                </button>`;
-
-            // PAGE NUMBERS
-            for (let i = 1; i <= totalPages; i++) {
-
-                if (i === 1 || i === totalPages || Math.abs(i - pageNumber) <= 1) {
-
-                    paginationHtml += `
-                        <button class="inventory-pagination__btn
-                            ${i === pageNumber ? 'inventory-pagination__btn--active' : ''}"
-                            onclick="loadData(${i})">
-                            ${i}
-                        </button>`;
-                }
-                else if (i === pageNumber - 2 || i === pageNumber + 2) {
-                    paginationHtml += `<span style="padding:5px;">...</span>`;
-                }
+            // ✅ Check no data
+            if (!response || response.length === 0) {
+                $("#stateSelect").append('<option>No data available</option>');
+                return;
             }
 
-            // NEXT BUTTON
-            paginationHtml += `
-                <button class="inventory-pagination__btn"
-                    onclick="loadPage(${pageNumber + 1})"
-                    ${pageNumber === totalPages ? 'disabled' : ''}>
-                    ▶
-                </button>`;
+            // ✅ Bind data
+            response.data.forEach((item, data) => {
 
-            // APPLY TO UI
-            $('.inventory-pagination__list').html(paginationHtml);
+                $("#stateSelect").append(
+                    `<option value="${item.stateId}">${item.stateName}</option>`
+                );
+            });
 
+              
+           
         },
 
-        error: function (xhr, status, error) {
-            console.log("Error Status:", status);
-            console.log("Error Message:", error);
-            console.log("Response:", xhr.responseText);
 
-            alert("Something went wrong while fetching hotel data.");
+        error: function (xhr) {
+            debugger
+            // ✅ Clear dropdown
+            $("#stateSelect").empty();
+
+            // ✅ Default option
+            $("#stateSelect").append('<option value="">-- Select State --</option>');
+            console.log("State Error:", xhr.responseText);
         }
     });
-
 }
 
-function loadData(pageNumber = 1) {
-    pageNumber = 1
-    vendorList();
+//  City List API
+
+// CORRECT: Passes the function reference
+document.querySelector("#stateSelect").addEventListener("change", cityList);
+
+
+function cityList() {
+    debugger
+    var selectedValue = $('#stateSelect').val();
+
+    console.log(selectedValue)
+    $.ajax({
+        url: '/Masters/CityList',
+        type: 'GET',
+        data: {
+            stateId: selectedValue
+        },
+        success: function (response) {
+            debugger
+            console.log("City Response:", response);
+
+            // ✅ Clear dropdown
+            $("#citySelect").empty();
+
+            // ✅ Default option
+            $("#citySelect").append('<option value="">-- Select City --</option>');
+
+            // ✅ Check no data
+            if (!response || response.length === 0) {
+                $("#citySelect").append('<option>No data available</option>');
+                return;
+            }
+
+            // ✅ Bind data
+            response.data.forEach((item, index) => {
+
+                $("#citySelect").append(
+                    `<option value="${item.cityId}">${item.cityName}</option>`
+                );
+            });
+        },
+
+        error: function (xhr) {
+            debugger
+            console.log("City Error:", xhr.responseText);
+            $("#citySelect").empty();
+
+            // ✅ Default option
+            $("#citySelect").append('<option value="">-- Select City --</option>');
+
+        }
+    });
 }
+
+
+/* =========================
+   PAGINATION CLICK
+========================= */
+$(document).on('click', '.inventory-pagination__btn', function () {
+
+    const page = $(this).data('page');
+
+    if (page) {
+        loadVendors(page);
+    }
+});

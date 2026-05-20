@@ -1,6 +1,8 @@
 ﻿using HotelMaster.BusinessServices.Interfaces;
+using HotelMaster.BusinessServices.Services;
 using HotelMaster.Models;
 using HotelMaster.Models.RequestModels.VendorModel;
+using HotelMaster.Models.ResponseModels.MasterModels;
 using HotelMaster.Models.ResponseModels.VendorModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,13 +10,17 @@ namespace HotelMaster.Controllers
 {
     public class VendorController : Controller
     {
-        private readonly IVendorServices _verndorService; 
-        public VendorController(IVendorServices vendorServices)
+        private readonly IVendorServices _verndorService;
+        private readonly IMasterServices _masterServices;
+        public VendorController(IVendorServices vendorServices, IMasterServices masterServices)
         {
             _verndorService = vendorServices;   
+            _masterServices = masterServices;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+           // ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
+
             return View();
         }
 
@@ -26,6 +32,15 @@ namespace HotelMaster.Controllers
 
             return Json(response); 
          
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> StateList()
+        {
+            ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
+
+            return View("Index", response.Data);
         }
     }
 }

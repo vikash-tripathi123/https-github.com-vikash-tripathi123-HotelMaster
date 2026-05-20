@@ -6,7 +6,7 @@ using HotelMaster.Models.RequestModels.VendorModel;
 using HotelMaster.Models.ResponseModels.VendorModels;
 using System;
 
-namespace HotelMaster.BusinessServices
+namespace HotelMaster.BusinessServices.Services
 {
     public class VendorServices : IVendorServices
     {

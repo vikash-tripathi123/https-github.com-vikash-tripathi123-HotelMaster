@@ -1,5 +1,9 @@
-﻿@{
+﻿@using HotelMaster.Models.ResponseModels.MasterModels
+@{
+    @model List<StateResponse>
+    
     ViewData["Title"] = "Vendor List";
+
 
     ViewBag.PageTitle = "Vendor Management";
 
@@ -54,16 +58,64 @@
     };
 }
 
+<style>
+
+    .scroll-filter {
+        max-height: 160px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+        /* Fix the select width */
+        .scroll-filter select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+    
+
+</style>
+
 <div class="wrapper"> 
 
 
     <!-- MAIN -->
     <div class="layout">
         <!-- SIDEBAR -->
+     
         <div class="sidebar">
 
             <b>Filters</b>
 
+            <!-- Service Category -->
+            <div class="filter-group">
+                <small class="filter-title">Service Category</small>
+                <div class="filter-content">
+                    @foreach (var item in propertyTypes)
+                    {
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="type" value="@item" />
+                            <span class="checkmark"></span>
+                            @item
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <!-- Property Type -->
+            <div class="filter-group">
+                <small class="filter-title">Property Type</small>
+                <div class="filter-content">
+                    @foreach (var item in propertyTypes)
+                    {
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="type" value="@item" />
+                            <span class="checkmark"></span>
+                            @item
+                        </label>
+                    }
+                </div>
+            </div>
 
 
             <!-- CITY -->
@@ -97,79 +149,50 @@
             </div>
 
             <div class="scroll-filter">
-                <select class="form-control" id="citySelect">
-                    <option value="">-- Select City --</option>
+                <select class="form-control" id="stateSelect">
+                    <option value="">-- Select State --</option>
+
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <option value="@item.StateId">@item.StateName</option>
+                        }
+                    }
+                </select>
+            </div>
+           
+
+           @*  <div class="scroll-filter">
+                <select class="form-control" id="stateSelect">
+                    @*  <option value="">-- Select City --</option>
                     <option value="Addanki">Addanki</option>
                     <option value="Adoni">Adoni</option>
-                    <option value="Akiveedu">Akiveedu</option>
+                    <option value="Akiveedu">Akiveedu</option> *@
+
+              @*  </select>
+            </div> *@
+
+              
+            <div class="scroll-filter">
+                <select class="form-control" id="citySelect">
+                   @*  <option value="">-- Select City --</option>
+                    <option value="Addanki">Addanki</option>
+                    <option value="Adoni">Adoni</option>
+                    <option value="Akiveedu">Akiveedu</option> *@
 
                 </select>
             </div>
 
-            <!-- STAR -->
-            <div class="filter-group">
-                <small class="filter-title">Star Rating</small>
-                <div class="filter-content">
-                    @foreach (var star in stars)
-                    {
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="star" value="@star" />
-                            <span class="checkmark"></span>
-                            @star ★
-                        </label>
-                    }
-                </div>
-            </div>
-
-            <!-- PROPERTY -->
-            <div class="filter-group">
-                <small class="filter-title">Property Type</small>
-                <div class="filter-content">
-                    @foreach (var item in propertyTypes)
-                    {
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="type" value="@item" />
-                            <span class="checkmark"></span>
-                            @item
-                        </label>
-                    }
-                </div>
-            </div>
-
-            <!-- PRICE -->
-            <div class="filter-group">
-                <small class="filter-title">Price Range</small>
-                <div class="filter-content">
-                    @foreach (var item in prices)
-                    {
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="price" value="@item" />
-                            <span class="checkmark"></span>
-                            @item
-                        </label>
-                    }
-                </div>
-            </div>
-
-            <!-- AMENITIES -->
-            <div class="filter-group">
-                <small class="filter-title">Amenities</small>
-                <div class="filter-content">
-                    @foreach (var item in amenities)
-                    {
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="amenity" value="@item" />
-                            <span class="checkmark"></span>
-                            @item
-                        </label>
-                    }
-                </div>
-            </div>
+      
 
             <!-- CLEAR -->
             <button class="clear-btn filterClearCta">Clear All Filters</button>
 
         </div>
+       
+        
+        
         <!-- TABLE -->
 
         <div class="vendorTable">

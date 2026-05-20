@@ -4943,3 +4943,9 @@ vendorTable .table-custom th:nth-child(2n+4) {
         grid-template-columns: 1fr;
     }
 }
+
+
+.scroll-filter {
+    max-height: 160px;
+    overflow-y: auto;
+}

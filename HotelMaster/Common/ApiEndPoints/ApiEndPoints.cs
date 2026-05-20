@@ -2,6 +2,13 @@
 {
     public static class ApiEndPoints
     {
-        public const string VENDOR_LIST = "VendorMasters/get_vendor_list"; 
+        public const string VENDOR_LIST = "VendorMasters/get_vendor_list";
+
+
+
+        //MasterService
+        public const string STATE_LIST = "Masters/get_state_list";
+
+        public const string CITY_LIST = "Masters/get_city_list";
     }
 }

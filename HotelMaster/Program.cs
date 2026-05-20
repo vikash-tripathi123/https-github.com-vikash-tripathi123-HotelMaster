@@ -1,5 +1,5 @@
-using HotelMaster.BusinessServices;
 using HotelMaster.BusinessServices.Interfaces;
+using HotelMaster.BusinessServices.Services;
 using HotelMaster.DataAccess;
 using HotelMaster.Middlewares;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +38,7 @@ builder.Services
 builder.Services.AddControllersWithViews(); 
     builder.Services.AddSingleton<IDataService, DataService>();
     builder.Services.AddHttpClient<IDataService, DataService>();
-
+    builder.Services.AddScoped<IMasterServices, MasterServices>();
  builder.Services.AddScoped<IVendorServices, VendorServices>();
 
 // AntiForgeryToken for secure UI

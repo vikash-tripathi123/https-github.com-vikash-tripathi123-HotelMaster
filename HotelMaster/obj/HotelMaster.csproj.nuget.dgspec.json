@@ -69,6 +69,10 @@
             "Serilog.Sinks.Console": {
               "target": "Package",
               "version": "[6.1.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.18.0, )"
             }
           },
           "imports": [

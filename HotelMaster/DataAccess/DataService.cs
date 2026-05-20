@@ -19,19 +19,23 @@ namespace HotelMaster.DataAccess
         }
 
 
-        public async Task<T> GetAsync<T>(string url, object? parameter)
+        public async Task<T> GetAsync<T>(string url, object? parameter = null)
         {
            // string? token = _contextAccessor.Session.GetString("AccessToken");
 
             //_httpClient.DefaultRequestHeaders.Authorization = new  AuthenticationHeaderValue("Bearer", "your_token_here");
 
            string uri = "";
-            if (parameter != null) {
+            if (parameter != null)
+            {
 
                 uri = CommonMethods.BuildUrlQueryString(url, parameter);
             }
+            else {
+                uri = url; 
+            }
 
-            var response = await _httpClient.GetAsync(uri);
+                var response = await _httpClient.GetAsync(uri);
 
             // ✅ Deserialize into T
             var result = await response.Content.ReadFromJsonAsync<T>();

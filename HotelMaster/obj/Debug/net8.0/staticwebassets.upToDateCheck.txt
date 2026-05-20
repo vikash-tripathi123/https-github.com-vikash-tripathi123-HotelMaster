@@ -1,4 +1,4 @@
-wwwroot\css\site.css
+wwwroot\js\modules\Vendor\vendor.js
 wwwroot\favicon.ico
 wwwroot\img\actionCopy.svg
 wwwroot\img\actionDel.svg
@@ -127,3 +127,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\site.css

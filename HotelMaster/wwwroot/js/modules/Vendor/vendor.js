@@ -1,10 +1,6 @@
-﻿//$(function () {
-//    stateList();
-//    loadVendors();
-//});
-
+﻿
 $(document).ready(function () {
-   stateList();
+  // stateList();
     //cityList();
     loadVendors();
 });
@@ -13,28 +9,71 @@ $(document).ready(function () {
 let currentPage = 1;
 const pageSize = 10;
 
+document.querySelectorAll('input[name="service"]').forEach(el => {
+    el.addEventListener("click", function () {
+        debugger;
+        let selectedServices = Array.from(
+            document.querySelectorAll('input[name="service"]:checked')
+        ).map(x => x.value);
+
+        console.log(selectedServices);
+
+        // Call your function if needed
+        loadVendors();
+    });
+});
+``
+
+
 /* =========================
    LOAD VENDOR LIST
 ========================= */
 function loadVendors() {
 
+    debugger;
+
+    // Service IDs
+    let serviceIds = [...document.querySelectorAll('input[name="service"]:checked')]
+        .map(x => x.value);
+
+    // Payment Types
+    let paymentTypes = [...document.querySelectorAll('input[name="payment"]:checked')]
+        .map(x => x.value);
+
+    // Dropdowns
+    let StateId = document.querySelector("#stateSelect")?.value || 0;
+
+    let CityId = document.querySelector("#citySelect")?.value || 0;
+
     let filters = {
+
+        ServiceCategory: serviceIds,
+
+        PaymentType: paymentTypes,
+
+        StateId: StateId,
+
+        CityId: CityId,
+
         PageNumber: currentPage,
+
         PageSize: pageSize
-    }
+    };
 
     $.ajax({
-        url: '/Vendor/GetVendorList',
-        type: 'GET',
-        data: filters,
 
-        //beforeSend: function () {
-        //    console.log("Loading...");
-        //},
+        url: '/Vendor/GetVendorList',
+
+        type: 'GET',
+
+        traditional: true,
+
+        data: filters,
 
         success: function (response) {
 
             if (!response || !response.data || response.data.length === 0) {
+
                 $('#data').html(`
                     <tr>
                         <td colspan="7" class="text-center">
@@ -44,12 +83,18 @@ function loadVendors() {
                 `);
 
                 $('.inventory-pagination__list').html('');
+
                 $('.pagination-info').text('');
+
                 return;
             }
 
             renderTable(response.data);
-            renderPagination(response.data[0].totalRecords, currentPage);
+
+            renderPagination(
+                response.data[0].totalRecords,
+                currentPage
+            );
         },
 
         error: function (xhr) {
@@ -66,7 +111,6 @@ function loadVendors() {
         }
     });
 }
-
 /* =========================
    TABLE RENDER
 ========================= */
@@ -185,112 +229,6 @@ function renderPagination(totalRecords, page) {
     $('.inventory-pagination__list').html(html);
 }
 
-
-// State List API
-function stateList() {
-    $.ajax({
-        url: '/Vendor/StateList',
-        type: 'GET',
-
-
-        success: function (response) {
-            console.log("State Response:", response);
-
-            // ✅ Clear dropdown
-            $("#stateSelect").empty();
-
-            // ✅ Default option
-            $("#stateSelect").append('<option value="">-- Select State --</option>');
-
-            // ✅ Check no data
-            if (!response || response.length === 0) {
-                $("#stateSelect").append('<option>No data available</option>');
-                return;
-            }
-
-            // ✅ Bind data
-            response.data.forEach((item, data) => {
-
-                $("#stateSelect").append(
-                    `<option value="${item.stateId}">${item.stateName}</option>`
-                );
-            });
-
-              
-           
-        },
-
-
-        error: function (xhr) {
-            debugger
-            // ✅ Clear dropdown
-            $("#stateSelect").empty();
-
-            // ✅ Default option
-            $("#stateSelect").append('<option value="">-- Select State --</option>');
-            console.log("State Error:", xhr.responseText);
-        }
-    });
-}
-
-//  City List API
-
-// CORRECT: Passes the function reference
-document.querySelector("#stateSelect").addEventListener("change", cityList);
-
-
-function cityList() {
-    debugger
-    var selectedValue = $('#stateSelect').val();
-
-    console.log(selectedValue)
-    $.ajax({
-        url: '/Masters/CityList',
-        type: 'GET',
-        data: {
-            stateId: selectedValue
-        },
-        success: function (response) {
-            debugger
-            console.log("City Response:", response);
-
-            // ✅ Clear dropdown
-            $("#citySelect").empty();
-
-            // ✅ Default option
-            $("#citySelect").append('<option value="">-- Select City --</option>');
-
-            // ✅ Check no data
-            if (!response || response.length === 0) {
-                $("#citySelect").append('<option>No data available</option>');
-                return;
-            }
-
-            // ✅ Bind data
-            response.data.forEach((item, index) => {
-
-                $("#citySelect").append(
-                    `<option value="${item.cityId}">${item.cityName}</option>`
-                );
-            });
-        },
-
-        error: function (xhr) {
-            debugger
-            console.log("City Error:", xhr.responseText);
-            $("#citySelect").empty();
-
-            // ✅ Default option
-            $("#citySelect").append('<option value="">-- Select City --</option>');
-
-        }
-    });
-}
-
-
-/* =========================
-   PAGINATION CLICK
-========================= */
 $(document).on('click', '.inventory-pagination__btn', function () {
 
     const page = $(this).data('page');
@@ -299,3 +237,97 @@ $(document).on('click', '.inventory-pagination__btn', function () {
         loadVendors(page);
     }
 });
+
+// when city change
+document.querySelector("#stateSelect").addEventListener("change", cityList);
+document.querySelector("#stateSelect").addEventListener("change", loadVendors);
+document.querySelector("#citySelect").addEventListener("change", loadVendors);
+function cityList() {
+    debugger
+    var selectedValue = $('#stateSelect').val();
+
+    console.log(selectedValue)
+    if (selectedValue > 0) {
+
+        $.ajax({
+            url: '/Masters/CityList',
+            type: 'GET',
+            data: {
+                stateId: selectedValue
+            },
+            success: function (response) {
+                debugger
+                console.log("City Response:", response);
+
+                // ✅ Clear dropdown
+                $("#citySelect").empty();
+
+                // ✅ Default option
+                $("#citySelect").append('<option value="">-- Select City --</option>');
+
+                // ✅ Check no data
+                if (!response || response.length === 0) {
+                    $("#citySelect").append('<option>No data available</option>');
+                    return;
+                }
+
+                // ✅ Bind data
+                response.data.forEach((item, index) => {
+
+                    $("#citySelect").append(
+                        `<option value="${item.cityId}">${item.cityName}</option>`
+                    );
+                });
+            },
+
+            error: function (xhr) {
+                debugger
+                console.log("City Error:", xhr.responseText);
+                $("#citySelect").empty();
+
+                // ✅ Default option
+                $("#citySelect").append('<option value="">-- Select City --</option>');
+
+            }
+        });
+    }
+    else {
+
+     
+        $("#citySelect").empty();
+
+        // ✅ Default option
+        $("#citySelect").html('<option value="">-- Select City --</option>');
+    }
+}
+
+
+/* =========================
+   PAGINATION CLICK
+========================= */
+
+
+//clear filters
+document.querySelector("#clearFilter").addEventListener("click", clearFilters); 
+function clearFilters() {
+
+    // ✅ Uncheck all service checkboxes
+    document.querySelectorAll('input[name="service"]').forEach(x => x.checked = false);
+
+    // ✅ Uncheck all payment checkboxes
+    document.querySelectorAll('input[name="payment"]').forEach(x => x.checked = false);
+
+    // ✅ Reset dropdowns
+    let stateEl = document.querySelector("#stateSelect");
+    if (stateEl) stateEl.value = 0;
+
+    let cityEl = document.querySelector("#citySelect");
+    if (cityEl) cityEl.value = 0;
+
+    // ✅ Reset pagination
+    let pageNumber = 1;
+    let pageSize = 10;
+
+    // ✅ Reload data
+    loadVendors();
+}

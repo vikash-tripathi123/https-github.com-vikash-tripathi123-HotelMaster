@@ -39,5 +39,21 @@ namespace HotelMaster.Controllers
             return Json(response);
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> PropertTypeList()
+        {
+            ApiResponse<List<GetPropertyResponse>> response = await _masterServices.PropertyTypeList();
+
+            return Json(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ServiceMasterList()
+        {
+            ApiResponse<List<GetServiceMasterResponse>> response = await _masterServices.ServiceMasterList();
+
+            return Json(response);
+        }
     }
 }

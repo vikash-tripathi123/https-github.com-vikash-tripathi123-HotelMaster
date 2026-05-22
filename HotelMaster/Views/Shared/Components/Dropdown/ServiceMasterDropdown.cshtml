@@ -1,0 +1,23 @@
+﻿@using HotelMaster.Models.ResponseModels.MasterModels
+@model List<GetServiceMasterResponse>
+
+<div class="filter-group">
+    <small class="filter-title">Service Category</small>
+
+    <div class="filter-content">
+        @foreach (var item in Model)
+        {
+            <label class="custom-checkbox">
+
+                <input type="checkbox"
+                       name="service"
+                       value="@item.Serviceid" />
+
+                <span class="checkmark"></span>
+
+                @item.Servicename
+
+            </label>
+        }
+    </div>
+</div>

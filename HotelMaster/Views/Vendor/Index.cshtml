@@ -1,198 +1,84 @@
-﻿@using HotelMaster.Models.ResponseModels.MasterModels
-@{
-    @model List<StateResponse>
+﻿@using HotelMaster.Models.ResponseModels.MasterModels @{
     
-    ViewData["Title"] = "Vendor List";
+    ViewData["Title"] ="Vendor List"; 
+    
+    ViewBag.PageTitle = "Vendor Management"; 
+    
+    ViewBag.PageDescription= "Manage vendors and services."; 
+    
+    Layout ="~/Views/Shared/Layouts/_MainLayout.cshtml";
 
-
-    ViewBag.PageTitle = "Vendor Management";
-
-    ViewBag.PageDescription =
-        "Manage vendors and services.";
-
-    Layout = "~/Views/Shared/Layouts/_MainLayout.cshtml";
-
-    string[] citiy =
-    {
-        "Bangalore",
-        "Delhi",
-        "Goa",
-        "Jaipur",
-        "Kochi",
-        "Mumbai"
-    };
-
-    string[] states =
-    {
-        "Andhra Pradesh",
-        "Delhi",
-        "Goa",
-        "Rajasthan",
-        "Kerela",
-        "Maharashtra"
-    };
-
-    int[] stars = { 3, 4, 5 };
-
-    string[] propertyTypes =
-    {
-        "Luxury Hotel",
-        "Heritage Hotel",
-        "Boutique Hotel",
-        "Hill Lodge"
-    };
-
-    string[] prices =
-    {
-        "₹0 - ₹2,000",
-        "₹2,000 - ₹5,000",
-        "₹5,000 - ₹10,000",
-        "₹10,000+"
-    };
-
-    string[] amenities =
-    {
-        "Swimming Pool",
-        "Wheel Chair Access",
-        "Pet Friendly"
+    string[] Payment =
+{
+        "Advance",
+        "BTC"
+        
     };
 }
 
 <style>
-
     .scroll-filter {
         max-height: 160px;
         overflow-y: auto;
         overflow-x: hidden;
     }
 
-        /* Fix the select width */
-        .scroll-filter select {
+      /* Fix the select width */
+     .scroll-filter select {
             width: 100%;
             box-sizing: border-box;
         }
-
-    
-
 </style>
 
-<div class="wrapper"> 
-
-
+<div class="wrapper">
     <!-- MAIN -->
     <div class="layout">
         <!-- SIDEBAR -->
-     
-        <div class="sidebar">
 
+        <div class="sidebar">
             <b>Filters</b>
 
             <!-- Service Category -->
-            <div class="filter-group">
-                <small class="filter-title">Service Category</small>
-                <div class="filter-content">
-                    @foreach (var item in propertyTypes)
-                    {
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="type" value="@item" />
-                            <span class="checkmark"></span>
-                            @item
-                        </label>
-                    }
-                </div>
-            </div>
+            @await Component.InvokeAsync("ServiceMaster")
 
             <!-- Property Type -->
-            <div class="filter-group">
-                <small class="filter-title">Property Type</small>
+            @* @await Component.InvokeAsync("Property") *@
+           <div class="filter-group">
+            <small class="filter-title">Payment</small>
                 <div class="filter-content">
-                    @foreach (var item in propertyTypes)
+
+                    @foreach (var item in Payment)
                     {
                         <label class="custom-checkbox">
-                            <input type="checkbox" name="type" value="@item" />
+
+                            <input type="checkbox"
+                                   name="payment"
+                                   value="@item" />
+
                             <span class="checkmark"></span>
+
                             @item
+
                         </label>
                     }
-                </div>
-            </div>
 
-
-            <!-- CITY -->
-            <div class="filter-group">
-                <small class="filter-title">City</small>
-                <div class="filter-content">
-                    @foreach (var item in citiy)
-                    {
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="city" value="@item" />
-                            <span class="checkmark"></span>
-                            @item
-                        </label>
-                    }
                 </div>
-            </div>
+</div>
 
             <!-- STATE -->
-            <div class="filter-group">
-                <small class="filter-title">State</small>
-                <div class="filter-content">
-                    @foreach (var item in states)
-                    {
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="state" value="@item" />
-                            <span class="checkmark"></span>
-                            @item
-                        </label>
-                    }
-                </div>
-            </div>
+            @await Component.InvokeAsync("Dropdown")
 
-            <div class="scroll-filter">
-                <select class="form-control" id="stateSelect">
-                    <option value="">-- Select State --</option>
-
-                    @if (Model != null && Model.Count > 0)
-                    {
-                        foreach (var item in Model)
-                        {
-                            <option value="@item.StateId">@item.StateName</option>
-                        }
-                    }
-                </select>
-            </div>
-           
-
-           @*  <div class="scroll-filter">
-                <select class="form-control" id="stateSelect">
-                    @*  <option value="">-- Select City --</option>
-                    <option value="Addanki">Addanki</option>
-                    <option value="Adoni">Adoni</option>
-                    <option value="Akiveedu">Akiveedu</option> *@
-
-              @*  </select>
-            </div> *@
-
-              
+            <!-- City-->
             <div class="scroll-filter">
                 <select class="form-control" id="citySelect">
-                   @*  <option value="">-- Select City --</option>
-                    <option value="Addanki">Addanki</option>
-                    <option value="Adoni">Adoni</option>
-                    <option value="Akiveedu">Akiveedu</option> *@
-
+                    <option value="" selected>-- Select City --</option>
                 </select>
             </div>
 
-      
-
             <!-- CLEAR -->
-            <button class="clear-btn filterClearCta">Clear All Filters</button>
-
+            <button class="clear-btn filterClearCta" id="clearFilter">Clear All Filters</button>
         </div>
-       
-        
-        
+
         <!-- TABLE -->
 
         <div class="vendorTable">
@@ -203,7 +89,9 @@
                             <span class="stat-label-text">HOTEL VENDORS</span>
                             <span class="stat-main-number">482</span>
                         </div>
-                        <div class="stat-icon-circle bg-soft-blue"><img src="~/img/kpi-1.svg" /></div>
+                        <div class="stat-icon-circle bg-soft-blue">
+                            <img src="~/img/kpi-1.svg" />
+                        </div>
                     </div>
 
                     <div class="stat-card-item border-l-green">
@@ -211,7 +99,9 @@
                             <span class="stat-label-text">TRANSPORT VENDORS</span>
                             <span class="stat-main-number">315</span>
                         </div>
-                        <div class="stat-icon-circle bg-soft-green"><img src="~/img/kpi-2.svg" /></div>
+                        <div class="stat-icon-circle bg-soft-green">
+                            <img src="~/img/kpi-2.svg" />
+                        </div>
                     </div>
 
                     <div class="stat-card-item border-l-orange">
@@ -219,14 +109,20 @@
                             <span class="stat-label-text">SIGHTSEEING/GUIDES</span>
                             <span class="stat-main-number">126</span>
                         </div>
-                        <div class="stat-icon-circle bg-soft-orange"><img src="~/img/kpi-3.svg" /></div>
+                        <div class="stat-icon-circle bg-soft-orange">
+                            <img src="~/img/kpi-3.svg" />
+                        </div>
                     </div>
                 </div>
 
                 <div class="search-actions-row">
                     <div class="search-bar-container">
-                        <span class="vendorSearch"><img src="~/img/vendor-search.svg" /></span>
-                        <input type="text" class="header-search-input" placeholder="Search by Name, Ticket No, Date etc.....">
+                        <span class="vendorSearch">
+                            <img src="~/img/vendor-search.svg" />
+                        </span>
+                        <input type="text"
+                               class="header-search-input"
+                               placeholder="Search by Name, Ticket No, Date etc....." />
                     </div>
 
                     <div class="right-controls-group">
@@ -236,7 +132,9 @@
                                 <option>All</option>
                             </select>
                         </div>
-                        <a href="Home/VendorRegistrationForm"> <button class="addvendor">Add Vendor</button></a>
+                        <a href="Home/VendorRegistrationForm">
+                            <button class="addvendor">Add Vendor</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -253,25 +151,15 @@
                                 Type
                             </th>
 
-                            <th>
-                                Status
-                            </th>
+                            <th>Status</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
 
-                    <tbody id="data">
-                     
-                    </tbody>
-
-          
-                
-                
-                
+                    <tbody id="data"></tbody>
                 </table>
 
                 <div class="table-footer">
-
                     <!-- Left -->
                     <div class="pagination-info">
                         <!-- ✅ This will be filled dynamically -->
@@ -279,7 +167,6 @@
 
                     <!-- Right -->
                     <div class="pagination-controls">
-
                         <!-- Rows per page -->
                         <div class="rows-per-page">
                             <label>Rows per page:</label>
@@ -294,17 +181,12 @@
                         </div>
 
                         <!-- ✅ Pagination buttons (EMPTY — JS will fill) -->
-                        <div class="inventory-pagination__list">
-                        </div>
-
+                        <div class="inventory-pagination__list"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>
-
 
 <script src="~/js/modules/vendor/vendor.js"></script>

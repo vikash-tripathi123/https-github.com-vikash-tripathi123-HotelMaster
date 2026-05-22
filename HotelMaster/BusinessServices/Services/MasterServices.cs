@@ -65,5 +65,55 @@ namespace HotelMaster.BusinessServices.Services
                 );
             }
         }
+
+        public async Task<ApiResponse<List<GetPropertyResponse>>> PropertyTypeList()
+        {
+            try
+            {
+
+                string url = BASEURL + ApiEndPoints.PROPERTY_TYPE;
+                var response = await _dataService.GetAsync<ApiResponse<List<GetPropertyResponse>>>(url, null);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "API is not reachable. Please ensure the service is running.",
+                    ex
+                );
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out. Please try again later.",
+                    ex
+                );
+            }
+        }
+
+        public async Task<ApiResponse<List<GetServiceMasterResponse>>> ServiceMasterList()
+        {
+            try
+            {
+
+                string url = BASEURL + ApiEndPoints.SERVICE_MASTERS;
+                var response = await _dataService.GetAsync<ApiResponse<List<GetServiceMasterResponse>>>(url, null);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "API is not reachable. Please ensure the service is running.",
+                    ex
+                );
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out. Please try again later.",
+                    ex
+                );
+            }
+        }
     }
 }

@@ -1,0 +1,16 @@
+﻿@using HotelMaster.Models.ResponseModels.MasterModels
+@model List<StateResponse>
+
+<div class="scroll-filter">
+    <select class="form-control" id="stateSelect">
+        <option value=0 selected>-- Select State --</option>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <option value="@item.StateId">@item.StateName</option>
+            }
+        }
+    </select>
+</div>

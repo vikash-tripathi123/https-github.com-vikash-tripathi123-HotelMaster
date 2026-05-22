@@ -1,0 +1,16 @@
+﻿@using HotelMaster.Models.ResponseModels.MasterModels
+@model List<GetPropertyResponse>
+
+<div class="filter-group">
+    <small class="filter-title">Property Type</small>
+    <div class="filter-content">
+        @foreach (var item in Model)
+        {
+            <label class="custom-checkbox">
+                <input type="checkbox" name="type" value="@item.PropertyType_Id" id="property" />
+                <span class="checkmark"></span>
+                @item.PropertyType
+            </label>
+        }
+    </div>
+</div>

@@ -1,0 +1,674 @@
+﻿@page
+@model HotelMaster.Views.Vendor.registrationModel
+@{
+    Layout = "~/Views/Shared/Layouts/_MainLayout.cshtml";
+}
+   
+
+
+<div class="fromContaier VendorRegistrationForm">
+    <div class="wrapper">
+        <div class="container">
+            <div class="tabsHotelInformation active" id="hotelTab">
+                <!-- ACTION -->
+                @* <div class="top-action">
+                        <a class="expand">Expand All</a>
+                        <button class="primary-btn commonCta">Search Hotel Details From Multiple Sources</button>
+                    </div> *@
+                <!-- CARD -->
+                <div class="card active">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="genearlDetailsIcon"><img src="/img/general-details.svg"></span> Personal & Business Information
+                        </div>
+                        <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                    </div>
+                    <form method="post" id="hotelForm" action="/Home/Create">
+
+                        <div class="card-body">
+                            <div class="form-grid">
+
+                                <!-- Hotel Name -->
+                                <div class="form-group">
+                                    <label for="Name">Business Name</label>
+                                    <input type="text" id="Name" name="Name" placeholder="Enter Business Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Name">Legal Name</label>
+                                    <input type="text" id="Name" name="Name" placeholder="Enter Legal Name">
+                                </div>
+
+
+
+                                <!-- Star Rating -->
+                                <div class="form-group">
+                                    <label for="StarRating">Services</label>
+                                    <div class="dropdown-trigger-box generalDEtailsSelect">
+                                        <select id="StarRating" name="StarRating" class="dropdown-trigger-box__native">
+                                            <option value="">Select Services</option>
+                                            <option>Select Services-1</option>
+                                            <option>Select Services-2</option>
+                                            <option>Select Services-3</option>
+                                        </select>
+                                        <div class="dropdown-trigger-box__chevron"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="StarRating">Services</label>
+                                    <div class="dropdown-trigger-box generalDEtailsSelect">
+                                        <select id="StarRating" name="StarRating" class="dropdown-trigger-box__native">
+                                            <option value="">Star Rating</option>
+                                            <option>Select Rating</option>
+                                            @* <option>Select Services-2</option>
+                                                <option>Select Services-3</option> *@
+                                        </select>
+                                        <div class="dropdown-trigger-box__chevron"></div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div class="form-grid-inner form-grid-inner-vendor">
+                                    <div class="form-group">
+                                        <label for="GoogleMapLink">Official Address Line 1</label>
+                                        <input type="text" id="GoogleMapLink" name="GoogleMapLink" placeholder="Official Address Line 1">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="GoogleHotelLink">Official Address Line 2</label>
+                                        <input type="text" id="GoogleHotelLink" name="GoogleHotelLink" placeholder="Official Address Line 2">
+                                    </div>
+
+                                    @* <div class="form-group">
+                                            <label for="TripAdvisorLink">Trip Advisor Link</label>
+                                            <input type="text" id="TripAdvisorLink" name="TripAdvisorLink">
+                                        </div> *@
+                                </div>
+
+                                <!-- Owner -->
+                                <div class="form-group">
+                                    <label for="OwnerName">City</label>
+                                    <input type="text" id="City" name="OwnerName" placeholder="Enter Legal Name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="OwnerPhone">State</label>
+                                    <input type="text" id="State" name="State" placeholder="Enter Legal Name">
+                                </div>
+
+                                <!-- Address -->
+                                <div class="form-group">
+                                    <label for="Address1">Country</label>
+                                    <input type="text" id="Country" name="Country" placeholder="Enter Legal Name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Address2">Pin Code</label>
+                                    <input type="text" id="Pin" name="Pin" placeholder="Enter Legal Name">
+                                </div>
+                                <div class="biz-form-contaier">
+                                    <div class="biz-form-group">
+                                        <div class="biz-form-title">Type of Business</div>
+
+                                        <div class="biz-radio-row">
+                                            <label class="biz-radio-field">
+                                                <input type="radio" name="business-type" class="biz-input-hidden">
+                                                <span class="biz-radio-circle"></span>
+                                                Partnership
+                                            </label>
+
+                                            <label class="biz-radio-field">
+                                                <input type="radio" name="business-type" class="biz-input-hidden">
+                                                <span class="biz-radio-circle"></span>
+                                                Private
+                                            </label>
+
+                                            <label class="biz-radio-field">
+                                                <input type="radio" name="business-type" class="biz-input-hidden">
+                                                <span class="biz-radio-circle"></span>
+                                                LLP
+                                            </label>
+
+                                            <label class="biz-radio-field">
+                                                <input type="radio" name="business-type" class="biz-input-hidden">
+                                                <span class="biz-radio-circle"></span>
+                                                Proprietor
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*   <button type="submit" class="primary-btn commonCta ctaAlign">
+                                    Save and Next
+                                </button> *@
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="genearlDetailsIcon"><img src="/img/restaurants-icons.svg"></span>Contact Details
+                        </div>
+                        <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-grid restaurantsGrid">
+                            <div class="form-group">
+                                <label>Contact Person</label>
+                                <input type="text" placeholder="Full Name">
+                                <span class="additems">
+                                    <img src="/img/add_circle.png">
+                                    Add Contact Details
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label> Phone Number</label>
+                                <div class="phone-field">
+                                    <div class="country-code">
+                                        +91
+                                        <span class="arrow">▼</span>
+                                    </div>
+                                    <input type="text" placeholder="Enter Number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label>Department</label>
+
+                                <div class="dropdown-trigger-box generalDEtailsSelect">
+
+                                    <select class="dropdown-trigger-box__native">
+                                        <option>Indian</option>
+                                        <option>Indian</option>
+
+                                    </select>
+                                    <div class="dropdown-trigger-box__chevron"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Designation</label>
+                                <input type="text" placeholder="Enter Input">
+                            </div>
+
+                        </div>
+                        @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="genearlDetailsIcon"><img src="/img/banquet.svg"></span>Financial & Legal Details
+                        </div>
+                        <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="vendorGridTitle">
+                            <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Bank Details</h1>
+                        </div>
+                        <div class="form-grid vendorGrid">
+
+                            <div class="form-group">
+                                <label>Legal Name</label>
+                                <input type="text" placeholder="Input Name">
+                                @* <span class="additems">
+                                        <img src="/img/add_circle.png">
+                                        Add Contact Details
+                                    </span> *@
+                            </div>
+
+                            <div class="form-group">
+                                <label>Bank Name</label>
+                                <input type="text" placeholder="Bank Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Account Number</label>
+                                <input type="text" placeholder="Account Number">
+                            </div>
+                            <div class="form-group">
+                                <label>IFSC Code</label>
+                                <input type="text" placeholder="IFSC Code">
+                            </div>
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <button class="verifyed">Verify</button>
+                            </div>
+                        </div>
+                        @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                    </div>
+                    <div class="card-body">
+                        <div class="vendorGridTitle">
+                            <h1><span><img src="/img/BankDetailsIcon.svg" /></span>TDS (Tax Deduction At Source)</h1>
+                        </div>
+                        <div class="form-grid vendorGrid">
+
+                            <div class="form-group">
+                                <label>Applicable TDS %</label>
+                                <input type="text" placeholder="e.g. 10%">
+                                @* <span class="additems">
+                                        <img src="/img/add_circle.png">
+                                        Add Contact Details
+                                    </span> *@
+                            </div>
+                        </div>
+                        @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                    </div>
+                    <div class="card-body">
+                        <div class="vendorGridTitle">
+                            <h1><span><img src="/img/BankDetailsIcon.svg" /></span>PAN Details</h1>
+                        </div>
+                        <div class="form-grid panGrid">
+
+                            <div class="form-group">
+                                <label>PAN Holder Name</label>
+                                <input type="text" placeholder="Name on PAN Card">
+                                @* <span class="additems">
+                                        <img src="/img/add_circle.png">
+                                        Add Contact Details
+                                    </span> *@
+                            </div>
+
+                            <div class="form-group">
+                                <label>PAN Number</label>
+                                <input type="text" placeholder="Enter PAN">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <button class="verifyed">Verify</button>
+                            </div>
+                        </div>
+                        @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                    </div>
+                    <div class="card-body">
+                        <div class="vendorGridTitle">
+                            <h1><span><img src="/img/BankDetailsIcon.svg" /></span>GST Details</h1>
+                        </div>
+                        <div class="form-grid panGrid">
+
+                            <div class="form-group">
+                                <label>GST Registered Name</label>
+                                <input type="text" placeholder="Legal Name">
+                                @* <span class="additems">
+                                        <img src="/img/add_circle.png">
+                                        Add Contact Details
+                                    </span> *@
+                            </div>
+
+                            <div class="form-group">
+                                <label>GSTIN Number</label>
+                                <input type="text" placeholder="GSTIN">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <button class="verifyed">Verify</button>
+                            </div>
+                        </div>
+                        @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                    </div>
+                    <div class="card-body">
+                        <div class="vendorGridTitle">
+                            <h1><span><img src="/img/BankDetailsIcon.svg" /></span>MSME Details</h1>
+                        </div>
+                        <div class="form-grid panGrid">
+
+                            <div class="form-group">
+                                <label>MSME Certificate Holder's Name</label>
+                                <input type="text" placeholder="Name on Certificate">
+                                @* <span class="additems">
+                                        <img src="/img/add_circle.png">
+                                        Add Contact Details
+                                    </span> *@
+                            </div>
+
+                            <div class="form-group">
+                                <label>MSME Registration Number</label>
+                                <input type="text" placeholder="Udyam Registration No.">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <button class="verifyed">Verify</button>
+                            </div>
+                        </div>
+                        @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="genearlDetailsIcon"><img src="/img/contact-icon.svg"></span>Payment Terms
+                        </div>
+                        <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="tdsSection">
+                            <div class="vendorGridTitle">
+                                <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Payment Terms</h1>
+                            </div>
+                            <div class="form-grid tdsSectionGrid">
+                                <div class="form-group">
+                                    @* <label>PAN Holder Name</label> *@
+                                    <div class="input-with-radio">
+                                        <div class="radio-wrapper">
+                                            <input type="radio" name="pan-verify" id="verify-radio">
+                                        </div>
+                                        <input type="text" placeholder="Bill To Company (BTC)">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @* <label>PAN Holder Name</label> *@
+                                    <div class="input-with-radio">
+                                        <div class="radio-wrapper">
+                                            <input type="radio" name="pan-verify" id="verify-radio">
+                                        </div>
+                                        <input type="text" placeholder="Pay In Advance">
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="tdsSection">
+                            <div class="vendorGridTitle">
+                                <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Credit Details</h1>
+                            </div>
+                            <div class="form-grid tdsSectionGrid">
+                                <div class="form-group">
+                                    <label>Credit Type</label>
+                                    <div class="dropdown-trigger-box generalDEtailsSelect">
+
+                                        <select class="dropdown-trigger-box__native">
+                                            <option>Credit Type</option>
+                                            <option>Credit Type</option>
+
+                                        </select>
+                                        <div class="dropdown-trigger-box__chevron"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Credit Days</label>
+                                    <input type="text" placeholder="Input No of Days">
+                                </div>
+
+                            </div>
+                            @* <button class="primary-btn commonCta ctaAlign mr-10">Add Another Contact</button>
+                                <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="genearlDetailsIcon"><img src="/img/restaurants-icons.svg"></span>Documents
+                        </div>
+                        <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-grid vendorDocument-grid">
+
+                            <div class="vendorDocument-card">
+                                <div class="vendorDocument-label">PAN Card <span class="vendorDocument-required">*</span></div>
+                                <div class="vendorDocument-upload-zone">
+                                    <div class="vendorDocument-info">
+                                        <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                    </div>
+                                    <button class="vendorDocument-button">Browse File</button>
+                                </div>
+                            </div>
+
+                            <div class="vendorDocument-card">
+                                <div class="vendorDocument-label">Hotel License <span class="vendorDocument-required">*</span></div>
+                                <div class="vendorDocument-upload-zone">
+                                    <div class="vendorDocument-info">
+                                        <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                    </div>
+                                    <button class="vendorDocument-button">Browse File</button>
+                                </div>
+                            </div>
+
+                            <div class="vendorDocument-card">
+                                <div class="vendorDocument-label">GST Certificate <span class="vendorDocument-required">*</span></div>
+                                <div class="vendorDocument-upload-zone">
+                                    <div class="vendorDocument-info">
+                                        <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                    </div>
+                                    <button class="vendorDocument-button">Browse File</button>
+                                </div>
+                            </div>
+
+                            <div class="vendorDocument-card">
+                                <div class="vendorDocument-label">MSME Certificate</div>
+                                <div class="vendorDocument-upload-zone">
+                                    <div class="vendorDocument-info">
+                                        <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                    </div>
+                                    <button class="vendorDocument-button">Browse File</button>
+                                </div>
+                            </div>
+
+                            <div class="vendorDocument-card">
+                                <div class="vendorDocument-label">Owner Aadhar Card</div>
+                                <div class="vendorDocument-upload-zone">
+                                    <div class="vendorDocument-info">
+                                        <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                    </div>
+                                    <button class="vendorDocument-button">Browse File</button>
+                                </div>
+                            </div>
+
+                            <div class="vendorDocument-card">
+                                <div class="vendorDocument-label">Cancelled Cheque <span class="vendorDocument-required">*</span></div>
+                                <div class="vendorDocument-upload-zone">
+                                    <div class="vendorDocument-info">
+                                        <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                    </div>
+                                    <button class="vendorDocument-button">Browse File</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                    </div>
+                </div>
+            </div>
+            <div class="tabsRoomDetails" id="roomTab">
+
+                <!-- CARD -->
+
+                <div class="card">
+                    <div class="room-wrapper">
+
+                        <!-- ROOM CARD -->
+                        <div class="room-box">
+
+                            <!-- HEADER -->
+                            <div class="room-box__header">
+                                <h3 class="room-box__title">Room 1</h3>
+                                <span class="room-box__delete"><img src="/img/delete.svg"></span>
+                            </div>
+
+                            <!-- TOP FIELDS -->
+                            <div class="room-box__top">
+
+                                <div class="ui-field">
+                                    <label class="ui-label">Room Category Name</label>
+                                    <input class="ui-input" value="Deluxe King Room">
+                                </div>
+
+                                <div class="ui-field ui-field--wide">
+                                    <label class="ui-label">Room Description</label>
+                                    <input class="ui-input" placeholder="Input Description">
+                                </div>
+
+                                <div class="ui-field ui-field--xs">
+                                    <label class="ui-label">No of Beds</label>
+                                    <input class="ui-input ui-input--center" value="2">
+                                </div>
+
+                                <div class="ui-field ui-field--xs">
+                                    <label class="ui-label">No of Rooms</label>
+                                    <input class="ui-input ui-input--center" value="2">
+                                </div>
+
+                            </div>
+
+                            <!-- MEDIA -->
+                            <div class="room-media">
+
+                                <div class="room-media__title">Room Media</div>
+
+                                <div class="room-media__row">
+
+                                    <div class="ui-field">
+                                        <label class="ui-label">Image Name</label>
+                                        <input class="ui-input" value="King Size Bed">
+                                    </div>
+
+                                    <div class="ui-field">
+                                        <label class="ui-label">Description</label>
+                                        <input class="ui-input" value="View Of King Bed">
+                                    </div>
+
+                                    <button class="ui-upload-btn">Upload</button>
+
+                                </div>
+
+                                <div class="add-image">
+                                    <span>＋</span> Add New Image
+                                </div>
+
+                            </div>
+
+                            <!-- FACILITIES -->
+                            <div class="facilities-room-deatils">
+                                <div class="facilities-top">
+                                    <input type="text" placeholder="Search Facilities" class="search-box">
+                                    <a class="select-all">Select All</a>
+                                </div>
+
+                                <div class="facility-grid">
+
+                                    <!-- ROW ITEMS -->
+                                    <label class="facility-item"><input type="checkbox"> Room Heater</label>
+                                    <label class="facility-item"><input type="checkbox"> Blinds</label>
+                                    <label class="facility-item"><input type="checkbox"> Attached Bathroom</label>
+                                    <label class="facility-item"><input type="checkbox"> Hot & Cold Water</label>
+                                    <label class="facility-item"><input type="checkbox"> Towels</label>
+                                    <label class="facility-item"><input type="checkbox"> Toiletries</label>
+
+                                    <label class="facility-item"><input type="checkbox"> Power Sockets / Charging Points</label>
+                                    <label class="facility-item"><input type="checkbox"> Electric Kettle</label>
+                                    <label class="facility-item"><input type="checkbox"> Complimentary Drinking Water</label>
+                                    <label class="facility-item"><input type="checkbox"> Mini Refrigerator</label>
+                                    <label class="facility-item"><input type="checkbox"> Iron & Ironing Board</label>
+                                    <label class="facility-item"><input type="checkbox"> Television</label>
+
+                                    <label class="facility-item"><input type="checkbox"> Telephone</label>
+                                    <label class="facility-item"><input type="checkbox"> Attached Bathroom</label>
+                                    <label class="facility-item"><input type="checkbox"> Hot & Cold Water</label>
+                                    <label class="facility-item"><input type="checkbox"> Towels</label>
+                                    <label class="facility-item"><input type="checkbox"> Toiletries</label>
+                                    <label class="facility-item"><input type="checkbox"> Mirror</label>
+
+                                    <label class="facility-item"><input type="checkbox"> Hair Dryer</label>
+                                    <label class="facility-item"><input type="checkbox"> Wardrobe</label>
+                                    <label class="facility-item"><input type="checkbox"> Dressing Table</label>
+                                    <label class="facility-item"><input type="checkbox"> Writing Desk</label>
+                                    <label class="facility-item"><input type="checkbox"> Chair</label>
+                                    <label class="facility-item"><input type="checkbox"> Bedside Table</label>
+
+                                    <label class="facility-item"><input type="checkbox"> Door Lock / Latch</label>
+                                    <label class="facility-item"><input type="checkbox"> In-room Safe</label>
+
+                                </div>
+
+                            </div>
+
+                            <!-- ADD BUTTON -->
+                            <div class="add-room">
+                                <span class="addRoomPlus">＋</span> Add New Room Category
+                            </div>
+                        </div>
+                        <button class="primary-btn commonCta ctaAlign">Save and Next</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="rates-footer vendorCta">
+        <button class="rates-btn-outline">Save As Draft</button>
+        <button class="rates-btn-primary">Submit For Approval</button>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll(".card-header").forEach(header => {
+    header.addEventListener("click", () => {
+
+      const card = header.parentElement;
+
+      document.querySelectorAll(".card").forEach(c => {
+          if (c !== card) c.classList.remove("active");
+      });
+
+      card.classList.toggle("active");
+    });
+    });
+</script>
+<script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const hotelTab = document.getElementById('hotelTab');
+    const roomTab = document.getElementById('roomTab');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+
+        // button active
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // hide both
+        hotelTab.classList.remove('active');
+        roomTab.classList.remove('active');
+
+        // show selected
+        if (btn.dataset.tab === 'hotel') {
+          hotelTab.classList.add('active');
+        } else {
+          roomTab.classList.add('active');
+        }
+
+      });
+    });
+</script>

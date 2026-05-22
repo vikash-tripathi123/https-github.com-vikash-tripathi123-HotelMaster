@@ -22,7 +22,6 @@ document.querySelectorAll('input[name="service"]').forEach(el => {
         loadVendors();
     });
 });
-``
 
 
 /* =========================
@@ -300,11 +299,6 @@ function cityList() {
         $("#citySelect").html('<option value="">-- Select City --</option>');
     }
 }
-
-
-/* =========================
-   PAGINATION CLICK
-========================= */
 
 
 //clear filters

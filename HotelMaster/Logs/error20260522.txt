@@ -3226,3 +3226,643 @@ System.InvalidOperationException: The view 'Components/Property/PropertyDropdown
 2026-05-22 17:49:13.457 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 63.1053ms
 2026-05-22 17:49:13.459 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
 2026-05-22 17:49:13.460 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?ServiceCategory=13&ServiceCategory=14&ServiceCategory=16&StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 120.6731ms
+2026-05-22 18:34:50.006 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:34:50.049 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:34:50.051 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:34:50.080 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:34:50.082 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:34:50.539 +05:30 [INF] Received HTTP response headers after 454.3269ms - 200
+2026-05-22 18:34:50.555 +05:30 [INF] End processing HTTP request after 475.5466ms - 200
+2026-05-22 18:34:50.559 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:34:50.562 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 486.1578ms
+2026-05-22 18:34:50.565 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:34:50.568 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 561.3191ms
+2026-05-22 18:51:04.026 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-22 18:51:04.411 +05:30 [INF] Now listening on: http://localhost:5107
+2026-05-22 18:51:04.575 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-22 18:51:04.578 +05:30 [INF] Hosting environment: Development
+2026-05-22 18:51:04.580 +05:30 [INF] Content root path: C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster
+2026-05-22 18:51:04.741 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 18:51:05.034 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-05-22 18:51:05.099 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:51:05.233 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:51:14.295 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 18:51:14.526 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:51:14.540 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:51:14.784 +05:30 [INF] Received HTTP response headers after 232.463ms - 200
+2026-05-22 18:51:14.796 +05:30 [INF] End processing HTTP request after 281.0625ms - 200
+2026-05-22 18:51:15.453 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:51:15.459 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:51:15.529 +05:30 [INF] Received HTTP response headers after 65.0236ms - 200
+2026-05-22 18:51:15.532 +05:30 [INF] End processing HTTP request after 79.4863ms - 200
+2026-05-22 18:51:17.230 +05:30 [INF] Executed ViewResult - view Index executed in 11962.9094ms.
+2026-05-22 18:51:17.239 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 11997.0349ms
+2026-05-22 18:51:17.243 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:51:17.259 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 12541.2187ms
+2026-05-22 18:51:17.262 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:51:17.264 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:51:17.273 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/modules/vendor/vendor.js - null null
+2026-05-22 18:51:17.286 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 23.6973ms
+2026-05-22 18:51:17.380 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 116.3778ms
+2026-05-22 18:51:17.433 +05:30 [INF] Sending file. Request path: '/js/modules/vendor/vendor.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\js\modules\Vendor\vendor.js'
+2026-05-22 18:51:17.437 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/modules/vendor/vendor.js - 200 8746 text/javascript 163.5535ms
+2026-05-22 18:51:17.460 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:51:17.471 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:51:17.510 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:51:17.928 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:51:17.933 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:51:18.116 +05:30 [INF] Received HTTP response headers after 177.8409ms - 200
+2026-05-22 18:51:18.141 +05:30 [INF] End processing HTTP request after 193.696ms - 200
+2026-05-22 18:51:18.176 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:51:18.208 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 693.0081ms
+2026-05-22 18:51:18.213 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:51:18.216 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 756.1283ms
+2026-05-22 18:53:54.224 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 18:53:54.282 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 404 0 null 58.9439ms
+2026-05-22 18:53:54.292 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5107/Vendor/registration, Response status code: 404
+2026-05-22 18:54:37.115 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-22 18:54:37.511 +05:30 [INF] Now listening on: http://localhost:5107
+2026-05-22 18:54:37.699 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-22 18:54:37.703 +05:30 [INF] Hosting environment: Development
+2026-05-22 18:54:37.706 +05:30 [INF] Content root path: C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster
+2026-05-22 18:54:37.841 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 18:54:38.108 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-05-22 18:54:38.189 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:54:38.309 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:54:46.526 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 18:54:46.828 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:54:46.840 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:54:46.955 +05:30 [INF] Received HTTP response headers after 103.9926ms - 200
+2026-05-22 18:54:46.963 +05:30 [INF] End processing HTTP request after 150.2235ms - 200
+2026-05-22 18:54:47.644 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:54:47.647 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:54:47.694 +05:30 [INF] Received HTTP response headers after 45.2508ms - 200
+2026-05-22 18:54:47.698 +05:30 [INF] End processing HTTP request after 55.3008ms - 200
+2026-05-22 18:54:49.861 +05:30 [INF] Executed ViewResult - view Index executed in 11520.2494ms.
+2026-05-22 18:54:49.872 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 11558.6678ms
+2026-05-22 18:54:49.876 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:54:49.883 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:54:49.889 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 12070.8209ms
+2026-05-22 18:54:49.894 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 12.0725ms
+2026-05-22 18:54:49.897 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:54:49.965 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:54:49.978 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:54:49.993 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 96.0043ms
+2026-05-22 18:54:50.015 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:54:50.519 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:54:50.522 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:54:50.570 +05:30 [INF] Received HTTP response headers after 46.9752ms - 200
+2026-05-22 18:54:50.573 +05:30 [INF] End processing HTTP request after 54.8497ms - 200
+2026-05-22 18:54:50.604 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:54:50.632 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 613.0522ms
+2026-05-22 18:54:50.635 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:54:50.638 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 672.718ms
+2026-05-22 18:54:56.386 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor - null null
+2026-05-22 18:54:56.406 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:54:56.411 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:54:56.424 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 18:54:56.432 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:54:56.437 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:54:56.495 +05:30 [INF] Received HTTP response headers after 53.8176ms - 200
+2026-05-22 18:54:56.500 +05:30 [INF] End processing HTTP request after 67.5068ms - 200
+2026-05-22 18:54:56.509 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:54:56.512 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:54:56.576 +05:30 [INF] Received HTTP response headers after 58.6345ms - 200
+2026-05-22 18:54:56.580 +05:30 [INF] End processing HTTP request after 71.4418ms - 200
+2026-05-22 18:54:56.596 +05:30 [INF] Executed ViewResult - view Index executed in 172.7763ms.
+2026-05-22 18:54:56.601 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 180.8181ms
+2026-05-22 18:54:56.606 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:54:56.610 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor - 200 null text/html; charset=utf-8 224.023ms
+2026-05-22 18:54:56.635 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:54:56.641 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:54:56.660 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 18.5361ms
+2026-05-22 18:54:56.665 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.4663ms
+2026-05-22 18:54:56.671 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:54:56.679 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:54:56.681 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:54:56.687 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:54:56.690 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:54:56.764 +05:30 [INF] Received HTTP response headers after 71.862ms - 200
+2026-05-22 18:54:56.768 +05:30 [INF] End processing HTTP request after 81.3219ms - 200
+2026-05-22 18:54:56.773 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:54:56.776 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 91.3961ms
+2026-05-22 18:54:56.778 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:54:56.780 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 108.4381ms
+2026-05-22 18:55:02.420 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/Index - null null
+2026-05-22 18:55:02.434 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:55:02.438 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:55:02.448 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 18:55:02.455 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:55:02.457 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:55:02.524 +05:30 [INF] Received HTTP response headers after 59.7569ms - 200
+2026-05-22 18:55:02.529 +05:30 [INF] End processing HTTP request after 74.366ms - 200
+2026-05-22 18:55:02.537 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:55:02.542 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:55:02.603 +05:30 [INF] Received HTTP response headers after 56.7974ms - 200
+2026-05-22 18:55:02.606 +05:30 [INF] End processing HTTP request after 69.3474ms - 200
+2026-05-22 18:55:02.615 +05:30 [INF] Executed ViewResult - view Index executed in 167.7905ms.
+2026-05-22 18:55:02.621 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 173.414ms
+2026-05-22 18:55:02.625 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:55:02.630 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/Index - 200 null text/html; charset=utf-8 209.9341ms
+2026-05-22 18:55:02.657 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:55:02.663 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:55:02.674 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 10.6597ms
+2026-05-22 18:55:02.680 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:55:02.689 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:55:02.692 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:55:02.699 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:55:02.703 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:55:02.713 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.4417ms
+2026-05-22 18:55:02.766 +05:30 [INF] Received HTTP response headers after 59.0892ms - 200
+2026-05-22 18:55:02.769 +05:30 [INF] End processing HTTP request after 70.2242ms - 200
+2026-05-22 18:55:02.773 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:55:02.775 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 77.7307ms
+2026-05-22 18:55:02.778 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:55:02.780 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 99.9226ms
+2026-05-22 18:55:12.762 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 18:55:12.774 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Registration (HotelMaster)'
+2026-05-22 18:55:12.788 +05:30 [INF] Route matched with {action = "Registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:55:13.447 +05:30 [INF] Executing ViewResult, running view Registration.
+2026-05-22 18:55:14.380 +05:30 [INF] Executed ViewResult - view Registration executed in 1583.6599ms.
+2026-05-22 18:55:14.384 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Registration (HotelMaster) in 1589.0214ms
+2026-05-22 18:55:14.387 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Registration (HotelMaster)'
+2026-05-22 18:55:14.391 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 1628.2362ms
+2026-05-22 18:55:14.407 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/css/site.css?v=mnibrD31B3nXU21cZ7IOKzSokhDL4lHapRoVFMBpsJ8 - null null
+2026-05-22 18:55:14.409 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:55:14.413 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:55:14.419 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 10.4266ms
+2026-05-22 18:55:14.431 +05:30 [INF] The file /css/site.css was not modified
+2026-05-22 18:55:14.441 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.5556ms
+2026-05-22 18:55:14.443 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/css/site.css?v=mnibrD31B3nXU21cZ7IOKzSokhDL4lHapRoVFMBpsJ8 - 304 null text/css 35.921ms
+2026-05-22 18:58:27.108 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 18:58:27.127 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Registration (HotelMaster)'
+2026-05-22 18:58:27.129 +05:30 [INF] Route matched with {action = "Registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:58:27.133 +05:30 [INF] Executing ViewResult, running view Registration.
+2026-05-22 18:58:27.138 +05:30 [INF] Executed ViewResult - view Registration executed in 5.1669ms.
+2026-05-22 18:58:27.139 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Registration (HotelMaster) in 7.6269ms
+2026-05-22 18:58:27.141 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Registration (HotelMaster)'
+2026-05-22 18:58:27.143 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 35.8945ms
+2026-05-22 18:58:27.169 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2026-05-22 18:58:27.183 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/lib/jquery/dist/jquery.min.js - null null
+2026-05-22 18:58:27.185 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2026-05-22 18:58:27.171 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/css/site.css?v=mnibrD31B3nXU21cZ7IOKzSokhDL4lHapRoVFMBpsJ8 - null null
+2026-05-22 18:58:27.185 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/HotelMaster.styles.css?v=RCnvpy8jpaFnZdYAWY1-sF_7lFRVAnxhUUQA8H4hhKs - null null
+2026-05-22 18:58:27.197 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2026-05-22 18:58:27.245 +05:30 [INF] Sending file. Request path: '/HotelMaster.styles.css'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\obj\Debug\net8.0\scopedcss\bundle\HotelMaster.styles.css'
+2026-05-22 18:58:27.245 +05:30 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\css\site.css'
+2026-05-22 18:58:27.245 +05:30 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\js\site.js'
+2026-05-22 18:58:27.245 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2026-05-22 18:58:27.247 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/HotelMaster.styles.css?v=RCnvpy8jpaFnZdYAWY1-sF_7lFRVAnxhUUQA8H4hhKs - 200 1129 text/css 62.2777ms
+2026-05-22 18:58:27.248 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/css/site.css?v=mnibrD31B3nXU21cZ7IOKzSokhDL4lHapRoVFMBpsJ8 - 200 94945 text/css 78.2718ms
+2026-05-22 18:58:27.249 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 53.0422ms
+2026-05-22 18:58:27.250 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/css/bootstrap.min.css - 200 162726 text/css 81.6015ms
+2026-05-22 18:58:27.255 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:58:27.263 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:58:27.265 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 10.341ms
+2026-05-22 18:58:27.278 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.6226ms
+2026-05-22 18:58:27.296 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2026-05-22 18:58:27.298 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78474 text/javascript 113.8954ms
+2026-05-22 18:58:27.320 +05:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\lib\jquery\dist\jquery.min.js'
+2026-05-22 18:58:27.322 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/lib/jquery/dist/jquery.min.js - 200 89503 text/javascript 142.1782ms
+2026-05-22 18:58:27.337 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/favicon.ico - null null
+2026-05-22 18:58:27.342 +05:30 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\favicon.ico'
+2026-05-22 18:58:27.344 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/favicon.ico - 200 5430 image/x-icon 6.6204ms
+2026-05-22 18:58:34.955 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 18:58:34.969 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Registration (HotelMaster)'
+2026-05-22 18:58:34.972 +05:30 [INF] Route matched with {action = "Registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:58:34.980 +05:30 [INF] Executing ViewResult, running view Registration.
+2026-05-22 18:58:34.987 +05:30 [INF] Executed ViewResult - view Registration executed in 6.5662ms.
+2026-05-22 18:58:34.990 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Registration (HotelMaster) in 10.4726ms
+2026-05-22 18:58:34.993 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Registration (HotelMaster)'
+2026-05-22 18:58:34.996 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 41.223ms
+2026-05-22 18:58:35.013 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:58:35.018 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:58:35.030 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.0894ms
+2026-05-22 18:58:35.032 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 14.3245ms
+2026-05-22 18:58:40.201 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/Index - null null
+2026-05-22 18:58:40.210 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:58:40.216 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:58:40.222 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 18:58:40.227 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:58:40.233 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:58:40.456 +05:30 [INF] Received HTTP response headers after 219.9141ms - 200
+2026-05-22 18:58:40.460 +05:30 [INF] End processing HTTP request after 232.7258ms - 200
+2026-05-22 18:58:40.466 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:58:40.471 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:58:40.523 +05:30 [INF] Received HTTP response headers after 48.2887ms - 200
+2026-05-22 18:58:40.527 +05:30 [INF] End processing HTTP request after 60.3ms - 200
+2026-05-22 18:58:40.543 +05:30 [INF] Executed ViewResult - view Index executed in 320.4476ms.
+2026-05-22 18:58:40.545 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 323.5074ms
+2026-05-22 18:58:40.547 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:58:40.553 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/Index - 200 null text/html; charset=utf-8 351.6629ms
+2026-05-22 18:58:40.569 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:58:40.573 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.3861ms
+2026-05-22 18:58:40.596 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:58:40.603 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:58:40.605 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:58:40.612 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:58:40.615 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:58:40.798 +05:30 [INF] Received HTTP response headers after 180.2326ms - 200
+2026-05-22 18:58:40.802 +05:30 [INF] End processing HTTP request after 190.012ms - 200
+2026-05-22 18:58:40.808 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:58:40.813 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 203.3195ms
+2026-05-22 18:58:40.820 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:58:40.824 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 228.0918ms
+2026-05-22 18:58:58.093 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-22 18:58:58.534 +05:30 [INF] Now listening on: http://localhost:5107
+2026-05-22 18:58:58.720 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-22 18:58:58.723 +05:30 [INF] Hosting environment: Development
+2026-05-22 18:58:58.725 +05:30 [INF] Content root path: C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster
+2026-05-22 18:58:59.099 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 18:58:59.374 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-05-22 18:58:59.458 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:58:59.571 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:59:08.057 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 18:59:08.319 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:59:08.333 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:59:08.493 +05:30 [INF] Received HTTP response headers after 149.2137ms - 200
+2026-05-22 18:59:08.502 +05:30 [INF] End processing HTTP request after 196.1718ms - 200
+2026-05-22 18:59:09.243 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:59:09.248 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:59:09.316 +05:30 [INF] Received HTTP response headers after 64.642ms - 200
+2026-05-22 18:59:09.319 +05:30 [INF] End processing HTTP request after 78.2397ms - 200
+2026-05-22 18:59:11.089 +05:30 [INF] Executed ViewResult - view Index executed in 11486.5217ms.
+2026-05-22 18:59:11.101 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 11525.2016ms
+2026-05-22 18:59:11.105 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:59:11.117 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/modules/vendor/vendor.js - null null
+2026-05-22 18:59:11.117 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:59:11.120 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 12051.9494ms
+2026-05-22 18:59:11.146 +05:30 [INF] The file /js/modules/vendor/vendor.js was not modified
+2026-05-22 18:59:11.147 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:59:11.178 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/modules/vendor/vendor.js - 304 null text/javascript 62.2387ms
+2026-05-22 18:59:11.213 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 66.2214ms
+2026-05-22 18:59:11.269 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:59:11.282 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:59:11.282 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 166.2209ms
+2026-05-22 18:59:11.324 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:59:11.815 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:59:11.820 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:59:11.879 +05:30 [INF] Received HTTP response headers after 56.0778ms - 200
+2026-05-22 18:59:11.882 +05:30 [INF] End processing HTTP request after 66.7483ms - 200
+2026-05-22 18:59:11.915 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:59:11.949 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 622.4329ms
+2026-05-22 18:59:11.954 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:59:11.958 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 688.953ms
+2026-05-22 18:59:13.855 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 18:59:13.874 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 18:59:13.886 +05:30 [INF] Route matched with {action = "registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:59:14.527 +05:30 [INF] Executing ViewResult, running view registration.
+2026-05-22 18:59:15.331 +05:30 [INF] Executed ViewResult - view registration executed in 1436.4897ms.
+2026-05-22 18:59:15.335 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.registration (HotelMaster) in 1445.2211ms
+2026-05-22 18:59:15.338 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 18:59:15.340 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 1484.9631ms
+2026-05-22 18:59:15.369 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:59:15.370 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:59:15.377 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 9.9532ms
+2026-05-22 18:59:15.472 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 101.7782ms
+2026-05-22 18:59:22.601 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 18:59:22.621 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:59:22.627 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:59:22.637 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 18:59:22.643 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:59:22.649 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:59:22.709 +05:30 [INF] Received HTTP response headers after 57.4677ms - 200
+2026-05-22 18:59:22.713 +05:30 [INF] End processing HTTP request after 70.0967ms - 200
+2026-05-22 18:59:22.724 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:59:22.729 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:59:22.790 +05:30 [INF] Received HTTP response headers after 56.2953ms - 200
+2026-05-22 18:59:22.794 +05:30 [INF] End processing HTTP request after 70.4735ms - 200
+2026-05-22 18:59:22.809 +05:30 [INF] Executed ViewResult - view Index executed in 173.0762ms.
+2026-05-22 18:59:22.813 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 176.757ms
+2026-05-22 18:59:22.820 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:59:22.823 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 222.3239ms
+2026-05-22 18:59:22.834 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:59:22.839 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.7735ms
+2026-05-22 18:59:22.855 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:59:22.859 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:59:22.861 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:59:22.868 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:59:22.871 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:59:22.922 +05:30 [INF] Received HTTP response headers after 49.3134ms - 200
+2026-05-22 18:59:22.925 +05:30 [INF] End processing HTTP request after 56.464ms - 200
+2026-05-22 18:59:22.928 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:59:22.931 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 67.313ms
+2026-05-22 18:59:22.934 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:59:22.935 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 80.3744ms
+2026-05-22 18:59:49.198 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 18:59:49.216 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:59:49.219 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:59:49.226 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 18:59:49.230 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:59:49.234 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 18:59:49.288 +05:30 [INF] Received HTTP response headers after 49.6807ms - 200
+2026-05-22 18:59:49.290 +05:30 [INF] End processing HTTP request after 60.4668ms - 200
+2026-05-22 18:59:49.296 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:59:49.299 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 18:59:49.344 +05:30 [INF] Received HTTP response headers after 43.5304ms - 200
+2026-05-22 18:59:49.347 +05:30 [INF] End processing HTTP request after 51.4529ms - 200
+2026-05-22 18:59:49.358 +05:30 [INF] Executed ViewResult - view Index executed in 132.2172ms.
+2026-05-22 18:59:49.361 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 135.4262ms
+2026-05-22 18:59:49.363 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 18:59:49.375 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 176.0887ms
+2026-05-22 18:59:49.392 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/css/site.css - null null
+2026-05-22 18:59:49.418 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/kpi-1.svg - null null
+2026-05-22 18:59:49.392 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/header-add.jpg - null null
+2026-05-22 18:59:49.392 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/jquery.min.js - null null
+2026-05-22 18:59:49.470 +05:30 [INF] Sending file. Request path: '/img/kpi-1.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\kpi-1.svg'
+2026-05-22 18:59:49.475 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/kpi-1.svg - 200 1093 image/svg+xml 57.2651ms
+2026-05-22 18:59:49.488 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/kpi-2.svg - null null
+2026-05-22 18:59:49.491 +05:30 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\css\site.css'
+2026-05-22 18:59:49.496 +05:30 [INF] Sending file. Request path: '/img/kpi-2.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\kpi-2.svg'
+2026-05-22 18:59:49.499 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:59:49.499 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/css/site.css - 200 94945 text/css 106.7379ms
+2026-05-22 18:59:49.491 +05:30 [INF] Sending file. Request path: '/img/header-add.jpg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\header-add.jpg'
+2026-05-22 18:59:49.491 +05:30 [INF] Sending file. Request path: '/js/jquery.min.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\js\jquery.min.js'
+2026-05-22 18:59:49.499 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:59:49.501 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/kpi-2.svg - 200 2417 image/svg+xml 12.7418ms
+2026-05-22 18:59:49.507 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 7.9868ms
+2026-05-22 18:59:49.511 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/vendor-search.svg - null null
+2026-05-22 18:59:49.513 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/header-add.jpg - 200 65516 image/jpeg 120.5886ms
+2026-05-22 18:59:49.537 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.6485ms
+2026-05-22 18:59:49.541 +05:30 [INF] Sending file. Request path: '/img/vendor-search.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\vendor-search.svg'
+2026-05-22 18:59:49.517 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/jquery.min.js - 200 86929 text/javascript 124.5471ms
+2026-05-22 18:59:49.544 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/kpi-3.svg - null null
+2026-05-22 18:59:49.552 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/vendor-search.svg - 200 726 image/svg+xml 40.2244ms
+2026-05-22 18:59:49.562 +05:30 [INF] Sending file. Request path: '/img/kpi-3.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\kpi-3.svg'
+2026-05-22 18:59:49.557 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/modules/vendor/vendor.js - null null
+2026-05-22 18:59:49.569 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/kpi-3.svg - 200 673 image/svg+xml 25.0275ms
+2026-05-22 18:59:49.577 +05:30 [INF] Sending file. Request path: '/js/modules/vendor/vendor.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\js\modules\Vendor\vendor.js'
+2026-05-22 18:59:49.584 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/modules/vendor/vendor.js - 200 8746 text/javascript 27.7095ms
+2026-05-22 18:59:49.596 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 18:59:49.597 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/favicon.ico - null null
+2026-05-22 18:59:49.602 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:59:49.611 +05:30 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\favicon.ico'
+2026-05-22 18:59:49.613 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:59:49.619 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/favicon.ico - 200 5430 image/x-icon 21.7663ms
+2026-05-22 18:59:49.623 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:59:49.628 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 18:59:49.686 +05:30 [INF] Received HTTP response headers after 53.0419ms - 200
+2026-05-22 18:59:49.690 +05:30 [INF] End processing HTTP request after 66.7644ms - 200
+2026-05-22 18:59:49.694 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 18:59:49.697 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 75.5072ms
+2026-05-22 18:59:49.702 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 18:59:49.704 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 107.6965ms
+2026-05-22 18:59:50.623 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 18:59:50.632 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 18:59:50.650 +05:30 [INF] Route matched with {action = "registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 18:59:51.027 +05:30 [INF] Executing ViewResult, running view registration.
+2026-05-22 18:59:51.046 +05:30 [INF] Executed ViewResult - view registration executed in 388.4132ms.
+2026-05-22 18:59:51.050 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.registration (HotelMaster) in 393.1913ms
+2026-05-22 18:59:51.053 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 18:59:51.055 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 432.2436ms
+2026-05-22 18:59:51.079 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 18:59:51.084 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 18:59:51.097 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 12.6795ms
+2026-05-22 18:59:51.102 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.5436ms
+2026-05-22 19:00:27.954 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-22 19:00:28.375 +05:30 [INF] Now listening on: http://localhost:5107
+2026-05-22 19:00:28.583 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-22 19:00:28.586 +05:30 [INF] Hosting environment: Development
+2026-05-22 19:00:28.588 +05:30 [INF] Content root path: C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster
+2026-05-22 19:00:28.795 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 19:00:29.073 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-05-22 19:00:29.158 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 19:00:29.288 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:00:38.209 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 19:00:38.470 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 19:00:38.485 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 19:00:38.576 +05:30 [INF] Received HTTP response headers after 77.9523ms - 200
+2026-05-22 19:00:38.587 +05:30 [INF] End processing HTTP request after 129.0218ms - 200
+2026-05-22 19:00:39.359 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 19:00:39.363 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 19:00:39.429 +05:30 [INF] Received HTTP response headers after 62.6885ms - 200
+2026-05-22 19:00:39.433 +05:30 [INF] End processing HTTP request after 74.6003ms - 200
+2026-05-22 19:00:42.064 +05:30 [INF] Executed ViewResult - view Index executed in 12742.3095ms.
+2026-05-22 19:00:42.074 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 12781.8145ms
+2026-05-22 19:00:42.081 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 19:00:42.099 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:00:42.100 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 13328.2084ms
+2026-05-22 19:00:42.118 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:00:42.133 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 14.6008ms
+2026-05-22 19:00:42.163 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 19:00:42.172 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 19:00:42.174 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.9802ms
+2026-05-22 19:00:42.209 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:00:42.634 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 19:00:42.639 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 19:00:42.702 +05:30 [INF] Received HTTP response headers after 57.9984ms - 200
+2026-05-22 19:00:42.706 +05:30 [INF] End processing HTTP request after 72.2631ms - 200
+2026-05-22 19:00:42.738 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 19:00:42.774 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 556.1361ms
+2026-05-22 19:00:42.779 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 19:00:42.783 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 620.1709ms
+2026-05-22 19:00:44.241 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 19:00:44.262 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:00:44.276 +05:30 [INF] Route matched with {action = "registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:00:45.664 +05:30 [INF] Executing ViewResult, running view registration.
+2026-05-22 19:00:46.550 +05:30 [INF] Executed ViewResult - view registration executed in 2258.5906ms.
+2026-05-22 19:00:46.555 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.registration (HotelMaster) in 2267.3599ms
+2026-05-22 19:00:46.559 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:00:46.562 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 2321.5359ms
+2026-05-22 19:00:46.593 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:00:46.598 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:00:46.602 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 9.5837ms
+2026-05-22 19:00:46.663 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 65.5801ms
+2026-05-22 19:00:57.882 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-05-22 19:00:57.893 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 11.9831ms
+2026-05-22 19:00:57.907 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2026-05-22 19:00:57.917 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - null null
+2026-05-22 19:00:57.964 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/css/bootstrap.min.css.map - null null
+2026-05-22 19:00:58.000 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'
+2026-05-22 19:00:58.003 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - 200 327261 text/plain 86.0881ms
+2026-05-22 19:00:58.056 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css.map'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map'
+2026-05-22 19:00:58.060 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/css/bootstrap.min.css.map - 200 449111 text/plain 95.9477ms
+2026-05-22 19:01:00.630 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 19:01:00.643 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:01:00.647 +05:30 [INF] Route matched with {action = "registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:01:00.654 +05:30 [INF] Executing ViewResult, running view registration.
+2026-05-22 19:01:00.663 +05:30 [INF] Executed ViewResult - view registration executed in 9.4824ms.
+2026-05-22 19:01:00.667 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.registration (HotelMaster) in 14.2264ms
+2026-05-22 19:01:00.671 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:01:00.674 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 44.5643ms
+2026-05-22 19:01:00.704 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:01:00.704 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:01:00.721 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 16.9263ms
+2026-05-22 19:01:00.735 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.647ms
+2026-05-22 19:01:00.747 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-05-22 19:01:00.752 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 4.4103ms
+2026-05-22 19:01:00.758 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2026-05-22 19:01:19.526 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 19:01:19.534 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 19:01:19.536 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:01:19.935 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 19:01:19.967 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 19:01:19.970 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 19:01:20.025 +05:30 [INF] Received HTTP response headers after 52.6916ms - 200
+2026-05-22 19:01:20.105 +05:30 [INF] End processing HTTP request after 131.9923ms - 200
+2026-05-22 19:01:20.123 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 19:01:20.125 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 19:01:20.178 +05:30 [INF] Received HTTP response headers after 50.2554ms - 200
+2026-05-22 19:01:20.182 +05:30 [INF] End processing HTTP request after 58.5743ms - 200
+2026-05-22 19:01:20.208 +05:30 [INF] Executed ViewResult - view Index executed in 668.8198ms.
+2026-05-22 19:01:20.211 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 671.6649ms
+2026-05-22 19:01:20.214 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 19:01:20.217 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 691.486ms
+2026-05-22 19:01:20.261 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:01:20.270 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 8.7794ms
+2026-05-22 19:01:20.285 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-05-22 19:01:20.302 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 17.4912ms
+2026-05-22 19:01:20.314 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5107/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2026-05-22 19:01:21.528 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 19:01:21.540 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 19:01:21.582 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:01:21.601 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 19:01:21.604 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 19:01:21.652 +05:30 [INF] Received HTTP response headers after 46.0772ms - 200
+2026-05-22 19:01:21.655 +05:30 [INF] End processing HTTP request after 53.6478ms - 200
+2026-05-22 19:01:21.671 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 19:01:21.691 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 98.4671ms
+2026-05-22 19:01:21.694 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 19:01:21.699 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 170.7211ms
+2026-05-22 19:01:23.000 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Home/VendorRegistrationForm - null null
+2026-05-22 19:01:23.014 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster)'
+2026-05-22 19:01:23.019 +05:30 [INF] Route matched with {action = "VendorRegistrationForm", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult VendorRegistrationForm() on controller HotelMaster.Controllers.HomeController (HotelMaster).
+2026-05-22 19:01:23.745 +05:30 [INF] Executing ViewResult, running view VendorRegistrationForm.
+2026-05-22 19:01:23.810 +05:30 [INF] Executed ViewResult - view VendorRegistrationForm executed in 785.2104ms.
+2026-05-22 19:01:23.813 +05:30 [INF] Executed action HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster) in 791.016ms
+2026-05-22 19:01:23.816 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster)'
+2026-05-22 19:01:23.819 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Home/VendorRegistrationForm - 200 null text/html; charset=utf-8 819.0736ms
+2026-05-22 19:01:23.849 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:01:23.849 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:01:23.863 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 13.6279ms
+2026-05-22 19:01:23.866 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.3209ms
+2026-05-22 19:02:03.785 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Home/VendorRegistrationForm - null null
+2026-05-22 19:02:03.806 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster)'
+2026-05-22 19:02:03.817 +05:30 [INF] Route matched with {action = "VendorRegistrationForm", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult VendorRegistrationForm() on controller HotelMaster.Controllers.HomeController (HotelMaster).
+2026-05-22 19:02:03.826 +05:30 [INF] Executing ViewResult, running view VendorRegistrationForm.
+2026-05-22 19:02:03.838 +05:30 [INF] Executed ViewResult - view VendorRegistrationForm executed in 13.1629ms.
+2026-05-22 19:02:03.842 +05:30 [INF] Executed action HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster) in 17.1767ms
+2026-05-22 19:02:03.846 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster)'
+2026-05-22 19:02:03.850 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Home/VendorRegistrationForm - 200 null text/html; charset=utf-8 64.2839ms
+2026-05-22 19:02:03.880 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:02:03.883 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:02:03.888 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 8.2117ms
+2026-05-22 19:02:03.914 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.1108ms
+2026-05-22 19:02:06.161 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Home/VendorRegistrationForm - null null
+2026-05-22 19:02:06.181 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster)'
+2026-05-22 19:02:06.185 +05:30 [INF] Route matched with {action = "VendorRegistrationForm", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult VendorRegistrationForm() on controller HotelMaster.Controllers.HomeController (HotelMaster).
+2026-05-22 19:02:06.192 +05:30 [INF] Executing ViewResult, running view VendorRegistrationForm.
+2026-05-22 19:02:06.197 +05:30 [INF] Executed ViewResult - view VendorRegistrationForm executed in 4.8195ms.
+2026-05-22 19:02:06.202 +05:30 [INF] Executed action HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster) in 9.9984ms
+2026-05-22 19:02:06.205 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.HomeController.VendorRegistrationForm (HotelMaster)'
+2026-05-22 19:02:06.211 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Home/VendorRegistrationForm - 200 null text/html; charset=utf-8 50.1397ms
+2026-05-22 19:02:06.227 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:02:06.231 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:02:06.231 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.6972ms
+2026-05-22 19:02:06.249 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.2821ms
+2026-05-22 19:02:10.440 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 19:02:10.459 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 19:02:10.470 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:02:10.837 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 19:02:10.872 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 19:02:10.875 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 19:02:10.921 +05:30 [INF] Received HTTP response headers after 42.6972ms - 200
+2026-05-22 19:02:10.924 +05:30 [INF] End processing HTTP request after 51.8209ms - 200
+2026-05-22 19:02:10.942 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 19:02:10.947 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 19:02:10.991 +05:30 [INF] Received HTTP response headers after 42.2208ms - 200
+2026-05-22 19:02:10.997 +05:30 [INF] End processing HTTP request after 54.0419ms - 200
+2026-05-22 19:02:11.035 +05:30 [INF] Executed ViewResult - view Index executed in 554.7502ms.
+2026-05-22 19:02:11.038 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 558.0547ms
+2026-05-22 19:02:11.042 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 19:02:11.050 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 609.1627ms
+2026-05-22 19:02:11.067 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:02:11.073 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.754ms
+2026-05-22 19:02:11.105 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 19:02:11.109 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 19:02:11.128 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:02:11.135 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 19:02:11.137 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 19:02:11.208 +05:30 [INF] Received HTTP response headers after 68.8375ms - 200
+2026-05-22 19:02:11.213 +05:30 [INF] End processing HTTP request after 78.4737ms - 200
+2026-05-22 19:02:11.224 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 19:02:11.246 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 114.6287ms
+2026-05-22 19:02:11.274 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 19:02:11.277 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 172.0552ms
+2026-05-22 19:02:12.695 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 19:02:12.708 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:02:12.722 +05:30 [INF] Route matched with {action = "registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:02:13.300 +05:30 [INF] Executing ViewResult, running view registration.
+2026-05-22 19:02:13.344 +05:30 [INF] Executed ViewResult - view registration executed in 616.1449ms.
+2026-05-22 19:02:13.349 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.registration (HotelMaster) in 621.5284ms
+2026-05-22 19:02:13.351 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:02:13.354 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 658.9122ms
+2026-05-22 19:02:13.375 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:02:13.382 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:02:13.391 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 9.834ms
+2026-05-22 19:02:13.391 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.2729ms
+2026-05-22 19:02:42.464 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 19:02:42.482 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:02:42.486 +05:30 [INF] Route matched with {action = "registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:02:42.924 +05:30 [INF] Executing ViewResult, running view registration.
+2026-05-22 19:02:42.972 +05:30 [INF] Executed ViewResult - view registration executed in 478.6434ms.
+2026-05-22 19:02:42.986 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.registration (HotelMaster) in 494.7622ms
+2026-05-22 19:02:42.989 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:02:42.991 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 527.5485ms
+2026-05-22 19:02:43.002 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:02:43.005 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:02:43.015 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 9.5698ms
+2026-05-22 19:02:43.025 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.9933ms
+2026-05-22 19:03:22.406 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 19:03:22.416 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:03:22.430 +05:30 [INF] Route matched with {action = "registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:03:23.068 +05:30 [INF] Executing ViewResult, running view registration.
+2026-05-22 19:03:23.123 +05:30 [INF] Executed ViewResult - view registration executed in 687.8725ms.
+2026-05-22 19:03:23.128 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.registration (HotelMaster) in 692.917ms
+2026-05-22 19:03:23.133 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:03:23.135 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 729.1227ms
+2026-05-22 19:03:23.164 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:03:23.164 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:03:23.197 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.2459ms
+2026-05-22 19:03:23.199 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 35.6397ms
+2026-05-22 19:03:36.724 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-05-22 19:03:36.737 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 19:03:36.751 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:03:36.760 +05:30 [INF] Executing ViewResult, running view Index.
+2026-05-22 19:03:36.766 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 19:03:36.770 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-05-22 19:03:36.836 +05:30 [INF] Received HTTP response headers after 62.6494ms - 200
+2026-05-22 19:03:36.842 +05:30 [INF] End processing HTTP request after 76.3574ms - 200
+2026-05-22 19:03:36.855 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 19:03:36.859 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-05-22 19:03:36.924 +05:30 [INF] Received HTTP response headers after 59.5331ms - 200
+2026-05-22 19:03:36.932 +05:30 [INF] End processing HTTP request after 76.737ms - 200
+2026-05-22 19:03:36.947 +05:30 [INF] Executed ViewResult - view Index executed in 189.8334ms.
+2026-05-22 19:03:36.950 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 193.2589ms
+2026-05-22 19:03:36.964 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-05-22 19:03:36.968 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 243.637ms
+2026-05-22 19:03:37.022 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:03:37.033 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 11.7995ms
+2026-05-22 19:03:37.056 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - null null
+2026-05-22 19:03:37.066 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 19:03:37.077 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:03:37.082 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 19:03:37.084 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/VendorMasters/get_vendor_list?TenantId=1&ServiceCategory=0&PaymentType=&CityId=0&StateId=0&CountryId=0&GlobalSearch=&Status=0&Rating=0&PageSize=10&PageNumber=1
+2026-05-22 19:03:37.136 +05:30 [INF] Received HTTP response headers after 49.6427ms - 200
+2026-05-22 19:03:37.139 +05:30 [INF] End processing HTTP request after 57.5667ms - 200
+2026-05-22 19:03:37.161 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-22 19:03:37.173 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 92.8344ms
+2026-05-22 19:03:37.180 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-05-22 19:03:37.183 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/GetVendorList?StateId=0&CityId=0&PageNumber=1&PageSize=10 - 200 null application/json; charset=utf-8 127.2951ms
+2026-05-22 19:03:40.990 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Vendor/registration - null null
+2026-05-22 19:03:41.004 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:03:41.009 +05:30 [INF] Route matched with {action = "registration", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] registration() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-05-22 19:03:41.013 +05:30 [INF] Executing ViewResult, running view registration.
+2026-05-22 19:03:41.020 +05:30 [INF] Executed ViewResult - view registration executed in 6.4697ms.
+2026-05-22 19:03:41.023 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.registration (HotelMaster) in 10.382ms
+2026-05-22 19:03:41.032 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.registration (HotelMaster)'
+2026-05-22 19:03:41.034 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Vendor/registration - 200 null text/html; charset=utf-8 43.6729ms
+2026-05-22 19:03:41.049 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-05-22 19:03:41.053 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-22 19:03:41.068 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 14.8163ms
+2026-05-22 19:03:41.069 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.2538ms

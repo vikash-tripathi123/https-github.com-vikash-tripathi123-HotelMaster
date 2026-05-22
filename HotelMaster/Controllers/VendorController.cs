@@ -24,6 +24,12 @@ namespace HotelMaster.Controllers
             return View();
         }
 
+        public async Task<IActionResult> registration()
+        {
+            // ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
+
+            return View();
+        }
         [HttpGet]
         public async Task<IActionResult> GetVendorList(VendorRequestFilter filter)
         {

@@ -4944,8 +4944,15 @@ vendorTable .table-custom th:nth-child(2n+4) {
     }
 }
 
-
 .scroll-filter {
-    max-height: 160px;
-    overflow-y: auto;
+    max-height: 160px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
 }
+
+    /* Fix the select width */
+    .scroll-filter select {
+        width: 100% !important;
+        box-sizing: border-box !important;
+
+    }

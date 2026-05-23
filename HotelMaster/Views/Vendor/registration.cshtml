@@ -23,7 +23,7 @@
                         </div>
                         <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                     </div>
-                    <form method="post" id="hotelForm" action="/Home/Create">
+                    <form method="post" id="vendorBusinessForm">
 
                         <div class="card-body">
                             <div class="form-grid">
@@ -31,36 +31,39 @@
                                 <!-- Hotel Name -->
                                 <div class="form-group">
                                     <label for="Name">Business Name</label>
-                                    <input type="text" id="Name" name="Name" placeholder="Enter Business Name">
+                                    <input class="form-control" type="text" id="businessName" name="businessName" placeholder="Enter Business Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="Name">Legal Name</label>
-                                    <input type="text" id="Name" name="Name" placeholder="Enter Legal Name">
+                                    <input class="form-control" type="text" id="legalName" name="legalName" placeholder="Enter Legal Name">
                                 </div>
-
 
 
                                 <!-- Star Rating -->
                                 <div class="form-group">
                                     <label for="StarRating">Services</label>
                                     <div class="dropdown-trigger-box generalDEtailsSelect">
-                                        <select id="StarRating" name="StarRating" class="dropdown-trigger-box__native">
-                                            <option value="">Select Services</option>
-                                            <option>Select Services-1</option>
-                                            <option>Select Services-2</option>
-                                            <option>Select Services-3</option>
+                                        <select class="form-control" id="Service" name="Service" class="dropdown-trigger-box__native">
+                                            <option value=0>Select Services</option>
+                                            <option value=14>Accomodation</option>
+                                            <option value=1>Transportation / Taxi</option>
+                                            
                                         </select>
-                                        <div class="dropdown-trigger-box__chevron"></div>
+                                        @* <div class="dropdown-trigger-box__chevron"></div> *@
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="StarRating">Services</label>
                                     <div class="dropdown-trigger-box generalDEtailsSelect">
                                         <select id="StarRating" name="StarRating" class="dropdown-trigger-box__native">
-                                            <option value="">Star Rating</option>
+                                            @* <option value="">Select Star Rating</option> *@
                                             <option>Select Rating</option>
-                                            @* <option>Select Services-2</option>
-                                                <option>Select Services-3</option> *@
+                                            <option value=1>1</option>
+                                            <option value=2>2</option>
+                                            <option value=3>3</option>
+                                            <option value=4>4</option>
+                                            <option value=4>5</option>
+                                            
                                         </select>
                                         <div class="dropdown-trigger-box__chevron"></div>
                                     </div>
@@ -68,18 +71,15 @@
 
 
 
-
-
-
                                 <div class="form-grid-inner form-grid-inner-vendor">
                                     <div class="form-group">
                                         <label for="GoogleMapLink">Official Address Line 1</label>
-                                        <input type="text" id="GoogleMapLink" name="GoogleMapLink" placeholder="Official Address Line 1">
+                                        <input type="text" id="Address1" name="Address1" placeholder="Official Address Line 1">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="GoogleHotelLink">Official Address Line 2</label>
-                                        <input type="text" id="GoogleHotelLink" name="GoogleHotelLink" placeholder="Official Address Line 2">
+                                        <input type="text" id="Address2" name="Address2" placeholder="Official Address Line 2">
                                     </div>
 
                                     @* <div class="form-group">
@@ -89,20 +89,64 @@
                                 </div>
 
                                 <!-- Owner -->
-                                <div class="form-group">
+                     @*            <div class="form-group">
                                     <label for="OwnerName">City</label>
                                     <input type="text" id="City" name="OwnerName" placeholder="Enter Legal Name">
-                                </div>
+                                </div> *@
 
                                 <div class="form-group">
+                                    <label for="StarRating">Country</label>
+                                    <div class="dropdown-trigger-box generalDEtailsSelect">
+                                        <select id="Country" name="Country" class="dropdown-trigger-box__native">
+                                            @* <option value="">Select Star Rating</option> *@
+                                            <option value=0>Select Country</option>
+                                            <option value=201>India</option>
+                                         
+
+                                        </select>
+                                        <div class="dropdown-trigger-box__chevron"></div>
+                                    </div>
+                                </div>
+
+                              @*   <div class="form-group">
                                     <label for="OwnerPhone">State</label>
                                     <input type="text" id="State" name="State" placeholder="Enter Legal Name">
                                 </div>
+ *@
+                                <div class="form-group">
+                                    <label for="StarRating">State</label>
+                                    <div class="dropdown-trigger-box generalDEtailsSelect">
+                                        <select id="StarRating" name="StarRating" class="dropdown-trigger-box__native">
+                                            @* <option value="">Select Star Rating</option> *@
+                                            <option value=0>Select State</option>
+                                            <option value=232>Delhi</option>
+                                            <option value=227>Uttrakhand</option>
+                                         
+
+                                        </select>
+                                        <div class="dropdown-trigger-box__chevron"></div>
+                                    </div>
+                                </div>
 
                                 <!-- Address -->
-                                <div class="form-group">
+                              @*   <div class="form-group">
                                     <label for="Address1">Country</label>
                                     <input type="text" id="Country" name="Country" placeholder="Enter Legal Name">
+                                </div>
+ *@
+                                <div class="form-group">
+                                    <label for="StarRating">City</label>
+                                    <div class="dropdown-trigger-box generalDEtailsSelect">
+                                        <select id="City" name="City" class="dropdown-trigger-box__native">
+                                            @* <option value="">Select Star Rating</option> *@
+                                            <option>Select City</option>
+                                            <option value=2239>East Delhi</option>
+                                            <option value=2240>New Delhi</option>
+                                  
+
+                                        </select>
+                                        <div class="dropdown-trigger-box__chevron"></div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -115,25 +159,25 @@
 
                                         <div class="biz-radio-row">
                                             <label class="biz-radio-field">
-                                                <input type="radio" name="business-type" class="biz-input-hidden">
+                                                <input type="radio" name="business-type" class="biz-input-hidden" id="Partnership" value=1>
                                                 <span class="biz-radio-circle"></span>
                                                 Partnership
                                             </label>
 
                                             <label class="biz-radio-field">
-                                                <input type="radio" name="business-type" class="biz-input-hidden">
+                                                <input type="radio" name="business-type" class="biz-input-hidden" id="Private" value=2>
                                                 <span class="biz-radio-circle"></span>
                                                 Private
                                             </label>
 
                                             <label class="biz-radio-field">
-                                                <input type="radio" name="business-type" class="biz-input-hidden">
+                                                <input type="radio" name="business-type" class="biz-input-hidden" id="LLP" value=3>
                                                 <span class="biz-radio-circle"></span>
                                                 LLP
                                             </label>
 
                                             <label class="biz-radio-field">
-                                                <input type="radio" name="business-type" class="biz-input-hidden">
+                                                <input type="radio" name="business-type" class="biz-input-hidden" id="Proprietor" value=4>
                                                 <span class="biz-radio-circle"></span>
                                                 Proprietor
                                             </label>
@@ -204,6 +248,7 @@
                         @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                     </div>
                 </div>
+               
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">
@@ -348,6 +393,7 @@
                         @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                     </div>
                 </div>
+       
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">
@@ -419,6 +465,7 @@
                         </div>
                     </div>
                 </div>
+               
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">
@@ -499,7 +546,9 @@
                         @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                     </div>
                 </div>
+        
             </div>
+         
             <div class="tabsRoomDetails" id="roomTab">
 
                 <!-- CARD -->
@@ -631,7 +680,7 @@
         <button class="rates-btn-primary">Submit For Approval</button>
     </div>
 </div>
-
+<script src="~/js/modules/vendor/vendorregistration.js"></script>
 <script>
     document.querySelectorAll(".card-header").forEach(header => {
     header.addEventListener("click", () => {

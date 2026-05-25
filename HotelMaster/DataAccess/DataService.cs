@@ -2,8 +2,11 @@
 using HotelMaster.Common.CommonMethods;
 using HotelMaster.Models;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
 
 namespace HotelMaster.DataAccess
 {
@@ -44,9 +47,19 @@ namespace HotelMaster.DataAccess
 
         }
 
-        public Task<T> PostAsync<T>(string url, object parameter)
+        public async Task<T> PostAsync<T>(string url, object parameter)
         {
-            throw new NotImplementedException();
+
+            var json = JsonSerializer.Serialize(parameter);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(url, content);
+
+            // ✅ Deserialize into T
+            var result = await response.Content.ReadFromJsonAsync<T>();
+
+            return result!;
         }
 
         public Task<T> PutAsync<T>(string url, object parameter)

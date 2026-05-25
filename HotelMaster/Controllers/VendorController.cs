@@ -4,6 +4,7 @@ using HotelMaster.Models;
 using HotelMaster.Models.RequestModels.VendorModel;
 using HotelMaster.Models.ResponseModels.MasterModels;
 using HotelMaster.Models.ResponseModels.VendorModels;
+using HotelMaster.Models.ViewModels.VendorModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelMaster.Controllers
@@ -24,9 +25,12 @@ namespace HotelMaster.Controllers
             return View();
         }
 
-        public async Task<IActionResult> registration()
-        {
-            // ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
+        public async Task<IActionResult> registration() { 
+
+    
+         //   var registration = new iVendorViewModels();
+              //  Business = new BusinessModel()
+           
 
             return View();
         }
@@ -47,6 +51,15 @@ namespace HotelMaster.Controllers
             ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
 
             return View("Index", response.Data);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddVendor([FromBody]VendorPersonalBusinessRequest request)
+        {
+            var response = await _verndorService.AddVendor(request);
+
+            return Json(response);
         }
     }
 }

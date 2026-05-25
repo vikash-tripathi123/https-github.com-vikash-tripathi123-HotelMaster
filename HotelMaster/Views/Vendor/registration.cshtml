@@ -1,10 +1,18 @@
-﻿@page
-@model HotelMaster.Views.Vendor.registrationModel
-@{
-    Layout = "~/Views/Shared/Layouts/_MainLayout.cshtml";
-}
-   
+﻿@using HotelMaster.Models.RequestModels.VendorModel
+@model VendorPersonalBusinessRequest
+<script src="~/js/jquery.min.js"></script>
+@section Scripts {
 
+    <script>
+        console.log("INLINE SCRIPT WORKING ✅");
+    </script>
+
+    @* <script src="/js/modules/vendor/vendorregistration.js"></script> *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+}
 
 <div class="fromContaier VendorRegistrationForm">
     <div class="wrapper">
@@ -23,49 +31,54 @@
                         </div>
                         <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                     </div>
-                    <form method="post" id="vendorBusinessForm">
-
+                    <form method="post"  id="vendorBusinessForm">
+                        @Html.AntiForgeryToken()
+                        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
                         <div class="card-body">
                             <div class="form-grid">
 
                                 <!-- Hotel Name -->
                                 <div class="form-group">
-                                    <label for="Name">Business Name</label>
-                                    <input class="form-control" type="text" id="businessName" name="businessName" placeholder="Enter Business Name">
+                                    <label asp-for="Business_Name">Business Name</label>
+                                    <input class="form-control" type="text" id="businessName" asp-for="Business_Name" placeholder="Enter Business Name">
+                                    <span asp-validation-for="Business_Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Name">Legal Name</label>
-                                    <input class="form-control" type="text" id="legalName" name="legalName" placeholder="Enter Legal Name">
+                                    <label asp-for="Legal_Name">Legal Name</label>
+                                    <input class="form-control" type="text" id="legalName" asp-for="Legal_Name"  placeholder="Enter Legal Name">
+                                    <span asp-validation-for="Legal_Name" class="text-danger"></span>
                                 </div>
 
 
                                 <!-- Star Rating -->
                                 <div class="form-group">
-                                    <label for="StarRating">Services</label>
+                                    <label asp-for="Services">Services</label>
                                     <div class="dropdown-trigger-box generalDEtailsSelect">
-                                        <select class="form-control" id="Service" name="Service" class="dropdown-trigger-box__native">
-                                            <option value=0>Select Services</option>
+                                        <select class="form-control" id="Service" asp-for="Services" class="dropdown-trigger-box__native">
+                                            <option value="">Select Services</option>
                                             <option value=14>Accomodation</option>
                                             <option value=1>Transportation / Taxi</option>
-                                            
+
                                         </select>
                                         @* <div class="dropdown-trigger-box__chevron"></div> *@
+                                        <span asp-validation-for="Services" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="StarRating">Services</label>
+                                    <label asp-for="Star_Rating">Star Rating</label>
                                     <div class="dropdown-trigger-box generalDEtailsSelect">
-                                        <select id="StarRating" name="StarRating" class="dropdown-trigger-box__native">
+                                        <select id="StarRating" asp-for="Star_Rating" class="dropdown-trigger-box__native">
                                             @* <option value="">Select Star Rating</option> *@
-                                            <option>Select Rating</option>
+                                            <option value="">Select Rating</option>
                                             <option value=1>1</option>
                                             <option value=2>2</option>
                                             <option value=3>3</option>
                                             <option value=4>4</option>
                                             <option value=4>5</option>
-                                            
+
                                         </select>
                                         <div class="dropdown-trigger-box__chevron"></div>
+                                        <span asp-validation-for="Star_Rating" class="text-danger"></span>
                                     </div>
                                 </div>
 
@@ -73,13 +86,14 @@
 
                                 <div class="form-grid-inner form-grid-inner-vendor">
                                     <div class="form-group">
-                                        <label for="GoogleMapLink">Official Address Line 1</label>
-                                        <input type="text" id="Address1" name="Address1" placeholder="Official Address Line 1">
+                                        <label asp-for="AddressLine1">Official Address Line 1</label>
+                                        <input type="text" id="Address1" asp-for="AddressLine1" placeholder="Official Address Line 1">
+                                        <span asp-validation-for="AddressLine1" class="text-danger"></span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="GoogleHotelLink">Official Address Line 2</label>
-                                        <input type="text" id="Address2" name="Address2" placeholder="Official Address Line 2">
+                                        <label asp-for="AddressLine2">Official Address Line 2</label>
+                                        <input type="text" id="Address2" asp-for="AddressLine2" placeholder="Official Address Line 2">
                                     </div>
 
                                     @* <div class="form-group">
@@ -89,100 +103,112 @@
                                 </div>
 
                                 <!-- Owner -->
-                     @*            <div class="form-group">
+                                @*            <div class="form-group">
                                     <label for="OwnerName">City</label>
                                     <input type="text" id="City" name="OwnerName" placeholder="Enter Legal Name">
                                 </div> *@
 
                                 <div class="form-group">
-                                    <label for="StarRating">Country</label>
+                                    <label asp-for="Country">Country</label>
                                     <div class="dropdown-trigger-box generalDEtailsSelect">
-                                        <select id="Country" name="Country" class="dropdown-trigger-box__native">
+                                        <select asp-for="Country" id="Country" class="dropdown-trigger-box__native">
                                             @* <option value="">Select Star Rating</option> *@
-                                            <option value=0>Select Country</option>
+                                            <option value="">Select Country</option>
                                             <option value=201>India</option>
-                                         
+
 
                                         </select>
                                         <div class="dropdown-trigger-box__chevron"></div>
+                                        <span asp-validation-for="Country" class="text-danger"></span>
                                     </div>
                                 </div>
 
-                              @*   <div class="form-group">
+                                @*   <div class="form-group">
                                     <label for="OwnerPhone">State</label>
                                     <input type="text" id="State" name="State" placeholder="Enter Legal Name">
                                 </div>
  *@
                                 <div class="form-group">
-                                    <label for="StarRating">State</label>
+                                    <label asp-for="State">State</label>
                                     <div class="dropdown-trigger-box generalDEtailsSelect">
-                                        <select id="StarRating" name="StarRating" class="dropdown-trigger-box__native">
+                                        <select asp-for="State" id="State" class="dropdown-trigger-box__native">
                                             @* <option value="">Select Star Rating</option> *@
-                                            <option value=0>Select State</option>
+                                            <option value="">Select State</option>
                                             <option value=232>Delhi</option>
                                             <option value=227>Uttrakhand</option>
-                                         
+
 
                                         </select>
                                         <div class="dropdown-trigger-box__chevron"></div>
+                                        <span asp-validation-for="State" class="text-danger"></span>
                                     </div>
                                 </div>
 
                                 <!-- Address -->
-                              @*   <div class="form-group">
+                                @*   <div class="form-group">
                                     <label for="Address1">Country</label>
                                     <input type="text" id="Country" name="Country" placeholder="Enter Legal Name">
                                 </div>
  *@
                                 <div class="form-group">
-                                    <label for="StarRating">City</label>
+                                    <label asp-for="City">City</label>
                                     <div class="dropdown-trigger-box generalDEtailsSelect">
-                                        <select id="City" name="City" class="dropdown-trigger-box__native">
+                                        <select id="City" asp-for="City" class="dropdown-trigger-box__native">
                                             @* <option value="">Select Star Rating</option> *@
-                                            <option>Select City</option>
+                                            <option value="">Select City</option>
                                             <option value=2239>East Delhi</option>
                                             <option value=2240>New Delhi</option>
-                                  
+
 
                                         </select>
                                         <div class="dropdown-trigger-box__chevron"></div>
+                                        <span asp-validation-for="City" class="text-danger"></span>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="Address2">Pin Code</label>
-                                    <input type="text" id="Pin" name="Pin" placeholder="Enter Legal Name">
+                                    <label asp-for="Pin_Code">Pin Code</label>
+                                    <input type="text" id="Pin" asp-for="Pin_Code" placeholder="Enter Legal Name">
+                                    <span asp-validation-for="Pin_Code" class="text-danger"></span>
                                 </div>
                                 <div class="biz-form-contaier">
+
                                     <div class="biz-form-group">
+
                                         <div class="biz-form-title">Type of Business</div>
 
+                                        <span asp-validation-for="Business_Type" class="text-danger"></span>
+
                                         <div class="biz-radio-row">
+
                                             <label class="biz-radio-field">
-                                                <input type="radio" name="business-type" class="biz-input-hidden" id="Partnership" value=1>
+                                                <input asp-for="Business_Type" type="radio" value="1" class="biz-input-hidden" />
                                                 <span class="biz-radio-circle"></span>
                                                 Partnership
                                             </label>
 
                                             <label class="biz-radio-field">
-                                                <input type="radio" name="business-type" class="biz-input-hidden" id="Private" value=2>
+                                                <input asp-for="Business_Type" type="radio" value="2" class="biz-input-hidden" />
                                                 <span class="biz-radio-circle"></span>
                                                 Private
                                             </label>
 
                                             <label class="biz-radio-field">
-                                                <input type="radio" name="business-type" class="biz-input-hidden" id="LLP" value=3>
+                                                <input asp-for="Business_Type" type="radio" value="3" class="biz-input-hidden" />
                                                 <span class="biz-radio-circle"></span>
                                                 LLP
                                             </label>
 
                                             <label class="biz-radio-field">
-                                                <input type="radio" name="business-type" class="biz-input-hidden" id="Proprietor" value=4>
+                                                <input asp-for="Business_Type" type="radio" value="4" class="biz-input-hidden" />
                                                 <span class="biz-radio-circle"></span>
                                                 Proprietor
                                             </label>
+
                                         </div>
+                                     
                                     </div>
+                              
                                 </div>
                             </div>
 
@@ -248,7 +274,7 @@
                         @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                     </div>
                 </div>
-               
+
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">
@@ -393,7 +419,7 @@
                         @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                     </div>
                 </div>
-       
+
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">
@@ -465,7 +491,7 @@
                         </div>
                     </div>
                 </div>
-               
+
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">
@@ -546,9 +572,9 @@
                         @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                     </div>
                 </div>
-        
+
             </div>
-         
+
             <div class="tabsRoomDetails" id="roomTab">
 
                 <!-- CARD -->
@@ -677,10 +703,13 @@
     </div>
     <div class="rates-footer vendorCta">
         <button class="rates-btn-outline">Save As Draft</button>
-        <button class="rates-btn-primary">Submit For Approval</button>
+        <button type="submit"  value="Submit" id="btnSubmit" class="rates-btn-primary">
+            Submit For Approval
+        </button>
     </div>
 </div>
-<script src="~/js/modules/vendor/vendorregistration.js"></script>
+
+
 <script>
     document.querySelectorAll(".card-header").forEach(header => {
     header.addEventListener("click", () => {
@@ -721,3 +750,4 @@
       });
     });
 </script>
+<script src="~/js/modules/vendor/vendorregistration.js"></script>

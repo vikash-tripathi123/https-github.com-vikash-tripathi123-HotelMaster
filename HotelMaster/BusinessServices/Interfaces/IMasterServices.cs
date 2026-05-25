@@ -13,7 +13,7 @@ namespace HotelMaster.BusinessServices.Interfaces
 
         public Task<ApiResponse<List<GetPropertyResponse>>> PropertyTypeList();
 
-
         public Task<ApiResponse<List<GetServiceMasterResponse>>> ServiceMasterList();
+
     }
 }

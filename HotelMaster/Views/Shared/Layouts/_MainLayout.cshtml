@@ -22,9 +22,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link href="/css/site.css" rel="stylesheet" />
+
     <script src="~/js/jquery.min.js"></script>
-    <script src="~/js/jquery.validate.min.js"></script>
-    <script src="~/js/jquery.validate.unobtrusive.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+  
+
     @RenderSection("Styles", required: false)
 </head>
 <body>
@@ -41,7 +46,8 @@
 
     <script>
         $(document).ready(function () {
-
+            debugger
+            $.validator
             var token = $('meta[name="csrf-token"]').attr('content');
 
             $.ajaxSetup({
@@ -55,6 +61,6 @@
 
 
     @RenderSection("Scripts", required: false)
-
+  
 </body>
 </html>

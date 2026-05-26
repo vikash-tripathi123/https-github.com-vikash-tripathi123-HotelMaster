@@ -11,8 +11,9 @@ namespace HotelMaster.Models.ViewModels.VendorModels
 
 
      
-        public VendorPersonalBusinessRequest Request { get; set; }
+        public VendorPersonalBusinessRequest personalBusinessRequest { get; set; }
 
+        public List<VendorContactRequest> vendorContactRequest { get; set; }
         //@model HotelMaster.Views.Vendor.registrationModel
     }
 }

@@ -62,9 +62,18 @@ namespace HotelMaster.DataAccess
             return result!;
         }
 
-        public Task<T> PutAsync<T>(string url, object parameter)
+        public async Task<T> PutAsync<T>(string url, object parameter)
         {
-            throw new NotImplementedException();
+            var json = JsonSerializer.Serialize(parameter);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PutAsync(url, content);
+
+            // ✅ Deserialize into T
+            var result = await response.Content.ReadFromJsonAsync<T>();
+
+            return result!;
         }
 
         public Task<T> DeleteAsync<T>(string url, object parameter)

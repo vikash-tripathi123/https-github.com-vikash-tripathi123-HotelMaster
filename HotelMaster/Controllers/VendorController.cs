@@ -20,19 +20,27 @@ namespace HotelMaster.Controllers
         }
         public async Task<IActionResult> Index()
         {
-           // ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
+            // ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
+           
 
             return View();
         }
 
-        public async Task<IActionResult> registration() { 
+        public async Task<IActionResult> registration() {
 
-    
-         //   var registration = new iVendorViewModels();
-              //  Business = new BusinessModel()
-           
 
-            return View();
+
+
+            var model = new VendorViewModels();
+
+            model.vendorContactRequest = new List<VendorContactRequest>();
+
+            // ✅ Always add at least one row
+            model.vendorContactRequest.Add(new VendorContactRequest());
+
+            return View(model);
+
+
         }
         [HttpGet]
         public async Task<IActionResult> GetVendorList(VendorRequestFilter filter)
@@ -57,6 +65,12 @@ namespace HotelMaster.Controllers
         [HttpPost]
         public async Task<IActionResult> AddVendor([FromBody]VendorPersonalBusinessRequest request)
         {
+
+            if (request == null)
+            {
+                return BadRequest("Invalid request");   // ✅ return 400
+            }
+
             var response = await _verndorService.AddVendor(request);
 
             return Json(response);

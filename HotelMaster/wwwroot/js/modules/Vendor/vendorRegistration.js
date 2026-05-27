@@ -3,7 +3,7 @@
 $(document).ready(function () {
 
 });
-document.querySelector("#btnSubmit").addEventListener("click", addVendor); 
+document.querySelector("#btnSubmit").addEventListener("click", addVendorContact); 
 
 function addVendor() {
     debugger
@@ -63,7 +63,7 @@ function addVendor() {
 
         Pin_Code: $("#Pin").val(),
 
-        Business_Type: $("input[name='Business_Type']:checked").val(),
+        Business_Type:1,
 
         UserName: "Admin"
     };
@@ -91,7 +91,7 @@ function addVendor() {
             console.log(response);
             if (response.statusCode > 0) {
                 alert("Vendor Added Successfully");
-            }
+            }  
             else {
                 alert("vendor not added")
             }
@@ -99,11 +99,15 @@ function addVendor() {
 
         },
 
-        error: function (xhr) {
+        error: function (error) {
 
-            console.log(xhr);
-
-            console.log(xhr.responseText);
+            console.log(error);
+            if (error.status == 409) {
+                alert(error.responseJSON.errors
+                )
+            }
+            console.log(error.responseText);
+            console.log(error.responseJSON.errors);
 
         }
     });
@@ -155,14 +159,19 @@ function addContactRow() {
         $(this).text("");
     });
 
+    // ✅ ADD REMOVE BUTTON manually if not present
+    if (newRow.find(".removeRow").length === 0) {
+        newRow.append('<button type="button" class="removeRow">Remove</button>');
+    }
+
     $("#contactContainer").append(newRow);
 
-    // ✅ 🔴 CRITICAL FIX
+    // rebind validation
     $("#vendorContactForm").removeData("validator");
     $("#vendorContactForm").removeData("unobtrusiveValidation");
     $.validator.unobtrusive.parse("#vendorContactForm");
 }
-``
+
 
     // ✅ remove row
     $(document).on("click", ".removeRow", function () {
@@ -171,46 +180,48 @@ function addContactRow() {
 
 document.querySelector("#btnSubmit").addEventListener("click", addVendorContact);
 function addVendorContact() {
-
+    debugger
     var form = $("#vendorContactForm");
 
     if (!form.valid()) {
         return false;
     }
 
-   
 
-    //$.ajax({
+    let contacts = [];
 
-    //    url: '/Vendor/AddVendor',
+    $("#contactContainer .contact-row").each(function () {
 
-    //    type: 'POST',
+        let row = $(this);
 
-    //    contentType: 'application/json',
+        let contact = {
+            FullName: row.find("input[name*='FullName']").val(),
+            Phone: row.find("input[name*='Phone']").val(),
+            Email: row.find("input[name*='Email']").val(),
+            Department: row.find("select[name*='Department']").val(),
+            Designation: row.find("select[name*='Designation']").val()
+        };
 
-    //    data: ,
-    //    headers: {
-
-    //        'RequestVerificationToken':
-    //            $('input[name="__RequestVerificationToken"]').val()
-    //    },
+        contacts.push(contact);
+    });
 
 
-    //    success: function (response) {
 
-    //        console.log(response);
+    $.ajax({
+        url: "/Vendor/AddVendorContact",
+        type: "POST",
+        contentType: "application/json",
+        data: contacts,
+        headers: {
+            "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+        },
+        success: function (res) {
+            console.log("Success", res);
+        },
+        error: function (err) {
+            console.log("Error", err);
+        }
+    });
 
-    //        alert("Vendor Added Successfully");
-
-    //    },
-
-    //    error: function (xhr) {
-
-    //        console.log(xhr);
-
-    //        console.log(xhr.responseText);
-
-    //    }
-    //});
 
 }

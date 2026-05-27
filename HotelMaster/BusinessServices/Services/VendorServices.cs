@@ -70,5 +70,30 @@ namespace HotelMaster.BusinessServices.Services
                 );
             }
         }
+
+        public async Task<ApiResponse<string>> AddVendorContact(List<VendorContactRequest> request)
+        {
+            try
+            {
+
+                string url = BASEURL + ApiEndPoints.ADDVENDORCONTACT;
+                var response = await _dataService.PostAsync<ApiResponse<string>>(url, request);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "API is not reachable. Please ensure the service is running.",
+                    ex
+                );
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out. Please try again later.",
+                    ex
+                );
+            }
+        }
     }
 }

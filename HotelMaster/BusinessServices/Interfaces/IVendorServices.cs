@@ -8,5 +8,6 @@ namespace HotelMaster.BusinessServices.Interfaces
     {
         public Task<ApiResponse<List<VendorListResponse>>> GetVendorList(VendorRequestFilter filter );
         public Task<ApiResponse<object>> AddVendor(VendorPersonalBusinessRequest request);
+        public Task<ApiResponse<string>> AddVendorContact(List<VendorContactRequest> request);
     }
 }

@@ -15,6 +15,8 @@
 
         public const string PROPERTY_TYPE = "Masters/get_property_type_list";
 
-        public const string ADDVENDOR = "VendorMasters/AddVendor"; 
+        public const string ADDVENDOR = "VendorMasters/AddVendor";
+
+        public const string ADDVENDORCONTACT = "VendorMasters/AddVendorContact"; 
     }
 }

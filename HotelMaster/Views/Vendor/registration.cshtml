@@ -2,6 +2,12 @@
 @using HotelMaster.Models.ViewModels.VendorModels
 @model VendorViewModels
 <script src="~/js/jquery.min.js"></script>
+<style>
+    .error {
+        color: red;
+        font-size: 16px;
+    }
+</style>
 @section Scripts {
 
     <script>
@@ -43,20 +49,20 @@
                      <div class="form-grid">
                         <!-- Hotel Name -->
                         <div class="form-group">
-                           <label asp-for="personalBusinessRequest.Business_Name">Business Name</label>
+                                    <label asp-for="personalBusinessRequest.Business_Name">Business Name<span class="error">*</span></label>
                            <input class="form-control" type="text" id="businessName" asp-for="personalBusinessRequest.Business_Name" placeholder="Enter Business Name">
                            <span asp-validation-for="personalBusinessRequest.Business_Name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                           <label asp-for="personalBusinessRequest.Legal_Name">Legal Name</label>
+                                    <label asp-for="personalBusinessRequest.Legal_Name">Legal Name<span class="error">*</span></label>
                            <input class="form-control" type="text" id="legalName" asp-for="personalBusinessRequest.Legal_Name" placeholder="Enter Legal Name">
                            <span asp-validation-for="personalBusinessRequest.Legal_Name" class="text-danger"></span>
                         </div>
                         <!-- Star Rating -->
                         <div class="form-group">
-                           <label asp-for="personalBusinessRequest.Services">Services</label>
+                                    <label asp-for="personalBusinessRequest.Services">Services<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
-                              <select class="form-control" id="Service" asp-for="personalBusinessRequest.Services" class="dropdown-trigger-box__native">
+                              <select id="Service" asp-for="personalBusinessRequest.Services" class="dropdown-trigger-box__native">
                                  <option value="">Select Services</option>
                                  <option value=14>Accomodation</option>
                                  <option value=1>Transportation / Taxi</option>
@@ -64,11 +70,12 @@
                               @* 
                               <div class="dropdown-trigger-box__chevron"></div>
                               *@
+                                        <div class="dropdown-trigger-box__chevron"></div>
                               <span asp-validation-for="personalBusinessRequest.Services" class="text-danger"></span>
                            </div>
                         </div>
                         <div class="form-group">
-                           <label asp-for="personalBusinessRequest.Star_Rating">Star Rating</label>
+                                    <label asp-for="personalBusinessRequest.Star_Rating">Star Rating<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
                               <select id="StarRating" asp-for="personalBusinessRequest.Star_Rating" class="dropdown-trigger-box__native">
                                  @* 
@@ -87,7 +94,7 @@
                         </div>
                         <div class="form-grid-inner form-grid-inner-vendor">
                            <div class="form-group">
-                              <label asp-for="personalBusinessRequest.AddressLine1">Official Address Line 1</label>
+                                        <label asp-for="personalBusinessRequest.AddressLine1">Official Address Line 1<span class="error">*</span></label>
                               <input type="text" id="Address1" asp-for="personalBusinessRequest.AddressLine1" placeholder="Official Address Line 1">
                               <span asp-validation-for="personalBusinessRequest.AddressLine1" class="text-danger"></span>
                            </div>
@@ -110,7 +117,7 @@
                         </div>
                         *@
                         <div class="form-group">
-                           <label asp-for="personalBusinessRequest.Country">Country</label>
+                                    <label asp-for="personalBusinessRequest.Country">Country<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
                               <select asp-for="personalBusinessRequest.Country" id="Country" class="dropdown-trigger-box__native">
                                  @* 
@@ -130,7 +137,7 @@
                         </div>
                         *@
                         <div class="form-group">
-                           <label asp-for="personalBusinessRequest.State">State</label>
+                                    <label asp-for="personalBusinessRequest.State">State<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
                               <select asp-for="personalBusinessRequest.State" id="State" class="dropdown-trigger-box__native">
                                  @* 
@@ -152,7 +159,7 @@
                         </div>
                         *@
                         <div class="form-group">
-                           <label asp-for="personalBusinessRequest.City">City</label>
+                                    <label asp-for="personalBusinessRequest.City">City<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
                               <select id="City" asp-for="personalBusinessRequest.City" class="dropdown-trigger-box__native">
                                  @* 
@@ -167,32 +174,32 @@
                            </div>
                         </div>
                         <div class="form-group">
-                           <label asp-for="personalBusinessRequest.Pin_Code">Pin Code</label>
+                                    <label asp-for="personalBusinessRequest.Pin_Code">Pin Code<span class="error">*</span></label>
                            <input type="text" id="Pin" asp-for="personalBusinessRequest.Pin_Code" placeholder="Enter Legal Name">
                            <span asp-validation-for="personalBusinessRequest.Pin_Code" class="text-danger"></span>
                         </div>
                         <div class="biz-form-contaier">
                            <div class="biz-form-group">
-                              <div class="biz-form-title">Type of Business</div>
-                              <span asp-validation-for="personalBusinessRequest.Business_Type" class="text-danger"></span>
+                                        <div class="biz-form-title">Type of Business<span class="error">*</span></div>
+                                        <span asp-validation-for="personalBusinessRequest.Business_Type" class="text-danger"></span>
                               <div class="biz-radio-row">
                                  <label class="biz-radio-field">
-                                 <input asp-for="personalBusinessRequest.Business_Type" type="radio" value="1" class="biz-input-hidden" />
+                                                <input asp-for="personalBusinessRequest.Business_Type"  type="radio" value="1" class="biz-input-hidden" />
                                  <span class="biz-radio-circle"></span>
                                  Partnership
                                  </label>
                                  <label class="biz-radio-field">
-                                 <input asp-for="personalBusinessRequest.Business_Type" type="radio" value="2" class="biz-input-hidden" />
+                                                <input asp-for="personalBusinessRequest.Business_Type"  type="radio" value="2" class="biz-input-hidden" />
                                  <span class="biz-radio-circle"></span>
                                  Private
                                  </label>
                                  <label class="biz-radio-field">
-                                 <input asp-for="personalBusinessRequest.Business_Type" type="radio" value="3" class="biz-input-hidden" />
+                                                <input asp-for="personalBusinessRequest.Business_Type"  type="radio" value="3" class="biz-input-hidden" />
                                  <span class="biz-radio-circle"></span>
                                  LLP
                                  </label>
                                  <label class="biz-radio-field">
-                                 <input asp-for="personalBusinessRequest.Business_Type" type="radio" value="4" class="biz-input-hidden" />
+                                                <input asp-for="personalBusinessRequest.Business_Type"  type="radio" value="4" class="biz-input-hidden" />
                                  <span class="biz-radio-circle"></span>
                                  Proprietor
                                  </label>
@@ -251,10 +258,10 @@
                               </select>
                               <span asp-validation-for="vendorContactRequest[i].Designation" class="text-danger"></span>
                            </div>
-                           @if (i != 0)
+                         @*   @if (i != 0)
                            {
                            <button type="button" class="removeRow">Remove</button>
-                           }
+                           } *@
                         </div>
                         }
                      </div>

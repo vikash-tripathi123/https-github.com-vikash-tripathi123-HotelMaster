@@ -91,5 +91,22 @@ namespace HotelMaster.Controllers
             return StatusCode(response.StatusCode, response);
 
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddVendorFinancial([FromBody] VendorFinancialiRequest request)
+        {
+
+            if (request == null)
+            {
+                return BadRequest("Invalid request");   // ✅ return 400
+            }
+
+            var response = await _verndorService.AddVendorFinancial(request);
+
+            return StatusCode(response.StatusCode, response);
+
+        }
+
     }
 }

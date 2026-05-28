@@ -34,7 +34,8 @@
 </head>
 <body>
 
-    @await Html.PartialAsync("~/Views/Shared/Layouts/_Header.cshtml")
+    @* @await Html.PartialAsync("~/Views/Shared/Layouts/_Header.cshtml") *@
+    @await Html.PartialAsync("~/Views/Shared/Layouts/_header2.cshtml")
 
     <main>
         @RenderBody()
@@ -63,4 +64,6 @@
     @RenderSection("Scripts", required: false)
   
 </body>
+
+
 </html>

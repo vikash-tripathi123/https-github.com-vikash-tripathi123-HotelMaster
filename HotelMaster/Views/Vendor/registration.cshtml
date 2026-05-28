@@ -1,11 +1,24 @@
 ﻿@using HotelMaster.Models.RequestModels.VendorModel
 @using HotelMaster.Models.ViewModels.VendorModels
 @model VendorViewModels
+
+@{
+    ViewData["Title"] = "Vendor Registration";
+
+    ViewBag.PageTitle = "Vendor Registration";
+    ViewBag.PageDescription = "Manage vendors and services.";
+
+    Layout = "~/Views/Shared/Layouts/_MainLayout.cshtml";
+}
+
 <script src="~/js/jquery.min.js"></script>
 <style>
-    .error {
-        color: red;
-        font-size: 16px;
+    .error{
+        color:red;
+    }
+    .text-danger {
+        color: red !important;
+        font-size: 12px !important;
     }
 </style>
 @section Scripts {
@@ -51,7 +64,7 @@
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Business_Name">Business Name<span class="error">*</span></label>
                            <input class="form-control" type="text" id="businessName" asp-for="personalBusinessRequest.Business_Name" placeholder="Enter Business Name">
-                           <span asp-validation-for="personalBusinessRequest.Business_Name" class="text-danger"></span>
+                                    <span asp-validation-for="personalBusinessRequest.Business_Name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Legal_Name">Legal Name<span class="error">*</span></label>
@@ -272,6 +285,8 @@
                   </span>
                </div>
             </div>
+                <form method="post" id="vendorFinancialForm">
+                    @Html.AntiForgeryToken()
             <div class="card">
                <div class="card-header">
                   <div class="card-title">
@@ -280,35 +295,44 @@
                   <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                </div>
                <div class="card-body">
-                  <div class="vendorGridTitle">
-                     <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Bank Details</h1>
-                  </div>
-                  <div class="form-grid vendorGrid">
-                     <div class="form-group">
-                        <label>Legal Name</label>
-                        <input type="text" placeholder="Input Name">
-                        @* <span class="additems">
+                 
+
+                            <div class="vendorGridTitle">
+                                <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Bank Details</h1>
+                            </div>
+                            <div class="form-grid vendorGrid">
+                                <div class="form-group">
+                                    <label asp-for="vendorFinancialiRequest.legalName">Legal Name</label>
+                                    <input asp-for="vendorFinancialiRequest.legalName" type="text" placeholder="Input Name">
+                                    <span asp-validation-for="vendorFinancialiRequest.legalName" class="text-danger"></span>
+                                    @* <span class="additems">
                         <img src="/img/add_circle.png">
                         Add Contact Details
                         </span> *@
-                     </div>
-                     <div class="form-group">
-                        <label>Bank Name</label>
-                        <input type="text" placeholder="Bank Name">
-                     </div>
-                     <div class="form-group">
-                        <label>Account Number</label>
-                        <input type="text" placeholder="Account Number">
-                     </div>
-                     <div class="form-group">
-                        <label>IFSC Code</label>
-                        <input type="text" placeholder="IFSC Code">
-                     </div>
-                     <div class="form-group">
-                        <label>&nbsp;</label>
-                        <button class="verifyed">Verify</button>
-                     </div>
-                  </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="vendorFinancialiRequest.BankName">Bank Name</label>
+                                    <input asp-for="vendorFinancialiRequest.BankName" type="text" placeholder="Bank Name">
+                                    <span asp-validation-for="vendorFinancialiRequest.BankName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="vendorFinancialiRequest.AccountNumber">Account Number</label>
+                                    <input asp-for="vendorFinancialiRequest.AccountNumber" type="text" placeholder="Account Number">
+                                    <span asp-validation-for="vendorFinancialiRequest.AccountNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="vendorFinancialiRequest.Ifsc_Code">IFSC Code</label>
+                                    <input asp-for="vendorFinancialiRequest.Ifsc_Code" type="text" placeholder="IFSC Code">
+                                    <span asp-validation-for="vendorFinancialiRequest.Ifsc_Code" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <button class="verifyed">Verify</button>
+                                </div>
+                            </div>
+
+                
+                 
                   @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                </div>
                <div class="card-body">
@@ -317,8 +341,9 @@
                   </div>
                   <div class="form-grid vendorGrid">
                      <div class="form-group">
-                        <label>Applicable TDS %</label>
-                        <input type="text" placeholder="e.g. 10%">
+                         <label asp-for="vendorFinancialiRequest.Applicable_tds_percent">Applicable TDS %</label>
+                         <input asp-for="vendorFinancialiRequest.Applicable_tds_percent" type="text" placeholder="e.g. 10%">
+                          <span asp-validation-for="vendorFinancialiRequest.Applicable_tds_percent" class="text-danger"></span>
                         @* <span class="additems">
                         <img src="/img/add_circle.png">
                         Add Contact Details
@@ -333,16 +358,18 @@
                   </div>
                   <div class="form-grid panGrid">
                      <div class="form-group">
-                        <label>PAN Holder Name</label>
-                        <input type="text" placeholder="Name on PAN Card">
+                        <label  asp-for="vendorFinancialiRequest.Pan_Name_Holder">PAN Holder Name</label>
+                        <input  asp-for="vendorFinancialiRequest.Pan_Name_Holder" type="text" placeholder="Name on PAN Card">
+                         <span asp-validation-for="vendorFinancialiRequest.Pan_Name_Holder" class="text-danger"></span>
                         @* <span class="additems">
                         <img src="/img/add_circle.png">
                         Add Contact Details
                         </span> *@
                      </div>
                      <div class="form-group">
-                        <label>PAN Number</label>
-                        <input type="text" placeholder="Enter PAN">
+                                <label asp-for="vendorFinancialiRequest.Pan_number">PAN Number</label>
+                                <input asp-for="vendorFinancialiRequest.Pan_number" type="text" placeholder="Enter PAN">
+                                <span asp-validation-for="vendorFinancialiRequest.Pan_number" class="text-danger"></span>
                      </div>
                      <div class="form-group">
                         <label>&nbsp;</label>
@@ -357,16 +384,18 @@
                   </div>
                   <div class="form-grid panGrid">
                      <div class="form-group">
-                        <label>GST Registered Name</label>
-                        <input type="text" placeholder="Legal Name">
+                                <label asp-for="vendorFinancialiRequest.Gst_Registered_Name">GST Registered Name</label>
+                                <input asp-for="vendorFinancialiRequest.Gst_Registered_Name" type="text" placeholder="Legal Name">
+                                <span asp-validation-for="vendorFinancialiRequest.Gst_Registered_Name" class="text-danger"></span>
                         @* <span class="additems">
                         <img src="/img/add_circle.png">
                         Add Contact Details
                         </span> *@
                      </div>
                      <div class="form-group">
-                        <label>GSTIN Number</label>
-                        <input type="text" placeholder="GSTIN">
+                                <label asp-for="vendorFinancialiRequest.Gst_in_number">GSTIN Number</label>
+                                <input asp-for="vendorFinancialiRequest.Gst_in_number" type="text" placeholder="GSTIN">
+                                <span asp-validation-for="vendorFinancialiRequest.Gst_in_number" class="text-danger"></span>
                      </div>
                      <div class="form-group">
                         <label>&nbsp;</label>
@@ -381,16 +410,18 @@
                   </div>
                   <div class="form-grid panGrid">
                      <div class="form-group">
-                        <label>MSME Certificate Holder's Name</label>
-                        <input type="text" placeholder="Name on Certificate">
+                                <label asp-for="vendorFinancialiRequest.Msme_certificate_holder_name">MSME Certificate Holder's Name</label>
+                                <input asp-for="vendorFinancialiRequest.Msme_certificate_holder_name" type="text" placeholder="Name on Certificate">
+                                <span asp-validation-for="vendorFinancialiRequest.Msme_certificate_holder_name" class="text-danger"></span>
                         @* <span class="additems">
                         <img src="/img/add_circle.png">
                         Add Contact Details
                         </span> *@
                      </div>
                      <div class="form-group">
-                        <label>MSME Registration Number</label>
-                        <input type="text" placeholder="Udyam Registration No.">
+                                <label asp-for="vendorFinancialiRequest.Msme_registration_number">MSME Registration Number</label>
+                                <input asp-for="vendorFinancialiRequest.Msme_registration_number" type="text" placeholder="Udyam Registration No.">
+                                <span asp-validation-for="vendorFinancialiRequest.Msme_registration_number" class="text-danger"></span>
                      </div>
                      <div class="form-group">
                         <label>&nbsp;</label>
@@ -400,6 +431,8 @@
                   @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                </div>
             </div>
+                </form>
+            
             <div class="card">
                <div class="card-header">
                   <div class="card-title">

@@ -17,6 +17,8 @@
 
         public const string ADDVENDOR = "VendorMasters/AddVendor";
 
-        public const string ADDVENDORCONTACT = "VendorMasters/AddVendorContact"; 
+        public const string ADDVENDORCONTACT = "VendorMasters/AddVendorContact";
+
+        public const string ADDVENDORFINANCIAL = "VendorMasters/add_vendor_legal_financial"; 
     }
 }

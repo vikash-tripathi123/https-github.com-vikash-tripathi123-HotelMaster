@@ -197,9 +197,9 @@ function renderPagination(totalRecords, page) {
 
     // PREVIOUS
     html += `
-        <button class="inventory-pagination__btn"
+        <button class="inventory-pagination__btn" id=prevPage 
             ${page === 1 ? 'disabled' : ''}
-            data-page="${page - 1}">
+            data-page="${page - 1}" >
             ◀
         </button>
     `;
@@ -208,7 +208,7 @@ function renderPagination(totalRecords, page) {
     for (let i = 1; i <= totalPages; i++) {
 
         html += `
-            <button class="inventory-pagination__btn
+            <button class="inventory-pagination__btn id=currentPage 
                 ${page === i ? 'inventory-pagination__btn--active' : ''}"
                 data-page="${i}">
                 ${i}
@@ -218,14 +218,20 @@ function renderPagination(totalRecords, page) {
 
     // NEXT
     html += `
-        <button class="inventory-pagination__btn"
+        <button class="inventory-pagination__btn" id=nextPage
             ${page === totalPages ? 'disabled' : ''}
-            data-page="${page + 1}">
+            data-page="${page + 1}" >
             ▶
         </button>
     `;
 
     $('.inventory-pagination__list').html(html);
+}
+
+
+function pageChange(pageno) {
+    currentPage = pageno;
+    loadVendors();
 }
 
 $(document).on('click', '.inventory-pagination__btn', function () {

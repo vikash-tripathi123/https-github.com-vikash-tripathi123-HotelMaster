@@ -3,7 +3,7 @@
 $(document).ready(function () {
 
 });
-document.querySelector("#btnSubmit").addEventListener("click", addVendorContact); 
+//document.querySelector("#btnSubmit").addEventListener("click", addVendor); 
 
 function addVendor() {
     debugger
@@ -173,12 +173,12 @@ function addContactRow() {
 }
 
 
-    // ✅ remove row
-    $(document).on("click", ".removeRow", function () {
+  // ✅ remove row
+ $(document).on("click", ".removeRow", function () {
         $(this).closest(".contact-row").remove();
     });
 
-document.querySelector("#btnSubmit").addEventListener("click", addVendorContact);
+document.querySelector("#btnSubmit").addEventListener("click", addVendorFinancila);
 function addVendorContact() {
     debugger
     var form = $("#vendorContactForm");
@@ -223,5 +223,55 @@ function addVendorContact() {
         }
     });
 
+
+}
+
+function addVendorFinancila() {
+    debugger
+    var form = $("#vendorFinancialForm");
+
+    if (!form.valid()) {
+        return false;
+    }
+
+
+    var payload = {
+
+        legalName: $('input[name="vendorFinancialiRequest.legalName"]').val(),
+        BankName: $('input[name="vendorFinancialiRequest.BankName"]').val(),
+        AccountNumber: $('input[name="vendorFinancialiRequest.AccountNumber"]').val(),
+        Ifsc_Code: $('input[name="vendorFinancialiRequest.Ifsc_Code"]').val(),
+        Applicable_tds_percent: $('input[name="vendorFinancialiRequest.Applicable_tds_percent"]').val(),
+        Pan_Name_Holder: $('input[name="vendorFinancialiRequest.Pan_Name_Holder"]').val(),
+        Pan_number: $('input[name="vendorFinancialiRequest.Pan_number"]').val(),
+        Gst_Registered_Name: $('input[name="vendorFinancialiRequest.Gst_Registered_Name"]').val(),
+        Gst_in_number: $('input[name="vendorFinancialiRequest.Gst_in_number"]').val(),
+        Msme_certificate_holder_name: $('input[name="vendorFinancialiRequest.Msme_certificate_holder_name"]').val(),
+        Msme_registration_number: $('input[name="vendorFinancialiRequest.Msme_registration_number"]').val(), 
+        Tan_number: 'DELT00001U',
+        VendorId: 3
+    };
+    
+
+    console.log(payload, 'payload'); 
+
+    $.ajax({
+        url: '/Vendor/AddVendorFinancial',
+
+        type: 'POST',
+
+        contentType: 'application/json',
+        data: JSON.stringify(payload),
+        headers: {
+            "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+        },
+        success: function (response) {
+            console.log(response);
+         //   if()
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
 
 }

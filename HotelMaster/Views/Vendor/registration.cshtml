@@ -440,59 +440,75 @@
                   </div>
                   <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                </div>
-               <div class="card-body">
-                  <div class="tdsSection">
-                     <div class="vendorGridTitle">
-                        <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Payment Terms</h1>
-                     </div>
-                     <div class="form-grid tdsSectionGrid">
-                        <div class="form-group">
-                           @* <label>PAN Holder Name</label> *@
-                           <div class="input-with-radio">
-                              <div class="radio-wrapper">
-                                 <input type="radio" name="pan-verify" id="verify-radio">
-                              </div>
-                              <input type="text" placeholder="Bill To Company (BTC)">
-                           </div>
+                    <form method="POST" id="vendorPaymentForm">
+                        <div class="card-body">
+                            <div class="tdsSection">
+                                <div class="vendorGridTitle">
+                                    <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Payment Terms</h1>
+                                </div>
+                                <div class="form-grid tdsSectionGrid">
+                                    <div class="form-group">
+                                        @* <label>PAN Holder Name</label> *@
+                                        <div class="input-with-radio">
+                                            <div class="radio-wrapper">
+                                                <input type="radio" asp-for="vendorPaymentRequest.Terms" id="verify-radio" value="Bill To Company (BTC)">
+                                            </div>
+                                            <input type="text" placeholder="Bill To Company (BTC)" value="Bill To Company (BTC)">
+                                          
+                                        </div>
+                                       
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        @* <label>PAN Holder Name</label> *@
+                                        <div class="input-with-radio">
+                                            <div class="radio-wrapper">
+                                                <input type="radio" asp-for="vendorPaymentRequest.Terms" id="verify-radio" value="Pay In Advance">
+                                            </div>
+                                            <input type="text" placeholder="Pay In Advance" value="Pay In Advance">
+                                        </div>
+                                    </div><br />
+                                    <div>
+                                        <span asp-validation-for="vendorPaymentRequest.Terms" class="text-danger"></span>
+                                    </div>
+                                </div>
+                               
+                             
+                            </div>
                         </div>
-                        <div class="form-group">
-                           @* <label>PAN Holder Name</label> *@
-                           <div class="input-with-radio">
-                              <div class="radio-wrapper">
-                                 <input type="radio" name="pan-verify" id="verify-radio">
-                              </div>
-                              <input type="text" placeholder="Pay In Advance">
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-body">
-                  <div class="tdsSection">
-                     <div class="vendorGridTitle">
-                        <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Credit Details</h1>
-                     </div>
-                     <div class="form-grid tdsSectionGrid">
-                        <div class="form-group">
-                           <label>Credit Type</label>
-                           <div class="dropdown-trigger-box generalDEtailsSelect">
-                              <select class="dropdown-trigger-box__native">
-                                 <option>Credit Type</option>
-                                 <option>Credit Type</option>
-                              </select>
-                              <div class="dropdown-trigger-box__chevron"></div>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label>Credit Days</label>
-                           <input type="text" placeholder="Input No of Days">
-                        </div>
-                     </div>
-                     @* <button class="primary-btn commonCta ctaAlign mr-10">Add Another Contact</button>
+                        <div class="card-body">
+                            <div class="tdsSection">
+                                <div class="vendorGridTitle">
+                                    <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Credit Details</h1>
+                                </div>
+                                <div class="form-grid tdsSectionGrid">
+                                    <div class="form-group">
+                                        <label asp-for="vendorPaymentRequest.CreditType">Credit Type</label>
+                                        <div class="dropdown-trigger-box generalDEtailsSelect">
+                                            <select class="dropdown-trigger-box__native" asp-for="vendorPaymentRequest.CreditType">
+                                                <option value="">Select</option>
+                                                <option value="Credit">Credit</option>
+                                                <option value="Advance">Advance</option>
+                                            </select>
+                                            <div class="dropdown-trigger-box__chevron"></div>
+                                            
+                                        </div>
+                                        <span asp-validation-for="vendorPaymentRequest.CreditType" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="vendorPaymentRequest.CreditDays">Credit Days</label>
+                                        <input asp-for="vendorPaymentRequest.CreditDays" type="text" placeholder="Input No of Days">
+                                        <span asp-validation-for="vendorPaymentRequest.CreditDays" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                @* <button class="primary-btn commonCta ctaAlign mr-10">Add Another Contact</button>
                      <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
-                  </div>
-               </div>
-            </div>
+                            </div>
+                        </div>
+               </form>
+              
+            
+           </div>
             <div class="card">
                <div class="card-header">
                   <div class="card-title">
@@ -501,72 +517,154 @@
                   <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                </div>
                <div class="card-body">
-                  <div class="form-grid vendorDocument-grid">
-                     <div class="vendorDocument-card">
-                        <div class="vendorDocument-label">PAN Card <span class="vendorDocument-required">*</span></div>
-                        <div class="vendorDocument-upload-zone">
-                           <div class="vendorDocument-info">
-                              <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
-                              <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
-                           </div>
-                           <button class="vendorDocument-button">Browse File</button>
-                        </div>
-                     </div>
-                     <div class="vendorDocument-card">
-                        <div class="vendorDocument-label">Hotel License <span class="vendorDocument-required">*</span></div>
-                        <div class="vendorDocument-upload-zone">
-                           <div class="vendorDocument-info">
-                              <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
-                              <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
-                           </div>
-                           <button class="vendorDocument-button">Browse File</button>
-                        </div>
-                     </div>
-                     <div class="vendorDocument-card">
-                        <div class="vendorDocument-label">GST Certificate <span class="vendorDocument-required">*</span></div>
-                        <div class="vendorDocument-upload-zone">
-                           <div class="vendorDocument-info">
-                              <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
-                              <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
-                           </div>
-                           <button class="vendorDocument-button">Browse File</button>
-                        </div>
-                     </div>
-                     <div class="vendorDocument-card">
-                        <div class="vendorDocument-label">MSME Certificate</div>
-                        <div class="vendorDocument-upload-zone">
-                           <div class="vendorDocument-info">
-                              <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
-                              <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
-                           </div>
-                           <button class="vendorDocument-button">Browse File</button>
-                        </div>
-                     </div>
-                     <div class="vendorDocument-card">
-                        <div class="vendorDocument-label">Owner Aadhar Card</div>
-                        <div class="vendorDocument-upload-zone">
-                           <div class="vendorDocument-info">
-                              <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
-                              <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
-                           </div>
-                           <button class="vendorDocument-button">Browse File</button>
-                        </div>
-                     </div>
-                     <div class="vendorDocument-card">
-                        <div class="vendorDocument-label">Cancelled Cheque <span class="vendorDocument-required">*</span></div>
-                        <div class="vendorDocument-upload-zone">
-                           <div class="vendorDocument-info">
-                              <img src="~/img/cloud-add.svg" alt="icon" class="vendorDocument-icon">
-                              <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
-                           </div>
-                           <button class="vendorDocument-button">Browse File</button>
-                        </div>
-                     </div>
-                  </div>
-                  @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
+                        @Html.AntiForgeryToken()
+                        <form method="post" id="vendorDocumentForm">
+
+                            <div class="form-grid vendorDocument-grid">
+
+                                <!-- ✅ PAN Card -->
+                                <div class="vendorDocument-card">
+                                    <div class="vendorDocument-label">
+                                        PAN Card <span class="vendorDocument-required">*</span>
+                                    </div>
+
+                                    <div class="vendorDocument-upload-zone">
+                                        <div class="vendorDocument-info">
+                                            <img src="/img/cloud-add.svg" class="vendorDocument-icon">
+                                            <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                        </div>
+
+                                        <input type="file" id="pan" name="PanFile" style="display:none">
+
+                                        <button type="button" class="vendorDocument-button"
+                                                onclick="triggerFile('pan')">
+                                            Browse File
+                                        </button>
+                                    </div>
+
+                                    <div id="panPreview" class="mt-2 text-success small" style="display:none;"></div>
+                                    <span id="panError" class="text-danger"></span>
+                                </div>
+
+                                <!-- ✅ Hotel License -->
+                                <div class="vendorDocument-card">
+                                    <div class="vendorDocument-label">
+                                        Hotel License <span class="vendorDocument-required">*</span>
+                                    </div>
+
+                                    <div class="vendorDocument-upload-zone">
+                                        <div class="vendorDocument-info">
+                                            <img src="/img/cloud-add.svg" class="vendorDocument-icon">
+                                            <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                        </div>
+
+                                        <input type="file" id="hotelLicense" name="HotelLicense" style="display:none">
+
+                                        <button type="button" class="vendorDocument-button"
+                                                onclick="triggerFile('hotelLicense')">
+                                            Browse File
+                                        </button>
+                                    </div>
+
+                                    <div id="hotelLicensePreview" class="mt-2 text-success small" style="display:none;"></div>
+                                    <span id="hotelLicenseError" class="text-danger"></span>
+                                </div>
+
+                                <!-- ✅ GST -->
+                                <div class="vendorDocument-card">
+                                    <div class="vendorDocument-label">
+                                        GST Certificate <span class="vendorDocument-required">*</span>
+                                    </div>
+
+                                    <div class="vendorDocument-upload-zone">
+                                        <div class="vendorDocument-info">
+                                            <img src="/img/cloud-add.svg" class="vendorDocument-icon">
+                                            <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                        </div>
+
+                                        <input type="file" id="gstCertificate" name="GstCertificate" style="display:none">
+
+                                        <button type="button" class="vendorDocument-button"
+                                                onclick="triggerFile('gstCertificate')">
+                                            Browse File
+                                        </button>
+                                    </div>
+
+                                    <div id="gstCertificatePreview" class="mt-2 text-success small" style="display:none;"></div>
+                                    <span id="gstCertificateError" class="text-danger"></span>
+                                </div>
+
+                                <!-- ✅ MSME -->
+                                <div class="vendorDocument-card">
+                                    <div class="vendorDocument-label">MSME Certificate</div>
+
+                                    <div class="vendorDocument-upload-zone">
+                                        <img src="/img/cloud-add.svg" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                        <input type="file" id="msmeCertificate" name="MsmeCertificate" style="display:none">
+
+                                        <button type="button" class="vendorDocument-button"
+                                                onclick="triggerFile('msmeCertificate')">
+                                            Browse File
+                                        </button>
+                                    </div>
+
+                                    <div id="msmeCertificatePreview" class="mt-2 text-success small" style="display:none;"></div>
+                                    <span id="msmeCertificatError" class="text-danger"></span>
+                                </div>
+
+                                <!-- ✅ Aadhar -->
+                                <div class="vendorDocument-card">
+                                    <div class="vendorDocument-label">Owner Aadhar Card</div>
+
+                                    <div class="vendorDocument-upload-zone">
+                                        <img src="/img/cloud-add.svg" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                        <input type="file" id="aadharCard" name="AadharCard" style="display:none">
+
+                                        <button type="button" class="vendorDocument-button"
+                                                onclick="triggerFile('aadharCard')">
+                                            Browse File
+                                        </button>
+                                    </div>
+
+                                    <div id="aadharCardPreview" class="mt-2 text-success small" style="display:none;"></div>
+                                    <span id="aadharCardError" class="text-danger"></span>
+                                </div>
+
+                                <!-- ✅ Cancel Cheque -->
+                                <div class="vendorDocument-card">
+                                    <div class="vendorDocument-label">
+                                        Cancelled Cheque <span class="vendorDocument-required">*</span>
+                                    </div>
+
+                                    <div class="vendorDocument-upload-zone">
+                                        <img src="/img/cloud-add.svg" class="vendorDocument-icon">
+                                        <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
+                                        <input type="file" id="cancelCheque" name="CancelCheque" style="display:none">
+
+                                        <button type="button" class="vendorDocument-button"
+                                                onclick="triggerFile('cancelCheque')">
+                                            Browse File
+                                        </button>
+                                    </div>
+
+                                    <div id="cancelChequePreview" class="mt-2 text-success small" style="display:none;"></div>
+                                    <span id="cancelChequeError" class="text-danger"></span>
+                                </div>
+
+                            </div>
+
+
+
+                        </form>
+
+
+                        @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                </div>
             </div>
          </div>
+    
          <div class="tabsRoomDetails" id="roomTab">
             <!-- CARD -->
             <div class="card">
@@ -661,7 +759,8 @@
             </div>
          </div>
       </div>
-   </div>
+  
+  </div>
    <div class="rates-footer vendorCta">
       <button class="rates-btn-outline">Save As Draft</button>
       <button  id="btnSubmit" class="rates-btn-primary">

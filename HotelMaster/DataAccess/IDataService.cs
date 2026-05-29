@@ -13,6 +13,8 @@ namespace HotelMaster.DataAccess
 
         public Task<T> DeleteAsync<T>(string url, object parameter);
 
+        public Task<T> PostMultipartAnyAsync<T>(string url, object data);
+
 
 
     }

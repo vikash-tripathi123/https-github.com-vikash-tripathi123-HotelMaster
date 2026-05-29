@@ -117,7 +117,6 @@ function addVendor() {
 
 $(document).on("click", ".additems", addContactRow);
 
-
 function addContactRow() {
 
     let index = $("#contactContainer .contact-row").length;
@@ -172,13 +171,13 @@ function addContactRow() {
     $.validator.unobtrusive.parse("#vendorContactForm");
 }
 
-
   // ✅ remove row
  $(document).on("click", ".removeRow", function () {
         $(this).closest(".contact-row").remove();
     });
 
-document.querySelector("#btnSubmit").addEventListener("click", addVendorFinancila);
+document.querySelector("#btnSubmit").addEventListener("click", addVendorDocument);
+
 function addVendorContact() {
     debugger
     var form = $("#vendorContactForm");
@@ -227,7 +226,7 @@ function addVendorContact() {
 }
 
 function addVendorFinancila() {
-    debugger
+    
     var form = $("#vendorFinancialForm");
 
     if (!form.valid()) {
@@ -274,4 +273,210 @@ function addVendorFinancila() {
         }
     });
 
+}
+
+function addVendorPayment() {
+
+    debugger
+    var form = $("#vendorPaymentForm");
+
+    if (!form.valid()) {
+        return false;
+    }
+
+
+    var payload = {
+
+        TenantId: 1,
+        VendorId: 3,
+
+        Terms: $('input[name="vendorPaymentRequest.Terms"]:checked').val(),
+
+        CreditType: $('select[name="vendorPaymentRequest.CreditType"]').val(),
+
+        CreditDays: $('input[name="vendorPaymentRequest.CreditDays"]').val()
+    };
+
+
+
+    console.log(payload, 'payload');
+
+    $.ajax({
+        url: '/Vendor/AddVendorPayment',
+
+        type: 'POST',
+
+        contentType: 'application/json',
+        data: JSON.stringify(payload),
+        headers: {
+            "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+        },
+        success: function (response) {
+            console.log(response);
+            //   if()
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+
+}
+
+
+function addVendorDocument() {
+    debugger
+    let isValid = validateFiles();
+    if (!isValid) {
+        return; 
+    }
+    let formData = new FormData();
+
+    let tenantId = 1;   // or get dynamically
+    let vendorId = 3; // or get dynamically
+
+    let index = 0;
+
+    //  loop through all file inputs inside form
+
+    // ✅ loop through all file inputs
+    $("#vendorDocumentForm input[type='file']").each(function () {
+
+        if (this.files.length > 0) {
+
+            let file = this.files[0];
+            let docType = this.id; // pan, gstCertificate, etc.
+
+            formData.append(`[${index}].TenantId`, tenantId);
+            formData.append(`[${index}].VendorId`, vendorId);
+            formData.append(`[${index}].DocumentType`, 1);
+            formData.append(`[${index}].DocumentName`, file.name);
+            formData.append(`[${index}].FilePath`, file); // ✅ important
+
+            index++;
+        }
+    });
+
+    if (index === 0) {
+        alert("Please upload at least one document");
+        return;
+    }
+
+    $.ajax({
+        url: '/Vendor/AddVendorDocuments',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        headers: {
+            "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+        },
+        success: function (res) {
+            consoel.log(res)
+            if (res.IsError == false) {
+              
+                alert("Uploaded successfully ✅");
+            }
+            else {
+                alert("Error uploading files");
+            }
+        },
+        error: function () {
+          
+        }
+    });
+
+}
+
+
+function triggerFile(id) {
+    document.getElementById(id).click();
+}
+
+
+document.querySelectorAll('input[type="file"]').forEach(input => {
+
+    input.addEventListener('change', function () {
+
+        let file = this.files[0];
+        let preview = document.getElementById(this.id + "Preview");
+
+        if (!file) {
+            preview.style.display = "none";
+            preview.innerHTML = "";
+            return;
+        }
+
+        // ✅ Validation
+        const allowed = ["image/jpeg", "image/png", "application/pdf"];
+        const maxSize = 2 * 1024 * 1024;
+
+        if (!allowed.includes(file.type)) {
+            alert("Only JPG, PNG, PDF allowed");
+            this.value = "";
+            return;
+        }
+
+        if (file.size > maxSize) {
+            alert("Max size is 2MB");
+            this.value = "";
+            return;
+        }
+
+        preview.style.display = "block";
+        preview.innerHTML =
+            "✔ " + file.name + " (" + Math.round(file.size / 1024) + " KB)";
+    });
+});
+
+function validateDocuments() {
+
+    let required = ["pan", "hotelLicense", "gstCertificate", "cancelCheque"];
+
+    for (let id of required) {
+        if (!document.getElementById(id).files.length) {
+            alert("Please upload " + id);
+            return false;
+        }
+    }
+
+    alert("All documents valid ✅");
+    return true;
+}
+function validateFiles() {
+
+    let isValid = true;
+
+    // PAN
+    if (!$("#pan")[0].files.length) {
+        $("#panError").text("PAN is required");
+        isValid = false;
+    } else {
+        $("#panError").text("");
+    }
+
+    // Hotel License
+    if (!$("#hotelLicense")[0].files.length) {
+        $("#hotelLicenseError").text("Hotel License is required");
+        isValid = false;
+    } else {
+        $("#hotelLicenseError").text("");
+    }
+
+    // GST Certificate
+    if (!$("#gstCertificate")[0].files.length) {
+        $("#gstCertificateError").text("GST Certificate is required");
+        isValid = false;
+    } else {
+        $("#gstCertificateError").text("");
+    }
+
+    // Cancel Cheque
+    if (!$("#cancelCheque")[0].files.length) {
+        $("#cancelChequeError").text("Cancelled Cheque is required");
+        isValid = false;
+    } else {
+        $("#cancelChequeError").text("");
+    }
+
+    return isValid;
 }

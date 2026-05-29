@@ -108,5 +108,33 @@ namespace HotelMaster.Controllers
 
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> AddVendorPayment([FromBody] VendorPaymentRequest request)
+        {
+
+            if (request == null)
+            {
+                return BadRequest("Invalid request");   // ✅ return 400
+            }
+
+            var response = await _verndorService.AddVendorPayment(request);
+
+            return StatusCode(response.StatusCode, response);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddVendorDocuments([FromForm] List<VendorDocumentRequest> request)
+        {
+
+      
+
+            var response = await _verndorService.AddVendorDocument(request);
+
+            return StatusCode(response.StatusCode, response);
+
+        }
+
     }
 }

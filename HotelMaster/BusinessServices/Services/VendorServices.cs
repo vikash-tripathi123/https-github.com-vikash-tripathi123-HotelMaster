@@ -120,5 +120,55 @@ namespace HotelMaster.BusinessServices.Services
                 );
             }
         }
+
+        public async Task<ApiResponse<string>> AddVendorPayment(VendorPaymentRequest request)
+        {
+            try
+            {
+
+                string url = BASEURL + ApiEndPoints.ADD_VENDOR_PAYMENT;
+                var response = await _dataService.PostAsync<ApiResponse<string>>(url, request);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "API is not reachable. Please ensure the service is running.",
+                    ex
+                );
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out. Please try again later.",
+                    ex
+                );
+            }
+        }
+
+        public async Task<ApiResponse<string>> AddVendorDocument(List<VendorDocumentRequest> request)
+        {
+            try
+            {
+
+                string url = BASEURL + ApiEndPoints.ADD_VENDOR_DOCUMENT;
+                var response = await _dataService.PostMultipartAnyAsync<ApiResponse<string>>(url, request);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "API is not reachable. Please ensure the service is running.",
+                    ex
+                );
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out. Please try again later.",
+                    ex
+                );
+            }
+        }
     }
 }

@@ -81,5 +81,63 @@ namespace HotelMaster.DataAccess
             throw new NotImplementedException();
         }
 
+        public async Task<T> PostMultipartAnyAsync<T>(string url, object data)
+        {
+            var content = new MultipartFormDataContent();
+
+            // ✅ Handle if it's a LIST
+            if (data is IEnumerable<object> list)
+            {
+                int index = 0;
+
+                foreach (var item in list)
+                {
+                    AddObjectToFormData(content, item, $"[{index}]");
+                    index++;
+                }
+            }
+            else
+            {
+                // ✅ Single object
+                AddObjectToFormData(content, data, "");
+            }
+
+            var response = await _httpClient.PostAsync(url, content);
+
+            var result = await response.Content.ReadFromJsonAsync<T>();
+
+            return result!;
+        }
+
+        private void AddObjectToFormData(MultipartFormDataContent content, object obj, string prefix)
+        {
+            var properties = obj.GetType().GetProperties();
+
+            foreach (var prop in properties)
+            {
+                var value = prop.GetValue(obj);
+
+                if (value == null) continue;
+
+                string key = string.IsNullOrEmpty(prefix)
+                    ? prop.Name
+                    : $"{prefix}.{prop.Name}";
+
+                // ✅ FILE
+                if (value is IFormFile file)
+                {
+                    var fileContent = new StreamContent(file.OpenReadStream());
+                    fileContent.Headers.ContentType =
+                        new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+
+                    content.Add(fileContent, key, file.FileName);
+                }
+                else
+                {
+                    content.Add(new StringContent(value.ToString()), key);
+                }
+            }
+        }
+
     }
 }

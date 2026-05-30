@@ -176,7 +176,7 @@ function addContactRow() {
         $(this).closest(".contact-row").remove();
     });
 
-document.querySelector("#btnSubmit").addEventListener("click", addVendorDocument);
+document.querySelector("#btnSubmit").addEventListener("click", validateForms);
 
 function addVendorContact() {
     debugger
@@ -322,7 +322,6 @@ function addVendorPayment() {
 
 }
 
-
 function addVendorDocument() {
     debugger
     let isValid = validateFiles();
@@ -387,7 +386,6 @@ function addVendorDocument() {
 
 }
 
-
 function triggerFile(id) {
     document.getElementById(id).click();
 }
@@ -399,10 +397,16 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
 
         let file = this.files[0];
         let preview = document.getElementById(this.id + "Preview");
+        let errorSpan = document.getElementById(this.id + "Error"); // ✅ error element
 
         if (!file) {
             preview.style.display = "none";
             preview.innerHTML = "";
+
+            // ✅ show required error again
+            if (errorSpan) errorSpan.innerText = "This file is required";
+            this.classList.add("input-validation-error");
+
             return;
         }
 
@@ -413,19 +417,34 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
         if (!allowed.includes(file.type)) {
             alert("Only JPG, PNG, PDF allowed");
             this.value = "";
+
+            if (errorSpan) errorSpan.innerText = "Invalid file type";
+            this.classList.add("input-validation-error");
+
             return;
         }
 
         if (file.size > maxSize) {
             alert("Max size is 2MB");
             this.value = "";
+
+            if (errorSpan) errorSpan.innerText = "File size exceeds 2MB";
+            this.classList.add("input-validation-error");
+
             return;
         }
 
+        // ✅ SUCCESS → clear error
+        if (errorSpan) errorSpan.innerText = "";
+        this.classList.remove("input-validation-error");
+
+        // ✅ Show preview
         preview.style.display = "block";
         preview.innerHTML =
             "✔ " + file.name + " (" + Math.round(file.size / 1024) + " KB)";
     });
+
+
 });
 
 function validateDocuments() {
@@ -442,41 +461,175 @@ function validateDocuments() {
     alert("All documents valid ✅");
     return true;
 }
+
 function validateFiles() {
 
     let isValid = true;
 
-    // PAN
-    if (!$("#pan")[0].files.length) {
-        $("#panError").text("PAN is required");
-        isValid = false;
-    } else {
-        $("#panError").text("");
+    function setError(inputId, errorId, message) {
+        let input = $("#" + inputId);
+
+        if (!input[0].files.length) {
+            $("#" + errorId).text(message);
+
+            input.addClass("input-validation-error"); // ✅ important
+            isValid = false;
+        } else {
+            $("#" + errorId).text("");
+            input.removeClass("input-validation-error");
+        }
     }
 
-    // Hotel License
-    if (!$("#hotelLicense")[0].files.length) {
-        $("#hotelLicenseError").text("Hotel License is required");
-        isValid = false;
-    } else {
-        $("#hotelLicenseError").text("");
-    }
-
-    // GST Certificate
-    if (!$("#gstCertificate")[0].files.length) {
-        $("#gstCertificateError").text("GST Certificate is required");
-        isValid = false;
-    } else {
-        $("#gstCertificateError").text("");
-    }
-
-    // Cancel Cheque
-    if (!$("#cancelCheque")[0].files.length) {
-        $("#cancelChequeError").text("Cancelled Cheque is required");
-        isValid = false;
-    } else {
-        $("#cancelChequeError").text("");
-    }
+    setError("pan", "panError", "PAN is required");
+    setError("hotelLicense", "hotelLicenseError", "Hotel License is required");
+    setError("gstCertificate", "gstCertificateError", "GST Certificate is required");
+    setError("cancelCheque", "cancelChequeError", "Cancelled Cheque is required");
 
     return isValid;
+}
+function validateForms() {
+    debugger
+    var vendorBusinessForm = $("#vendorBusinessForm");
+    var vendorContactForm = $("#vendorContactForm");
+    var vendorFinancialForm = $("#vendorFinancialForm");
+    var vendorPaymentForm = $("#vendorPaymentForm");
+    vendorBusinessForm.validate().settings.ignore = [];
+    vendorContactForm.validate().settings.ignore = [];
+    vendorFinancialForm.validate().settings.ignore = [];
+    vendorPaymentForm.validate().settings.ignore = [];
+
+    if (!vendorBusinessForm.valid()) {
+        let firstError = $(".input-validation-error:first");
+
+        if (firstError.length > 0) {
+
+            // ✅ find accordion/card
+            let card = firstError.closest(".card");
+
+            // ✅ open correct accordion
+            $(".card").removeClass("active");
+            card.addClass("active");
+
+            // ✅ focus + scroll
+            setTimeout(() => {
+                firstError.focus();
+
+                $('html, body').animate({
+                    scrollTop: firstError.offset().top - 120
+                }, 400);
+
+            }, 200); // wait for accordion animation
+        }
+
+        return false;
+    }
+    else if (!vendorContactForm.valid()) {
+
+        let firstError = $(".input-validation-error:first");
+
+        if (firstError.length > 0) {
+
+            // ✅ find accordion/card
+            let card = firstError.closest(".card");
+
+            // ✅ open correct accordion
+            $(".card").removeClass("active");
+            card.addClass("active");
+
+            // ✅ focus + scroll
+            setTimeout(() => {
+                firstError.focus();
+
+                $('html, body').animate({
+                    scrollTop: firstError.offset().top - 120
+                }, 400);
+
+            }, 200); // wait for accordion animation
+        }
+
+        return false;
+    }
+    else if (!vendorFinancialForm.valid()) {
+        let firstError = $(".input-validation-error:first");
+
+        if (firstError.length > 0) {
+
+            // ✅ find accordion/card
+            let card = firstError.closest(".card");
+
+            // ✅ open correct accordion
+            $(".card").removeClass("active");
+            card.addClass("active");
+
+            // ✅ focus + scroll
+            setTimeout(() => {
+                firstError.focus();
+
+                $('html, body').animate({
+                    scrollTop: firstError.offset().top - 120
+                }, 400);
+
+            }, 200); // wait for accordion animation
+        }
+
+        return false;
+    }
+    else if (!vendorPaymentForm.valid()) {
+        let firstError = $(".input-validation-error:first");
+
+        if (firstError.length > 0) {
+
+            // ✅ find accordion/card
+            let card = firstError.closest(".card");
+
+            // ✅ open correct accordion
+            $(".card").removeClass("active");
+            card.addClass("active");
+
+            // ✅ focus + scroll
+            setTimeout(() => {
+                firstError.focus();
+
+                $('html, body').animate({
+                    scrollTop: firstError.offset().top - 120
+                }, 400);
+
+            }, 200); // wait for accordion animation
+        }
+
+        return false;
+    }
+    let isValid = validateFiles();
+    if (!isValid) {
+
+
+            let firstError = $(".input-validation-error:first");
+
+            if (firstError.length > 0) {
+
+                let card = firstError.closest(".card");
+
+                $(".card").removeClass("active");
+                card.addClass("active");
+
+                setTimeout(() => {
+                    firstError.focus();
+
+                    $('html, body').animate({
+                        scrollTop: firstError.offset().top - 120
+                    }, 400);
+                }, 200);
+            }
+
+            return false;
+        
+
+ 
+    }
+    addVendor();
+    addVendorContact();
+    addVendorFinancila();
+    addVendorPayment();
+    addVendorDocument();
+
 }

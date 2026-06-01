@@ -27,7 +27,7 @@ namespace HotelMaster.BusinessServices.Services
             try {
 
                 string url = BASEURL + ApiEndPoints.VENDOR_LIST;
-                var response = await _dataService.GetAsync<ApiResponse<List<VendorListResponse>>>(url, filter);
+                var response = await _dataService.PostAsync<ApiResponse<List<VendorListResponse>>>(url, filter);
                 return response;
             }
             catch (HttpRequestException ex)

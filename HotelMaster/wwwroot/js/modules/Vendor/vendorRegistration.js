@@ -1,9 +1,10 @@
 ﻿
-
+let vendorId = 0; 
 $(document).ready(function () {
 
 });
-//document.querySelector("#btnSubmit").addEventListener("click", addVendor); 
+//document.querySelector("#btnSubmit").addEventListener("click", addVendor);
+
 
 function addVendor() {
     debugger
@@ -70,7 +71,7 @@ function addVendor() {
 
     console.log(JSON.stringify(payload));
 
-    $.ajax({
+    return $.ajax({
 
         url: '/Vendor/AddVendor',
 
@@ -86,30 +87,30 @@ function addVendor() {
         },
 
 
-        success: function (response) {
+        //success: function (response) {
 
-            console.log(response);
-            if (response.statusCode > 0) {
-                alert("Vendor Added Successfully");
-            }  
-            else {
-                alert("vendor not added")
-            }
+        //    console.log(response);
+        //    if (response.statusCode > 0) {
+        //        alert("Vendor Added Successfully");
+        //    }  
+        //    else {
+        //        alert("vendor not added")
+        //    }
            
 
-        },
+        //},
 
-        error: function (error) {
+        //error: function (error) {
 
-            console.log(error);
-            if (error.status == 409) {
-                alert(error.responseJSON.errors
-                )
-            }
-            console.log(error.responseText);
-            console.log(error.responseJSON.errors);
+        //    console.log(error);
+        //    if (error.status == 409) {
+        //        alert(error.responseJSON.errors
+        //        )
+        //    }
+        //    console.log(error.responseText);
+        //    console.log(error.responseJSON.errors);
 
-        }
+        //}
     });
 }
 
@@ -198,34 +199,37 @@ function addVendorContact() {
             Phone: row.find("input[name*='Phone']").val(),
             Email: row.find("input[name*='Email']").val(),
             Department: row.find("select[name*='Department']").val(),
-            Designation: row.find("select[name*='Designation']").val()
+            Designation: row.find("select[name*='Designation']").val(),
+            VendorId: vendorId,
+            TenantId : 1
         };
 
         contacts.push(contact);
     });
 
+    console.log(contacts, 'contact payload'); 
 
-
-    $.ajax({
+    return $.ajax({
         url: "/Vendor/AddVendorContact",
         type: "POST",
         contentType: "application/json",
-        data: contacts,
+        data: JSON.stringify(contacts),
         headers: {
             "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
-        },
-        success: function (res) {
-            console.log("Success", res);
-        },
-        error: function (err) {
-            console.log("Error", err);
         }
+        
+        //success: function (res) {
+        //    console.log("Success", res);
+        //},
+        //error: function (err) {
+        //    console.log("Error", err);
+        //}
     });
 
 
 }
 
-function addVendorFinancila() {
+function addVendorFinancial() {
     
     var form = $("#vendorFinancialForm");
 
@@ -248,13 +252,14 @@ function addVendorFinancila() {
         Msme_certificate_holder_name: $('input[name="vendorFinancialiRequest.Msme_certificate_holder_name"]').val(),
         Msme_registration_number: $('input[name="vendorFinancialiRequest.Msme_registration_number"]').val(), 
         Tan_number: 'DELT00001U',
-        VendorId: 3
+        VendorId: vendorId,
+        TenantId: 1
     };
     
 
     console.log(payload, 'payload'); 
 
-    $.ajax({
+    return $.ajax({
         url: '/Vendor/AddVendorFinancial',
 
         type: 'POST',
@@ -263,14 +268,14 @@ function addVendorFinancila() {
         data: JSON.stringify(payload),
         headers: {
             "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
-        },
-        success: function (response) {
-            console.log(response);
-         //   if()
-        },
-        error: function (err) {
-            console.log(err);
         }
+        //success: function (response) {
+        //    console.log(response);
+        // //   if()
+        //},
+        //error: function (err) {
+        //    console.log(err);
+        //}
     });
 
 }
@@ -287,8 +292,8 @@ function addVendorPayment() {
 
     var payload = {
 
+        VendorId: vendorId,
         TenantId: 1,
-        VendorId: 3,
 
         Terms: $('input[name="vendorPaymentRequest.Terms"]:checked').val(),
 
@@ -301,7 +306,7 @@ function addVendorPayment() {
 
     console.log(payload, 'payload');
 
-    $.ajax({
+    return $.ajax({
         url: '/Vendor/AddVendorPayment',
 
         type: 'POST',
@@ -310,14 +315,14 @@ function addVendorPayment() {
         data: JSON.stringify(payload),
         headers: {
             "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
-        },
-        success: function (response) {
-            console.log(response);
-            //   if()
-        },
-        error: function (err) {
-            console.log(err);
         }
+        //success: function (response) {
+        //    console.log(response);
+        //    //   if()
+        //},
+        //error: function (err) {
+        //    console.log(err);
+        //}
     });
 
 }
@@ -331,7 +336,7 @@ function addVendorDocument() {
     let formData = new FormData();
 
     let tenantId = 1;   // or get dynamically
-    let vendorId = 3; // or get dynamically
+     vendorId = vendorId; // or get dynamically
 
     let index = 0;
 
@@ -360,7 +365,7 @@ function addVendorDocument() {
         return;
     }
 
-    $.ajax({
+    return $.ajax({
         url: '/Vendor/AddVendorDocuments',
         type: 'POST',
         data: formData,
@@ -368,20 +373,20 @@ function addVendorDocument() {
         contentType: false,
         headers: {
             "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
-        },
-        success: function (res) {
-            consoel.log(res)
-            if (res.IsError == false) {
-              
-                alert("Uploaded successfully ✅");
-            }
-            else {
-                alert("Error uploading files");
-            }
-        },
-        error: function () {
-          
         }
+        //success: function (res) {
+        //    consoel.log(res)
+        //    if (res.IsError == false) {
+              
+        //        alert("Uploaded successfully ✅");
+        //    }
+        //    else {
+        //        alert("Error uploading files");
+        //    }
+        //},
+        //error: function () {
+          
+        //}
     });
 
 }
@@ -487,7 +492,8 @@ function validateFiles() {
 
     return isValid;
 }
-function validateForms() {
+
+async function validateForms() {
     debugger
     var vendorBusinessForm = $("#vendorBusinessForm");
     var vendorContactForm = $("#vendorContactForm");
@@ -626,10 +632,38 @@ function validateForms() {
 
  
     }
-    addVendor();
-    addVendorContact();
-    addVendorFinancila();
-    addVendorPayment();
-    addVendorDocument();
+    //addVendor();
+    //addVendorContact();
+    //addVendorFinancila();
+    //addVendorPayment();
+    //addVendorDocument();
+
+    try {
+
+        const vendor = await addVendor();
+        console.log(vendor)
+        vendorId = vendor.data?.vendorId || 0; 
+
+
+        if (vendorId != 0) {
+
+            const vendorContact = await addVendorContact();
+
+            const vendorFinancila = await addVendorFinancial();
+
+            const vensorPayment = await addVendorPayment();
+
+            const vendorDocument = await addVendorDocument();
+
+            alert("Vendor registeres successfully"); 
+            window.location.href = '/Vendor'
+        }
+    }
+    catch (error) {
+
+      //  handleAjaxError(error);
+        console.log(error)
+        alert(error); 
+    }
 
 }

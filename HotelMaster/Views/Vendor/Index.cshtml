@@ -34,7 +34,7 @@
     <!-- MAIN -->
     <div class="layout">
         <!-- SIDEBAR -->
-
+        @Html.AntiForgeryToken()
         <div class="sidebar">
             <b>Filters</b>
 
@@ -118,11 +118,11 @@
                 <div class="search-actions-row">
                     <div class="search-bar-container">
                         <span class="vendorSearch">
-                            <img src="~/img/vendor-search.svg" />
+                            <img src="~/img/vendor-search.svg" onclick="removeGlobalSearch()"/>
                         </span>
                         <input type="text"
-                               class="header-search-input"
-                               placeholder="Search by Name, Ticket No, Date etc....." />
+                               class="header-search-input" id="globalSearch"
+                               placeholder="Search by Name, Ticket No, Date etc....."  />
                     </div>
 
                     <div class="right-controls-group">

@@ -44,6 +44,8 @@ function loadVendors() {
 
     let CityId = document.querySelector("#citySelect")?.value || 0;
 
+    let globalSercah = document.querySelector("#globalSearch")?.value || ""; 
+
     let filters = {
 
         ServiceCategory: serviceIds,
@@ -51,23 +53,30 @@ function loadVendors() {
         PaymentType: paymentTypes,
 
         StateId: StateId,
-
+       
         CityId: CityId,
+        GlobalSearch: globalSercah,
 
         PageNumber: currentPage,
 
         PageSize: pageSize
     };
 
+    console.log(filters);
+    console.log(JSON.stringify(filters))
+
     $.ajax({
 
         url: '/Vendor/GetVendorList',
 
-        type: 'GET',
+        type: 'POST',
 
         traditional: true,
 
         data: filters,
+        headers: {
+            "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+        },
 
         success: function (response) {
 
@@ -324,6 +333,8 @@ function clearFilters() {
     let cityEl = document.querySelector("#citySelect");
     if (cityEl) cityEl.value = 0;
 
+    $('#globalSearch').val("");
+
     // ✅ Reset pagination
     let pageNumber = 1;
     let pageSize = 10;
@@ -331,3 +342,33 @@ function clearFilters() {
     // ✅ Reload data
     loadVendors();
 }
+
+
+$(function () {
+    const $search = $('#globalSearch');
+
+    $search.on('input', function () {
+        const self = this; // capture the input element
+        clearTimeout(self.delay); // cancel any previous timer
+
+        self.delay = setTimeout(function () {
+            const value = self.value.trim();
+            if (value) {
+                console.log('Search after 1s pause:', value);
+                // Call your function here
+                loadVendors();
+            }
+            else {
+                $('#globalSearch').val("");
+                loadVendors()
+            }
+        }, 1000); // 1 second pause
+    });
+});
+
+function removeGlobalSearch() {
+    debugger
+    $('#globalSearch').val("");
+    loadVendors(); 
+}
+

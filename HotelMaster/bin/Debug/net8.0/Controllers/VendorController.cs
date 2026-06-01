@@ -26,6 +26,7 @@ namespace HotelMaster.Controllers
             return View();
         }
 
+
         public async Task<IActionResult> registration() {
 
 
@@ -42,7 +43,8 @@ namespace HotelMaster.Controllers
 
 
         }
-        [HttpGet]
+ 
+        [HttpPost]
         public async Task<IActionResult> GetVendorList(VendorRequestFilter filter)
         {
             filter.TenantId = 1; 
@@ -88,7 +90,7 @@ namespace HotelMaster.Controllers
 
             var response = await _verndorService.AddVendorContact(request);
 
-            return StatusCode(response.StatusCode, response);
+            return StatusCode(200, request);
 
         }
 
@@ -128,8 +130,7 @@ namespace HotelMaster.Controllers
         public async Task<IActionResult> AddVendorDocuments([FromForm] List<VendorDocumentRequest> request)
         {
 
-      
-
+     
             var response = await _verndorService.AddVendorDocument(request);
 
             return StatusCode(response.StatusCode, response);

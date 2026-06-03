@@ -170,5 +170,30 @@ namespace HotelMaster.BusinessServices.Services
                 );
             }
         }
+
+        public async Task<ApiResponse<GetVendorDetailByVendorIdResponse>> GetVendorDetailById(int vendorId)
+        {
+            try
+            {
+
+                string url = BASEURL + ApiEndPoints.GET_VENDOR_DETAILS_ID+"/"+vendorId;
+                var response = await _dataService.GetAsync<ApiResponse<GetVendorDetailByVendorIdResponse>>(url,null);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "API is not reachable. Please ensure the service is running.",
+                    ex
+                );
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out. Please try again later.",
+                    ex
+                );
+            }
+        }
     }
 }

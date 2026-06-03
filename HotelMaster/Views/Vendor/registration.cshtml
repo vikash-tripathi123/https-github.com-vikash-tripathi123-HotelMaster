@@ -10,8 +10,11 @@
 
     Layout = "~/Views/Shared/Layouts/_MainLayout.cshtml";
 }
-
+ <link href="/css/choosen.min.css" rel="stylesheet" /> 
 <script src="~/js/jquery.min.js"></script>
+ <script src="/js/choosen.min.js"></script> 
+
+
 <style>
     .error{
         color:red;
@@ -20,6 +23,8 @@
         color: red !important;
         font-size: 12px !important;
     }
+
+ 
 </style>
 @section Scripts {
 
@@ -73,20 +78,24 @@
                         </div>
                         <!-- Star Rating -->
                         <div class="form-group">
-                                    <label asp-for="personalBusinessRequest.Services">Services<span class="error">*</span></label>
+                          <label asp-for="personalBusinessRequest.Services">Services<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
-                              <select id="Service" asp-for="personalBusinessRequest.Services" class="dropdown-trigger-box__native">
-                                 <option value="">Select Services</option>
-                                 <option value=14>Accomodation</option>
-                                 <option value=1>Transportation / Taxi</option>
-                              </select>
-                              @* 
-                              <div class="dropdown-trigger-box__chevron"></div>
-                              *@
+
+                                        <select asp-for="personalBusinessRequest.Services" id="services" class="form-control" multiple>
+                                            
+                                            <option value=14>Accomodation</option>
+                                            <option value=1>Transportation / Taxi</option>
+                                    </select>
+                            
                                         <div class="dropdown-trigger-box__chevron"></div>
-                              <span asp-validation-for="personalBusinessRequest.Services" class="text-danger"></span>
+                              <span asp-validation-for="personalBusinessRequest.Services" class="text-danger"></span> 
+                                       
                            </div>
                         </div>
+
+                         
+
+
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Star_Rating">Star Rating<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
@@ -219,10 +228,19 @@
                               </div>
                            </div>
                         </div>
+
+                            
                      </div>
                      @*   <button type="submit" class="primary-btn commonCta ctaAlign">
                      Save and Next
                      </button> *@
+
+                            <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                    Save As Draft
+                                </button>
+                            </div>
+
                   </div>
                </form>
             </div>

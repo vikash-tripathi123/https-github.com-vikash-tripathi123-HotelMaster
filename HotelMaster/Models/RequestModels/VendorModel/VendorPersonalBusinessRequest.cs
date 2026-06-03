@@ -12,8 +12,9 @@
         [Required(ErrorMessage = "Legal name is required")]
         public string Legal_Name { get; set; }
 
-        [Required(ErrorMessage = "Please select services")]
-        public string Services { get; set; }
+        [Required(ErrorMessage = "Please select at least one service")]
+        public List<string> Services { get; set; }
+
 
         [Required(ErrorMessage = "Star rating is required")]
         public byte? Star_Rating { get; set; }

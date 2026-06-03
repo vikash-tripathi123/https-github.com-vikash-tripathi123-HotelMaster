@@ -4666,7 +4666,7 @@ vendorTable .table-custom th:nth-child(2n+4) {
 }
 
 .stat-icon-circle img {
-    wid;
+    /*wid;*/
     width: 25px;
     height: 25px;
     object-fit: contain;

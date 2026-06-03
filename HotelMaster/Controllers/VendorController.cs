@@ -137,5 +137,13 @@ namespace HotelMaster.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetVendorDetailById( int vednorId)
+        {
+
+            var response = await _verndorService.GetVendorDetailById(vednorId);
+
+            return Ok(response);
+        }
     }
 }

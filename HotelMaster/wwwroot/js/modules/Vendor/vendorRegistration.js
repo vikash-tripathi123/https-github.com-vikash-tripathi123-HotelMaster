@@ -1,10 +1,28 @@
 ﻿
 let vendorId = 0; 
+//$(document).ready(function () {
+//    $('#my-select').multiSelect({
+//        texts: {
+//            placeholder: "Select options"
+//        }
+//    });
+  
+//});
+
 $(document).ready(function () {
+    $('#services').select2({
+        placeholder: "Select Services"
+    });
+
+    // ✅ Trigger validation on change
+    $('#services').on('change', function () {
+        $(this).valid();
+    });
 
 });
-//document.querySelector("#btnSubmit").addEventListener("click", addVendor);
 
+
+document.querySelector("#vendorBusinessSaveDraft").addEventListener("click", vendorBusiness);
 
 function addVendor() {
     debugger
@@ -48,7 +66,7 @@ function addVendor() {
 
         Legal_Name: $("#legalName").val(),
 
-        Services: $("#Service").val(),
+        Services: $("#services").val(),
 
         Star_Rating: $("#StarRating").val(),
 
@@ -609,28 +627,28 @@ async function validateForms() {
     if (!isValid) {
 
 
-            let firstError = $(".input-validation-error:first");
+        let firstError = $(".input-validation-error:first");
 
-            if (firstError.length > 0) {
+        if (firstError.length > 0) {
 
-                let card = firstError.closest(".card");
+            let card = firstError.closest(".card");
 
-                $(".card").removeClass("active");
-                card.addClass("active");
+            $(".card").removeClass("active");
+            card.addClass("active");
 
-                setTimeout(() => {
-                    firstError.focus();
+            setTimeout(() => {
+                firstError.focus();
 
-                    $('html, body').animate({
-                        scrollTop: firstError.offset().top - 120
-                    }, 400);
-                }, 200);
-            }
+                $('html, body').animate({
+                    scrollTop: firstError.offset().top - 120
+                }, 400);
+            }, 200);
+        }
 
-            return false;
-        
+        return false;
 
- 
+
+
     }
     //addVendor();
     //addVendorContact();
@@ -642,7 +660,7 @@ async function validateForms() {
 
         const vendor = await addVendor();
         console.log(vendor)
-        vendorId = vendor.data?.vendorId || 0; 
+        vendorId = vendor.data?.vendorId || 0;
 
 
         if (vendorId != 0) {
@@ -655,15 +673,31 @@ async function validateForms() {
 
             const vendorDocument = await addVendorDocument();
 
-            alert("Vendor registeres successfully"); 
+            alert("Vendor registeres successfully");
             window.location.href = '/Vendor'
         }
     }
     catch (error) {
 
-      //  handleAjaxError(error);
+        //  handleAjaxError(error);
         console.log(error)
-        alert(error); 
+        alert(error);
     }
 
+
+}
+
+
+async function vendorBusiness() {
+    try {
+        const vendor = await addVendor();
+        console.log(vendor);
+
+        vendorId = vendor?.data?.vendorId || 0;
+        console.log("Vendor ID:", vendorId);
+        alert(vendor?.message)
+    } catch (error) {
+        console.error(error);
+        alert(error.message || "An error occurred while adding vendor");
+    }
 }

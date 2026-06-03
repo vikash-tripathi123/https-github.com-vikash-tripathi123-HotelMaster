@@ -23,6 +23,8 @@
 
         public const string ADD_VENDOR_PAYMENT = "VendorMasters/add_vendor_payment_terms";
 
-        public const string ADD_VENDOR_DOCUMENT = "VendorMasters/add_vendor_document"; 
+        public const string ADD_VENDOR_DOCUMENT = "VendorMasters/add_vendor_document";
+
+        public const string GET_VENDOR_DETAILS_ID = "VendorMasters/get_vendor_detail_by_id";
     }
 }

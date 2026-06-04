@@ -25,6 +25,19 @@
         font-size: 12px !important;
     }
 
+    .contact-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .additems {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+    }
  
 </style>
 @section Scripts {
@@ -299,13 +312,23 @@
                            } *@
                         </div>
                         }
+
+                              
                      </div>
                   </form>
-                  <span class="additems">
-                  <img id="contactrow" src="/img/add_circle.png">
-                  Add Contact Details
-                  </span>
+                        <div class="contact-footer">
+                            <span class="additems">
+                                <img id="contactrow" src="/img/add_circle.png">
+                                Add Contact Details
+                            </span>
+
+                            <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                Save As Draft
+                            </button>
+                        </div>
+                     
                </div>
+               
             </div>
                
             
@@ -453,7 +476,14 @@
                      </div>
                   </div>
                   @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
-               </div>
+                            <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                    Save As Draft
+                                </button>
+                            </div>
+
+              </div>
+                       
             </div>
                 </form>
 
@@ -528,12 +558,17 @@
                                 @* <button class="primary-btn commonCta ctaAlign mr-10">Add Another Contact</button>
                      <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                             </div>
+                            <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                    Save As Draft
+                                </button>
+                            </div>
                         </div>
                </form>
               
             
            </div>
-                <div class="card" data-step="4">
+                <div class="card" data-step="5">
                <div class="card-header">
                   <div class="card-title">
                      <span class="genearlDetailsIcon"><img src="/img/restaurants-icons.svg"></span>Documents
@@ -676,11 +711,15 @@
                                     <div id="cancelChequePreview" class="mt-2 text-success small" style="display:none;"></div>
                                     <span id="cancelChequeError" class="text-danger"></span>
                                 </div>
-
+                       
                             </div>
 
 
-
+                            <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                    Save As Draft
+                                </button>
+                            </div>
                         </form>
 
 
@@ -786,12 +825,11 @@
   
   </div>
    <div class="rates-footer vendorCta">
-      <button class="rates-btn-outline">Save As Draft</button>
+      @* <button class="rates-btn-outline">Save As Draft</button> *@
       <button  id="btnSubmit" class="rates-btn-primary">
       Submit For Approval
       </button>
    </div>
-</div>
 </div>
 
 <script>

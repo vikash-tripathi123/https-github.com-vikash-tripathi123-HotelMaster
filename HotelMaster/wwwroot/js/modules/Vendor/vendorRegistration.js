@@ -844,4 +844,57 @@ function bindServices(serviceType) {
     }
 }
 
+//$(document).on("click", ".card-header", function (e) {
+//    debugger
+//    let clickedCard = $(this).closest(".card");
+//    let clickedStep = parseInt(clickedCard.data("step"));
 
+//    if (!isPreviousStepCompleted(clickedStep)) {
+
+//        e.preventDefault();
+//        e.stopPropagation();
+//        e.stopImmediatePropagation();
+
+//        alert("Please complete previous section first.");
+
+//        return false;
+//    }
+
+//    // Open selected accordion
+//    $(".tabsHotelInformation .card").removeClass("active");
+
+//    clickedCard.addClass("active");
+//});
+
+
+
+//function isPreviousStepCompleted(step) {
+
+//    switch (step) {
+
+//        // Contact clicked -> validate Business
+//        case 2:
+//            return $("#vendorBusinessForm").valid();
+
+//        // Financial clicked -> validate Business + Contact
+//        case 3:
+//            return $("#vendorBusinessForm").valid()
+//                && $("#vendorContactForm").valid();
+
+//        // Payment clicked -> validate Business + Contact + Financial
+//        case 4:
+//            return $("#vendorBusinessForm").valid()
+//                && $("#vendorContactForm").valid()
+//                && $("#vendorFinancialForm").valid();
+
+//        // Document clicked -> validate all previous forms
+//        case 5:
+//            return $("#vendorBusinessForm").valid()
+//                && $("#vendorContactForm").valid()
+//                && $("#vendorFinancialForm").valid()
+//                && $("#vendorPaymentForm").valid();
+
+//        default:
+//            return true;
+//    }
+//}

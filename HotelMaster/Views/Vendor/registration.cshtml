@@ -10,9 +10,10 @@
 
     Layout = "~/Views/Shared/Layouts/_MainLayout.cshtml";
 }
- <link href="/css/choosen.min.css" rel="stylesheet" /> 
-<script src="~/js/jquery.min.js"></script>
- <script src="/js/choosen.min.js"></script> 
+ <link href="/css/choosen.min.css" rel="stylesheet" />
+
+@* <script src="~/js/jquery.min.js"></script>
+ <script src="/js/choosen.min.js"></script> *@
 
 
 <style>
@@ -38,7 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
 
 }
-
+<input type="hidden" id="CurrentStep" value="1" />
 <div class="fromContaier VendorRegistrationForm">
    <div class="wrapper">
       <div class="container">
@@ -51,13 +52,14 @@
             </div>
             *@
             <!-- CARD -->
-            <div class="card active">
+                <div class="card active" data-step="1">
                <div class="card-header">
                   <div class="card-title">
                      <span class="genearlDetailsIcon"><img src="/img/general-details.svg"></span> Personal & Business Information
                   </div>
                   <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                </div>
+           
                <form method="post"  id="vendorBusinessForm">
                   @Html.AntiForgeryToken()
                   @* 
@@ -243,8 +245,10 @@
 
                   </div>
                </form>
-            </div>
-            <div class="card">
+         
+           </div>
+
+                <div class="card" data-step="2">
                <div class="card-header">
                   <div class="card-title">
                      <span class="genearlDetailsIcon"><img src="/img/restaurants-icons.svg"></span>Contact Details
@@ -303,9 +307,11 @@
                   </span>
                </div>
             </div>
-                <form method="post" id="vendorFinancialForm">
+               
+            
+            <form method="post" id="vendorFinancialForm">
                     @Html.AntiForgeryToken()
-            <div class="card">
+                    <div class="card" data-step="3">
                <div class="card-header">
                   <div class="card-title">
                      <span class="genearlDetailsIcon"><img src="/img/banquet.svg"></span>Financial & Legal Details
@@ -450,8 +456,8 @@
                </div>
             </div>
                 </form>
-            
-            <div class="card">
+
+                <div class="card" data-step="4">
                <div class="card-header">
                   <div class="card-title">
                      <span class="genearlDetailsIcon"><img src="/img/contact-icon.svg"></span>Payment Terms
@@ -527,7 +533,7 @@
               
             
            </div>
-            <div class="card">
+                <div class="card" data-step="4">
                <div class="card-header">
                   <div class="card-title">
                      <span class="genearlDetailsIcon"><img src="/img/restaurants-icons.svg"></span>Documents

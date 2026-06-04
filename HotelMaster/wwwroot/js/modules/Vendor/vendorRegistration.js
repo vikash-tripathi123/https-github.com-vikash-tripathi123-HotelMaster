@@ -1,14 +1,7 @@
 ﻿
 let vendorId = 0; 
-//$(document).ready(function () {
-//    $('#my-select').multiSelect({
-//        texts: {
-//            placeholder: "Select options"
-//        }
-//    });
-  
-//});
 
+let currentStep = 1;
 $(document).ready(function () {
     $('#services').select2({
         placeholder: "Select Services"
@@ -19,7 +12,10 @@ $(document).ready(function () {
         $(this).valid();
     });
 
+    getStoredId();
+
 });
+
 
 
 document.querySelector("#vendorBusinessSaveDraft").addEventListener("click", vendorBusiness);
@@ -104,7 +100,7 @@ function addVendor() {
                 $('input[name="__RequestVerificationToken"]').val()
         },
 
-
+     
         //success: function (response) {
 
         //    console.log(response);
@@ -701,3 +697,151 @@ async function vendorBusiness() {
         alert(error.message || "An error occurred while adding vendor");
     }
 }
+
+
+
+function getStoredId() {
+    
+    let raw = localStorage.getItem(STORAGE_KEY);
+
+    if (!raw) {
+        console.log("No data found");
+        return null;
+    }
+
+    let data;
+
+    // ✅ Safe parse
+    try {
+        data = JSON.parse(raw);
+    } catch {
+        console.log("Invalid storage format");
+        localStorage.removeItem(STORAGE_KEY);
+        return null;
+    }
+
+    // ✅ Decode
+    let id = decode(data.v);
+
+    // ✅ Validate ID
+    if (!id || isNaN(id)) {
+        console.log("Invalid ID after decode");
+        localStorage.removeItem(STORAGE_KEY);
+        return null;
+    }
+
+    gerVendor(parseInt(id)); // ✅ ensure number
+}
+
+
+
+
+function gerVendor(vendorID) {
+
+    let payload = {
+        vednorId: parseInt(vendorID)
+    }
+    $.ajax({
+        url: '/Vendor/GetVendorDetailById',
+        type: 'GET',
+        contentType: 'application/json',
+        data: payload, // ensure vendorID is sent as JSON
+
+        success: function (response) {
+            //console.log(response);
+            debugger
+            if (response.statusCode > 0) {
+                alert("Vendor fetch Successfully");
+                if (response.data) {
+                    bindVendorData(response.data.vendorBasicDetail)
+                }
+               
+            } else {
+                alert("Vendor not fetch");
+            }
+        },
+
+        error: function (error) {
+            console.log(error);
+            if (error.status === 409) {
+                alert(error.responseJSON.errors);
+            }
+            console.log(error.responseText);
+            console.log(error.responseJSON.errors);
+        }
+    });
+}
+
+
+function bindVendorData(data) {
+    console.log(data,'data')
+    if (!data) return;
+
+    // ✅ Text fields
+    $("#businessName").val(data.businessName || "");
+    $("#legalName").val(data.legalName || "");
+
+    // ✅ Star Rating
+    $("#StarRating").val(data.starRating).trigger("change");
+
+    // ✅ Services
+    bindServices(data.serviceType);
+
+    // ✅ Business Type (FIXED)
+    if (data.businessType) {
+
+        let type = data.businessType.toLowerCase().trim();
+        let value = null;
+
+        if (type.includes("partnership")) value = "1";
+        else if (type.includes("private")) value = "2";
+        else if (type.includes("llp")) value = "3";
+        else if (type.includes("proprietor")) value = "4";
+
+        $("input[name='personalBusinessRequest.Business_Type']").prop("checked", false);
+
+        if (value) {
+            $("input[name='personalBusinessRequest.Business_Type'][value='" + value + "']")
+                .prop("checked", true);
+        }
+    }
+
+    // ✅ Address
+    $("#Address1").val(data.fullAddress || "");
+
+    // ✅ Location
+    $("#Country").val(data.country).trigger("change");
+    $("#State").val(data.state).trigger("change");
+    $("#City").val(data.city).trigger("change");
+
+    // ✅ Pin Code
+    let match = data.fullAddress?.match(/\d{5,6}$/);
+    if (match) {
+        $("#Pin").val(match[0]);
+    }
+}
+
+//  Helper function (put this in your JS file)
+function bindServices(serviceType) {
+
+    if (!serviceType) return;
+
+    let selectedValues = [];
+
+    // ✅ If already array → ['14','1']
+    if (Array.isArray(serviceType)) {
+        selectedValues = serviceType;
+    }
+
+    // ✅ If string → "14,1"
+    else if (typeof serviceType === "string") {
+        selectedValues = serviceType.split(",");
+    }
+
+    // ✅ Final bind
+    if (selectedValues.length > 0) {
+        $("#services").val(selectedValues).trigger("change");
+    }
+}
+
+

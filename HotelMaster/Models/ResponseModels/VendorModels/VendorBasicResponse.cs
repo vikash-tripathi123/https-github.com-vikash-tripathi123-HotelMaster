@@ -20,5 +20,11 @@
         public int CreditDays { get; set; }
 
         public string FullAddress { get; set; }
+
+        public int Country { get; set; }
+
+        public int State { get; set; }
+
+        public int City { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 $(document).ready(function () {
   // stateList();
     //cityList();
+    localStorage.removeItem('V');
     loadVendors();
 });
 
@@ -28,9 +29,6 @@ document.querySelectorAll('input[name="service"]').forEach(el => {
    LOAD VENDOR LIST
 ========================= */
 function loadVendors() {
-
-    debugger;
-
     // Service IDs
     let serviceIds = [...document.querySelectorAll('input[name="service"]:checked')]
         .map(x => x.value);
@@ -175,7 +173,7 @@ function renderTable(vendors) {
 
             <td class="cell-action">
                 <span class="vendor action-edit">
-                    <a onClick="gerVendor('${vendor.vendorId}')"><img src="/img/vendor-edit.svg" class="img-fluid" /></a>
+                    <a onClick="getVendorById('${vendor.vendorId}')"><img src="/img/vendor-edit.svg" class="img-fluid" /></a>
                 </span>
 
                 <span class="vendor action-print">
@@ -372,33 +370,19 @@ function removeGlobalSearch() {
     loadVendors(); 
 }
 
-function gerVendor(vendorID) {
-    debugger;
-    let payload = {
-        vednorId: parseInt(vendorID)
-    }
-    $.ajax({
-        url: '/Vendor/GetVendorDetailById',
-        type: 'GET',
-        contentType: 'application/json',
-        data: payload, // ensure vendorID is sent as JSON
 
-        success: function (response) {
-            console.log(response);
-            if (response.statusCode > 0) {
-                alert("Vendor Added Successfully");
-            } else {
-                alert("Vendor not added");
-            }
-        },
+function getVendorById(vendorId) {
 
-        error: function (error) {
-            console.log(error);
-            if (error.status === 409) {
-                alert(error.responseJSON.errors);
-            }
-            console.log(error.responseText);
-            console.log(error.responseJSON.errors);
-        }
-    });
+    if (!vendorId) return;
+
+    saveId(vendorId);   // store encoded
+
+    window.location.href = '/Vendor/registration';
+}
+
+
+
+function AddVendorPage() {
+    localStorage.removeItem("v");
+    window.location.href = "Vendor/registration"; 
 }

@@ -2,7 +2,7 @@
 {
     public class VendorBasicResponse
     {
-        public int VendorId { get; set; }
+        public int vendorId { get; set; }
 
         public string ServiceType { get; set; }
         public string BusinessName { get; set; }
@@ -26,5 +26,7 @@
         public int State { get; set; }
 
         public int City { get; set; }
+
+        public string Pin_code { get; set; }
     }
 }

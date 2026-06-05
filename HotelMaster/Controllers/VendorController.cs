@@ -55,14 +55,6 @@ namespace HotelMaster.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> StateList()
-        {
-            ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
-
-            return View("Index", response.Data);
-        }
-
 
         [HttpPost]
         public async Task<IActionResult> AddVendor([FromBody]VendorPersonalBusinessRequest request)
@@ -75,6 +67,22 @@ namespace HotelMaster.Controllers
 
             var response = await _verndorService.AddVendor(request);
              
+            return StatusCode(response.StatusCode, response);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateVendor(int vendorId,
+            [FromBody] VendorPersonalBusinessRequest request)
+        {
+
+            if (request == null)
+            {
+                return BadRequest("Invalid request");   // ✅ return 400
+            }
+
+            var response = await _verndorService.UpdateVendor(vendorId, request);
+
             return StatusCode(response.StatusCode, response);
 
         }
@@ -110,6 +118,20 @@ namespace HotelMaster.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<IActionResult> UpdateVendorFinancial(int vendorLegalFinancialid, [FromBody] VendorFinancialiRequest request)
+        {
+
+            if (request == null)
+            {
+                return BadRequest("Invalid request");   // ✅ return 400
+            }
+
+            var response = await _verndorService.UpdateVendorFinancial(vendorLegalFinancialid, request);
+
+            return StatusCode(response.StatusCode, response);
+
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddVendorPayment([FromBody] VendorPaymentRequest request)

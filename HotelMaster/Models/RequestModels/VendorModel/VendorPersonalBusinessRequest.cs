@@ -4,6 +4,7 @@
 
     public class VendorPersonalBusinessRequest
     {
+      //  public int vendorId { get; set; }
         public int TenantId { get; set; } = 1;
 
         [Required(ErrorMessage = "Business name is required")]

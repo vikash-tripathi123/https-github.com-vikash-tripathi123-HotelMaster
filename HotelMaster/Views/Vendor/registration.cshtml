@@ -251,7 +251,7 @@
                      </button> *@
 
                             <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
-                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft" onclick="vendorBusiness()">
                                     Save As Draft
                                 </button>
                             </div>
@@ -269,12 +269,14 @@
                   <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                </div>
                <div class="card-body">
-                  <form method="post" id="vendorContactForm">
+            
+                   <form method="post" id="vendorContactForm">
                             @Html.AntiForgeryToken()
                      <div id="contactContainer">
                         @for (int i = 0; i < Model.vendorContactRequest.Count; i++)
                         {
                         <div class="contact-row form-grid restaurantsGrid">
+                                        <input asp-for="vendorContactRequest[i].VendorContactId" type="hidden" />
                            <div class="form-group">
                               <label asp-for="vendorContactRequest[i].FullName"></label>
                               <input asp-for="vendorContactRequest[i].FullName" />
@@ -316,6 +318,7 @@
                               
                      </div>
                   </form>
+
                         <div class="contact-footer">
                             <span class="additems">
                                 <img id="contactrow" src="/img/add_circle.png">
@@ -342,8 +345,8 @@
                   <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                </div>
                <div class="card-body">
-                 
 
+                            <input hidden asp-for="vendorFinancialiRequest.VendorLegalFinancialId" id="financialId" type="hidden" />
                             <div class="vendorGridTitle">
                                 <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Bank Details</h1>
                             </div>
@@ -477,7 +480,7 @@
                   </div>
                   @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                             <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
-                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                <button type="button" class="rates-btn-outline" id="vendorFinancialIsDraft" onclick="addVendorFinancial()">
                                     Save As Draft
                                 </button>
                             </div>
@@ -494,7 +497,8 @@
                   </div>
                   <div class="arrow"><span class=""><img src="/img/drop-down.svg"></span> </div>
                </div>
-                    <form method="POST" id="vendorPaymentForm">
+                  
+               <form method="POST" id="vendorPaymentForm">
                         <div class="card-body">
                             <div class="tdsSection">
                                 <div class="vendorGridTitle">
@@ -559,7 +563,7 @@
                      <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                             </div>
                             <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
-                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft" onclick="addVendorFinancial()">
                                     Save As Draft
                                 </button>
                             </div>

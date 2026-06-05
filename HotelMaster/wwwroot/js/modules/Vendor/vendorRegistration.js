@@ -25,8 +25,14 @@ function addVendor() {
     var form = $("#vendorBusinessForm");
 
     form.validate().settings.ignore = [];
+   let url = ''
+    if (vendorId) {
+        url = '/Vendor/UpdateVendor?vendorId=' + vendorId
+    }
+    else {
+        url = '/vendor/addVendor'
+    } 
     
-
     if (!form.valid()) {
 
         let firstError = $(".input-validation-error:first");
@@ -58,11 +64,15 @@ function addVendor() {
 
     const payload = {
 
+//        vendorId: vendorId,
+
         Business_Name: $("#businessName").val(),
 
         Legal_Name: $("#legalName").val(),
 
-        Services: $("#services").val(),
+        //Services: $("#services").val(),
+
+        Services: $("#services").val() || [],
 
         Star_Rating: $("#StarRating").val(),
 
@@ -82,12 +92,12 @@ function addVendor() {
 
         UserName: "Admin"
     };
-
+    console.log(payload,'payload')
     console.log(JSON.stringify(payload));
 
     return $.ajax({
 
-        url: '/Vendor/AddVendor',
+        url: url,
 
         type: 'POST',
 
@@ -243,9 +253,17 @@ function addVendorContact() {
 
 }
 
-function addVendorFinancial() {
-    
+function addVendorFinancial(vendorLegalFinancialid = 0) {
+    debugger
     var form = $("#vendorFinancialForm");
+
+    let url = '';
+    if ($('#financialId')?.val()>0) {
+        url = '/Vendor/UpdateVendorFinancial?vendorLegalFinancialid=' + $('#financialId')?.val() || 0;
+    }
+    else {
+        url = '/Vendor/AddVendorFinancial'; 
+    }
 
     if (!form.valid()) {
         return false;
@@ -253,7 +271,7 @@ function addVendorFinancial() {
 
 
     var payload = {
-
+        vendorLegalFinancialid: $('#financialId')?.val() || 0,
         legalName: $('input[name="vendorFinancialiRequest.legalName"]').val(),
         BankName: $('input[name="vendorFinancialiRequest.BankName"]').val(),
         AccountNumber: $('input[name="vendorFinancialiRequest.AccountNumber"]').val(),
@@ -274,7 +292,7 @@ function addVendorFinancial() {
     console.log(payload, 'payload'); 
 
     return $.ajax({
-        url: '/Vendor/AddVendorFinancial',
+        url: url,
 
         type: 'POST',
 
@@ -691,7 +709,7 @@ async function vendorBusiness() {
 
         vendorId = vendor?.data?.vendorId || 0;
         console.log("Vendor ID:", vendorId);
-        alert(vendor?.message)
+      //  alert(vendor?.message)
     } catch (error) {
         console.error(error);
         alert(error.message || "An error occurred while adding vendor");
@@ -722,7 +740,7 @@ function getStoredId() {
 
     // ✅ Decode
     let id = decode(data.v);
-
+    vendorId = id
     // ✅ Validate ID
     if (!id || isNaN(id)) {
         console.log("Invalid ID after decode");
@@ -751,9 +769,11 @@ function gerVendor(vendorID) {
             //console.log(response);
             debugger
             if (response.statusCode > 0) {
-                alert("Vendor fetch Successfully");
+            //    alert("Vendor fetch Successfully");
                 if (response.data) {
                     bindVendorData(response.data.vendorBasicDetail)
+                    bindContactData(response.data.vendorContacts)
+                    bindFinancialData(response.data.vendorLegalFInancialDetail)
                 }
                
             } else {
@@ -772,6 +792,9 @@ function gerVendor(vendorID) {
     });
 }
 
+function vendorFinancialIsDraft() {
+
+}
 
 function bindVendorData(data) {
     console.log(data,'data')
@@ -821,6 +844,97 @@ function bindVendorData(data) {
     }
 }
 
+function bindContactData(data) {
+
+    //  safety check
+    if (!data || data.length === 0) {
+        return;
+    }
+
+    let container = $("#contactContainer");
+    let existingRows = container.find(".contact-row").length;
+
+    // 1. Add rows if needed
+    for (let i = existingRows; i < data.length; i++) {
+        addContactRow(); // uses your existing function
+    }
+
+    //  2. Bind values
+    data.forEach((item, index) => {
+
+        // ✅ text inputs
+        $(`[name='vendorContactRequest[${index}].FullName']`)
+            .val(item.fullName || '');
+
+        $(`[name='vendorContactRequest[${index}].Phone']`)
+            .val(item.phone || '');
+
+        $(`[name='vendorContactRequest[${index}].Email']`)
+            .val(item.email || '');
+
+        // ✅ dropdowns (with mapping)
+        $(`[name='vendorContactRequest[${index}].Department']`)
+            .val(getDeptValue(item.departmentName));
+
+        $(`[name='vendorContactRequest[${index}].Designation']`)
+            .val(getDesigValue(item.designationName));
+
+        // ✅ optional hidden id (if exists)
+        let idField = $(`[name='vendorContactRequest[${index}].VendorContactId']`);
+        if (idField.length) {
+            idField.val(item.vendorContactId || 0);
+        }
+    });
+}
+
+function bindFinancialData(data) {
+    debugger
+    // ✅ safety check
+    if (!data) {
+        return;
+    }
+
+    $('#financialId').val(data.vendorLegalFinancialId);
+    // ✅ Bank Details
+    $("#vendorFinancialiRequest_legalName")
+        .val(data.name || '');
+
+    $("#vendorFinancialiRequest_BankName")
+        .val(data.bankName || '');
+
+    $("#vendorFinancialiRequest_AccountNumber")
+        .val(data.accountNumber || '');
+
+    $("#vendorFinancialiRequest_Ifsc_Code")
+        .val(data.ifscCode || '');
+
+    // ✅ TDS
+    $("#vendorFinancialiRequest_Applicable_tds_percent")
+        .val(data.tdsPercent || '');
+
+    // ✅ PAN Details
+    $("#vendorFinancialiRequest_Pan_Name_Holder")
+        .val(data.panName || '');
+
+    $("#vendorFinancialiRequest_Pan_number")
+        .val(data.panNumber || '');
+
+    // ✅ GST Details
+    $("#vendorFinancialiRequest_Gst_Registered_Name")
+        .val(data.gstName || '');
+
+    $("#vendorFinancialiRequest_Gst_in_number")
+        .val(data.gstNumber || '');
+
+    // ✅ MSME Details
+    $("#vendorFinancialiRequest_Msme_certificate_holder_name")
+        .val(data.msmeName || '');
+
+    $("#vendorFinancialiRequest_Msme_registration_number")
+        .val(data.msmeNumber || '');
+}
+``
+
 //  Helper function (put this in your JS file)
 function bindServices(serviceType) {
 
@@ -843,6 +957,42 @@ function bindServices(serviceType) {
         $("#services").val(selectedValues).trigger("change");
     }
 }
+
+function getDeptValue(name) {
+
+    if (!name) return "";
+
+    switch (name.trim()) {
+        case "Reception":
+            return "1";
+
+        // 👉 add more mappings if needed
+        // case "Sales": return "2";
+
+        default:
+            return "";
+    }
+}
+
+function getDesigValue(name) {
+
+    if (!name) return "";
+
+    switch (name.trim()) {
+        case "Hotel Manager":
+            return "1";
+
+        case "Resident Manager":
+            return "2";
+
+        // 👉 extend if more designations come
+        // case "Assistant Manager": return "3";
+
+        default:
+            return "";
+    }
+}
+``
 
 //$(document).on("click", ".card-header", function (e) {
 //    debugger

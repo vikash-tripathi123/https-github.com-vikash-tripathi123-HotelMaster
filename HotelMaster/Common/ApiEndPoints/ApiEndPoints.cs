@@ -17,9 +17,13 @@
 
         public const string ADDVENDOR = "VendorMasters/AddVendor";
 
+        public const string UPDATE_VENDOR = "VendorMasters/UpdateVendor";
+
         public const string ADDVENDORCONTACT = "VendorMasters/AddVendorContact";
 
         public const string ADDVENDORFINANCIAL = "VendorMasters/add_vendor_legal_financial";
+
+        public const string UPDATE_VENDOR_FINANCIAL = "VendorMasters/update_vendor_legal_financial";
 
         public const string ADD_VENDOR_PAYMENT = "VendorMasters/add_vendor_payment_terms";
 

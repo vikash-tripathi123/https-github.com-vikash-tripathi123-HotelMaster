@@ -151,7 +151,7 @@ namespace HotelMaster.BusinessServices.Services
             {
 
                 string url = BASEURL + ApiEndPoints.UPDATE_VENDOR_FINANCIAL+"/"+vendorLegalFinancialid;
-                var response = await _dataService.PostAsync<ApiResponse<string>>(url, request);
+                var response = await _dataService.PutAsync<ApiResponse<string>>(url, request);
                 return response;
             }
             catch (HttpRequestException ex)
@@ -196,13 +196,38 @@ namespace HotelMaster.BusinessServices.Services
             }
         }
 
-        public async Task<ApiResponse<string>> AddVendorDocument(List<VendorDocumentRequest> request)
+        public async Task<ApiResponse<string>> UpdateVendorPayment(int VendorPaymentTermsId, VendorPaymentRequest request)
+        {
+            try
+            {
+
+                string url = BASEURL + ApiEndPoints.UPDATE_VENDOR_PAYMENT+"/"+VendorPaymentTermsId;
+                var response = await _dataService.PutAsync<ApiResponse<string>>(url, request);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "API is not reachable. Please ensure the service is running.",
+                    ex
+                );
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out. Please try again later.",
+                    ex
+                );
+            }
+        }
+
+        public async Task<ApiResponse<List<VendorAddDocumentResponse>>> AddVendorDocument(List<VendorDocumentRequest> request)
         {
             try
             {
 
                 string url = BASEURL + ApiEndPoints.ADD_VENDOR_DOCUMENT;
-                var response = await _dataService.PostMultipartAnyAsync<ApiResponse<string>>(url, request);
+                var response = await _dataService.PostMultipartAnyAsync<ApiResponse<List<VendorAddDocumentResponse>>>(url, request);
                 return response;
             }
             catch (HttpRequestException ex)
@@ -245,5 +270,7 @@ namespace HotelMaster.BusinessServices.Services
                 );
             }
         }
+
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿
 let vendorId = 0; 
-
+let vendorCode = ''; 
 let currentStep = 1;
 $(document).ready(function () {
     $('#services').select2({
@@ -21,7 +21,7 @@ $(document).ready(function () {
 document.querySelector("#vendorBusinessSaveDraft").addEventListener("click", vendorBusiness);
 
 function addVendor() {
-    debugger
+    
     var form = $("#vendorBusinessForm");
 
     form.validate().settings.ignore = [];
@@ -204,7 +204,7 @@ function addContactRow() {
 document.querySelector("#btnSubmit").addEventListener("click", validateForms);
 
 function addVendorContact() {
-    debugger
+    
     var form = $("#vendorContactForm");
 
     if (!form.valid()) {
@@ -254,12 +254,12 @@ function addVendorContact() {
 }
 
 function addVendorFinancial(vendorLegalFinancialid = 0) {
-    debugger
+    
     var form = $("#vendorFinancialForm");
 
     let url = '';
-    if ($('#financialId')?.val()>0) {
-        url = '/Vendor/UpdateVendorFinancial?vendorLegalFinancialid=' + $('#financialId')?.val() || 0;
+    if ($(vendorLegalFinancialid>0)) {
+        url = '/Vendor/UpdateVendorFinancial?vendorLegalFinancialid=' + vendorLegalFinancialid;
     }
     else {
         url = '/Vendor/AddVendorFinancial'; 
@@ -312,26 +312,34 @@ function addVendorFinancial(vendorLegalFinancialid = 0) {
 
 }
 
-function addVendorPayment() {
+function addVendorPayment(paymentId = 0) {
 
-    debugger
+    
     var form = $("#vendorPaymentForm");
 
     if (!form.valid()) {
         return false;
     }
 
+    let url = ''
+    if (paymentId) {
+        url = '/Vendor/UpdateVendorPayment?VendorPaymentTermsId=' + paymentId;
+    }
+    else {
+        url = '/Vendor/AddVendorPayment'; 
+    }
 
     var payload = {
 
-        VendorId: vendorId,
+        VendorPaymentTermsId: parseInt(paymentId),
+        VendorId: parseInt(vendorId),
         TenantId: 1,
 
         Terms: $('input[name="vendorPaymentRequest.Terms"]:checked').val(),
 
         CreditType: $('select[name="vendorPaymentRequest.CreditType"]').val(),
 
-        CreditDays: $('input[name="vendorPaymentRequest.CreditDays"]').val()
+        CreditDays: parseInt($('input[name="vendorPaymentRequest.CreditDays"]').val())
     };
 
 
@@ -339,7 +347,7 @@ function addVendorPayment() {
     console.log(payload, 'payload');
 
     return $.ajax({
-        url: '/Vendor/AddVendorPayment',
+        url: url,
 
         type: 'POST',
 
@@ -359,45 +367,112 @@ function addVendorPayment() {
 
 }
 
+//function addVendorDocument() {
+//    debugger
+//    let isValid = validateFiles();
+//    if (!isValid) {
+//        return;
+//    }
+//    let formData = new FormData();
+
+//    let tenantId = 1;   // or get dynamically
+//     vendorId = vendorId; // or get dynamically
+
+//    let index = 0;
+
+//    //  loop through all file inputs inside form
+
+//    // ✅ loop through all file inputs
+//    $("#vendorDocumentForm input[type='file']").each(function () {
+
+//        if (this.files.length > 0) {
+
+//            let file = this.files[0];
+//            let docType = this.id; // pan, gstCertificate, etc.
+
+//            formData.append(`[${index}].TenantId`, tenantId);
+//            formData.append(`[${index}].VendorId`, vendorId);
+//            formData.append(`[${index}].DocumentType`, 1);
+//            formData.append(`[${index}].DocumentName`, file.name);
+//            formData.append(`[${index}].FilePath`, file); // ✅ important
+
+//            index++;
+//        }
+//    });
+
+//    if (index === 0) {
+//        alert("Please upload at least one document");
+//        return;
+//    }
+
+//    return $.ajax({
+//        url: '/Vendor/AddVendorDocuments',
+//        type: 'POST',
+//        data: formData,
+//        processData: false,
+//        contentType: false,
+//        headers: {
+//            "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+//        }
+//        //success: function (res) {
+//        //    consoel.log(res)
+//        //    if (res.IsError == false) {
+
+//        //        alert("Uploaded successfully ✅");
+//        //    }
+//        //    else {
+//        //        alert("Error uploading files");
+//        //    }
+//        //},
+//        //error: function () {
+
+//        //}
+//    });
+
+//}
+
 function addVendorDocument() {
-    debugger
+    
     let isValid = validateFiles();
-    if (!isValid) {
-        return; 
-    }
+    if (!isValid) return;
+
     let formData = new FormData();
 
-    let tenantId = 1;   // or get dynamically
-     vendorId = vendorId; // or get dynamically
-
+    let tenantId = 1;
     let index = 0;
 
-    //  loop through all file inputs inside form
 
-    // ✅ loop through all file inputs
+
     $("#vendorDocumentForm input[type='file']").each(function () {
+        debugger
+        let file = this.files[0];
+        let inputId = this.id;
+        let docId = getDocId(inputId);
+        console.log(docId, 'docId')
 
-        if (this.files.length > 0) {
+        // ✅ Skip unchanged items
+        if (!isChanged(inputId)) return;
 
-            let file = this.files[0];
-            let docType = this.id; // pan, gstCertificate, etc.
+        formData.append(`[${index}].DocumentID`, docId > 0 ? docId : null);
+        formData.append(`[${index}].TenantId`, 1);
+        formData.append(`[${index}].VendorId`, vendorId);
+        formData.append(`[${index}].DocumentType`, getDocumentTypeId(inputId));
 
-            formData.append(`[${index}].TenantId`, tenantId);
-            formData.append(`[${index}].VendorId`, vendorId);
-            formData.append(`[${index}].DocumentType`, 1);
-            formData.append(`[${index}].DocumentName`, file.name);
-            formData.append(`[${index}].FilePath`, file); // ✅ important
-
-            index++;
+        if (file) {
+            formData.append(`[${index}].FilePath`, file);
+            formData.append(`[${index}].DocumentName`, vendorCode + '' + inputId);
         }
+
+        index++;
     });
 
+ 
     if (index === 0) {
-        alert("Please upload at least one document");
+        alert("No new files selected (existing files already present)");
         return;
     }
 
-    return $.ajax({
+  return  $.ajax({
         url: '/Vendor/AddVendorDocuments',
         type: 'POST',
         data: formData,
@@ -407,22 +482,11 @@ function addVendorDocument() {
             "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
         }
         //success: function (res) {
-        //    consoel.log(res)
-        //    if (res.IsError == false) {
-              
-        //        alert("Uploaded successfully ✅");
-        //    }
-        //    else {
-        //        alert("Error uploading files");
-        //    }
-        //},
-        //error: function () {
-          
+        //    console.log(res);
+        //    alert("Uploaded successfully ✅");
         //}
     });
-
 }
-
 function triggerFile(id) {
     document.getElementById(id).click();
 }
@@ -499,17 +563,45 @@ function validateDocuments() {
     return true;
 }
 
+//function validateFiles() {
+
+//    let isValid = true;
+
+//    function setError(inputId, errorId, message) {
+//        let input = $("#" + inputId);
+
+//        if (!input[0].files.length) {
+//            $("#" + errorId).text(message);
+
+//            input.addClass("input-validation-error"); // ✅ important
+//            isValid = false;
+//        } else {
+//            $("#" + errorId).text("");
+//            input.removeClass("input-validation-error");
+//        }
+//    }
+
+//    setError("pan", "panError", "PAN is required");
+//    setError("hotelLicense", "hotelLicenseError", "Hotel License is required");
+//    setError("gstCertificate", "gstCertificateError", "GST Certificate is required");
+//    setError("cancelCheque", "cancelChequeError", "Cancelled Cheque is required");
+
+//    return isValid;
+//}
+
 function validateFiles() {
 
     let isValid = true;
 
-    function setError(inputId, errorId, message) {
+    function setError(inputId, errorId, message, docType) {
+
         let input = $("#" + inputId);
+        let hasFile = input[0].files.length > 0;
+        let exists = hasExistingDoc(docType);
 
-        if (!input[0].files.length) {
+        if (!hasFile && !exists) {
             $("#" + errorId).text(message);
-
-            input.addClass("input-validation-error"); // ✅ important
+            input.addClass("input-validation-error");
             isValid = false;
         } else {
             $("#" + errorId).text("");
@@ -517,16 +609,16 @@ function validateFiles() {
         }
     }
 
-    setError("pan", "panError", "PAN is required");
-    setError("hotelLicense", "hotelLicenseError", "Hotel License is required");
-    setError("gstCertificate", "gstCertificateError", "GST Certificate is required");
-    setError("cancelCheque", "cancelChequeError", "Cancelled Cheque is required");
+    setError("pan", "panError", "PAN is required", "PAN Card");
+    setError("hotelLicense", "hotelLicenseError", "Hotel License required", "Hotel License");
+    setError("gstCertificate", "gstCertificateError", "GST required", "GST Certificate");
+    setError("cancelCheque", "cancelChequeError", "Cancelled cheque required", "Cancelled Cheque");
 
     return isValid;
 }
 
 async function validateForms() {
-    debugger
+    
     var vendorBusinessForm = $("#vendorBusinessForm");
     var vendorContactForm = $("#vendorContactForm");
     var vendorFinancialForm = $("#vendorFinancialForm");
@@ -701,7 +793,6 @@ async function validateForms() {
 
 }
 
-
 async function vendorBusiness() {
     try {
         const vendor = await addVendor();
@@ -716,8 +807,85 @@ async function vendorBusiness() {
     }
 }
 
+async function vendorFinancial() {
+    try {
+        
+        let financialId = $('#financialId')?.val() || 0;
+        const vendor = await addVendorFinancial(financialId);
+        console.log(vendor);
+
+        //vendorId = vendor?.data?.vendorId || 0;
+        console.log("Vendor ID:", vendorId);
+          alert(vendor?.message)
+    } catch (error) {
+        console.error(error);
+        alert(error.message || "An error occurred while adding vendor");
+    }
+}
+
+async function vendorPayment() {
+
+    try {
+        
+        let paymentId = $('#paymentId')?.val() || 0;
+        const vendor = await addVendorPayment(paymentId);
+        console.log(vendor);
+
+        //vendorId = vendor?.data?.vendorId || 0;
+        console.log("Vendor ID:", vendorId);
+        alert(vendor?.message)
+    } catch (error) {
+        console.error(error);
+        alert(error.message || "An error occurred while adding vendor");
+    }
+
+}
+
+async function vendorDocuments() {
+    try {
+        debugger
+        
+        const vendor = await addVendorDocument()
+        console.log(vendor);
 
 
+        vendor.data.forEach(doc => {
+            debugger
+            switch (doc.documentType) {
+                
+                case 1:
+                    $("#panDocId").val(doc.documentId);
+                    break;
+
+                case 6:
+                    $("#hotelLicenseDocId").val(doc.documentId);
+                    break;
+
+                case 7:
+                    $("#gstCertificateDocId").val(doc.documentId);
+                    break;
+
+                case 12:
+                    $("#cancelChequeDocId").val(doc.documentId);
+                    break;
+            }
+        });
+
+        // ✅ clear files after success
+       // $("#vendorDocumentForm input[type='file']").val("");
+
+        alert("Saved successfully ✅");
+
+
+
+        //vendorId = vendor?.data?.vendorId || 0;
+        //console.log("Vendor ID:", vendorId);
+       // alert(vendor?.message)
+    } catch (error) {
+        console.error(error);
+        alert(error.message || "An error occurred while adding vendor");
+    }
+}
 function getStoredId() {
     
     let raw = localStorage.getItem(STORAGE_KEY);
@@ -750,10 +918,6 @@ function getStoredId() {
 
     gerVendor(parseInt(id)); // ✅ ensure number
 }
-
-
-
-
 function gerVendor(vendorID) {
 
     let payload = {
@@ -767,13 +931,16 @@ function gerVendor(vendorID) {
 
         success: function (response) {
             //console.log(response);
-            debugger
+            
             if (response.statusCode > 0) {
             //    alert("Vendor fetch Successfully");
                 if (response.data) {
-                    bindVendorData(response.data.vendorBasicDetail)
-                    bindContactData(response.data.vendorContacts)
-                    bindFinancialData(response.data.vendorLegalFInancialDetail)
+                    vendorCode = response.data.vendorCode;
+                    bindVendorData(response.data.vendorBasicDetail);
+                    bindContactData(response.data.vendorContacts);
+                    bindFinancialData(response.data.vendorLegalFInancialDetail);
+                    bindVendorPaymentData(response.data.vendorPaymentTerms);
+                    bindDocuments(response.data.vendorDocuments);
                 }
                
             } else {
@@ -791,11 +958,9 @@ function gerVendor(vendorID) {
         }
     });
 }
-
 function vendorFinancialIsDraft() {
 
 }
-
 function bindVendorData(data) {
     console.log(data,'data')
     if (!data) return;
@@ -830,7 +995,8 @@ function bindVendorData(data) {
     }
 
     // ✅ Address
-    $("#Address1").val(data.fullAddress || "");
+    $("#Address1").val(data?.addressLine1 || "");
+    $("#Address2").val(data?.addressLine2 || "");
 
     // ✅ Location
     $("#Country").val(data.country).trigger("change");
@@ -843,7 +1009,6 @@ function bindVendorData(data) {
         $("#Pin").val(match[0]);
     }
 }
-
 function bindContactData(data) {
 
     //  safety check
@@ -886,9 +1051,8 @@ function bindContactData(data) {
         }
     });
 }
-
 function bindFinancialData(data) {
-    debugger
+    
     // ✅ safety check
     if (!data) {
         return;
@@ -933,7 +1097,110 @@ function bindFinancialData(data) {
     $("#vendorFinancialiRequest_Msme_registration_number")
         .val(data.msmeNumber || '');
 }
-``
+function bindVendorPaymentData(data) {
+  
+    console.log(data, 'payment data');
+
+    if (!data) return;
+
+    // ✅ 1. Hidden ID
+    $("#paymentId").val(data.vendorPaymentTermsId);
+
+    // ✅ 2. Terms (Radio Button)
+    $("input[name='vendorPaymentRequest.Terms']").prop("checked", false);
+
+    $("input[name='vendorPaymentRequest.Terms']").each(function () {
+        let radioValue = $(this).val().toLowerCase();
+        let apiValue = data.terms.toLowerCase();
+
+        if (radioValue.includes(apiValue)) {
+            $(this).prop("checked", true);
+        }
+    });
+
+    // ✅ 3. Credit Type (Dropdown)
+    $("#vendorPaymentRequest_CreditType")
+        .val(data.creditType)
+        .trigger("change");
+
+    // ✅ 4. Credit Days
+    $("#vendorPaymentRequest_CreditDays").val(data.creditDays);
+}
+
+let existingDocuments = [];
+function bindDocuments(data) {
+
+    existingDocuments = data;
+
+    data.forEach(doc => {
+        
+        switch (doc.documentType) {
+
+            case "PAN Card":
+                $("#panDocId").val(doc.documentId);
+                $("#panPreview").text(doc.documentName).show();
+                $("#panPreview").css("display", "block");
+                break;
+
+            case "Hotel License":
+                $("#hotelLicenseDocId").val(doc.documentId);
+                $("#hotelLicensePreview").text(doc.documentName).show();
+                break;
+
+            case "GST Certificate":
+                $("#gstCertificateDocId").val(doc.documentId);
+                $("#gstCertificatePreview").text(doc.documentName).show();
+                break;
+
+            case "Cancelled Cheque":
+                $("#cancelChequeDocId").val(doc.documentId);
+                $("#cancelChequePreview").text(doc.documentName).show();
+                break;
+        }
+    });
+}
+function getDocId(inputId) {
+    
+    switch (inputId) {
+        case "pan": return $("#panDocId").val();
+        case "hotelLicense": return $("#hotelLicenseDocId").val();
+        case "gstCertificate": return $("#gstCertificateDocId").val();
+        case "msmeCertificate": return $("#msmeCertificateDocId").val();
+        case "aadharCard": return $("#aadharCardDocId").val();
+        case "cancelCheque": return $("#cancelChequeDocId").val();
+    }
+}
+function getDocumentTypeId(id) {
+    
+    switch (id) {
+        case "pan": return 1;
+        case "hotelLicense": return 6;
+        case "gstCertificate": return 7;
+        case "msmeCertificate": return 8;
+        case "aadharCard": return 2;
+        case "cancelCheque": return 12;
+    }
+}
+
+// validation check for doc
+function hasExistingDoc(docType) {
+    return existingDocuments.some(d => d.documentType === docType);
+}
+
+function isChanged(inputId) {
+
+    let file = $("#" + inputId)[0].files.length > 0;
+    let docId = getDocId(inputId);
+
+    // ✅ New upload
+    if (file && (!docId || docId == 0)) return true;
+
+    // ✅ Replace file
+    if (file && docId > 0) return true;
+
+    // ✅ No change
+    return false;
+}
 
 //  Helper function (put this in your JS file)
 function bindServices(serviceType) {
@@ -992,7 +1259,7 @@ function getDesigValue(name) {
             return "";
     }
 }
-``
+
 
 //$(document).on("click", ".card-header", function (e) {
 //    debugger

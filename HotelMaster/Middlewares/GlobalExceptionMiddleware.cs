@@ -22,7 +22,7 @@ namespace HotelMaster.Middlewares
             try
             {
                 await _next(context);
-            }
+            } 
             catch (Exception ex)
             {
                 var traceId = context.TraceIdentifier;

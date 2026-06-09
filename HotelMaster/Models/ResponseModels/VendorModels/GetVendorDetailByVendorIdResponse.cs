@@ -8,6 +8,7 @@
 
         public VendorLegalFinanceResponse? VendorLegalFInancialDetail { get; set; }
 
+        public VendorPaymentTermsResponse? VendorPaymentTerms { get; set; }
         public List<VendorDocumentResponse>? VendorDocuments { get; set; }
     }
 }

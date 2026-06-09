@@ -2,7 +2,7 @@
 {
     public class VendorFinancialiRequest
     {
-        public int VendorLegalFinancialId { get; set; }
+        public int? VendorLegalFinancialId { get; set; }
         public int TenantId { get; set; } = 1;
         public int VendorId { get; set; }
         public string legalName { get; set; }

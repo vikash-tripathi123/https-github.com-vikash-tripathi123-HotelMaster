@@ -3,7 +3,7 @@
     public class VendorBasicResponse
     {
         public int vendorId { get; set; }
-
+        public string VendorCode { get; set; }
         public string ServiceType { get; set; }
         public string BusinessName { get; set; }
 
@@ -19,6 +19,9 @@
 
         public int CreditDays { get; set; }
 
+        public string AddressLine1 { get; set; }
+
+        public string? AddressLine2 { get; set; }
         public string FullAddress { get; set; }
 
         public int Country { get; set; }

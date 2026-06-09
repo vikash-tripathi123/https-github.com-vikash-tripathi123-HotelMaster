@@ -124,7 +124,7 @@ namespace HotelMaster.Controllers
 
             if (request == null)
             {
-                return BadRequest("Invalid request");   // ✅ return 400
+                return BadRequest("Invalid request");   //  return 400
             }
 
             var response = await _verndorService.UpdateVendorFinancial(vendorLegalFinancialid, request);
@@ -143,6 +143,22 @@ namespace HotelMaster.Controllers
             }
 
             var response = await _verndorService.AddVendorPayment(request);
+
+            return StatusCode(response.StatusCode, response);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateVendorPayment(int VendorPaymentTermsId, [FromBody] VendorPaymentRequest request)
+        
+        {
+
+            if (request == null)
+            {
+                return BadRequest("Invalid request");   // ✅ return 400
+            }
+
+            var response = await _verndorService.UpdateVendorPayment(VendorPaymentTermsId,request);
 
             return StatusCode(response.StatusCode, response);
 

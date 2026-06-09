@@ -480,7 +480,7 @@
                   </div>
                   @* <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                             <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
-                                <button type="button" class="rates-btn-outline" id="vendorFinancialIsDraft" onclick="addVendorFinancial()">
+                                <button type="button" class="rates-btn-outline" id="vendorFinancialIsDraft" onclick="vendorFinancial()">
                                     Save As Draft
                                 </button>
                             </div>
@@ -540,6 +540,8 @@
                                     <h1><span><img src="/img/BankDetailsIcon.svg" /></span>Credit Details</h1>
                                 </div>
                                 <div class="form-grid tdsSectionGrid">
+
+                                    <input hidden asp-for="vendorPaymentRequest.VendorPaymentTermsId" id="paymentId" type="hidden" />
                                     <div class="form-group">
                                         <label asp-for="vendorPaymentRequest.CreditType">Credit Type</label>
                                         <div class="dropdown-trigger-box generalDEtailsSelect">
@@ -563,7 +565,7 @@
                      <button class="primary-btn commonCta ctaAlign">Save and Next</button> *@
                             </div>
                             <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
-                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft" onclick="addVendorFinancial()">
+                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft" onclick="vendorPayment()">
                                     Save As Draft
                                 </button>
                             </div>
@@ -590,7 +592,7 @@
                                     <div class="vendorDocument-label">
                                         PAN Card <span class="vendorDocument-required">*</span>
                                     </div>
-
+                                    <input type="hidden" id="panDocId" name="PanDocId" >
                                     <div class="vendorDocument-upload-zone">
                                         <div class="vendorDocument-info">
                                             <img src="/img/cloud-add.svg" class="vendorDocument-icon">
@@ -614,6 +616,7 @@
                                     <div class="vendorDocument-label">
                                         Hotel License <span class="vendorDocument-required">*</span>
                                     </div>
+                                    <input type="hidden" id="hotelLicenseDocId" >
 
                                     <div class="vendorDocument-upload-zone">
                                         <div class="vendorDocument-info">
@@ -640,6 +643,7 @@
                                     </div>
 
                                     <div class="vendorDocument-upload-zone">
+                                        <input type="hidden" id="gstCertificateDocId" />
                                         <div class="vendorDocument-info">
                                             <img src="/img/cloud-add.svg" class="vendorDocument-icon">
                                             <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
@@ -662,6 +666,7 @@
                                     <div class="vendorDocument-label">MSME Certificate</div>
 
                                     <div class="vendorDocument-upload-zone">
+                                        <input type="hidden" id="msmeCertificateDocId">
                                         <img src="/img/cloud-add.svg" class="vendorDocument-icon">
                                         <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
                                         <input type="file" id="msmeCertificate" name="MsmeCertificate" style="display:none">
@@ -681,6 +686,7 @@
                                     <div class="vendorDocument-label">Owner Aadhar Card</div>
 
                                     <div class="vendorDocument-upload-zone">
+                                        <input type="hidden" id="aadharCardDocId" value="0">
                                         <img src="/img/cloud-add.svg" class="vendorDocument-icon">
                                         <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
                                         <input type="file" id="aadharCard" name="AadharCard" style="display:none">
@@ -702,6 +708,7 @@
                                     </div>
 
                                     <div class="vendorDocument-upload-zone">
+                                        <input type="hidden" id="cancelChequeDocId" value="0">
                                         <img src="/img/cloud-add.svg" class="vendorDocument-icon">
                                         <span class="vendorDocument-text">JPEG, PNG, PDF up to 2MB</span>
                                         <input type="file" id="cancelCheque" name="CancelCheque" style="display:none">
@@ -720,7 +727,7 @@
 
 
                             <div class="rates-footer vendorCta" style="display: flex; justify-content: flex-end; margin-top: 20px;">
-                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                                <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft" onclick="vendorDocuments()">
                                     Save As Draft
                                 </button>
                             </div>

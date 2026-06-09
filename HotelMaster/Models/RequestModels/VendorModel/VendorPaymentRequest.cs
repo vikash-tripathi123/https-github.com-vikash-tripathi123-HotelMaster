@@ -4,6 +4,7 @@ namespace HotelMaster.Models.RequestModels.VendorModel
 {
     public class VendorPaymentRequest
     {
+        public int VendorPaymentTermsId { get; set; }
         public int TenantId { get; set; }
         public int VendorId { get; set; }
 

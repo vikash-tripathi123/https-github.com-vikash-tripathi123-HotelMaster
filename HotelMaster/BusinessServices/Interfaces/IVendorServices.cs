@@ -17,7 +17,8 @@ namespace HotelMaster.BusinessServices.Interfaces
         public Task<ApiResponse<string>> UpdateVendorFinancial(int vendorLegalFinancialid, VendorFinancialiRequest request);
         public Task<ApiResponse<string>> AddVendorPayment(VendorPaymentRequest request);
 
-        public Task<ApiResponse<string>> AddVendorDocument(List<VendorDocumentRequest> request);
+        public Task<ApiResponse<string>> UpdateVendorPayment(int VendorPaymentTermsId, VendorPaymentRequest request);
+        public Task<ApiResponse<List<VendorAddDocumentResponse>>> AddVendorDocument(List<VendorDocumentRequest> request);
 
         public Task<ApiResponse<GetVendorDetailByVendorIdResponse>> GetVendorDetailById(int vendorId);
     }

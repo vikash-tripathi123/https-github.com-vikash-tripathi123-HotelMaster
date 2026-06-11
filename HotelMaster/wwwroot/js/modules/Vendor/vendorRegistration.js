@@ -207,10 +207,16 @@ function addVendorContact() {
     
     var form = $("#vendorContactForm");
 
+    if (vednorId == 0) {
+        alert("please fill venodor business form")
+        return false; 
+    }
+
     if (!form.valid()) {
         return false;
     }
 
+    
 
     let contacts = [];
 
@@ -441,10 +447,10 @@ function addVendorDocument() {
     let tenantId = 1;
     let index = 0;
 
-
+    console.log(vendorCode, '----');
 
     $("#vendorDocumentForm input[type='file']").each(function () {
-        debugger
+        
         let file = this.files[0];
         let inputId = this.id;
         let docId = getDocId(inputId);
@@ -460,7 +466,7 @@ function addVendorDocument() {
 
         if (file) {
             formData.append(`[${index}].FilePath`, file);
-            formData.append(`[${index}].DocumentName`, vendorCode + '' + inputId);
+            formData.append(`[${index}].DocumentName`, vendorCode + '_' + inputId);
         }
 
         index++;
@@ -486,8 +492,10 @@ function addVendorDocument() {
         //    alert("Uploaded successfully ✅");
         //}
     });
+
 }
 function triggerFile(id) {
+    debugger
     document.getElementById(id).click();
 }
 
@@ -495,11 +503,12 @@ function triggerFile(id) {
 document.querySelectorAll('input[type="file"]').forEach(input => {
 
     input.addEventListener('change', function () {
-
+        debugger 
         let file = this.files[0];
         let preview = document.getElementById(this.id + "Preview");
         let errorSpan = document.getElementById(this.id + "Error"); // ✅ error element
-
+        var inputId = $(this).attr('id');
+        console.log(inputId,'----');
         if (!file) {
             preview.style.display = "none";
             preview.innerHTML = "";
@@ -511,9 +520,10 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
             return;
         }
 
+
         // ✅ Validation
         const allowed = ["image/jpeg", "image/png", "application/pdf"];
-        const maxSize = 2 * 1024 * 1024;
+        const maxSize = 5 * 1024 * 1024;
 
         if (!allowed.includes(file.type)) {
             alert("Only JPG, PNG, PDF allowed");
@@ -526,7 +536,7 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
         }
 
         if (file.size > maxSize) {
-            alert("Max size is 2MB");
+            alert("Max size is 5MB");
             this.value = "";
 
             if (errorSpan) errorSpan.innerText = "File size exceeds 2MB";
@@ -542,7 +552,9 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
         // ✅ Show preview
         preview.style.display = "block";
         preview.innerHTML =
-            "✔ " + file.name + " (" + Math.round(file.size / 1024) + " KB)";
+           file.name + " (" + Math.round(file.size / 1024) + " KB)";
+           // vendorCode + '_' + inputId + " (" + Math.round(file.size / 1024) + " KB)";
+
     });
 
 
@@ -795,6 +807,8 @@ async function validateForms() {
 
 async function vendorBusiness() {
     try {
+       // debugger
+       
         const vendor = await addVendor();
         console.log(vendor);
 
@@ -809,7 +823,10 @@ async function vendorBusiness() {
 
 async function vendorFinancial() {
     try {
-        
+        if (vendorId == 0) {
+            alert("please fill vendor Personal and business form")
+            return
+        }
         let financialId = $('#financialId')?.val() || 0;
         const vendor = await addVendorFinancial(financialId);
         console.log(vendor);
@@ -826,9 +843,33 @@ async function vendorFinancial() {
 async function vendorPayment() {
 
     try {
-        
+        if (vendorId == 0) {
+            alert("please fill vendor Personal and business form")
+            return
+        }
         let paymentId = $('#paymentId')?.val() || 0;
         const vendor = await addVendorPayment(paymentId);
+        console.log(vendor);
+
+        //vendorId = vendor?.data?.vendorId || 0;
+        console.log("Vendor ID:", vendorId);
+        alert(vendor?.message)
+    } catch (error) {
+        console.error(error);
+        alert(error.message || "An error occurred while adding vendor");
+    }
+
+}
+
+async function VendorContact() {
+
+    try {
+        if (vendorId == 0) {
+            alert("please fill vendor Personal and business form")
+            return
+        }
+        let paymentId = $('#paymentId')?.val() || 0;
+        const vendor = await addVendorContact();
         console.log(vendor);
 
         //vendorId = vendor?.data?.vendorId || 0;
@@ -844,7 +885,10 @@ async function vendorPayment() {
 async function vendorDocuments() {
     try {
         debugger
-        
+        if (vendorId == 0) {
+            alert("please fill vendor Personal and business form")
+            return
+        }
         const vendor = await addVendorDocument()
         console.log(vendor);
 
@@ -935,7 +979,7 @@ function gerVendor(vendorID) {
             if (response.statusCode > 0) {
             //    alert("Vendor fetch Successfully");
                 if (response.data) {
-                    vendorCode = response.data.vendorCode;
+                    vendorCode = response.data.vendorBasicDetail.vendorCode;
                     bindVendorData(response.data.vendorBasicDetail);
                     bindContactData(response.data.vendorContacts);
                     bindFinancialData(response.data.vendorLegalFInancialDetail);
@@ -1315,3 +1359,44 @@ function getDesigValue(name) {
 //            return true;
 //    }
 //}
+
+
+
+// ✅ Click event
+
+
+//document.querySelectorAll(".card-header").forEach(header => {
+
+//    header.addEventListener("click", function (e) {
+
+//        const card = this.parentElement;
+//        const step = parseInt(card.getAttribute("data-step"));
+
+//        // ✅ 1. If already open → do nothing
+//        //if (card.classList.contains("active")) {
+//        //    e.stopPropagation();
+//        //    return;
+//        //}
+
+//        // ✅ 2. Block Step 2,3,4,5 if vendorId = 0
+//        if (step > 1 && vendorId <= 0) {
+
+//            e.preventDefault();      // ✅ IMPORTANT
+//            e.stopPropagation();     // ✅ IMPORTANT
+
+//            alert("Please fill Personal & Business form");
+
+//            return false; // ✅ STOP EVERYTHING
+//        }
+
+//        // ✅ 3. Allow opening
+//        document.querySelectorAll(".card").forEach(c => {
+//            c.classList.remove("active");
+//        });
+
+//        card.classList.add("active");
+
+//    });
+
+//});
+

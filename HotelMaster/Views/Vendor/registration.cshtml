@@ -53,6 +53,7 @@
 
 }
 <input type="hidden" id="CurrentStep" value="1" />
+
 <div class="fromContaier VendorRegistrationForm">
    <div class="wrapper">
       <div class="container">
@@ -83,12 +84,14 @@
                         <!-- Hotel Name -->
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Business_Name">Business Name<span class="error">*</span></label>
-                           <input class="form-control" type="text" id="businessName" asp-for="personalBusinessRequest.Business_Name" placeholder="Enter Business Name">
+                           <input class="form-control" type="text" id="businessName" asp-for="personalBusinessRequest.Business_Name"
+                                           placeholder="Enter Business Name" required>
                                     <span asp-validation-for="personalBusinessRequest.Business_Name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Legal_Name">Legal Name<span class="error">*</span></label>
-                           <input class="form-control" type="text" id="legalName" asp-for="personalBusinessRequest.Legal_Name" placeholder="Enter Legal Name">
+                           <input class="form-control" type="text" id="legalName" asp-for="personalBusinessRequest.Legal_Name"
+                           placeholder="Enter Legal Name" required>
                            <span asp-validation-for="personalBusinessRequest.Legal_Name" class="text-danger"></span>
                         </div>
                         <!-- Star Rating -->
@@ -96,7 +99,7 @@
                           <label asp-for="personalBusinessRequest.Services">Services<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
 
-                                        <select asp-for="personalBusinessRequest.Services" id="services" class="form-control" multiple>
+                                        <select asp-for="personalBusinessRequest.Services" id="services" class="form-control" multiple required>
                                             
                                             <option value=14>Accomodation</option>
                                             <option value=1>Transportation / Taxi</option>
@@ -114,7 +117,7 @@
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Star_Rating">Star Rating<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
-                              <select id="StarRating" asp-for="personalBusinessRequest.Star_Rating" class="dropdown-trigger-box__native">
+                                        <select id="StarRating" asp-for="personalBusinessRequest.Star_Rating" class="dropdown-trigger-box__native" required>
                                  @* 
                                  <option value="">Select Star Rating</option>
                                  *@
@@ -132,7 +135,7 @@
                         <div class="form-grid-inner form-grid-inner-vendor">
                            <div class="form-group">
                                         <label asp-for="personalBusinessRequest.AddressLine1">Official Address Line 1<span class="error">*</span></label>
-                              <input type="text" id="Address1" asp-for="personalBusinessRequest.AddressLine1" placeholder="Official Address Line 1">
+                                        <input type="text" id="Address1" asp-for="personalBusinessRequest.AddressLine1" placeholder="Official Address Line 1" required>
                               <span asp-validation-for="personalBusinessRequest.AddressLine1" class="text-danger"></span>
                            </div>
                            <div class="form-group">
@@ -156,7 +159,7 @@
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Country">Country<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
-                              <select asp-for="personalBusinessRequest.Country" id="Country" class="dropdown-trigger-box__native">
+                                        <select asp-for="personalBusinessRequest.Country" id="Country" class="dropdown-trigger-box__native" required>
                                  @* 
                                  <option value="">Select Star Rating</option>
                                  *@
@@ -176,7 +179,7 @@
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.State">State<span class="error">*</span></label>
                            <div class="dropdown-trigger-box generalDEtailsSelect">
-                              <select asp-for="personalBusinessRequest.State" id="State" class="dropdown-trigger-box__native">
+                                        <select asp-for="personalBusinessRequest.State" id="State" class="dropdown-trigger-box__native" required>
                                  @* 
                                  <option value="">Select Star Rating</option>
                                  *@
@@ -212,16 +215,17 @@
                         </div>
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Pin_Code">Pin Code<span class="error">*</span></label>
-                           <input type="text" id="Pin" asp-for="personalBusinessRequest.Pin_Code" placeholder="Enter Legal Name">
+                                    <input type="text" id="Pin" asp-for="personalBusinessRequest.Pin_Code" placeholder="Enter Legal Name" required>
                            <span asp-validation-for="personalBusinessRequest.Pin_Code" class="text-danger"></span>
                         </div>
                         <div class="biz-form-contaier">
-                           <div class="biz-form-group">
+                       
+                            <div class="biz-form-group">
                                         <div class="biz-form-title">Type of Business<span class="error">*</span></div>
                                         <span asp-validation-for="personalBusinessRequest.Business_Type" class="text-danger"></span>
                               <div class="biz-radio-row">
                                  <label class="biz-radio-field">
-                                                <input asp-for="personalBusinessRequest.Business_Type"  type="radio" value="1" class="biz-input-hidden" />
+                                                <input asp-for="personalBusinessRequest.Business_Type" type="radio" value="1" class="biz-input-hidden" required />
                                  <span class="biz-radio-circle"></span>
                                  Partnership
                                  </label>
@@ -242,7 +246,8 @@
                                  </label>
                               </div>
                            </div>
-                        </div>
+                    
+                       </div>
 
                             
                      </div>
@@ -325,7 +330,7 @@
                                 Add Contact Details
                             </span>
 
-                            <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft">
+                            <button type="button" class="rates-btn-outline" id="vendorBusinessSaveDraft" onclick="VendorContact()">
                                 Save As Draft
                             </button>
                         </div>
@@ -843,6 +848,7 @@
    </div>
 </div>
 
+
 <script>
     document.querySelectorAll(".card-header").forEach(header => {
     header.addEventListener("click", () => {
@@ -883,5 +889,93 @@
       });
     });
 </script>
+
+@* <script>
+    /* STEP 3 → validation */
+    function validateForm(form) {
+        debugger
+        if (!form) return true;
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return false;
+        }
+        return true;
+    }
+
+    /* STEP 4 → radio validation */
+    function validateRadioGroup(name) {
+        debugger
+        const radios = document.querySelectorAll(`input[name="${name}"]`);
+        return Array.from(radios).some(r => r.checked);
+    }
+
+    /* STEP 6 → error message */
+    function showError(message) {
+        debugger
+        let existing = document.getElementById("formError");
+        if (existing) existing.remove();
+
+        let div = document.createElement("div");
+        div.id = "formError";
+        div.innerText = message;
+
+        div.style.background = "#ffe6e6";
+        div.style.color = "red";
+        div.style.padding = "10px";
+        div.style.textAlign = "center";
+
+        document.body.prepend(div);
+
+        setTimeout(() => div.remove(), 3000);
+    }
+
+    /* STEP 5 → MAIN ACCORDION LOGIC */
+    document.querySelectorAll(".card-header").forEach(header => {
+        debugger
+        header.addEventListener("click", function () {
+
+            const currentCard = this.parentElement;
+            const currentStep = parseInt(currentCard.getAttribute("data-step"));
+
+            if (currentStep > 1) {
+
+                const prevCard = document.querySelector(`.card[data-step="${currentStep - 1}"]`);
+                const prevForm = prevCard.querySelector("form");
+
+                if (!validateForm(prevForm)) {
+
+                    showError("Please fill form before proceeding");
+
+                    document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+                    prevCard.classList.add("active");
+
+                    return;
+                }
+
+                // Radio extra validation (only step 1 example)
+                if (currentStep === 2 &&
+                    !validateRadioGroup("personalBusinessRequest.Business_Type")) {
+
+                    showError("Please select Type of Business");
+
+                    document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+                    prevCard.classList.add("active");
+
+                    return;
+                }
+            }
+
+            document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+            currentCard.classList.add("active");
+
+        });
+
+    });
+</script>
+
+ *@
+
+
 
 <script src="~/js/modules/vendor/vendorregistration.js"></script>

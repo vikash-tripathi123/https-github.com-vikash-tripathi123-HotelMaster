@@ -14,7 +14,13 @@ namespace HotelMaster.DataAccess
     {
         private readonly HttpClient _httpClient;
         //private readonly HttpContext _contextAccessor;
-      //  public string BASEURL = "http://localhost:5174/api/"; 
+        //  public string BASEURL = "http://localhost:5174/api/"; 
+
+        private static readonly JsonSerializerOptions JsonOptions =
+     new JsonSerializerOptions
+     {
+         PropertyNameCaseInsensitive = true
+     };
         public DataService(HttpClient httpClient)
         {
             _httpClient = httpClient;   
@@ -22,58 +28,110 @@ namespace HotelMaster.DataAccess
         }
 
 
-        public async Task<T> GetAsync<T>(string url, object? parameter = null)
+        public async Task<T> GetAsync<T>(
+        string url,
+        object? parameter = null)
         {
-           // string? token = _contextAccessor.Session.GetString("AccessToken");
-
-            //_httpClient.DefaultRequestHeaders.Authorization = new  AuthenticationHeaderValue("Bearer", "your_token_here");
-
-           string uri = "";
-            if (parameter != null)
+            try
             {
+                string uri = parameter != null
+                    ? CommonMethods.BuildUrlQueryString(
+                        url,
+                        parameter)
+                    : url;
 
-                uri = CommonMethods.BuildUrlQueryString(url, parameter);
+                var response =
+                    await _httpClient.GetAsync(uri);
+
+                return await HandleResponseAsync<T>(
+                    response);
             }
-            else {
-                uri = url; 
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "Unable to connect to API.",
+                    ex);
             }
-
-                var response = await _httpClient.GetAsync(uri);
-
-            // ✅ Deserialize into T
-            var result = await response.Content.ReadFromJsonAsync<T>();
-
-            return result!;
-
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out.",
+                    ex);
+            }
         }
 
-        public async Task<T> PostAsync<T>(string url, object parameter)
+        public async Task<T> PostAsync<T>(
+       string url,
+       object parameter)
         {
+            try
+            {
+                var json =
+                    JsonSerializer.Serialize(parameter);
 
-            var json = JsonSerializer.Serialize(parameter);
+                using var content =
+                    new StringContent(
+                        json,
+                        Encoding.UTF8,
+                        "application/json");
 
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response =
+                    await _httpClient.PostAsync(
+                        url,
+                        content);
 
-            var response = await _httpClient.PostAsync(url, content);
-
-            // ✅ Deserialize into T
-            var result = await response.Content.ReadFromJsonAsync<T>();
-
-            return result!;
+                return await HandleResponseAsync<T>(
+                    response);
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "Unable to connect to API.",
+                    ex);
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out.",
+                    ex);
+            }
         }
 
-        public async Task<T> PutAsync<T>(string url, object parameter)
+        public async Task<T> PutAsync<T>(
+     string url,
+     object parameter)
         {
-            var json = JsonSerializer.Serialize(parameter);
+            try
+            {
+                var json =
+                    JsonSerializer.Serialize(parameter);
 
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+                using var content =
+                    new StringContent(
+                        json,
+                        Encoding.UTF8,
+                        "application/json");
 
-            var response = await _httpClient.PutAsync(url, content);
+                var response =
+                    await _httpClient.PutAsync(
+                        url,
+                        content);
 
-            // ✅ Deserialize into T
-            var result = await response.Content.ReadFromJsonAsync<T>();
-
-            return result!;
+                return await HandleResponseAsync<T>(
+                    response);
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "Unable to connect to API.",
+                    ex);
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out.",
+                    ex);
+            }
         }
 
         public Task<T> DeleteAsync<T>(string url, object parameter)
@@ -81,32 +139,52 @@ namespace HotelMaster.DataAccess
             throw new NotImplementedException();
         }
 
-        public async Task<T> PostMultipartAnyAsync<T>(string url, object data)
+        public async Task<T> PostMultipartAnyAsync<T>(
+     string url,
+     object data)
         {
-            var content = new MultipartFormDataContent();
-
-            // ✅ Handle if it's a LIST
-            if (data is IEnumerable<object> list)
+            try
             {
-                int index = 0;
+                using var content =
+                    new MultipartFormDataContent();
 
-                foreach (var item in list)
+                if (data is IEnumerable<object> list)
                 {
-                    AddObjectToFormData(content, item, $"[{index}]");
-                    index++;
+                    int index = 0;
+
+                    foreach (var item in list)
+                    {
+                        AddObjectToFormData(
+                            content,
+                            item,
+                            $"[{index}]");
+
+                        index++;
+                    }
                 }
+                else
+                {
+                    AddObjectToFormData(
+                        content,
+                        data,
+                        "");
+                }
+
+                using var response =
+                    await _httpClient.PostAsync(
+                        url,
+                        content);
+
+                return await HandleResponseAsync<T>(
+                    response
+                    );
             }
-            else
+            catch (HttpRequestException ex)
             {
-                // ✅ Single object
-                AddObjectToFormData(content, data, "");
+                throw new ApplicationException(
+                    "Unable to connect to API.",
+                    ex);
             }
-
-            var response = await _httpClient.PostAsync(url, content);
-
-            var result = await response.Content.ReadFromJsonAsync<T>();
-
-            return result!;
         }
 
         private void AddObjectToFormData(MultipartFormDataContent content, object obj, string prefix)
@@ -139,5 +217,101 @@ namespace HotelMaster.DataAccess
             }
         }
 
+
+        private async Task<T> HandleResponseAsync<T>(
+         HttpResponseMessage response)
+        {
+            var responseContent =
+                await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                string errorMessage =
+                    ExtractErrorMessage(responseContent);
+
+                throw new HttpApiException(
+                    errorMessage,
+                    (int)response.StatusCode);
+            }
+
+            var result = JsonSerializer.Deserialize<T>(
+                responseContent,
+                JsonOptions);
+
+            return result!;
+        }
+
+
+        private static string ExtractErrorMessage(string responseContent)
+        {
+            try
+            {
+                using var doc = JsonDocument.Parse(responseContent);
+                var root = doc.RootElement;
+
+                // First priority : message
+                if (root.TryGetProperty("message", out var message))
+                {
+                    var msg = message.GetString();
+
+                    if (!string.IsNullOrWhiteSpace(msg))
+                        return msg;
+                }
+
+                // Second priority : errors
+                if (root.TryGetProperty("errors", out var errors))
+                {
+                    // string
+                    if (errors.ValueKind == JsonValueKind.String)
+                    {
+                        return errors.GetString() ?? "Unknown error";
+                    }
+
+                    // array
+                    if (errors.ValueKind == JsonValueKind.Array)
+                    {
+                        return string.Join(
+                            Environment.NewLine,
+                            errors.EnumerateArray()
+                                  .Select(x => x.ToString()));
+                    }
+
+                    // object / key-value pair
+                    if (errors.ValueKind == JsonValueKind.Object)
+                    {
+                        var errorList = new List<string>();
+
+                        foreach (var item in errors.EnumerateObject())
+                        {
+                            if (item.Value.ValueKind == JsonValueKind.Array)
+                            {
+                                errorList.AddRange(
+                                    item.Value.EnumerateArray()
+                                              .Select(x => x.ToString()));
+                            }
+                            else
+                            {
+                                errorList.Add(item.Value.ToString());
+                            }
+                        }
+
+                        return string.Join(
+                            Environment.NewLine,
+                            errorList);
+                    }
+                }
+
+                return responseContent;
+            }
+            catch
+            {
+                return responseContent;
+            }
+        }
+
+
     }
+
+
+
 }

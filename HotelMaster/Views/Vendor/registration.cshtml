@@ -281,7 +281,7 @@
                         @for (int i = 0; i < Model.vendorContactRequest.Count; i++)
                         {
                         <div class="contact-row form-grid restaurantsGrid">
-                                        <input asp-for="vendorContactRequest[i].VendorContactId" type="hidden" />
+                                        <input asp-for="vendorContactRequest[i].VendorContactId" type="hidden" id="contactId"/>
                            <div class="form-group">
                               <label asp-for="vendorContactRequest[i].FullName"></label>
                               <input asp-for="vendorContactRequest[i].FullName" />

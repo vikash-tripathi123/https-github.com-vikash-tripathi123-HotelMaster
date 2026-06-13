@@ -2,10 +2,11 @@
 {
     public class VendorContactRequest
     {
-        public int TenantId { get; set; } = 1;
 
-        public int VendorContactId { get; set; }
-        public int VendorId { get; set; } = 3;
+        public int VendorContactId { get; set; }   // ✅ IMPORTANT (0 = Insert, >0 = Update)
+        public int TenantId { get; set; }
+
+        public int VendorId { get; set; }
 
         public string FullName { get; set; }
 

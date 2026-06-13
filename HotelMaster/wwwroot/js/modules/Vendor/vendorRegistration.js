@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 
 
-document.querySelector("#vendorBusinessSaveDraft").addEventListener("click", vendorBusiness);
+//document.querySelector("#vendorBusinessSaveDraft").addEventListener("click", vendorBusiness);
 
 function addVendor() {
     
@@ -204,10 +204,10 @@ function addContactRow() {
 document.querySelector("#btnSubmit").addEventListener("click", validateForms);
 
 function addVendorContact() {
-    
+    debugger
     var form = $("#vendorContactForm");
 
-    if (vednorId == 0) {
+    if (vendorId == 0) {
         alert("please fill venodor business form")
         return false; 
     }
@@ -225,6 +225,9 @@ function addVendorContact() {
         let row = $(this);
 
         let contact = {
+            VendorContactId: parseInt(
+                row.find("input[name*='VendorContactId']").val()
+            ) || 0,
             FullName: row.find("input[name*='FullName']").val(),
             Phone: row.find("input[name*='Phone']").val(),
             Email: row.find("input[name*='Email']").val(),
@@ -807,12 +810,14 @@ async function validateForms() {
 
 async function vendorBusiness() {
     try {
-       // debugger
+        debugger
        
         const vendor = await addVendor();
         console.log(vendor);
 
         vendorId = vendor?.data?.vendorId || 0;
+
+        saveId(vendor?.data?.vendorId)
         console.log("Vendor ID:", vendorId);
       //  alert(vendor?.message)
     } catch (error) {
@@ -868,13 +873,14 @@ async function VendorContact() {
             alert("please fill vendor Personal and business form")
             return
         }
-        let paymentId = $('#paymentId')?.val() || 0;
+        console.log("Vendor ID:", vendorId);
+       // let paymentId = $('#paymentId')?.val() || 0;
         const vendor = await addVendorContact();
         console.log(vendor);
 
         //vendorId = vendor?.data?.vendorId || 0;
         console.log("Vendor ID:", vendorId);
-        alert(vendor?.message)
+       //alert(vendor?.message)
     } catch (error) {
         console.error(error);
         alert(error.message || "An error occurred while adding vendor");

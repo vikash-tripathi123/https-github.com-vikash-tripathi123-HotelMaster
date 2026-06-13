@@ -2,7 +2,7 @@
 $(document).ready(function () {
   // stateList();
     //cityList();
-    localStorage.removeItem('V');
+    localStorage.removeItem('v');
     loadVendors();
 });
 
@@ -372,7 +372,7 @@ function removeGlobalSearch() {
 
 
 function getVendorById(vendorId) {
-
+    debugger
     if (!vendorId) return;
 
     saveId(vendorId);   // store encoded

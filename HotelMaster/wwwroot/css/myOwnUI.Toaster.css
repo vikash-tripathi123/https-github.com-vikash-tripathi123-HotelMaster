@@ -1,0 +1,177 @@
+.myOwnUI_Toaster{
+    box-sizing: border-box;
+    z-index: 10000;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    border: 1px solid silver;
+    width: 270px;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.myOwnUI_Toaster.mOUIT_icon_info{
+    box-shadow: 0 6px 11px -3px #667cee;
+}
+.myOwnUI_Toaster.mOUIT_icon_warning{
+    box-shadow: 0 6px 11px -3px #eebc66;
+}
+.myOwnUI_Toaster.mOUIT_icon_success{
+    box-shadow: 0 6px 11px -3px #66ee81;
+}
+.myOwnUI_Toaster.mOUIT_icon_failure{
+    box-shadow: 0 6px 11px -3px #ee6666;
+}
+.myOwnUI_Toaster.mOUIT_icon_unknown{
+    box-shadow: 0 6px 11px -3px #8a8a8a;
+}
+.myOwnUI_Toaster_Panel{
+    box-sizing: border-box;
+    position: fixed;
+    width: 310px;
+}
+.myOwnUI_Toaster_Panel.mOUITP_top_right{
+    right:0;
+    top:0;
+}
+.myOwnUI_Toaster_Panel.mOUITP_right{
+    right:0;
+    top:50%;
+    transform: translateY(-50%);
+}
+.myOwnUI_Toaster_Panel.mOUITP_bottom_right{
+    right:0;
+    bottom: 0;
+}
+.myOwnUI_Toaster_Panel.mOUITP_bottom{
+    bottom: 0;
+    left:50%;
+    transform: translateX(-50%);
+}
+.myOwnUI_Toaster_Panel.mOUITP_bottom_left{
+    bottom: 0;
+    left:0;
+}
+.myOwnUI_Toaster_Panel.mOUITP_left{
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+}
+.myOwnUI_Toaster_Panel.mOUITP_top_left{
+    left:0;
+    top:0;
+}
+.myOwnUI_Toaster_Panel.mOUITP_top{
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+}
+.myOwnUI_Toaster:before{
+    content: "";
+    position: absolute;
+    width : 100%;
+    height: 100%;
+    background: inherit;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    filter        : blur(10px);
+    -moz-filter   : blur(10px);
+    -webkit-filter: blur(10px);
+    -o-filter     : blur(10px);
+}
+.myOwnUI_Toaster .myOUIT_timerSec{
+    display: inline-block;
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+}
+.myOwnUI_Toaster.mOUIT_icon_info .myOUIT_timerSec{
+    background: blue;
+    box-shadow: 0 0 0 1px #667cee;
+}
+.myOwnUI_Toaster.mOUIT_icon_warning .myOUIT_timerSec{
+    background: #e58f00;
+    box-shadow: 0 0 0 1px #eebc66;
+}
+.myOwnUI_Toaster.mOUIT_icon_success .myOUIT_timerSec{
+    background: #00811b;
+    box-shadow: 0 0 0 1px #66ee81;
+}
+.myOwnUI_Toaster.mOUIT_icon_failure .myOUIT_timerSec{
+    background: red;
+    box-shadow: 0 0 0 1px #ee6666;
+}
+.myOwnUI_Toaster.mOUIT_icon_unknown .myOUIT_timerSec{
+    background: #4d4c4c;
+    box-shadow: 0 0 0 1px #8a8a8a;
+}
+.myOwnUI_Toaster .myOwnUI_Toaster_hdr{
+    font-weight: bold;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+.myOwnUI_Toaster.mOUIT_icon_info .myOwnUI_Toaster_hdr{
+    color: blue;
+}
+.myOwnUI_Toaster.mOUIT_icon_warning .myOwnUI_Toaster_hdr{
+    color: #e58f00;
+}
+.myOwnUI_Toaster.mOUIT_icon_success .myOwnUI_Toaster_hdr{
+    color: #00811b;
+}
+.myOwnUI_Toaster.mOUIT_icon_failure .myOwnUI_Toaster_hdr{
+    color: red;
+}
+.myOwnUI_Toaster.mOUIT_icon_unknown .myOwnUI_Toaster_hdr{
+     color: #4d4c4c;
+ }
+.myOwnUI_Toaster .myOwnUI_Toaster_hdr span.myOwnUI_ToasterIcon{
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    font-size: 18px;
+    vertical-align: baseline;
+}
+.myOwnUI_Toaster .myOwnUI_Toaster_hdr span.myOwnUI_ToasterIcon:before{
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    text-align: center;
+}
+.myOwnUI_Toaster .myOwnUI_Toaster_hdr span.myOwnUI_ToasterIcon.info_icon:before{
+    content: "\2139";
+}
+.myOwnUI_Toaster .myOwnUI_Toaster_hdr span.myOwnUI_ToasterIcon.warning_icon:before{
+    content: "\26A0";
+}
+.myOwnUI_Toaster .myOwnUI_Toaster_hdr span.myOwnUI_ToasterIcon.success_icon:before{
+    content: "\2713";
+}
+.myOwnUI_Toaster .myOwnUI_Toaster_hdr span.myOwnUI_ToasterIcon.failure_icon:before{
+    content: "\00D7";
+}
+.myOwnUI_Toaster .myOwnUI_Toaster_hdr span.myOwnUI_ToasterIcon.unknown_icon:before{
+    content: "\003F";
+}
+.myOwnUI_Toaster .myOwnUI_Toaster_by{
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+
+/*changes by dev*/
+.myOwnUI_Toaster_Panel{
+    position: fixed;
+    width: 310px;
+    z-index: 2147483647 !important;
+}
+
+.myOwnUI_Toaster{
+    position: relative;
+    z-index: inherit;
+}

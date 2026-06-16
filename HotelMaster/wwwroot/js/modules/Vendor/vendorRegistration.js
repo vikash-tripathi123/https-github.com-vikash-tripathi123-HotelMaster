@@ -1,21 +1,37 @@
 ﻿
+
 let vendorId = 0; 
 let vendorCode = ''; 
 let currentStep = 1;
-$(document).ready(function () {
+$(document).ready(async function () {
+
+    debugger;
+
     $('#services').select2({
         placeholder: "Select Services"
     });
 
-    // ✅ Trigger validation on change
     $('#services').on('change', function () {
         $(this).valid();
     });
 
+    try {
+        // ✅ Load states first
+        const stateResponse = await GetState();
+
+        // ✅ Pass directly (already data)
+        bindStateDropdown(stateResponse);
+
+        const serviceResponse = await GetServices()
+        bindServicesDropdown(serviceResponse)
+
+
+    } catch (err) {
+        console.error("State load error:", err);
+    }
+
     getStoredId();
-
 });
-
 
 
 //document.querySelector("#vendorBusinessSaveDraft").addEventListener("click", vendorBusiness);
@@ -201,10 +217,10 @@ function addContactRow() {
         $(this).closest(".contact-row").remove();
     });
 
-document.querySelector("#btnSubmit").addEventListener("click", validateForms);
+//document.querySelector("#btnSubmit").addEventListener("click", validateForms);
 
 function addVendorContact() {
-    debugger
+    
     var form = $("#vendorContactForm");
 
     if (vendorId == 0) {
@@ -819,7 +835,11 @@ async function vendorBusiness() {
 
         saveId(vendor?.data?.vendorId)
         console.log("Vendor ID:", vendorId);
-      //  alert(vendor?.message)
+        if (vendor) {
+            alert(vendor?.message)
+        }
+          
+        //showToast("Success", vendor.message)
     } catch (error) {
         console.error(error);
         alert(error.message || "An error occurred while adding vendor");
@@ -829,7 +849,8 @@ async function vendorBusiness() {
 async function vendorFinancial() {
     try {
         if (vendorId == 0) {
-            alert("please fill vendor Personal and business form")
+          //  alert("please fill vendor Personal and business form")
+            showToast('Error', "please fill vendor Personal and business form")
             return
         }
         let financialId = $('#financialId')?.val() || 0;
@@ -838,10 +859,13 @@ async function vendorFinancial() {
 
         //vendorId = vendor?.data?.vendorId || 0;
         console.log("Vendor ID:", vendorId);
-          alert(vendor?.message)
+        if (vendor) {
+            alert(vendor?.message)
+        }
     } catch (error) {
         console.error(error);
-        alert(error.message || "An error occurred while adding vendor");
+        //alert(error.message || "An error occurred while adding vendor");
+        handleAjaxError(error);
     }
 }
 
@@ -858,10 +882,13 @@ async function vendorPayment() {
 
         //vendorId = vendor?.data?.vendorId || 0;
         console.log("Vendor ID:", vendorId);
-        alert(vendor?.message)
+        if (vendor) {
+            alert(vendor?.message)
+        }
     } catch (error) {
         console.error(error);
-        alert(error.message || "An error occurred while adding vendor");
+        // alert(error.message || "An error occurred while adding vendor");
+        handleAjaxError(error)
     }
 
 }
@@ -870,7 +897,10 @@ async function VendorContact() {
 
     try {
         if (vendorId == 0) {
-            alert("please fill vendor Personal and business form")
+            debugger
+            //  alert("please fill vendor Personal and business form")
+            showToast("failure"
+, "please fill vendor Personal and business form")
             return
         }
         console.log("Vendor ID:", vendorId);
@@ -880,10 +910,14 @@ async function VendorContact() {
 
         //vendorId = vendor?.data?.vendorId || 0;
         console.log("Vendor ID:", vendorId);
-       //alert(vendor?.message)
+        if (vendor) {
+            alert(vendor?.message)
+        }
+     
     } catch (error) {
         console.error(error);
-        alert(error.message || "An error occurred while adding vendor");
+        // alert(error.message || "An error occurred while adding vendor");
+        handleAjaxError(error)
     }
 
 }
@@ -924,16 +958,19 @@ async function vendorDocuments() {
         // ✅ clear files after success
        // $("#vendorDocumentForm input[type='file']").val("");
 
-        alert("Saved successfully ✅");
+      //  alert("Document Saved successfully ");
 
 
 
         //vendorId = vendor?.data?.vendorId || 0;
         //console.log("Vendor ID:", vendorId);
-       // alert(vendor?.message)
+        if (vendor) {
+            alert(vendor?.message)
+        }
     } catch (error) {
         console.error(error);
-        alert(error.message || "An error occurred while adding vendor");
+        //  alert(error.message || "An error occurred while adding vendor");
+        handleAjaxError(error);
     }
 }
 function getStoredId() {
@@ -1000,18 +1037,20 @@ function gerVendor(vendorID) {
 
         error: function (error) {
             console.log(error);
-            if (error.status === 409) {
-                alert(error.responseJSON.errors);
-            }
+            //if (error.status === 409) {
+            //    alert(error.responseJSON.errors);
+            //}
             console.log(error.responseText);
             console.log(error.responseJSON.errors);
+            handleAjaxError(error)
         }
     });
 }
 function vendorFinancialIsDraft() {
 
 }
-function bindVendorData(data) {
+
+async function bindVendorData(data) {
     console.log(data,'data')
     if (!data) return;
 
@@ -1051,7 +1090,23 @@ function bindVendorData(data) {
     // ✅ Location
     $("#Country").val(data.country).trigger("change");
     $("#State").val(data.state).trigger("change");
-    $("#City").val(data.city).trigger("change");
+    //  $("#City").val(data.city).trigger("change");
+
+
+    try {
+        // ✅ Step 2: Load Cities based on state
+        const cities =  await getCityByState(data.state);
+
+        // ✅ Step 3: Bind cities
+        bindCityDropdown(cities);
+
+        // ✅ Step 4: Set selected city AFTER binding
+        $("#City").val(data.city).trigger("change");
+
+    } catch (err) {
+        console.error("Error loading cities in edit:", err);
+    }
+
 
     // ✅ Pin Code
     let match = data.fullAddress?.match(/\d{5,6}$/);
@@ -1310,99 +1365,202 @@ function getDesigValue(name) {
     }
 }
 
+async function GetState() {
+    return $.ajax({
+        url: '/Vendor/StateList',
+        type: 'GET'
+    }).then(function (response) {
 
-//$(document).on("click", ".card-header", function (e) {
-//    debugger
-//    let clickedCard = $(this).closest(".card");
-//    let clickedStep = parseInt(clickedCard.data("step"));
+        console.log(response);
 
-//    if (!isPreviousStepCompleted(clickedStep)) {
+        if (response.statusCode === 200 && !response.isError) {
+            return response.data; // ✅ returning array
+        } else {
+            throw new Error(response.message || "Failed to fetch states");
+        }
 
-//        e.preventDefault();
-//        e.stopPropagation();
-//        e.stopImmediatePropagation();
+    }).catch(function (error) {
+        console.error("State API error:", error);
+        throw error;
+    });
+}
+function bindStateDropdown(data) {
 
-//        alert("Please complete previous section first.");
+    const $dropdown = $('#State');
 
-//        return false;
-//    }
+    $dropdown.empty();
+    $dropdown.append('<option value="">Select State</option>');
 
-//    // Open selected accordion
-//    $(".tabsHotelInformation .card").removeClass("active");
+    $.each(data, function (index, item) {
+        $dropdown.append(
+            $('<option></option>')
+                .val(item.stateId)
+                .text(item.stateName)
+        );
+    });
+}
 
-//    clickedCard.addClass("active");
-//});
+$('#State').on('change', async function () {
 
+    const stateId = $(this).val();
+    const $city = $('#City');
 
+    // ✅ If no state selected
+    if (!stateId) {
+        $city.html('<option value="">Select City</option>');
+        $city.prop('disabled', true);
+        return;
+    }
 
-//function isPreviousStepCompleted(step) {
+    // ✅ Show loading state
+    $city.prop('disabled', true)
+        .html('<option>Loading cities...</option>');
 
-//    switch (step) {
+    try {
+        // ✅ Call your function
+        const cityData = await getCityByState(stateId);
 
-//        // Contact clicked -> validate Business
-//        case 2:
-//            return $("#vendorBusinessForm").valid();
+        // ✅ Bind dropdown
+        bindCityDropdown(cityData);
 
-//        // Financial clicked -> validate Business + Contact
-//        case 3:
-//            return $("#vendorBusinessForm").valid()
-//                && $("#vendorContactForm").valid();
+    } catch (error) {
+        $city.html('<option>Error loading cities</option>');
+        console.error(error);
+    }
+});
+function getCityByState(stateId) {
+    return $.ajax({
+        url: `/Vendor/CityList?stateId=${stateId}`,
+        type: 'GET'
+    }).then(function (response) {
 
-//        // Payment clicked -> validate Business + Contact + Financial
-//        case 4:
-//            return $("#vendorBusinessForm").valid()
-//                && $("#vendorContactForm").valid()
-//                && $("#vendorFinancialForm").valid();
+        if (response.statusCode === 200 && !response.isError) {
+            return response.data; // ✅ return city list
+        } else {
+            throw new Error(response.message || "Failed to fetch cities");
+        }
 
-//        // Document clicked -> validate all previous forms
-//        case 5:
-//            return $("#vendorBusinessForm").valid()
-//                && $("#vendorContactForm").valid()
-//                && $("#vendorFinancialForm").valid()
-//                && $("#vendorPaymentForm").valid();
+    }).catch(function (error) {
+        console.error("City API error:", error);
+        throw error;
+    });
+}
 
-//        default:
-//            return true;
-//    }
-//}
+function bindCityDropdown(data) {
 
+    const $city = $('#City');
 
+    // ✅ Clear existing options
+    $city.empty();
 
-// ✅ Click event
+    // ✅ Default option
+    $city.append('<option value="">Select City</option>');
 
+    // ✅ Handle no data case
+    if (!data || data.length === 0) {
+        $city.append('<option value="">No cities found</option>');
+        $city.prop('disabled', true);
+        return;
+    }
 
-//document.querySelectorAll(".card-header").forEach(header => {
+    // ✅ Loop and bind cities
+    $.each(data, function (index, item) {
+        $city.append(
+            $('<option></option>')
+                .val(item.cityId)
+                .text(item.cityName)
+        );
+    });
 
-//    header.addEventListener("click", function (e) {
+    // ✅ Enable dropdown after binding
+    $city.prop('disabled', false);
+}
 
-//        const card = this.parentElement;
-//        const step = parseInt(card.getAttribute("data-step"));
+async function GetServices() {
+    return $.ajax({
+        url: '/Vendor/ServiceMasterList',
+        type: 'GET'
+    }).then(function (response) {
 
-//        // ✅ 1. If already open → do nothing
-//        //if (card.classList.contains("active")) {
-//        //    e.stopPropagation();
-//        //    return;
-//        //}
+        console.log(response);
 
-//        // ✅ 2. Block Step 2,3,4,5 if vendorId = 0
-//        if (step > 1 && vendorId <= 0) {
+        if (response.statusCode === 200 && !response.isError) {
+            return response.data; // ✅ returning array
+        } else {
+            throw new Error(response.message || "Failed to fetch states");
+        }
 
-//            e.preventDefault();      // ✅ IMPORTANT
-//            e.stopPropagation();     // ✅ IMPORTANT
+    }).catch(function (error) {
+        console.error("Service API error:", error);
+        throw error;
+    });
+}
 
-//            alert("Please fill Personal & Business form");
+function bindServicesDropdown(data) {
 
-//            return false; // ✅ STOP EVERYTHING
-//        }
+    const $dropdown = $('#services');
 
-//        // ✅ 3. Allow opening
-//        document.querySelectorAll(".card").forEach(c => {
-//            c.classList.remove("active");
-//        });
+    $dropdown.empty();
+    $dropdown.append('<option value="">Select Service</option>');
 
-//        card.classList.add("active");
+    $.each(data, function (index, item) {
+        $dropdown.append(
+            $('<option></option>')
+                .val(item.serviceid)
+                .text(item.servicename)
+        );
+    });
+}
+function checkVendorFormStatus() {
 
-//    });
+    if (vendorId == 0) {
+        alert("please fill vendor Personal and business form");
+        return false; 
+    }
 
-//});
+    $.ajax({
+        url: '/Vendor/CheckVendorFormStatus',
+        type: 'GET',
+        data: { vendorId: vendorId },
+        success: function (response) {
+            console.log(response)
+            if (response.statusCode === 200 && !response.isError) {
+                debugger
+                if (!response.data.isCompleted) {
+
+                    let forms = response.data.missingForms.map(x => "• " + x).join("\n");
+
+                    showToast(
+                        'warning',
+                        'Please complete the following forms:\n' + forms
+                    );
+
+                    //alert(forms)
+                    return false;
+                }
+                else {
+                    alert('Send Mail for approval')
+                    showToast(
+                        'Success',
+                        'Send Mail for approval'
+                    );
+                    window.location.href = "/Vendor";
+                }
+
+                //Swal.fire({
+                //    icon: 'success',
+                //    title: 'Success',
+                //    text: 'All vendor forms are completed.'
+                //});
+            }
+        },
+        error: function () {
+            //Swal.fire({
+            //    icon: 'error',
+            //    title: 'Error',
+            //    text: 'Unable to validate vendor forms.'
+            //});
+        }
+    });
+}
 

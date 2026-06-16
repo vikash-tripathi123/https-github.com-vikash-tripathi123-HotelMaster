@@ -425,7 +425,8 @@
 }
 
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
-    background-color: #5897fb;
+    /*background-color: #5897fb;*/
+    background-color: #1B62CD;
     color: white
 }
 
@@ -750,4 +751,40 @@
 /* ✅ Actual input field inside select2 */
 .select2-search__field {
     font-size: 13px !important;
+}
+
+
+/*custom css*/
+
+/* 1. Main Dropdown Wrapper (The outer border of the opened list) */
+.chosen-container .chosen-drop {
+    border: 1px solid rgba(27, 98, 205, 0.4) !important; /* Soft bluish border */
+    box-shadow: 0 4px 12px rgba(27, 98, 205, 0.1) !important; /* Subtle blue tint glow */
+    border-radius: 0 0 4px 4px !important; /* Rounded bottom corners */
+}
+
+/* 2. Base Font Styling for the Dropdown Options List */
+.chosen-container .chosen-results {
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    font-size: 14px !important;
+}
+
+    /* 3. Style for Normal (Unselected) Options */
+    .chosen-container .chosen-results li {
+        color: #555555 !important;
+        padding: 10px 12px !important; /* Vertical spacing matching image */
+        line-height: 1.4 !important;
+    }
+
+        /* 4. Style for the Hovered / Highlighted Option (The Blue Bar) */
+        .chosen-container .chosen-results li.highlighted {
+            background-color: #1B62CD !important; /* Clear vibrant blue bar */
+            background-image: none !important; /* Disables default Chosen gradients */
+            color: #FFFFFF !important; /* Pure white text */
+        }
+
+/* 5. The Top Search/Input Field Header Border (If active/focused) */
+.chosen-container-active .chosen-single {
+    border: 1px solid rgba(27, 98, 205, 0.6) !important;
+    box-shadow: 0 0 5px rgba(27, 98, 205, 0.3) !important;
 }

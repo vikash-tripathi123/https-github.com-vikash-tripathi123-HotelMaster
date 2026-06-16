@@ -11,7 +11,7 @@
     Layout = "~/Views/Shared/Layouts/_MainLayout.cshtml";
 }
  <link href="/css/choosen.min.css" rel="stylesheet" />
-
+<link rel="stylesheet" href="~/css/myownui.toaster.css" asp-append-version="true" />
 @* <script src="~/js/jquery.min.js"></script>
  <script src="/js/choosen.min.js"></script> *@
 
@@ -50,6 +50,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/js/myownui.toaster.js"></script>
 
 }
 <input type="hidden" id="CurrentStep" value="1" />
@@ -100,9 +102,9 @@
                            <div class="dropdown-trigger-box generalDEtailsSelect">
 
                                         <select asp-for="personalBusinessRequest.Services" id="services" class="form-control" multiple required>
-                                            
-                                            <option value=14>Accomodation</option>
-                                            <option value=1>Transportation / Taxi</option>
+                                            <option value="">Select Service</option>
+                                            @* <option value=14>Accomodation</option>
+                                            <option value=1>Transportation / Taxi</option> *@
                                     </select>
                             
                                         <div class="dropdown-trigger-box__chevron"></div>
@@ -163,8 +165,8 @@
                                  @* 
                                  <option value="">Select Star Rating</option>
                                  *@
-                                 <option value="">Select Country</option>
-                                 <option value=201>India</option>
+                                 @* <option value="">Select Country</option> *@
+                                 <option value=201 selected>India</option>
                               </select>
                               <div class="dropdown-trigger-box__chevron"></div>
                               <span asp-validation-for="personalBusinessRequest.Country" class="text-danger"></span>
@@ -184,8 +186,8 @@
                                  <option value="">Select Star Rating</option>
                                  *@
                                  <option value="">Select State</option>
-                                 <option value=232>Delhi</option>
-                                 <option value=227>Uttrakhand</option>
+                                @*  <option value=232>Delhi</option>
+                                 <option value=227>Uttrakhand</option> *@
                               </select>
                               <div class="dropdown-trigger-box__chevron"></div>
                               <span asp-validation-for="personalBusinessRequest.State" class="text-danger"></span>
@@ -206,13 +208,14 @@
                                  <option value="">Select Star Rating</option>
                                  *@
                                  <option value="">Select City</option>
-                                 <option value=2239>East Delhi</option>
-                                 <option value=2240>New Delhi</option>
+                                 @* <option value=2239>East Delhi</option>
+                                 <option value=2240>New Delhi</option> *@
                               </select>
                               <div class="dropdown-trigger-box__chevron"></div>
                               <span asp-validation-for="personalBusinessRequest.City" class="text-danger"></span>
                            </div>
                         </div>
+                   
                         <div class="form-group">
                                     <label asp-for="personalBusinessRequest.Pin_Code">Pin Code<span class="error">*</span></label>
                                     <input type="text" id="Pin" asp-for="personalBusinessRequest.Pin_Code" placeholder="Enter Legal Name" required>
@@ -842,7 +845,7 @@
   </div>
    <div class="rates-footer vendorCta">
       @* <button class="rates-btn-outline">Save As Draft</button> *@
-      <button  id="btnSubmit" class="rates-btn-primary">
+        <button id="btnSubmit" class="rates-btn-primary" onclick="checkVendorFormStatus()">
       Submit For Approval
       </button>
    </div>

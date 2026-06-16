@@ -271,6 +271,30 @@ namespace HotelMaster.BusinessServices.Services
             }
         }
 
+        public async Task<ApiResponse<CheckVendorFormStatusResponse>> CheckVendorFormStatus(int vendorId)
+        {
+            try
+            {
 
+                string url = BASEURL + ApiEndPoints.CHECK_VENDOR_FORM_STATUS + "/" + vendorId;
+                var response = await _dataService.GetAsync<ApiResponse<CheckVendorFormStatusResponse>>(url, null);
+                return response;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new ApplicationException(
+                    "API is not reachable. Please ensure the service is running.",
+                    ex
+                );
+            }
+            catch (TaskCanceledException ex)
+            {
+                throw new ApplicationException(
+                    "API request timed out. Please try again later.",
+                    ex
+                );
+            }
+        }
+   
     }
 }

@@ -28,7 +28,7 @@ namespace HotelMaster.Controllers
             ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
 
             return Json(response);
-            return Json(response);
+           
         }
 
         [HttpGet]
@@ -55,5 +55,8 @@ namespace HotelMaster.Controllers
 
             return Json(response);
         }
+
+
+
     }
 }

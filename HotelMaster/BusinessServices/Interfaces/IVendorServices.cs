@@ -21,5 +21,7 @@ namespace HotelMaster.BusinessServices.Interfaces
         public Task<ApiResponse<List<VendorAddDocumentResponse>>> AddVendorDocument(List<VendorDocumentRequest> request);
 
         public Task<ApiResponse<GetVendorDetailByVendorIdResponse>> GetVendorDetailById(int vendorId);
+
+        public Task<ApiResponse<CheckVendorFormStatusResponse>> CheckVendorFormStatus(int vendorId);
     }
 }

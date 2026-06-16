@@ -183,5 +183,32 @@ namespace HotelMaster.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> StateList()
+        {
+            ApiResponse<List<StateResponse>> response = await _masterServices.GetStateList();
+
+            return StatusCode(response.StatusCode, response);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> CityList(int stateId)
+        {
+            ApiResponse<List<CityResponse>> response =
+                await _masterServices.GetCityList(stateId);
+
+            return StatusCode(response.StatusCode, response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CheckVendorFormStatus(int vendorId)
+        {
+            var response = await _verndorService.CheckVendorFormStatus(vendorId);
+            return Ok(response);
+
+        }
+
     }
 }

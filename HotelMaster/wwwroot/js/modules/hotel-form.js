@@ -39,7 +39,7 @@
     // ================= VALIDATION =================
     function validateForm() {
 
-        let isValid = true;
+        let isValid = z;
 
         if (Name.value.trim() === "") {
             showError(Name, "Enter hotel name");

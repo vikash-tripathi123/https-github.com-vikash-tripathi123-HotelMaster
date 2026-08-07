@@ -24,6 +24,9 @@ wwwroot\img\editAction.svg
 wwwroot\img\edit_add.svg
 wwwroot\img\filter.png
 wwwroot\img\filter.svg
+wwwroot\img\finance-icon.svg
+wwwroot\img\fw-download.svg
+wwwroot\img\fw-view.svg
 wwwroot\img\general-details.svg
 wwwroot\img\header-add.jpg
 wwwroot\img\header-add.webp

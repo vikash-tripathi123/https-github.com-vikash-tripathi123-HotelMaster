@@ -71,5 +71,10 @@ namespace HotelMaster.Controllers
         {
             return View();
         }
+        public IActionResult FinanceWorking()
+        {
+            return View();
+        }
     }
 }
+ 

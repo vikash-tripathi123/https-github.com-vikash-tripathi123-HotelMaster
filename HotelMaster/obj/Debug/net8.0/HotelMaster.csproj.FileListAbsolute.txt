@@ -368,3 +368,4 @@ C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\refint\Hot
 C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\HotelMaster.pdb
 C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\HotelMaster.genruntimeconfig.cache
 C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\ref\HotelMaster.dll
+C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\HotelMaster.sourcelink.json

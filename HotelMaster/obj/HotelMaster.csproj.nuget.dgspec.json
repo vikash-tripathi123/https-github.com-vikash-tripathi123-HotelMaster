@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vikash\\source\\repos\\HotelMaster\\HotelMaster\\HotelMaster.csproj": {}
+    "C:\\Users\\Vikash\\source\\repos\\vendorMvc_travel\\https-github.com-vikash-tripathi123-HotelMaster\\HotelMaster\\HotelMaster.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vikash\\source\\repos\\HotelMaster\\HotelMaster\\HotelMaster.csproj": {
+    "C:\\Users\\Vikash\\source\\repos\\vendorMvc_travel\\https-github.com-vikash-tripathi123-HotelMaster\\HotelMaster\\HotelMaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vikash\\source\\repos\\HotelMaster\\HotelMaster\\HotelMaster.csproj",
+        "projectUniqueName": "C:\\Users\\Vikash\\source\\repos\\vendorMvc_travel\\https-github.com-vikash-tripathi123-HotelMaster\\HotelMaster\\HotelMaster.csproj",
         "projectName": "HotelMaster",
-        "projectPath": "C:\\Users\\Vikash\\source\\repos\\HotelMaster\\HotelMaster\\HotelMaster.csproj",
+        "projectPath": "C:\\Users\\Vikash\\source\\repos\\vendorMvc_travel\\https-github.com-vikash-tripathi123-HotelMaster\\HotelMaster\\HotelMaster.csproj",
         "packagesPath": "C:\\Users\\Vikash\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vikash\\source\\repos\\HotelMaster\\HotelMaster\\obj\\",
+        "outputPath": "C:\\Users\\Vikash\\source\\repos\\vendorMvc_travel\\https-github.com-vikash-tripathi123-HotelMaster\\HotelMaster\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

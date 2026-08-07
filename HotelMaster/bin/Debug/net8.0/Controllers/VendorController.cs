@@ -210,5 +210,12 @@ namespace HotelMaster.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> ServiceMasterList()
+        {
+            ApiResponse<List<GetServiceMasterResponse>> response = await _masterServices.ServiceMasterList();
+
+            return StatusCode(response.StatusCode, response);
+        }
     }
 }

@@ -1,0 +1,124 @@
+2026-06-17 10:20:36.354 +05:30 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-17 10:20:36.567 +05:30 [INF] Now listening on: http://localhost:5107
+2026-06-17 10:20:36.638 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-17 10:20:36.640 +05:30 [INF] Hosting environment: Development
+2026-06-17 10:20:36.642 +05:30 [INF] Content root path: C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster
+2026-06-17 10:20:37.281 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/ - null null
+2026-06-17 10:20:37.727 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-17 10:20:37.822 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-06-17 10:20:37.945 +05:30 [INF] Route matched with {action = "Index", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-06-17 10:20:46.329 +05:30 [INF] Executing ViewResult, running view Index.
+2026-06-17 10:20:46.545 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-06-17 10:20:46.559 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_service_master_list
+2026-06-17 10:20:48.104 +05:30 [INF] Received HTTP response headers after 1535.2163ms - 200
+2026-06-17 10:20:48.117 +05:30 [INF] End processing HTTP request after 1580.3176ms - 200
+2026-06-17 10:20:48.753 +05:30 [INF] Start processing HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-06-17 10:20:48.757 +05:30 [INF] Sending HTTP request GET http://localhost:5174/api/Masters/get_state_list
+2026-06-17 10:20:49.187 +05:30 [INF] Received HTTP response headers after 426.0174ms - 200
+2026-06-17 10:20:49.192 +05:30 [INF] End processing HTTP request after 440.205ms - 200
+2026-06-17 10:20:51.332 +05:30 [INF] Executed ViewResult - view Index executed in 13346.5361ms.
+2026-06-17 10:20:51.343 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.Index (HotelMaster) in 13391.4524ms
+2026-06-17 10:20:51.349 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.Index (HotelMaster)'
+2026-06-17 10:20:51.356 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/css/choosen.min.css - null null
+2026-06-17 10:20:51.371 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/ - 200 null text/html; charset=utf-8 14120.5617ms
+2026-06-17 10:20:51.379 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/modules/vendor/vendor.js - null null
+2026-06-17 10:20:51.380 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-17 10:20:51.388 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/common.js - null null
+2026-06-17 10:20:51.391 +05:30 [INF] The file /css/choosen.min.css was not modified
+2026-06-17 10:20:51.393 +05:30 [INF] The file /js/modules/vendor/vendor.js was not modified
+2026-06-17 10:20:51.401 +05:30 [INF] The file /js/common.js was not modified
+2026-06-17 10:20:51.403 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 22.9436ms
+2026-06-17 10:20:51.405 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/css/choosen.min.css - 304 null text/css 50.2581ms
+2026-06-17 10:20:51.409 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/common.js - 304 null text/javascript 21.3411ms
+2026-06-17 10:20:51.407 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/modules/vendor/vendor.js - 304 null text/javascript 27.7316ms
+2026-06-17 10:20:51.431 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-06-17 10:20:51.487 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5107/Vendor/GetVendorList - application/x-www-form-urlencoded; charset=UTF-8 57
+2026-06-17 10:20:51.511 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-06-17 10:20:51.539 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 107.9568ms
+2026-06-17 10:20:51.549 +05:30 [INF] Route matched with {action = "GetVendorList", controller = "Vendor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetVendorList(HotelMaster.Models.RequestModels.VendorModel.VendorRequestFilter) on controller HotelMaster.Controllers.VendorController (HotelMaster).
+2026-06-17 10:20:51.682 +05:30 [INF] Start processing HTTP request POST http://localhost:5174/api/VendorMasters/get_vendor_list
+2026-06-17 10:20:51.685 +05:30 [INF] Sending HTTP request POST http://localhost:5174/api/VendorMasters/get_vendor_list
+2026-06-17 10:20:58.486 +05:30 [INF] Received HTTP response headers after 6798.4399ms - 200
+2026-06-17 10:20:58.491 +05:30 [INF] End processing HTTP request after 6808.5885ms - 200
+2026-06-17 10:20:58.518 +05:30 [INF] Executing JsonResult, writing value of type 'HotelMaster.Models.ApiResponse`1[[System.Collections.Generic.List`1[[HotelMaster.Models.ResponseModels.VendorModels.VendorListResponse, HotelMaster, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-17 10:20:58.541 +05:30 [INF] Executed action HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster) in 6987.9387ms
+2026-06-17 10:20:58.546 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.VendorController.GetVendorList (HotelMaster)'
+2026-06-17 10:20:58.550 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5107/Vendor/GetVendorList - 200 null application/json; charset=utf-8 7062.682ms
+2026-06-17 10:27:08.384 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Home - null null
+2026-06-17 10:27:08.412 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.HomeController.Index (HotelMaster)'
+2026-06-17 10:27:08.419 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HotelMaster.Controllers.HomeController (HotelMaster).
+2026-06-17 10:27:08.702 +05:30 [INF] Executing ViewResult, running view Index.
+2026-06-17 10:27:09.296 +05:30 [INF] Executed ViewResult - view Index executed in 871.9245ms.
+2026-06-17 10:27:09.299 +05:30 [INF] Executed action HotelMaster.Controllers.HomeController.Index (HotelMaster) in 876.4759ms
+2026-06-17 10:27:09.302 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.HomeController.Index (HotelMaster)'
+2026-06-17 10:27:09.304 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Home - 200 null text/html; charset=utf-8 923.6796ms
+2026-06-17 10:27:09.331 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2026-06-17 10:27:09.342 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/HotelMaster.styles.css?v=RCnvpy8jpaFnZdYAWY1-sF_7lFRVAnxhUUQA8H4hhKs - null null
+2026-06-17 10:27:09.353 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/lib/jquery/dist/jquery.min.js - null null
+2026-06-17 10:27:09.339 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/css/site.css?v=bgOycMPCkqW-HuOqfX3GeCKEAtwfnMey3LW8_Hq7QTk - null null
+2026-06-17 10:27:09.355 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/css/myownui.toaster.css?v=KcndefC8m8kUcSdlQna9pqlPYqQyLPf_ZFRyzzHNRz0 - null null
+2026-06-17 10:27:09.405 +05:30 [INF] Sending file. Request path: '/HotelMaster.styles.css'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\obj\Debug\net8.0\scopedcss\bundle\HotelMaster.styles.css'
+2026-06-17 10:27:09.411 +05:30 [INF] The file /css/myownui.toaster.css was not modified
+2026-06-17 10:27:09.414 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/HotelMaster.styles.css?v=RCnvpy8jpaFnZdYAWY1-sF_7lFRVAnxhUUQA8H4hhKs - 200 1129 text/css 72.3651ms
+2026-06-17 10:27:09.420 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/css/myownui.toaster.css?v=KcndefC8m8kUcSdlQna9pqlPYqQyLPf_ZFRyzzHNRz0 - 304 null text/css 66.8658ms
+2026-06-17 10:27:09.368 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2026-06-17 10:27:09.429 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2026-06-17 10:27:09.429 +05:30 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\css\site.css'
+2026-06-17 10:27:09.431 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/myownui.toaster.js - null null
+2026-06-17 10:27:09.436 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-17 10:27:09.443 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/css/bootstrap.min.css - 200 162726 text/css 112.6747ms
+2026-06-17 10:27:09.445 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/css/site.css?v=bgOycMPCkqW-HuOqfX3GeCKEAtwfnMey3LW8_Hq7QTk - 200 95154 text/css 107.5516ms
+2026-06-17 10:27:09.451 +05:30 [INF] The file /js/myownui.toaster.js was not modified
+2026-06-17 10:27:09.455 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 18.5501ms
+2026-06-17 10:27:09.460 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-06-17 10:27:09.466 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/myownui.toaster.js - 304 null text/javascript 35.6057ms
+2026-06-17 10:27:09.465 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2026-06-17 10:27:09.487 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.8491ms
+2026-06-17 10:27:09.497 +05:30 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\js\site.js'
+2026-06-17 10:27:09.503 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 38.499ms
+2026-06-17 10:27:09.579 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2026-06-17 10:27:09.580 +05:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\lib\jquery\dist\jquery.min.js'
+2026-06-17 10:27:09.583 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78474 text/javascript 215.6298ms
+2026-06-17 10:27:09.585 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/lib/jquery/dist/jquery.min.js - 200 89503 text/javascript 232.3499ms
+2026-06-17 10:27:18.439 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Home/Index - null null
+2026-06-17 10:27:18.451 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.HomeController.Index (HotelMaster)'
+2026-06-17 10:27:18.453 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HotelMaster.Controllers.HomeController (HotelMaster).
+2026-06-17 10:27:18.458 +05:30 [INF] Executing ViewResult, running view Index.
+2026-06-17 10:27:18.464 +05:30 [INF] Executed ViewResult - view Index executed in 6.847ms.
+2026-06-17 10:27:18.469 +05:30 [INF] Executed action HotelMaster.Controllers.HomeController.Index (HotelMaster) in 11.4116ms
+2026-06-17 10:27:18.473 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.HomeController.Index (HotelMaster)'
+2026-06-17 10:27:18.476 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Home/Index - 200 null text/html; charset=utf-8 37.1689ms
+2026-06-17 10:27:18.491 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-06-17 10:27:18.494 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-17 10:27:18.509 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 14.3375ms
+2026-06-17 10:27:18.528 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.4925ms
+2026-06-17 10:27:38.823 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/Home/HotelMaster - null null
+2026-06-17 10:27:38.847 +05:30 [INF] Executing endpoint 'HotelMaster.Controllers.HomeController.HotelMaster (HotelMaster)'
+2026-06-17 10:27:38.852 +05:30 [INF] Route matched with {action = "HotelMaster", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult HotelMaster() on controller HotelMaster.Controllers.HomeController (HotelMaster).
+2026-06-17 10:27:39.329 +05:30 [INF] Executing ViewResult, running view HotelMaster.
+2026-06-17 10:27:39.353 +05:30 [INF] Executed ViewResult - view HotelMaster executed in 497.3233ms.
+2026-06-17 10:27:39.356 +05:30 [INF] Executed action HotelMaster.Controllers.HomeController.HotelMaster (HotelMaster) in 500.4566ms
+2026-06-17 10:27:39.360 +05:30 [INF] Executed endpoint 'HotelMaster.Controllers.HomeController.HotelMaster (HotelMaster)'
+2026-06-17 10:27:39.364 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/Home/HotelMaster - 200 null text/html; charset=utf-8 541.387ms
+2026-06-17 10:27:39.386 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/search-icon.svg - null null
+2026-06-17 10:27:39.388 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/view.svg - null null
+2026-06-17 10:27:39.389 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-17 10:27:39.386 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/edit.svg - null null
+2026-06-17 10:27:39.406 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/filter.svg - null null
+2026-06-17 10:27:39.441 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 51.7681ms
+2026-06-17 10:27:39.485 +05:30 [INF] Sending file. Request path: '/img/filter.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\filter.svg'
+2026-06-17 10:27:39.420 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/left-arrow.svg - null null
+2026-06-17 10:27:39.481 +05:30 [INF] Sending file. Request path: '/img/edit.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\edit.svg'
+2026-06-17 10:27:39.458 +05:30 [INF] Sending file. Request path: '/img/search-icon.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\search-icon.svg'
+2026-06-17 10:27:39.476 +05:30 [INF] Sending file. Request path: '/img/view.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\view.svg'
+2026-06-17 10:27:39.489 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/filter.svg - 200 239 image/svg+xml 82.9287ms
+2026-06-17 10:27:39.487 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/img/right-arrow.svg - null null
+2026-06-17 10:27:39.513 +05:30 [INF] Sending file. Request path: '/img/left-arrow.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\left-arrow.svg'
+2026-06-17 10:27:39.497 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/edit.svg - 200 526 image/svg+xml 110.8571ms
+2026-06-17 10:27:39.510 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/search-icon.svg - 200 442 image/svg+xml 123.2613ms
+2026-06-17 10:27:39.512 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/view.svg - 200 239 image/svg+xml 125.5525ms
+2026-06-17 10:27:39.523 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/left-arrow.svg - 200 245 image/svg+xml 103.4877ms
+2026-06-17 10:27:39.535 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5107/_vs/browserLink - null null
+2026-06-17 10:27:39.549 +05:30 [INF] Sending file. Request path: '/img/right-arrow.svg'. Physical path: 'C:\SouthernTravel\TravelAccomodationMVC\https-github.com-vikash-tripathi123-HotelMaster\HotelMaster\wwwroot\img\right-arrow.svg'
+2026-06-17 10:27:39.553 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/img/right-arrow.svg - 200 244 image/svg+xml 66.5691ms
+2026-06-17 10:27:39.558 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5107/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.6903ms

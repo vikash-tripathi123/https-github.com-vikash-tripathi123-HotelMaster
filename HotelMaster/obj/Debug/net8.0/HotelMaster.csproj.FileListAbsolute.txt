@@ -369,3 +369,4 @@ C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\HotelMaste
 C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\HotelMaster.genruntimeconfig.cache
 C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\ref\HotelMaster.dll
 C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\HotelMaster.sourcelink.json
+C:\Users\Vikash\source\repos\HotelMaster\HotelMaster\obj\Debug\net8.0\swae.build.ex.cache
